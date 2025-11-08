@@ -6,7 +6,7 @@
     <title>David Arungbemi - AI Engineer & Researcher</title>
     <style>
         * {
-            margin: 0; 
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -108,17 +108,34 @@
             width: 100%;
         }
 
-        /* Hero Section */ 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding-top: 80px;
             position: relative;
-            background: 
-                linear-gradient(135deg, rgba(20, 184, 166, 0.7) 0%, rgba(6, 182, 212, 0.6) 100%),
-                url('https://i.imgur.com/tWNrRra.png') center/cover no-repeat;
-            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.92) 0%, rgba(6, 182, 212, 0.88) 100%);
+            z-index: 1;
         }
         
         .hero::before {
@@ -130,13 +147,14 @@
             bottom: 0;
             background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 900px;
             animation: fadeInUp 1s ease-out;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         @keyframes fadeInUp {
@@ -581,6 +599,8 @@
     </nav>
 
     <section class="hero" id="home">
+        <img src="people_image.png" alt="Background" class="hero-bg-image">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="greeting">HEY THERE, I'M</div>
