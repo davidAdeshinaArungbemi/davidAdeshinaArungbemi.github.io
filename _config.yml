@@ -1,0 +1,35 @@
+# Site settings
+title: David Adeshina Arungbemi
+email: # your email here
+description: >-
+  AI Engineer & Researcher | Co-Founder at Gyronics | 
+  Building the future of gesture-based human-computer interaction
+baseurl: "" # leave empty if using username.github.io
+url: "https://davidAdeshinaArungbemi.github.io" # your GitHub Pages URL
+
+# Social links
+github_username: davidAdeshinaArungbemi
+linkedin_username: davidadeshina
+
+# Build settings
+theme: minima # or jekyll-theme-minimal, jekyll-theme-cayman, etc.
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation
+header_pages:
+  - about.md
+  - projects.md
+  - publications.md
+  - experience.md
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
