@@ -12,15 +12,16 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --bg: #0a0a0f;
-            --bg-card: #16161f;
-            --text: #e5e7eb;
-            --text-muted: #9ca3af;
-            --success: #10b981;
+            --primary: #14b8a6;
+            --primary-dark: #0d9488;
+            --secondary: #06b6d4;
+            --accent: #0891b2;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
         }
 
         html {
@@ -28,32 +29,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
-        }
-
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-            z-index: -1;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
         }
 
         .container {
@@ -67,17 +47,17 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
             transition: all 0.3s;
         }
 
         nav.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.08);
         }
 
         nav .container {
@@ -98,7 +78,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
@@ -116,7 +96,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--primary);
             transition: width 0.3s;
         }
 
@@ -135,6 +115,7 @@
             align-items: center;
             padding-top: 80px;
             position: relative;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2f1 100%);
         }
 
         .hero-content {
@@ -154,17 +135,18 @@
         }
 
         .hero .greeting {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 1rem;
             font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
         .hero h1 {
             font-size: 4rem;
             font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -172,17 +154,18 @@
         }
 
         .hero .subtitle {
-            font-size: 1.8rem;
-            color: var(--text-muted);
+            font-size: 1.5rem;
+            color: var(--text);
             margin-bottom: 2rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
             line-height: 1.8;
+            max-width: 700px;
         }
 
         .cta-buttons {
@@ -193,44 +176,24 @@
 
         .btn {
             padding: 1rem 2.5rem;
-            border-radius: 12px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--primary);
             color: white;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
         }
 
         .btn-secondary {
@@ -240,53 +203,9 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(99, 102, 241, 0.1);
-            transform: translateY(-3px);
-        }
-
-        /* Achievement Badges */
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .achievement-badge {
-            background: linear-gradient(135deg, var(--bg-card), rgba(99, 102, 241, 0.05));
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 2rem;
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .achievement-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .achievement-badge:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .achievement-badge .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-badge h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Section Styling */
@@ -295,49 +214,95 @@
             position: relative;
         }
 
+        section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
         .section-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text);
         }
 
         .section-subtitle {
-            text-align: center;
             color: var(--text-muted);
             margin-bottom: 4rem;
+            font-size: 1.15rem;
+            max-width: 700px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1);
+            border-color: var(--primary);
+        }
+
+        .highlight-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
             font-size: 1.2rem;
+        }
+
+        .highlight-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 3rem 0;
         }
 
         .skill-category {
             background: var(--bg-card);
             padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border: 1px solid var(--border);
             transition: all 0.3s;
         }
 
         .skill-category:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1);
         }
 
         .skill-category h3 {
             color: var(--primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .tag-cloud {
@@ -347,18 +312,18 @@
         }
 
         .tag {
-            background: rgba(99, 102, 241, 0.15);
+            background: rgba(20, 184, 166, 0.1);
             color: var(--primary);
             padding: 0.4rem 1rem;
-            border-radius: 20px;
+            border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 500;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            border: 1px solid rgba(20, 184, 166, 0.2);
             transition: all 0.3s;
         }
 
         .tag:hover {
-            background: rgba(99, 102, 241, 0.25);
+            background: rgba(20, 184, 166, 0.2);
             transform: scale(1.05);
         }
 
@@ -371,80 +336,55 @@
 
         .project-card {
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 2.5rem;
             transition: all 0.4s;
             cursor: pointer;
-            border: 1px solid rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--border);
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 50px rgba(20, 184, 166, 0.15);
             border-color: var(--primary);
-        }
-
-        .project-card .project-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
         }
 
         .project-card h3 {
             color: var(--text);
             margin-bottom: 1rem;
-            font-size: 1.6rem;
-            position: relative;
-            z-index: 1;
+            font-size: 1.5rem;
         }
 
         .project-card p {
             color: var(--text-muted);
             margin-bottom: 1.5rem;
             line-height: 1.7;
-            position: relative;
-            z-index: 1;
         }
 
         /* Publication Card */
         .publication-card {
             background: var(--bg-card);
             padding: 3rem;
-            border-radius: 20px;
+            border-radius: 12px;
             border-left: 4px solid var(--primary);
             transition: all 0.3s;
             margin-bottom: 2rem;
             cursor: pointer;
+            border: 1px solid var(--border);
         }
 
         .publication-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
         }
 
         .publication-card .badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--primary);
             color: white;
             padding: 0.4rem 1rem;
-            border-radius: 20px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -453,14 +393,13 @@
         .publication-card h3 {
             color: var(--text);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             line-height: 1.5;
         }
 
-        .publication-card .meta {
+        .publication-card p {
             color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 1rem;
+            line-height: 1.8;
         }
 
         /* Timeline */
@@ -477,7 +416,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
         }
 
         .timeline-item {
@@ -496,13 +435,13 @@
             border-radius: 50%;
             background: var(--primary);
             border: 3px solid var(--bg);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 0 3px var(--border);
         }
 
         .timeline-item h3 {
             color: var(--text);
             margin-bottom: 0.5rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
         .timeline-item .company {
@@ -517,6 +456,11 @@
             margin-bottom: 1rem;
         }
 
+        .timeline-item p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -528,46 +472,24 @@
         .contact-card {
             background: var(--bg-card);
             padding: 2.5rem;
-            border-radius: 20px;
+            border-radius: 12px;
             text-align: center;
             text-decoration: none;
             color: var(--text);
-            border: 2px solid rgba(99, 102, 241, 0.1);
+            border: 2px solid var(--border);
             transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .contact-card:hover::before {
-            left: 100%;
         }
 
         .contact-card:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.3);
-        }
-
-        .contact-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 5px 15px rgba(99, 102, 241, 0.3));
+            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.15);
         }
 
         .contact-card h3 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: var(--text);
         }
 
         .contact-card p {
@@ -577,12 +499,12 @@
 
         /* Footer */
         footer {
-            background: var(--bg-card);
+            background: var(--bg-secondary);
             padding: 3rem 0;
             text-align: center;
             color: var(--text-muted);
             margin-top: 6rem;
-            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            border-top: 1px solid var(--border);
         }
 
         footer .tagline {
@@ -599,7 +521,7 @@
             }
 
             .hero .subtitle {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             nav ul {
@@ -612,7 +534,7 @@
             }
 
             .projects-grid,
-            .achievement-grid,
+            .highlights,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -620,27 +542,6 @@
             .timeline {
                 padding-left: 2rem;
             }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        .scroll-indicator svg {
-            width: 30px;
-            height: 30px;
-            color: var(--primary);
         }
     </style>
 </head>
@@ -662,58 +563,56 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="greeting">👋 Hey there! I'm</div>
+                <div class="greeting">HEY THERE, I'M</div>
                 <h1>David Adeshina Arungbemi</h1>
                 <div class="subtitle">AI Engineer & Researcher</div>
                 <p>
-                    Co-Founder & Lead AI Engineer at <strong>Gyronics</strong>. Building the future of gesture-based 
-                    human-computer interaction through wearable AI technology. Passionate about making technology 
-                    more intuitive and accessible for everyone.
+                    I explore the intersection of creativity and technology—building AI systems that unlock new ways 
+                    of human expression and interaction. From gesture recognition to narrative understanding, I'm 
+                    fascinated by how we can augment human capabilities and reimagine our relationship with technology.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#projects" class="btn btn-primary">Explore My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">First-class Computer Engineering graduate from Nile University of Nigeria</p>
-            
-            <div class="achievement-grid">
-                <div class="achievement-badge">
-                    <div class="icon">🏆</div>
-                    <h3>Valedictorian</h3>
-                    <p>Best Overall Graduating Student at Nile University (2024)</p>
+            <div class="about-content">
+                <p>
+                    I'm driven by curiosity about how we interact with our world and how technology can enhance 
+                    those interactions. My work spans gesture-based interfaces, narrative AI, computer vision, and 
+                    3D visualization—each project exploring different facets of human-computer symbiosis.
+                </p>
+                <p>
+                    Beyond algorithms and code, I'm passionate about the artistic side of technology. Whether it's 
+                    crafting 3D models in Blender, designing intuitive interfaces, or building systems that understand 
+                    human intention, I believe the most powerful technology seamlessly blends logic with creativity.
+                </p>
+            </div>
+
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>Academic Excellence</h3>
+                    <p>Valedictorian & First Class Honours (5.0/5.0 CGPA) in Computer Engineering from Nile University of Nigeria</p>
                 </div>
-                <div class="achievement-badge">
-                    <div class="icon">🎓</div>
-                    <h3>Perfect CGPA</h3>
-                    <p>First Class Honours with 5.0/5.0 in Computer Engineering</p>
+                <div class="highlight-card">
+                    <h3>Research Focus</h3>
+                    <p>Wearable computing, gesture recognition, narrative AI, and human-augmentation technologies</p>
                 </div>
-                <div class="achievement-badge">
-                    <div class="icon">🚀</div>
-                    <h3>Startup Winner</h3>
-                    <p>Winner of Nile University Startup 4.0 with Gyronics</p>
-                </div>
-                <div class="achievement-badge">
-                    <div class="icon">📝</div>
-                    <h3>Published Researcher</h3>
-                    <p>IEEE Access journal publication on wearable HCI systems</p>
+                <div class="highlight-card">
+                    <h3>Creative Expression</h3>
+                    <p>3D modeling, visualization, and exploring the aesthetic dimensions of technical systems</p>
                 </div>
             </div>
 
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>💻 Programming</h3>
+                    <h3>Programming</h3>
                     <div class="tag-cloud">
                         <span class="tag">Python</span>
                         <span class="tag">C++</span>
@@ -722,31 +621,30 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>🤖 AI & ML</h3>
+                    <h3>AI & Machine Learning</h3>
                     <div class="tag-cloud">
                         <span class="tag">TensorFlow</span>
                         <span class="tag">Keras</span>
+                        <span class="tag">PyTorch</span>
                         <span class="tag">Scikit-learn</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">PyWavelets</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>🎨 Visualization</h3>
+                    <h3>Creative Tools</h3>
                     <div class="tag-cloud">
-                        <span class="tag">Matplotlib</span>
                         <span class="tag">Blender</span>
                         <span class="tag">Three.js</span>
-                        <span class="tag">Seaborn</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Visualization</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>⚡ Embedded</h3>
+                    <h3>Hardware & Embedded</h3>
                     <div class="tag-cloud">
                         <span class="tag">Arduino</span>
                         <span class="tag">ESP32</span>
+                        <span class="tag">IMU Sensors</span>
                         <span class="tag">IoT</span>
-                        <span class="tag">MQTT</span>
                     </div>
                 </div>
             </div>
@@ -756,65 +654,85 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Click to explore each project</p>
+            <p class="section-subtitle">
+                A selection of projects exploring AI, creativity, and human augmentation
+            </p>
             
             <div class="projects-grid">
-                <div class="project-card" onclick="window.open('https://gyronics.com', '_blank')">
-                    <div class="project-icon">🎮</div>
-                    <h3>Gyronics Wearable Interface</h3>
+                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Narrative-Technical-Embedding-Space', '_blank')">
+                    <h3>Narrative-Technical Embedding Space</h3>
                     <p>
-                        Revolutionary wearable device enabling gesture-based control of apps, drones, and devices. 
-                        End-to-end IMU gesture pipeline with CNN and attention-based models for real-time recognition.
+                        Exploring the intersection of storytelling and technical documentation through semantic 
+                        embedding spaces. A system that bridges narrative understanding with structured technical knowledge.
                     </p>
                     <div class="tag-cloud">
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">IMU Sensors</span>
-                        <span class="tag">Real-time AI</span>
-                        <span class="tag">Wearables</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Embeddings</span>
+                        <span class="tag">Semantic Analysis</span>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://ieeexplore.ieee.org/document/11142252', '_blank')">
-                    <div class="project-icon">📝</div>
-                    <h3>AI-Based Wearable HCI</h3>
+                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Story-GRU-LM-and-Interpretability', '_blank')">
+                    <h3>Story GRU Language Model</h3>
                     <p>
-                        Published research on end-to-end wearable device for real-time gesture recognition. 
-                        Featured in IEEE Access journal with novel approaches to complex arm gesture recognition.
+                        Language model with interpretability focus, investigating how neural networks understand and 
+                        generate narrative structures. Exploring the inner workings of sequence models for storytelling.
                     </p>
                     <div class="tag-cloud">
-                        <span class="tag">Research</span>
-                        <span class="tag">Signal Processing</span>
-                        <span class="tag">CNN</span>
-                        <span class="tag">IEEE Access</span>
+                        <span class="tag">RNN</span>
+                        <span class="tag">GRU</span>
+                        <span class="tag">Interpretability</span>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://drive.google.com/drive/folders/1lEC-yjDWrgRX3zha56_j9Smtju4LDh21?usp=sharing', '_blank')">
-                    <div class="project-icon">🎨</div>
+                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/AerialAV', '_blank')">
+                    <h3>AerialAV</h3>
+                    <p>
+                        Computer vision system for aerial vehicle navigation and object detection. Combining real-time 
+                        processing with autonomous navigation capabilities.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Object Detection</span>
+                        <span class="tag">Autonomous Systems</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.open('https://www.facebook.com/dave.gbemi.98', '_blank')">
                     <h3>3D Modeling Portfolio</h3>
                     <p>
-                        Collection of 3D models and visualizations for wearable device prototypes and technical 
-                        demonstrations using Blender, Three.js, and other tools.
+                        Collection of 3D visualizations and models created in Blender. Exploring form, structure, 
+                        and the visual expression of technical concepts through digital art.
                     </p>
                     <div class="tag-cloud">
                         <span class="tag">Blender</span>
-                        <span class="tag">Three.js</span>
-                        <span class="tag">3D Design</span>
-                        <span class="tag">CAD</span>
+                        <span class="tag">3D Modeling</span>
+                        <span class="tag">Visual Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.open('https://gyronics.com', '_blank')">
+                    <h3>Gyronics Wearable Interface</h3>
+                    <p>
+                        Wearable device enabling gesture-based control through IMU sensors and deep learning. 
+                        Real-time gesture recognition for intuitive human-computer interaction.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag">Wearables</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">HCI</span>
                     </div>
                 </div>
 
                 <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi', '_blank')">
-                    <div class="project-icon">💡</div>
                     <h3>More on GitHub</h3>
                     <p>
-                        Explore additional projects including semantic reasoning systems, memory networks, 
-                        and various AI experiments on my GitHub profile.
+                        Additional experiments and projects exploring various aspects of AI, creativity, and 
+                        human augmentation. Always experimenting with new ideas.
                     </p>
                     <div class="tag-cloud">
                         <span class="tag">Open Source</span>
                         <span class="tag">Experiments</span>
-                        <span class="tag">Research</span>
                     </div>
                 </div>
             </div>
@@ -829,7 +747,6 @@
             <div class="publication-card" onclick="window.open('https://ieeexplore.ieee.org/document/11142252', '_blank')">
                 <span class="badge">IEEE Access 2025</span>
                 <h3>An End to End Wearable Device and System for Real Time Gesture Recognition of Directional, Rotational, and Shape-based Arm Gestures</h3>
-                <div class="meta">David A. Arungbemi et al.</div>
                 <p>
                     Comprehensive wearable system capable of recognizing complex arm gestures in real-time, 
                     enabling intuitive human-computer interaction without traditional input devices. The system 
@@ -848,7 +765,7 @@
     <section id="experience">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">Research, engineering, and community work</p>
+            <p class="section-subtitle">Research, engineering, and technical work</p>
             
             <div class="timeline">
                 <div class="timeline-item">
@@ -867,7 +784,7 @@
                     <div class="company">Gyronics Technologies</div>
                     <div class="date">Nov 2024 - Present</div>
                     <p>
-                        Leading AI development for revolutionary wearable gesture recognition. Designing end-to-end 
+                        Leading AI development for wearable gesture recognition systems. Designing end-to-end 
                         IMU gesture pipeline with CNN and attention-based models. Building sequence-to-sequence 
                         models and optimizing for real-time deployment.
                     </p>
@@ -882,22 +799,11 @@
                         operations. Configured and decommissioned enterprise devices with focus on security protocols.
                     </p>
                 </div>
-
-                <div class="timeline-item">
-                    <h3>Volunteer Work</h3>
-                    <div class="company">Mountain of Fire Hospital & Community Organizations</div>
-                    <div class="date">Feb 2023 - Present</div>
-                    <p>
-                        Providing IT support for health outreach programs and co-leading community support events. 
-                        Contributing to local initiatives and healthcare accessibility projects.
-                    </p>
-                </div>
             </div>
 
             <div style="margin-top: 4rem;">
-                <h3 style="color: var(--primary); margin-bottom: 2rem; font-size: 2rem; text-align: center;">Education</h3>
-                <div class="achievement-badge" style="max-width: 800px; margin: 0 auto;">
-                    <div class="icon">🎓</div>
+                <h3 style="color: var(--primary); margin-bottom: 2rem; font-size: 2rem;">Education</h3>
+                <div class="highlight-card" style="max-width: 800px;">
                     <h3>B.Eng. Computer Engineering</h3>
                     <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Nile University of Nigeria | 2019 - 2024</p>
                     <p><strong>Grade:</strong> First Class Honours (CGPA: 5.0/5.0)</p>
@@ -911,70 +817,40 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
-            <p class="section-subtitle">I'm always open to interesting conversations and collaborations</p>
+            <p class="section-subtitle">Open to collaborations, research opportunities, and creative projects</p>
             
             <div class="contact-grid">
                 <a href="https://github.com/davidAdeshinaArungbemi" target="_blank" class="contact-card">
-                    <div class="icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24" style="width: 60px; height: 60px;">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </div>
                     <h3>GitHub</h3>
                     <p>@davidAdeshinaArungbemi</p>
                 </a>
 
                 <a href="https://www.linkedin.com/in/davidadeshina" target="_blank" class="contact-card">
-                    <div class="icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24" style="width: 60px; height: 60px;">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </div>
                     <h3>LinkedIn</h3>
                     <p>davidadeshina</p>
                 </a>
 
-                <a href="https://gyronics.com" target="_blank" class="contact-card">
-                    <div class="icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 60px; height: 60px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-                        </svg>
-                    </div>
-                    <h3>Gyronics</h3>
-                    <p>Visit our website</p>
+                <a href="https://www.facebook.com/dave.gbemi.98" target="_blank" class="contact-card">
+                    <h3>3D Portfolio</h3>
+                    <p>View my Blender work</p>
                 </a>
 
                 <a href="https://ieeexplore.ieee.org/document/11142252" target="_blank" class="contact-card">
-                    <div class="icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24" style="width: 60px; height: 60px;">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3>IEEE Paper</h3>
-                    <p>Read my publication</p>
+                    <h3>Research</h3>
+                    <p>IEEE Publication</p>
                 </a>
-            </div>
-
-            <div style="text-align: center; margin-top: 4rem;">
-                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    📍 Based in Abuja, Nigeria
-                </p>
-                <p style="color: var(--text-muted);">
-                    Open to research collaborations, speaking opportunities, and innovative projects
-                </p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p class="tagline">"Building intuitive, hands-free interfaces for the future of computing"</p>
+            <p class="tagline">"Exploring the creative potential of human-technology symbiosis"</p>
             <p>&copy; 2025 David Adeshina Arungbemi. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -988,7 +864,6 @@
             });
         });
 
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
@@ -998,7 +873,6 @@
             }
         });
 
-        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1013,7 +887,6 @@
             });
         }, observerOptions);
 
-        // Observe all major sections
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
@@ -1021,13 +894,9 @@
             observer.observe(section);
         });
 
-        // Add animation to cards
-        document.querySelectorAll('.project-card, .achievement-badge, .contact-card').forEach(card => {
+        document.querySelectorAll('.project-card, .highlight-card, .contact-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
-    </script>
-</body>
-</html>
