@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Adeshina Arungbemi - Research CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm 20mm;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 0;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #000;
+        }
+        
+        .name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 20px;
+            font-size: 9px;
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 22px;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #000;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        /* Education */
+        .edu-block {
+            margin-bottom: 14px;
+        }
+        
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .institution {
+            font-weight: 600;
+            font-size: 10.5px;
+            color: #000;
+        }
+        
+        .degree {
+            font-size: 9.5px;
+            color: #333;
+            margin-top: 2px;
+        }
+        
+        .date {
+            font-size: 8.5px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .honors {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .honor-tag {
+            background: #000;
+            color: white;
+            padding: 3px 8px;
+            font-size: 7.5px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .thesis-line {
+            font-size: 9px;
+            margin-top: 8px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .thesis-line strong {
+            color: #000;
+            font-weight: 600;
+        }
+        
+        /* Research Interests Box */
+        .research-box {
+            background: #f8f8f8;
+            padding: 14px 16px;
+            margin-bottom: 22px;
+            border-left: 3px solid #000;
+        }
+        
+        .research-label {
+            font-weight: 600;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .research-text {
+            font-size: 9.5px;
+            line-height: 1.7;
+            color: #2a2a2a;
+        }
+        
+        .research-text strong {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        /* Experience */
+        .exp-block {
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+        
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+        
+        .position {
+            font-weight: 600;
+            font-size: 10px;
+            color: #000;
+        }
+        
+        .organization {
+            font-size: 9px;
+            color: #444;
+            margin-top: 1px;
+        }
+        
+        .description {
+            font-size: 9px;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 6px;
+        }
+        
+        .description strong {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .key-points {
+            margin-top: 6px;
+            padding-left: 12px;
+        }
+        
+        .key-points li {
+            font-size: 8.5px;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        
+        /* Publications */
+        .pub-item {
+            margin-bottom: 10px;
+            padding-left: 12px;
+        }
+        
+        .pub-title {
+            font-size: 9px;
+            font-weight: 500;
+            color: #000;
+            line-height: 1.4;
+            margin-bottom: 2px;
+        }
+        
+        .pub-venue {
+            font-size: 8px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 8px 12px;
+            font-size: 9px;
+        }
+        
+        .skill-label {
+            font-weight: 600;
+            color: #000;
+            font-size: 8.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .skill-content {
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        /* Technical Projects */
+        .project-block {
+            margin-bottom: 12px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            font-size: 9.5px;
+            color: #000;
+            margin-bottom: 3px;
+        }
+        
+        .project-desc {
+            font-size: 8.5px;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        /* Awards */
+        .awards-list {
+            font-size: 9px;
+            line-height: 1.8;
+            color: #333;
+            padding-left: 12px;
+        }
+        
+        .awards-list li {
+            margin-bottom: 3px;
+        }
+        
+        .awards-list strong {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm 20mm;
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1 class="name">David Adeshina Arungbemi</h1>
+            <div class="contact-bar">
+                <div class="contact-item">📧 <a href="mailto:arungbemiADavid@outlook.com">arungbemiADavid@outlook.com</a></div>
+                <div class="contact-item">🌐 <a href="https://davidadeshinaarungbemi.github.io" target="_blank">davidadeshinaarungbemi.github.io</a></div>
+                <div class="contact-item">💼 <a href="https://linkedin.com/in/davidadeshina" target="_blank">linkedin.com/in/davidadeshina</a></div>
+                <div class="contact-item">📍 Abuja, Nigeria</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-block">
+                <div class="edu-header">
+                    <div>
+                        <div class="institution">Nile University of Nigeria</div>
+                        <div class="degree">B.Eng. Computer Engineering</div>
+                    </div>
+                    <div class="date">2019 – 2024</div>
+                </div>
+                <div class="honors">
+                    <span class="honor-tag">5.0/5.0 CGPA</span>
+                    <span class="honor-tag">FIRST CLASS HONOURS</span>
+                    <span class="honor-tag">VALEDICTORIAN</span>
+                    <span class="honor-tag">BEST OVERALL GRADUATE</span>
+                </div>
+                <div class="thesis-line">
+                    <strong>Undergraduate Thesis:</strong> An end-to-end gesture recognition system, focusing on IMU sensing enhanced by statistical features and orientation data from Madgwick/Mahony filters. Achieved a high classification accuracy of 94.9% on the target gesture set (6DMG dataset). Proven commercial viability via a custom API, demonstrating bidirectional communication with 0-1 ms latency for clients.
+                </div>
+            </div>
+        </div>
+
+        <div class="research-box">
+            <div class="research-label">Research Interests</div>
+            <div class="research-text">
+                My research interest is in extending human creativity and interaction through technology. I focus on the intersection of <strong>visual computing, human-computer interaction, and machine learning</strong>. I am interested in building systems that make complex data and algorithms accessible, primarily through interactive visualization and intelligent interfaces. My work includes gesture recognition systems, real-time visual analytics, and interactive data visualization.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Research Experience</h2>
+            
+            <div class="exp-block">
+                <div class="exp-header">
+                    <div>
+                        <div class="position">Research Intern</div>
+                        <div class="organization">National Centre for Artificial Intelligence and Robotics, Nigeria</div>
+                    </div>
+                    <div class="date">Feb 2025 – Dec 2025</div>
+                </div>
+                <div class="description">
+                    Researching the integration of object detection, tracking, and demographic classification into a live video pipeline. Developing interactive live graph visualizations to map detected entities and their relationships, enabling real-time analysis.
+                </div>
+                <ul class="key-points">
+                    <li><strong>Interactive visual analytics:</strong> Designing live graph visualizations to map detected entities and their relationships, enabling real-time exploration of streaming video data.</li>
+                    <li><strong>Vision-based control systems:</strong> Built an AI-powered visual servoing system using object detection (YOLOE) and depth estimation (MiDaS) to perform direct servo control based on visual feedback.</li>
+                    <li>Investigating interface design principles (color theory, layout optimization) to improve clarity and user comprehension of complex AI outputs.</li>
+                </ul>
+            </div>
+            
+            <div class="exp-block">
+                <div class="exp-header">
+                    <div>
+                        <div class="position">Lead AI Engineer</div>
+                        <div class="organization">Gyronics Technologies (Assistive Technology Startup)</div>
+                    </div>
+                    <div class="date">Nov 2024 – Present</div>
+                </div>
+                <div class="description">
+                    Leading AI research for wearable gesture recognition systems. Designing and implementing an end-to-end IMU gesture pipeline for accessibility applications, including signal processing, motion segmentation, and classification using attention-based deep learning.
+                </div>
+                <ul class="key-points">
+                    <li>Applied discrete wavelet transforms (DWT) to visualize and extract robust features from 6-DOF motion data, treating temporal signals as explorable geometric patterns.</li>
+                    <li>Designed attention-based temporal models to capture long-range dependencies in gesture sequences.</li>
+                    <li>Achieved real-time classification on embedded hardware (ESP32) with <100ms latency, making gesture-based interaction seamless and natural.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <br><br><br><br>
+        <div class="section">
+            <h2 class="section-title">Publications and Presentations</h2>
+            <div class="pub-item">
+                <div class="pub-title">An End to End Wearable Device and System for Indefinite, Continuous, Real Time Gesture Recognition of Directional and Shape-Based Arm Gestures</div>
+                <div class="pub-venue">IEEE Access, 2025</div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-title">Gyronics: Wearable Assistive Technology for Accessibility</div>
+                <div class="pub-venue">International Health and Technology Summit, Nile University of Nigeria, October 2024</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Projects</h2>
+            
+            <div class="project-block">
+                <div class="project-title">Interactive Visual Analytics for Real-Time Video Streams</div>
+                <div class="project-desc">
+                    Designed interactive graph visualizations for real-time video streams. The system maps detected objects, tracks, and demographic attributes into a live network graph. Focused on UI/UX design for interpretability, using color theory and layout to make complex AI outputs clear.
+                </div>
+            </div>
+            
+            <div class="project-block">
+                <div class="project-title">Vision-Based Robot Control Through Visual Feedback</div>
+                <div class="project-desc">
+                    Implemented an AI-powered visual servoing system combining object detection (YOLOE) and depth estimation (MiDaS). The system performs direct servo control based on image-space error and visual feedback, allowing it to track objects without requiring inverse kinematics.
+                </div>
+            </div>
+            
+            <div class="project-block">
+                <div class="project-title">Gesture Recognition with Visual Feature Exploration</div>
+                <div class="project-desc">
+                    Built end-to-end pipeline for continuous gesture recognition from IMU sensors. Applied DWT to visualize temporal patterns as multi-resolution features, trained attention-based GRU for sequence modeling. Deployed on ESP32 with custom C++ inference engine.
+                </div>
+            </div>
+            
+            <div class="project-block">
+                <div class="project-title">3D Product Visualization and Design</div>
+                <div class="project-desc">
+                    Created 3D models and interactive product visualizations using Blender and Three.js. Explored ergonomic forms and visual communication for wearable hardware prototypes (gyronics.com), focusing on aesthetic and functional design principles.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-label">Vision & Graphics</div>
+                <div class="skill-content">Object Detection (YOLO), Depth Estimation, Visual Servoing, 3D Modeling (Blender, Three.js), Real-time Visualization (ImGui, ImPlot)</div>
+                
+                <div class="skill-label">Machine Learning</div>
+                <div class="skill-content">PyTorch, TensorFlow, CNNs, Attention Mechanisms, Time-Series Models (GRU, Transformers), Feature Engineering (tsaug)</div>
+                
+                <div class="skill-label">Systems</div>
+                <div class="skill-content">Python, C++, TypeScript, Embedded Systems (Arduino, ESP32), Signal Processing (NumPy, SciPy, PyWavelets), ROS</div>
+                
+                <div class="skill-label">Mathematics</div>
+                <div class="skill-content">Linear Algebra, Digital Signal Processing, Calculus, Artificial Intelligence, Differential Equations, Probability and Statistics, Digital Image Processing, Control Theory</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Awards & Honors</h2>
+            <ul class="awards-list">
+                <li><strong>Valedictorian & Best Overall Graduate</strong> — Nile University of Nigeria (2024)</li>
+                <li><strong>Winner, Nile University Startup Competition 4.0</strong> — Gyronics wearable device (2024)</li>
+                <li><strong>Huawei Certified ICT Associate</strong> — Artificial Intelligence (2023)</li>
+                <li><strong>Undergraduate Scholarship (90%)</strong> — Nile University of Nigeria (2019)</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
