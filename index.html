@@ -22,41 +22,10 @@
             --darker: #020617;
             --text-light: #e2e8f0;
             --text-muted: #94a3b8;
-            
-            /* Art Image Settings - Adjust these to customize background images */
-            --art-opacity: 0.15;          /* How visible the art images are (0.0 to 1.0) */
-            --art-blur: 2px;              /* How blurred the art images are */
-            --art-blend-mode: luminosity; /* Options: normal, multiply, screen, overlay, luminosity, color */
+            --art-opacity: 0.15;
+            --art-blur: 2px;
+            --art-blend-mode: luminosity;
         }
-
-        /*
-        ============================================
-        TIPS FOR CUSTOMIZING BACKGROUND ART:
-        ============================================
-        
-        Try these combinations for different effects:
-        
-        1. Subtle and Dreamy:
-           --art-opacity: 0.12;
-           --art-blur: 3px;
-           --art-blend-mode: luminosity;
-        
-        2. Bold and Vibrant:
-           --art-opacity: 0.25;
-           --art-blur: 1px;
-           --art-blend-mode: screen;
-        
-        3. Dark and Moody:
-           --art-opacity: 0.18;
-           --art-blur: 2px;
-           --art-blend-mode: multiply;
-        
-        4. Colorful Pop Art:
-           --art-opacity: 0.20;
-           --art-blur: 0px;
-           --art-blend-mode: color;
-        ============================================
-        */
 
         html {
             scroll-behavior: smooth;
@@ -70,7 +39,7 @@
             overflow-x: hidden;
         }
 
-        /* Artistic Background Layers */
+        /* Background Effects */
         .bg-layer {
             position: fixed;
             top: 0;
@@ -103,7 +72,6 @@
             animation: float 25s ease-in-out infinite reverse;
         }
 
-        /* Background Art Images */
         .bg-art-images {
             position: fixed;
             top: 0;
@@ -126,78 +94,18 @@
             animation: floatImage 30s ease-in-out infinite;
         }
 
-        .bg-art-image:nth-child(1) {
-            top: 5%;
-            left: 5%;
-            width: 300px;
-            height: 400px;
-            animation-delay: 0s;
-            animation-duration: 25s;
-        }
-
-        .bg-art-image:nth-child(2) {
-            top: 15%;
-            right: 8%;
-            width: 350px;
-            height: 350px;
-            animation-delay: 3s;
-            animation-duration: 30s;
-        }
-
-        .bg-art-image:nth-child(3) {
-            top: 50%;
-            left: 10%;
-            width: 280px;
-            height: 420px;
-            animation-delay: 6s;
-            animation-duration: 28s;
-        }
-
-        .bg-art-image:nth-child(4) {
-            bottom: 10%;
-            right: 15%;
-            width: 320px;
-            height: 380px;
-            animation-delay: 9s;
-            animation-duration: 32s;
-        }
-
-        .bg-art-image:nth-child(5) {
-            top: 70%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 300px;
-            animation-delay: 12s;
-            animation-duration: 27s;
-        }
-
-        .bg-art-image:nth-child(6) {
-            top: 35%;
-            right: 25%;
-            width: 250px;
-            height: 350px;
-            animation-delay: 15s;
-            animation-duration: 29s;
-        }
+        .bg-art-image:nth-child(1) { top: 5%; left: 5%; width: 300px; height: 400px; animation-duration: 25s; }
+        .bg-art-image:nth-child(2) { top: 15%; right: 8%; width: 350px; height: 350px; animation-delay: 3s; animation-duration: 30s; }
+        .bg-art-image:nth-child(3) { top: 50%; left: 10%; width: 280px; height: 420px; animation-delay: 6s; animation-duration: 28s; }
+        .bg-art-image:nth-child(4) { bottom: 10%; right: 15%; width: 320px; height: 380px; animation-delay: 9s; animation-duration: 32s; }
+        .bg-art-image:nth-child(5) { top: 70%; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; animation-delay: 12s; animation-duration: 27s; }
+        .bg-art-image:nth-child(6) { top: 35%; right: 25%; width: 250px; height: 350px; animation-delay: 15s; animation-duration: 29s; }
 
         @keyframes floatImage {
-            0%, 100% { 
-                transform: translate(0, 0) rotate(0deg) scale(1);
-                opacity: var(--art-opacity);
-            }
-            25% { 
-                transform: translate(20px, -20px) rotate(2deg) scale(1.05);
-                opacity: calc(var(--art-opacity) * 1.3);
-            }
-            50% { 
-                transform: translate(-15px, 15px) rotate(-2deg) scale(0.95);
-                opacity: calc(var(--art-opacity) * 0.8);
-            }
-            75% { 
-                transform: translate(25px, 10px) rotate(1deg) scale(1.02);
-                opacity: calc(var(--art-opacity) * 1.2);
-            }
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: var(--art-opacity); }
+            25% { transform: translate(20px, -20px) rotate(2deg) scale(1.05); opacity: calc(var(--art-opacity) * 1.3); }
+            50% { transform: translate(-15px, 15px) rotate(-2deg) scale(0.95); opacity: calc(var(--art-opacity) * 0.8); }
+            75% { transform: translate(25px, 10px) rotate(1deg) scale(1.02); opacity: calc(var(--art-opacity) * 1.2); }
         }
 
         .bg-shapes {
@@ -224,7 +132,6 @@
             width: 400px;
             height: 400px;
             background: linear-gradient(135deg, var(--primary), var(--purple));
-            animation-delay: 0s;
         }
 
         .shape-2 {
@@ -330,8 +237,6 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
-            position: relative;
-            z-index: 100;
         }
 
         .hero-content {
@@ -379,6 +284,7 @@
             flex-wrap: wrap;
         }
 
+        /* Unified Button Styles */
         .btn {
             padding: 1rem 2.5rem;
             border-radius: 50px;
@@ -459,10 +365,53 @@
             margin: 0 auto;
         }
 
+        /* Unified Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
         /* About Section */
         .about-content {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 0 auto 3rem;
         }
 
         .about-content p {
@@ -472,73 +421,12 @@
             margin-bottom: 2rem;
         }
 
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .highlight-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
-            backdrop-filter: blur(10px);
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .highlight-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .highlight-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-category:hover {
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.2);
-        }
-
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
+        /* Tag Cloud */
         .tag-cloud {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
+            margin-top: 1rem;
         }
 
         .tag {
@@ -558,26 +446,15 @@
             border-color: var(--secondary);
         }
 
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Featured Card (for Sculpting Latent Space) */
+        .featured-card {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(78, 205, 196, 0.1));
+            border: 2px solid var(--primary);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
-        .project-card::before {
+        .featured-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -585,52 +462,9 @@
             width: 100%;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.4s;
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(255, 107, 157, 0.3);
-            border-color: var(--primary);
-        }
-
-        .project-card h3 {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* Publications */
-        .publication-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            border-left: 4px solid var(--primary);
-            transition: all 0.4s;
-            margin-bottom: 2rem;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .publication-card:hover {
-            transform: translateX(15px);
-            box-shadow: 0 15px 50px rgba(255, 107, 157, 0.25);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .publication-card .badge {
+        .featured-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -641,16 +475,14 @@
             margin-bottom: 1rem;
         }
 
-        .publication-card h3 {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            line-height: 1.5;
+        /* Publications */
+        .publication-card {
+            border-left: 4px solid var(--primary);
+            padding: 3rem;
         }
 
-        .publication-card p {
-            color: var(--text-muted);
-            line-height: 1.8;
+        .publication-card:hover {
+            transform: translateX(15px);
         }
 
         /* Timeline */
@@ -707,47 +539,17 @@
             margin-bottom: 1rem;
         }
 
-        .timeline-item p {
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
+        /* Contact Cards */
         .contact-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
             text-align: center;
             text-decoration: none;
             color: var(--text-light);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
-            backdrop-filter: blur(10px);
         }
 
         .contact-card:hover {
-            transform: translateY(-10px);
             border-color: var(--secondary);
             box-shadow: 0 20px 50px rgba(78, 205, 196, 0.25);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .contact-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-        }
-
-        .contact-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -759,8 +561,6 @@
             margin-top: 6rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 100;
         }
 
         footer .tagline {
@@ -776,93 +576,29 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid,
-            .highlights,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .shape {
-                filter: blur(60px);
-            }
-
-            /* Adjust background art images for mobile */
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .section-title { font-size: 2rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .timeline { padding-left: 2rem; }
+            .shape { filter: blur(60px); }
             .bg-art-image {
                 opacity: calc(var(--art-opacity) * 0.5);
                 filter: blur(calc(var(--art-blur) + 1px));
             }
-
-            .bg-art-image:nth-child(1) {
-                width: 200px;
-                height: 250px;
-            }
-
-            .bg-art-image:nth-child(2) {
-                width: 220px;
-                height: 220px;
-            }
-
-            .bg-art-image:nth-child(3) {
-                width: 180px;
-                height: 260px;
-            }
-
-            .bg-art-image:nth-child(4) {
-                width: 200px;
-                height: 240px;
-            }
-
-            .bg-art-image:nth-child(5) {
-                width: 190px;
-                height: 190px;
-            }
-
-            .bg-art-image:nth-child(6) {
-                width: 160px;
-                height: 220px;
-            }
+            .bg-art-image:nth-child(1) { width: 200px; height: 250px; }
+            .bg-art-image:nth-child(2) { width: 220px; height: 220px; }
+            .bg-art-image:nth-child(3) { width: 180px; height: 260px; }
+            .bg-art-image:nth-child(4) { width: 200px; height: 240px; }
+            .bg-art-image:nth-child(5) { width: 190px; height: 190px; }
+            .bg-art-image:nth-child(6) { width: 160px; height: 220px; }
         }
     </style>
 </head>
 <body>
-    <!-- 
-    ============================================
-    TO ADD YOUR OWN PINTEREST IMAGES:
-    ============================================
-    1. Find images on Pinterest
-    2. Right-click and copy image address
-    3. Replace the URLs in the style="background-image: url('...')" 
-       sections below in the .bg-art-images div
-    4. You can add more images by copying a div and adjusting 
-       the :nth-child() numbers in CSS
-    5. Adjust opacity, blur, and blend modes in CSS if needed
-    ============================================
-    -->
-    
     <div class="bg-layer"></div>
     
-    <!-- Background Art Images - Replace URLs with your Pinterest images -->
     <div class="bg-art-images">
         <div class="bg-art-image" style="background-image: url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400');"></div>
         <div class="bg-art-image" style="background-image: url('https://images.unsplash.com/photo-1549887534-1541e9326642?w=400');"></div>
@@ -884,11 +620,11 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#explorations">Explorations</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#notebooks">Notebooks</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <!-- <li><a href="cv.html" target="_blank">CV</a></li> -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -906,8 +642,7 @@
                     fascinated by how we can augment human capabilities and reimagine our relationship with technology.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">Explore My Work</a>
-                    <!-- <a href="cv.html" target="_blank" class="btn btn-secondary">View CV</a> -->
+                    <a href="#explorations" class="btn btn-primary">Explore My Work</a>
                 </div>
             </div>
         </div>
@@ -931,23 +666,19 @@
                 </p>
             </div>
 
-            <div class="highlights">
-                <!-- <div class="highlight-card">
-                    <h3>Academic Excellence</h3>
-                    <p>Valedictorian & First Class Honours (5.0/5.0 CGPA) in Computer Engineering from Nile University of Nigeria</p>
-                </div> -->
-                <div class="highlight-card">
+            <div class="grid-2">
+                <div class="card">
                     <h3>Research Focus</h3>
-                    <p>Human centred-AI, human-augmentation technologies and AI Interpretability/Safety</p>
+                    <p>Human-centered AI, human-augmentation technologies and AI Interpretability/Safety</p>
                 </div>
-                <div class="highlight-card">
+                <div class="card">
                     <h3>Creative Expression</h3>
                     <p>3D modeling, visualization, and exploring the aesthetic dimensions of technical systems</p>
                 </div>
             </div>
 
-            <div class="skills-grid">
-                <div class="skill-category">
+            <div class="grid-2" style="margin-top: 3rem;">
+                <div class="card">
                     <h3>Programming</h3>
                     <div class="tag-cloud">
                         <span class="tag">Python</span>
@@ -956,7 +687,7 @@
                         <span class="tag">Java</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="card">
                     <h3>AI & Machine Learning</h3>
                     <div class="tag-cloud">
                         <span class="tag">TensorFlow</span>
@@ -965,7 +696,7 @@
                         <span class="tag">Scikit-learn</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="card">
                     <h3>Creative Tools</h3>
                     <div class="tag-cloud">
                         <span class="tag">Blender</span>
@@ -974,13 +705,54 @@
                         <span class="tag">Visualization</span>
                     </div>
                 </div>
-                <div class="skill-category">
+                <div class="card">
                     <h3>Hardware & Embedded</h3>
                     <div class="tag-cloud">
                         <span class="tag">Arduino</span>
                         <span class="tag">ESP32</span>
                         <span class="tag">IMU Sensors</span>
                         <span class="tag">IoT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explorations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visual Explorations</h2>
+                <p class="section-subtitle">
+                    Making complex technical concepts tangible, experiential, and beautiful
+                </p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card featured-card" onclick="window.location.href='./docs/SculptingLatent.pdf'">
+                    <span class="featured-badge">Featured</span>
+                    <h3>Sculpting Latent Space</h3>
+                    <p>
+                        Reimagining neural networks as sculptable matter. This visual exploration takes the abstract 
+                        concept of latent space and transforms it into something you can feel—geometry that breathes, 
+                        adapts, and responds like clay under your hands. Making AI systems not just intelligent, but 
+                        tangible and alive.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag">Design Applied to AI</span>
+                        <span class="tag">Latent Space</span>
+                        <span class="tag">Visual Thinking</span>
+                        <span class="tag">Interactive Systems</span>
+                    </div>
+                </div>
+
+                <div class="card" style="opacity: 0.6; cursor: default;">
+                    <h3>Coming Soon</h3>
+                    <p>
+                        More visual explorations of technical concepts—turning abstract ideas into experiential, 
+                        intuitive understanding. Science as art, technology as wonder.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag">In Progress</span>
                     </div>
                 </div>
             </div>
@@ -996,8 +768,8 @@
                 </p>
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Narrative-Technical-Embedding-Space', '_blank')">
+            <div class="grid-3">
+                <div class="card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Narrative-Technical-Embedding-Space', '_blank')">
                     <h3>Narrative-Technical Embedding Space</h3>
                     <p>
                         Exploring the intersection of storytelling and technical documentation through semantic 
@@ -1010,7 +782,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Story-GRU-LM-and-Interpretability', '_blank')">
+                <div class="card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/Story-GRU-LM-and-Interpretability', '_blank')">
                     <h3>Story GRU Language Model</h3>
                     <p>
                         Language model with interpretability focus, investigating how neural networks understand and 
@@ -1023,7 +795,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/AerialAV', '_blank')">
+                <div class="card" onclick="window.open('https://github.com/davidAdeshinaArungbemi/AerialAV', '_blank')">
                     <h3>AerialAV</h3>
                     <p>
                         IoT-enabled UAV system for real-time motion and environmental monitoring, with live 3D visualisation.
@@ -1035,7 +807,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://www.facebook.com/dave.gbemi.98', '_blank')">
+                <div class="card" onclick="window.open('https://www.facebook.com/dave.gbemi.98', '_blank')">
                     <h3>3D Modeling Portfolio</h3>
                     <p>
                         Collection of 3D visualizations and models created in Blender. Exploring form, structure, 
@@ -1048,7 +820,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://gyronics.com', '_blank')">
+                <div class="card" onclick="window.open('https://gyronics.com', '_blank')">
                     <h3>Gyronics Wearable Interface</h3>
                     <p>
                         Wearable device enabling gesture-based control through IMU sensors and deep learning. 
@@ -1061,7 +833,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.open('https://github.com/davidAdeshinaArungbemi', '_blank')">
+                <div class="card" onclick="window.open('https://github.com/davidAdeshinaArungbemi', '_blank')">
                     <h3>More on GitHub</h3>
                     <p>
                         Additional experiments and projects exploring various aspects of AI, creativity, and 
@@ -1081,12 +853,12 @@
             <div class="section-header">
                 <h2 class="section-title">Research Notebooks</h2>
                 <p class="section-subtitle">
-                    Experiments and deep dives and learning experiences, all documented
+                    Experiments, deep dives, and learning experiences—all documented
                 </p>
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card" onclick="window.location.href='./Notebooks/story-gru-lm.pdf'">
+            <div class="grid-3">
+                <div class="card" onclick="window.location.href='./Notebooks/story-gru-lm.pdf'">
                     <h3>Story GRU Language Model</h3>
                     <p>
                         Deep exploration of recurrent neural networks for narrative generation. Investigating how 
@@ -1100,7 +872,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" onclick="window.location.href='./Notebooks/vq-vae-codeword-visualisation-and-sequencing.pdf'">
+                <div class="card" onclick="window.location.href='./Notebooks/vq-vae-codeword-visualisation-and-sequencing.pdf'">
                     <h3>VQ-VAE Codeword Analysis</h3>
                     <p>
                         Analyzing Vector Quantized Variational Autoencoders through codeword visualization and 
@@ -1114,7 +886,7 @@
                     </div>
                 </div>
 
-                 <div class="project-card" onclick="window.location.href='./Notebooks/deterministic-inpainting.pdf'">
+                 <div class="card" onclick="window.location.href='./Notebooks/deterministic-inpainting.pdf'">
                     <h3>Deterministic Inpainting</h3>
                     <p>
                          Reconstructing missing or corrupted regions in artwork using deterministic approaches.
@@ -1137,8 +909,8 @@
                 <p class="section-subtitle">Research contributions to the field</p>
             </div>
             
-            <div class="publication-card" onclick="window.open('https://ieeexplore.ieee.org/document/11142252', '_blank')">
-                <span class="badge">IEEE Access 2025</span>
+            <div class="card publication-card" onclick="window.open('https://ieeexplore.ieee.org/document/11142252', '_blank')">
+                <span class="featured-badge">IEEE Access 2025</span>
                 <h3>An End to End Wearable Device and System for Real Time Gesture Recognition of Directional, Rotational, and Shape-based Arm Gestures</h3>
                 <p>
                     Comprehensive wearable system capable of recognizing complex arm gestures in real-time, 
@@ -1198,12 +970,10 @@
 
             <div style="margin-top: 4rem;">
                 <h3 style="color: var(--primary); margin-bottom: 2rem; font-size: 2rem; text-align: center;">Education</h3>
-                <div class="highlight-card" style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="max-width: 800px; margin: 0 auto;">
                     <h3>B.Eng. Computer Engineering</h3>
                     <p style="color: var(--secondary); font-weight: 600; margin-bottom: 0.5rem;">Nile University of Nigeria | 2019 - 2024</p>
-                    <!-- <p><strong>Grade:</strong> First Class Honours (CGPA: 5.0/5.0)</p> -->
                     <p><strong>Grade:</strong> First Class Honours</p>
-                    <!-- <p><strong>Achievement:</strong> Valedictorian & Best Overall Graduating Student</p> -->
                     <p><strong>Thesis:</strong> AI-Based Wearable Human-Computer Interface</p>
                 </div>
             </div>
@@ -1217,23 +987,23 @@
                 <p class="section-subtitle">Open to collaborations, research opportunities, and creative projects</p>
             </div>
             
-            <div class="contact-grid">
-                <a href="https://github.com/davidAdeshinaArungbemi" target="_blank" class="contact-card">
+            <div class="grid-2">
+                <a href="https://github.com/davidAdeshinaArungbemi" target="_blank" class="card contact-card">
                     <h3>GitHub</h3>
                     <p>@davidAdeshinaArungbemi</p>
                 </a>
 
-                <a href="https://www.linkedin.com/in/davidadeshina" target="_blank" class="contact-card">
+                <a href="https://www.linkedin.com/in/davidadeshina" target="_blank" class="card contact-card">
                     <h3>LinkedIn</h3>
                     <p>davidadeshina</p>
                 </a>
 
-                <a href="https://www.facebook.com/dave.gbemi.98" target="_blank" class="contact-card">
+                <a href="https://www.facebook.com/dave.gbemi.98" target="_blank" class="card contact-card">
                     <h3>3D Portfolio</h3>
                     <p>View my Blender work</p>
                 </a>
 
-                <a href="https://ieeexplore.ieee.org/document/11142252" target="_blank" class="contact-card">
+                <a href="https://ieeexplore.ieee.org/document/11142252" target="_blank" class="card contact-card">
                     <h3>Research</h3>
                     <p>IEEE Publication</p>
                 </a>
@@ -1254,10 +1024,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -1276,18 +1043,11 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-        document.querySelectorAll('.project-card, .highlight-card, .contact-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        document.querySelectorAll('section, .card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
