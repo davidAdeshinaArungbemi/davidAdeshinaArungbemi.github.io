@@ -1,475 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Adeshina Arungbemi - Research CV</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        @page {
-            size: A4;
-            margin: 15mm 20mm;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f5f5f5;
-            padding: 0;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
-        
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            background: white;
-            margin: 20px auto;
-            padding: 15mm 20mm;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Header */
-        .header {
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid #000;
-        }
-        
-        .name {
-            font-family: 'Crimson Pro', serif;
-            font-size: 32px;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-        
-        .contact-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 20px;
-            font-size: 9px;
-            color: #333;
-            font-weight: 400;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .contact-item a {
-            color: #333;
-            text-decoration: none;
-        }
-        
-        .contact-item a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-        
-        /* Section */
-        .section {
-            margin-bottom: 22px;
-        }
-        
-        .section-title {
-            font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #000;
-            margin-bottom: 10px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid #ccc;
-        }
-        
-        /* Education */
-        .edu-block {
-            margin-bottom: 14px;
-        }
-        
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-        
-        .institution {
-            font-weight: 600;
-            font-size: 10.5px;
-            color: #000;
-        }
-        
-        .degree {
-            font-size: 9.5px;
-            color: #333;
-            margin-top: 2px;
-        }
-        
-        .date {
-            font-size: 8.5px;
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .honors {
-            display: flex;
-            gap: 8px;
-            margin-top: 6px;
-            flex-wrap: wrap;
-        }
-        
-        .honor-tag {
-            background: #000;
-            color: white;
-            padding: 3px 8px;
-            font-size: 7.5px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        
-        .thesis-line {
-            font-size: 9px;
-            margin-top: 8px;
-            color: #444;
-            line-height: 1.6;
-        }
-        
-        .thesis-line strong {
-            color: #000;
-            font-weight: 600;
-        }
-        
-        /* Research Interests Box */
-        .research-box {
-            background: #f8f8f8;
-            padding: 14px 16px;
-            margin-bottom: 22px;
-            border-left: 3px solid #000;
-        }
-        
-        .research-label {
-            font-weight: 600;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        
-        .research-text {
-            font-size: 9.5px;
-            line-height: 1.7;
-            color: #2a2a2a;
-        }
-        
-        .research-text strong {
-            font-weight: 600;
-            color: #000;
-        }
-        
-        /* Experience */
-        .exp-block {
-            margin-bottom: 16px;
-            page-break-inside: avoid;
-        }
-        
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 3px;
-        }
-        
-        .position {
-            font-weight: 600;
-            font-size: 10px;
-            color: #000;
-        }
-        
-        .organization {
-            font-size: 9px;
-            color: #444;
-            margin-top: 1px;
-        }
-        
-        .description {
-            font-size: 9px;
-            line-height: 1.6;
-            color: #333;
-            margin-top: 6px;
-        }
-        
-        .description strong {
-            font-weight: 600;
-            color: #000;
-        }
-        
-        .key-points {
-            margin-top: 6px;
-            padding-left: 12px;
-        }
-        
-        .key-points li {
-            font-size: 8.5px;
-            line-height: 1.5;
-            color: #333;
-            margin-bottom: 3px;
-        }
-        
-        /* Publications */
-        .pub-item {
-            margin-bottom: 10px;
-            padding-left: 12px;
-        }
-        
-        .pub-title {
-            font-size: 9px;
-            font-weight: 500;
-            color: #000;
-            line-height: 1.4;
-            margin-bottom: 2px;
-        }
-        
-        .pub-venue {
-            font-size: 8px;
-            color: #666;
-            font-style: italic;
-        }
-        
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 8px 12px;
-            font-size: 9px;
-        }
-        
-        .skill-label {
-            font-weight: 600;
-            color: #000;
-            font-size: 8.5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .skill-content {
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        /* Technical Projects */
-        .project-block {
-            margin-bottom: 12px;
-        }
-        
-        .project-title {
-            font-weight: 600;
-            font-size: 9.5px;
-            color: #000;
-            margin-bottom: 3px;
-        }
-        
-        .project-desc {
-            font-size: 8.5px;
-            line-height: 1.5;
-            color: #333;
-        }
-        
-        /* Awards */
-        .awards-list {
-            font-size: 9px;
-            line-height: 1.8;
-            color: #333;
-            padding-left: 12px;
-        }
-        
-        .awards-list li {
-            margin-bottom: 3px;
-        }
-        
-        .awards-list strong {
-            font-weight: 600;
-            color: #000;
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .page {
-                box-shadow: none;
-                margin: 0;
-                padding: 15mm 20mm;
-                width: 100%;
-                min-height: auto;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV · David Adeshina Arungbemi</title>
+<meta name="description" content="Curriculum vitae of David Adeshina Arungbemi — independent researcher in AI evaluation, alignment and moral status; co-founder and Lead AI at Gyronics; writes as Suzume.">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/seal-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/seal-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .cv { max-width: 860px; margin: 0 auto; }
+  .cv-head { padding-block: clamp(2rem, 5vw, 3.5rem) 1.5rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: end; }
+  .cv-head h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin-bottom: .5rem; }
+  .cv-head .role { font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--ink-2); margin: 0 0 .9rem; }
+  .cv-head .meta { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .74rem; line-height: 1.8; color: var(--ink-2); margin: 0; }
+  .cv-head .meta a { color: var(--ink-2); text-decoration-color: var(--rule); }
+  .cv-head .meta a:hover { color: var(--seal-ink); }
+  .cv-head .seal-large { width: 72px; }
+  .cv section { padding-block: 1.8rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .5rem 2rem; }
+  .cv section:first-of-type { border-top: 0; }
+  .cv section > h2 { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .16em; color: var(--seal-ink); font-weight: 500; margin-top: .35rem; }
+  .cv section > div { min-width: 0; }
+  .cv p { margin: 0 0 .6rem; }
+  .cv .profile { max-width: 66ch; font-size: 1.05rem; }
+  .cv ul { margin: 0; padding-left: 1.1rem; }
+  .cv li { margin-bottom: .35rem; }
+  .entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1.5rem; padding: .7rem 0; border-top: 1px solid color-mix(in srgb, var(--rule) 60%, transparent); }
+  .entry:first-child { border-top: 0; padding-top: 0; }
+  .entry h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.02rem; font-weight: 600; line-height: 1.35; letter-spacing: 0; }
+  .entry .when { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; color: var(--ink-3); white-space: nowrap; padding-top: .25rem; font-variant-numeric: tabular-nums; }
+  .entry .sub { color: var(--ink-2); font-size: .95rem; grid-column: 1 / -1; margin: 0; }
+  .entry .sub .mono { color: var(--ink-3); }
+  .entry ul { grid-column: 1 / -1; margin-top: .3rem; color: var(--ink-2); font-size: .95rem; }
+  .entry > a, .entry h3 a { color: var(--ink); text-decoration-color: var(--rule); }
+  .entry h3 a:hover { color: var(--seal-ink); }
+  .skills-grid { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: .4rem 1.2rem; font-size: .95rem; }
+  .skills-grid dt { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; letter-spacing: .06em; color: var(--ink-3); padding-top: .2rem; }
+  .skills-grid dd { margin: 0; color: var(--ink-2); }
+  .cv-actions { display: flex; gap: 1.5rem; align-items: center; margin-top: 1rem; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .74rem; }
+  .cv-actions button { font: inherit; letter-spacing: .08em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: .45rem .8rem; cursor: pointer; }
+  .cv-actions button:hover { color: var(--seal-ink); border-color: var(--seal-ink); }
+  @media (max-width: 700px) {
+    .cv-head { grid-template-columns: 1fr; }
+    .cv-head .seal-large { order: -1; width: 56px; }
+    .cv section { grid-template-columns: 1fr; gap: .3rem; }
+    .entry { grid-template-columns: 1fr; gap: .1rem; }
+    .entry .when { padding-top: 0; }
+    .skills-grid { grid-template-columns: 1fr; gap: .1rem .8rem; }
+    .skills-grid dd { margin-bottom: .5rem; }
+  }
+  @media print {
+    @page { size: A4; margin: 16mm 14mm; }
+    .cv { max-width: none; }
+    .cv-head { padding-top: 0; }
+    .cv section { padding-block: .9rem; grid-template-columns: 8.5rem 1fr; gap: .3rem 1.2rem; }
+    .cv section > h2 { color: #000; }
+    .entry { padding: .4rem 0; break-inside: avoid; }
+    .entry .when, .skills-grid dt { color: #444; }
+    .cv-actions, .topbar { display: none; }
+    .cv-head .seal-large { width: 48px; }
+    .entry h3 a[href]::after { content: ""; }
+    body { font-size: 10.5pt; line-height: 1.45; }
+  }
+</style>
 </head>
 <body>
-    <div class="page">
-        <div class="header">
-            <h1 class="name">David Adeshina Arungbemi</h1>
-            <div class="contact-bar">
-                <div class="contact-item">📧 <a href="mailto:arungbemiADavid@outlook.com">arungbemiADavid@outlook.com</a></div>
-                <div class="contact-item">🌐 <a href="https://davidadeshinaarungbemi.github.io" target="_blank">davidadeshinaarungbemi.github.io</a></div>
-                <div class="contact-item">💼 <a href="https://linkedin.com/in/davidadeshina" target="_blank">linkedin.com/in/davidadeshina</a></div>
-                <div class="contact-item">📍 Abuja, Nigeria</div>
-            </div>
-        </div>
+<header class="topbar">
+  <a class="wordmark" href="index.html">David Adeshina Arungbemi</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="index.html#questions">Questions</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#suzume">Suzume</a>
+    <a href="index.html#images">Images</a>
+    <a href="cv.html" aria-current="true">CV</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
+</header>
 
-        <div class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="edu-block">
-                <div class="edu-header">
-                    <div>
-                        <div class="institution">Nile University of Nigeria</div>
-                        <div class="degree">B.Eng. Computer Engineering</div>
-                    </div>
-                    <div class="date">2019 – 2024</div>
-                </div>
-                <div class="honors">
-                    <span class="honor-tag">5.0/5.0 CGPA</span>
-                    <span class="honor-tag">FIRST CLASS HONOURS</span>
-                    <span class="honor-tag">VALEDICTORIAN</span>
-                    <span class="honor-tag">BEST OVERALL GRADUATE</span>
-                </div>
-                <div class="thesis-line">
-                    <strong>Undergraduate Thesis:</strong> An end-to-end gesture recognition system, focusing on IMU sensing enhanced by statistical features and orientation data from Madgwick/Mahony filters. Achieved a high classification accuracy of 94.9% on the target gesture set (6DMG dataset). Proven commercial viability via a custom API, demonstrating bidirectional communication with 0-1 ms latency for clients.
-                </div>
-            </div>
-        </div>
-
-        <div class="research-box">
-            <div class="research-label">Research Interests</div>
-            <div class="research-text">
-                My research interest is in extending human creativity and interaction through technology. I focus on the intersection of <strong>visual computing, human-computer interaction, and machine learning</strong>. I am interested in building systems that make complex data and algorithms accessible, primarily through interactive visualization and intelligent interfaces. My work includes gesture recognition systems, real-time visual analytics, and interactive data visualization.
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Research Experience</h2>
-            
-            <div class="exp-block">
-                <div class="exp-header">
-                    <div>
-                        <div class="position">Research Intern</div>
-                        <div class="organization">National Centre for Artificial Intelligence and Robotics, Nigeria</div>
-                    </div>
-                    <div class="date">Feb 2025 – Dec 2025</div>
-                </div>
-                <div class="description">
-                    Researching the integration of object detection, tracking, and demographic classification into a live video pipeline. Developing interactive live graph visualizations to map detected entities and their relationships, enabling real-time analysis.
-                </div>
-                <ul class="key-points">
-                    <li><strong>Interactive visual analytics:</strong> Designing live graph visualizations to map detected entities and their relationships, enabling real-time exploration of streaming video data.</li>
-                    <li><strong>Vision-based control systems:</strong> Built an AI-powered visual servoing system using object detection (YOLOE) and depth estimation (MiDaS) to perform direct servo control based on visual feedback.</li>
-                    <li>Investigating interface design principles (color theory, layout optimization) to improve clarity and user comprehension of complex AI outputs.</li>
-                </ul>
-            </div>
-            
-            <div class="exp-block">
-                <div class="exp-header">
-                    <div>
-                        <div class="position">Lead AI Engineer</div>
-                        <div class="organization">Gyronics Technologies (Assistive Technology Startup)</div>
-                    </div>
-                    <div class="date">Nov 2024 – Present</div>
-                </div>
-                <div class="description">
-                    Leading AI research for wearable gesture recognition systems. Designing and implementing an end-to-end IMU gesture pipeline for accessibility applications, including signal processing, motion segmentation, and classification using attention-based deep learning.
-                </div>
-                <ul class="key-points">
-                    <li>Applied discrete wavelet transforms (DWT) to visualize and extract robust features from 6-DOF motion data, treating temporal signals as explorable geometric patterns.</li>
-                    <li>Designed attention-based temporal models to capture long-range dependencies in gesture sequences.</li>
-                    <li>Achieved real-time classification on embedded hardware (ESP32) with <100ms latency, making gesture-based interaction seamless and natural.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <br><br><br><br>
-        <div class="section">
-            <h2 class="section-title">Publications and Presentations</h2>
-            <div class="pub-item">
-                <div class="pub-title">An End to End Wearable Device and System for Indefinite, Continuous, Real Time Gesture Recognition of Directional and Shape-Based Arm Gestures</div>
-                <div class="pub-venue">IEEE Access, 2025</div>
-            </div>
-            <div class="pub-item">
-                <div class="pub-title">Gyronics: Wearable Assistive Technology for Accessibility</div>
-                <div class="pub-venue">International Health and Technology Summit, Nile University of Nigeria, October 2024</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Technical Projects</h2>
-            
-            <div class="project-block">
-                <div class="project-title">Interactive Visual Analytics for Real-Time Video Streams</div>
-                <div class="project-desc">
-                    Designed interactive graph visualizations for real-time video streams. The system maps detected objects, tracks, and demographic attributes into a live network graph. Focused on UI/UX design for interpretability, using color theory and layout to make complex AI outputs clear.
-                </div>
-            </div>
-            
-            <div class="project-block">
-                <div class="project-title">Vision-Based Robot Control Through Visual Feedback</div>
-                <div class="project-desc">
-                    Implemented an AI-powered visual servoing system combining object detection (YOLOE) and depth estimation (MiDaS). The system performs direct servo control based on image-space error and visual feedback, allowing it to track objects without requiring inverse kinematics.
-                </div>
-            </div>
-            
-            <div class="project-block">
-                <div class="project-title">Gesture Recognition with Visual Feature Exploration</div>
-                <div class="project-desc">
-                    Built end-to-end pipeline for continuous gesture recognition from IMU sensors. Applied DWT to visualize temporal patterns as multi-resolution features, trained attention-based GRU for sequence modeling. Deployed on ESP32 with custom C++ inference engine.
-                </div>
-            </div>
-            
-            <div class="project-block">
-                <div class="project-title">3D Product Visualization and Design</div>
-                <div class="project-desc">
-                    Created 3D models and interactive product visualizations using Blender and Three.js. Explored ergonomic forms and visual communication for wearable hardware prototypes (gyronics.com), focusing on aesthetic and functional design principles.
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-label">Vision & Graphics</div>
-                <div class="skill-content">Object Detection (YOLO), Depth Estimation, Visual Servoing, 3D Modeling (Blender, Three.js), Real-time Visualization (ImGui, ImPlot)</div>
-                
-                <div class="skill-label">Machine Learning</div>
-                <div class="skill-content">PyTorch, TensorFlow, CNNs, Attention Mechanisms, Time-Series Models (GRU, Transformers), Feature Engineering (tsaug)</div>
-                
-                <div class="skill-label">Systems</div>
-                <div class="skill-content">Python, C++, TypeScript, Embedded Systems (Arduino, ESP32), Signal Processing (NumPy, SciPy, PyWavelets), ROS</div>
-                
-                <div class="skill-label">Mathematics</div>
-                <div class="skill-content">Linear Algebra, Digital Signal Processing, Calculus, Artificial Intelligence, Differential Equations, Probability and Statistics, Digital Image Processing, Control Theory</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Awards & Honors</h2>
-            <ul class="awards-list">
-                <li><strong>Valedictorian & Best Overall Graduate</strong> — Nile University of Nigeria (2024)</li>
-                <li><strong>Winner, Nile University Startup Competition 4.0</strong> — Gyronics wearable device (2024)</li>
-                <li><strong>Huawei Certified ICT Associate</strong> — Artificial Intelligence (2023)</li>
-                <li><strong>Undergraduate Scholarship (90%)</strong> — Nile University of Nigeria (2019)</li>
-            </ul>
-        </div>
-
+<main class="cv" id="main">
+  <div class="cv-head">
+    <div>
+      <h1>David Adeshina Arungbemi</h1>
+      <p class="role">Independent researcher — AI evaluation, alignment and moral status. Engineer by training. Writes and experiments as Suzume.</p>
+      <p class="meta">
+        Abuja, Nigeria &nbsp;·&nbsp; <a href="mailto:arungbemiADavid@outlook.com">arungbemiADavid@outlook.com</a><br>
+        <a href="https://davidadeshinaarungbemi.github.io/">davidadeshinaarungbemi.github.io</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/davidadeshina">linkedin.com/in/davidadeshina</a><br>
+        <a href="https://github.com/davidAdeshinaArungbemi">github.com/davidAdeshinaArungbemi</a> &nbsp;·&nbsp; <a href="https://github.com/suzume-hue">github.com/suzume-hue</a> &nbsp;·&nbsp; <a href="https://suzume1.medium.com/">suzume1.medium.com</a>
+      </p>
+      <div class="cv-actions"><button type="button" onclick="window.print()">Print / save as PDF</button><span class="mono">Updated September 2026</span></div>
     </div>
+    <img class="seal-large" src="assets/img/seal.png" alt="Red seal reading 雀 — Suzume" width="72" height="70">
+  </div>
+
+  <section>
+    <h2>Profile</h2>
+    <div>
+      <p class="profile">I build small, falsifiable experiments to test questions that usually stay philosophical: whether a story can change what a language model values, whether a model's stated values survive pressure, what an image does to a mind, and who deserves moral consideration when consciousness can't be verified. I tend to see an idea before I can argue it, so the work moves between essays, images and code. I publish null results and failures alongside the rest.</p>
+      <p class="profile"><strong>Seeking:</strong> graduate study (MSc / PhD), research fellowships and research internships in AI alignment, evaluation and welfare, from 2027.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research interests</h2>
+    <div>
+      <ul>
+        <li>Narrative and humanistic approaches to value alignment; narrative transportation in language models</li>
+        <li>Behavioural evaluation of LLMs; value stability under pressure; preferences as a fingerprint of model character</li>
+        <li>AI welfare and moral patienthood; moral consideration under uncertainty; understanding across different kinds of minds</li>
+        <li>Neuroaesthetics and computational aesthetics — what images do to perception and to models</li>
+        <li>Interpretability of small sequence models; latent structure of moral language</li>
+        <li>Human–AI interaction: reading intention from bodies (gesture, motion) and making model behaviour perceptible</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fellowships &amp; programmes</h2>
+    <div>
+      <div class="entry"><h3>Research Fellow, MARS 5.0 — Cambridge AI Safety Hub (CAISH), Oxford</h3><span class="when">Jul 2026 – present</span><p class="sub">Mentored by Elizaveta Tennant (Google DeepMind / UCL). Narrative-based approaches to value alignment in LLMs: moral stories across cultures, story generation and narrative structure as training signal.</p></div>
+      <div class="entry"><h3>Research Fellow, Futurekind Fellowship — Electric Sheep, research track</h3><span class="when">Apr – Jul 2026</span><p class="sub">Twelve-week fellowship at the intersection of AI and animal welfare. Produced the narrative-transportation preprint and the essay <em>Who Deserves Moral Consideration?</em></p></div>
+      <div class="entry"><h3>Selected, Diverse Intelligences Summer Institute (DISI 2026) — Geneva, New York</h3><span class="when">2026</span><p class="sub">International programme on consciousness, cognition and intelligence across biological and artificial systems; interdisciplinary cohort of neuroscience, philosophy, cognitive science and AI.</p></div>
+      <div class="entry"><h3>Finalist, MATS Research Programme — Stage 3, mentor matching</h3><span class="when">2026</span><p class="sub">AI welfare and moral patienthood stream (Patrick Butlin / Eleos AI).</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Publications &amp; preprints</h2>
+    <div>
+      <div class="entry"><h3><a href="https://doi.org/10.5281/zenodo.21294610">Narrative Transportation and Speciesism in Large Language Models</a></h3><span class="when">2026</span><p class="sub">Sole author. Preprint, Zenodo (CC BY 4.0), doi:10.5281/zenodo.21294610. Futurekind Fellowship research track.</p>
+        <ul>
+          <li>Adapted Green &amp; Brock's narrative-transportation paradigm for LLMs: 12 animals × 5 instruction-tuned models, 2,560 trials, with matched factual and control conditions.</li>
+          <li>Narratives reduced expressed speciesism on animal-specific items from 0.093 to 0.016 (Wilcoxon p = .005); matched factual texts left it unchanged. Averaging with near-floor general items nearly hid the effect — a case study in how a summary score can conceal a targeted change.</li>
+          <li>A pro-use persuasive essay nearly tripled the odds of a speciesist answer, outperforming the matched pro-use narrative: argument beat story when the aim was loosening concern.</li>
+          <li>Released the full stimulus set, experiment runner and analysis pipeline; three independent replications (second story set, off-topic control, summarisation framing) confirmed the core effect.</li>
+        </ul></div>
+      <div class="entry"><h3><a href="https://doi.org/10.1109/ACCESS.2025.3602871">An End to End Wearable Device and System for Indefinite, Continuous, Real Time Gesture Recognition of Directional and Shape-Based Arm Gestures</a></h3><span class="when">Aug 2025</span><p class="sub">IEEE Access (Q1). Co-author with A. A. Gambo, E. Y. Ali, M. Hanif, P. N. Anefu, N. O. Ali, S. Thomas, F. E. Chinda, Z. May, S. Qureshi and M. Kashif. doi:10.1109/ACCESS.2025.3602871.</p>
+        <ul>
+          <li>Designed the AI pipeline from IMU preprocessing through CNN–Transformer classification: 92% accuracy at 20 ms latency.</li>
+          <li>Built anomaly detection to separate intentional gestures from incidental movement — reading genuine intent from noisy behavioural signal.</li>
+        </ul></div>
+      <div class="entry"><h3>Gyronics: Wearable Assistive Technology for Accessibility</h3><span class="when">Oct 2024</span><p class="sub">Talk. International Health and Technology Summit, Nile University of Nigeria.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Independent research &amp; writing<br><span class="mono" style="text-transform:none;letter-spacing:.02em">as Suzume</span></h2>
+    <div>
+      <p class="profile" style="font-size:.95rem;color:var(--ink-2)">Self-directed, without institutional affiliation or external funding. Essays on <a href="https://suzume1.medium.com/">Medium</a>; code on <a href="https://github.com/suzume-hue">GitHub</a>.</p>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/you-are-what-you-prefer-2284ebdf1a00">You Are What You Prefer</a></h3><span class="when">Sep 2026</span><p class="sub">Alignment · essay + experiment. Benign preferences as a fingerprint of a model's values and a tripwire for hidden changes; prompting a model to follow a principle (care) shifted its preference distributions on unrelated questions. Companion visualisations <em>Value Chords</em> and <em>Value Tomography</em> (Processing).</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/in-brightest-day-in-blackest-night-no-evil-shall-escape-my-sight-47d54154abcb">In Brightest Day, In Blackest Night, No Evil Shall Escape My Sight.</a></h3><span class="when">Aug 2026</span><p class="sub">Culture &amp; psychology · essay. Traces the light/darkness moral divide through language, biology and myth, then removes the night: evil hides in normality, not shadow.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/who-deserves-moral-consideration-im-not-sure-anymore-ab2980ac549f">Who Deserves Moral Consideration? I'm Not Sure Anymore.</a></h3><span class="when">May 2026</span><p class="sub">Moral status · illustrated essay, Futurekind Fellowship. Property-based accounts versus Gunkel's relational and Gellers' systemic views; the translation problem from human-to-human to cross-substrate; deciding under permanent uncertainty.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/gestalt-the-whole-is-not-the-sum-of-its-parts-a4e5f1c61ef1">Gestalt: The Whole is Not the Sum of Its Parts</a></h3><span class="when">Apr 2026</span><p class="sub">Neuroaesthetics · experiment (SD-Turbo, DINO, CLIP, NIMA; <a href="https://github.com/suzume-hue/Gestalt">code</a>). Tests whether different images can converge on the same perceptual whole: joint optimisation over structural, semantic and aesthetic constraints; independent runs converge (DINO cosine ≈ 0.99 across 15 runs; NIMA JSD 0.002–0.009), with a three-phase curriculum and score-matched random baselines.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/i-tried-to-build-an-aesthetic-model-of-the-human-brain-i-failed-heres-what-i-learned-13c75644258a">I Tried to Build an Aesthetic Model of the Human Brain. I Failed. Here's What I Learned.</a></h3><span class="when">Apr 2026</span><p class="sub">Neuroaesthetics · experiment (BOLD5000 + WAVE fMRI, PyTorch; <a href="https://github.com/suzume-hue/AestheticsOptimizer">code</a>). Personalised prediction of brain response from a ranked image history via cross-attention over calibration sets, CLIP and MobileNetV3 features across 1,024 DiFuMo parcels. Visual and default-mode predictions beat baseline; the limbic signal did not recover.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/the-narrative-hypothesis-f87be35619cf">The Narrative Hypothesis</a> &nbsp;·&nbsp; <a href="https://suzume1.medium.com/the-narrative-hypothesis-complexity-37bd4417575f">Part II: Complexity</a> &nbsp;·&nbsp; <a href="https://suzume1.medium.com/i-ran-the-experiment-here-is-what-i-found-d3052906ac86">I Ran the Experiment. Here Is What I Found.</a></h3><span class="when">Apr 2026</span><p class="sub">Epistemology &amp; multi-agent evaluation · essays + experiment. Narrative proposed as a distinct problem-solving domain, then as a tangled graph of levels (person, family, community, nation) interacting only through representatives. The empirical test — a solo analytical agent versus a creative/translator/judge hybrid across ten checkpoints (Llama 3.3 70B, Gemini Flash Lite) — returned a null result (7/10 vs 6/10); reported as such, with the design flaws named and a valid version specified in advance.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/inside-qwen-0-5b-a-behavioral-profile-across-32-dimensions-1ead43a6ea3c">Inside Qwen 0.5B: A Behavioural Profile Across 32 Dimensions</a> &nbsp;·&nbsp; <a href="https://wen-profile-dive.lovable.app/">Wen's Mindscape</a></h3><span class="when">Mar 2026</span><p class="sub">Evaluation · benchmark + interactive app (<a href="https://github.com/suzume-hue/wen-s-mindscape">code</a>). 2,400 inference calls over 800 frozen prompts, LLM-as-judge with written rationale per score; surfaced training-embedded biases the model avoids discussing but encodes. The app personifies the profile as Wen (紙神), a constellation with one star per dimension. React, TypeScript, Three.js.</p></div>
+      <div class="entry"><h3><a href="https://suzume1.medium.com/i-gave-four-ai-agents-a-philosophy-and-put-them-under-pressure-8d6aa7f96dea">I Gave Four AI Agents a Philosophy and Put Them Under Pressure.</a></h3><span class="when">Mar 2026</span><p class="sub">Alignment · 640-turn multi-agent simulation. Kantian, Utilitarian, Stoic and Survival-oriented agents under sustained resource scarcity; declared values consistently collapsed — a probe of the gap between stated and enacted values and of what stable self-models would require.</p></div>
+      <div class="entry"><h3>Moral Language Compression</h3><span class="when">2026</span><p class="sub">Interpretability · experiment. Compression and reconstruction heads trained on a frozen Qwen 0.5B transformer with REINFORCE and a contrastive reward, probing whether moral language has recoverable latent structure distinct from general semantics.</p></div>
+      <div class="entry"><h3>Earlier essays — <em>Sculpting Latent Space: What If AI Could Think in Clay?</em> · <em>The Gap Between Sound and Meaning, and Why AIs Don't Have It</em> · <em>The Question Was Mine. Everything After That Got Away From Me.</em></h3><span class="when">Feb – Mar 2026</span><p class="sub">A network's internal geometry as a malleable medium; lived versus learned language; a post-mortem on training a transformer on Cubist colour palettes to ask whether colour can be a reasoning medium.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div>
+      <div class="entry"><h3>Co-founder &amp; Lead AI — Gyronics Technologies, Abuja</h3><span class="when">Nov 2024 – present</span><p class="sub">Assistive wearable technology startup (gyronics.com).</p>
+        <ul>
+          <li>Full ownership of the gesture-recognition pipeline: signal processing, motion segmentation, discrete-wavelet feature extraction from 6-DOF motion, attention-based temporal models, real-time inference on ESP32 with a custom C++ engine.</li>
+          <li>Language-model layer that converts classified gesture sequences into natural-language motion descriptions; evaluation protocols for both classification accuracy and semantic quality.</li>
+          <li>Selected with Gyronics for VivaTech (Paris), GITEX Africa (Marrakech), the Antler Nigeria cohort and the Nigeria Diaspora Investment Summit (Presidential Villa, Abuja), 2025.</li>
+        </ul></div>
+      <div class="entry"><h3>Research Intern — National Centre for Artificial Intelligence &amp; Robotics (NITDA), Abuja</h3><span class="when">Feb 2025 – Jan 2026</span><p class="sub">Nigeria's national AI research centre.</p>
+        <ul>
+          <li>Live video pipeline integrating object detection, tracking and demographic classification; <em>SceneGraph</em>, a real-time dynamic graph of detected people, objects and their relationships.</li>
+          <li>Visual servoing controller combining YOLOE detection and MiDaS depth estimation to drive a robot arm from image-space error, without inverse kinematics.</li>
+        </ul></div>
+      <div class="entry"><h3>Intern — Huawei Technologies Co. Nig. Ltd, Abuja</h3><span class="when">Mar – Sep 2023</span><p class="sub">Network and server operations; configuration and decommissioning of enterprise devices. Huawei Certified ICT Associate — Artificial Intelligence.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div>
+      <div class="entry"><h3>B.Eng. Computer Engineering — Nile University of Nigeria</h3><span class="when">2019 – 2024</span><p class="sub">5.0 / 5.0 CGPA · First Class Honours · Valedictorian and Best Overall Graduate · 90% undergraduate scholarship.</p>
+        <ul>
+          <li>Thesis: an end-to-end IMU gesture-recognition system with statistical features and Madgwick/Mahony orientation filters — 94.9% on the 6DMG gesture set; a custom API with 0–1 ms round-trip for clients. Later developed into the IEEE Access paper.</li>
+          <li>Coursework spanned digital signal and image processing, control theory, probability and statistics, artificial intelligence and neuromorphic computing (survey paper).</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected software &amp; creative work</h2>
+    <div>
+      <div class="entry"><h3><a href="https://github.com/suzume-hue/llm-art-director">llm-art-director</a> · <a href="https://github.com/suzume-hue/DiverseIntelligence">DiverseIntelligence</a></h3><span class="when">2026</span><p class="sub">An LLM that directs photo edits by reasoning over aesthetic scorers, with a human-preference judge that can overrule the score; a multi-agent engine with a translation layer between minds that think differently (in progress).</p></div>
+      <div class="entry"><h3>Processing sketches — <em>Water Town</em>, <em>Value Tomography</em>, <em>Value Chords</em>, <em>The Art of Intelligence</em></h3><span class="when">2026</span><p class="sub">Generative watercolour, chord-diagram and particle pieces written in Java (Processing), pair-programmed with Claude; the data pieces visualise the arguments of <em>You Are What You Prefer</em>. Shown at <a href="https://davidadeshinaarungbemi.github.io/#images">davidadeshinaarungbemi.github.io/#images</a>.</p></div>
+      <div class="entry"><h3><a href="https://github.com/davidAdeshinaArungbemi/BitRNN">BitRNN</a> · <a href="https://github.com/davidAdeshinaArungbemi/Story-GRU-LM-and-Interpretability">Story GRU LM &amp; Interpretability</a> · <a href="https://github.com/davidAdeshinaArungbemi/Tarot-VAE">Tarot-VAE</a></h3><span class="when">2025</span><p class="sub">A GRU with single-bit weights trained by evolution (C++); hidden-state probing and token-importance analysis on a small story model; a patch-based VAE. Research notebooks on VQ-VAE codeword structure and deterministic inpainting on WikiArt.</p></div>
+      <div class="entry"><h3><a href="https://github.com/davidAdeshinaArungbemi/SMLF-Library">SMLF</a> · <a href="https://github.com/davidAdeshinaArungbemi/OurDataframe">OurDataframe</a> · <a href="https://github.com/davidAdeshinaArungbemi/Pattern-Recognition-and-Machine-Learning-in-Julia">PRML in Julia</a></h3><span class="when">2023 – 2024</span><p class="sub">A machine-learning library and a pandas-style dataframe written from scratch in C++; Bishop's <em>Pattern Recognition and Machine Learning</em> worked through in Julia.</p></div>
+      <div class="entry"><h3>3D modelling and product visualisation</h3><span class="when">2021 – 2024</span><p class="sub">Blender and Three.js: the Gyronics wearable concept renders, architectural and character studies; generative art in Processing since 2021.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div>
+      <dl class="skills-grid">
+        <dt>Languages</dt><dd>Python (primary), C++, Java / Processing, TypeScript, Julia</dd>
+        <dt>ML</dt><dd>PyTorch, Hugging Face, CNNs, Transformers, GRUs, cross-attention, VQ-VAE, REINFORCE, ONNX Runtime, YOLO, Kaggle GPU workflows</dd>
+        <dt>LLM research</dt><dd>Behavioural evaluation, LLM-as-judge pipelines, multi-agent simulation, alignment experiments, prompt and system design, moral-language probing</dd>
+        <dt>Interpretability</dt><dd>Hidden-state probing, embedding visualisation, token-importance analysis, latent compression</dd>
+        <dt>Neuroscience</dt><dd>fMRI analysis (BOLD5000 / WAVE), nilearn, DiFuMo parcellation, Yeo-7 network mapping</dd>
+        <dt>Generative &amp; visual</dt><dd>Diffusion models (SD-Turbo), CLIP / DINO / NIMA scoring, CMA-ES, Processing, Three.js, Blender, ImGui / ImPlot</dd>
+        <dt>Systems</dt><dd>Embedded (ESP32, Arduino), IMU signal processing (NumPy, SciPy, PyWavelets), ROS, React</dd>
+        <dt>Practice</dt><dd>Self-directed experimental design, pre-registered success criteria, post-mortems, philosophical and narrative writing, visual communication</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Awards &amp; honours</h2>
+    <div>
+      <div class="entry"><h3>Valedictorian and Best Overall Graduate — Nile University of Nigeria</h3><span class="when">2024</span></div>
+      <div class="entry"><h3>Winner, Nile University Startup Competition 4.0 — Gyronics wearable</h3><span class="when">2024</span></div>
+      <div class="entry"><h3>Huawei Certified ICT Associate — Artificial Intelligence</h3><span class="when">2023</span></div>
+      <div class="entry"><h3>Undergraduate scholarship (90%) — Nile University of Nigeria</h3><span class="when">2019</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Volunteering</h2>
+    <div>
+      <div class="entry"><h3>Community support volunteer</h3><span class="when">May 2022 – present</span><p class="sub">Co-lead recurring community support events; coordination and delivery of grassroots initiatives.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="index.html">Back to the site →</a></p>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themeToggle'), stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+  function current() { var t = root.getAttribute('data-theme'); return t || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+  btn.addEventListener('click', function () { var n = current() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n); try { localStorage.setItem('theme', n); } catch (e) {} });
+})();
+</script>
 </body>
 </html>
