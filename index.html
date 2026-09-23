@@ -19,8 +19,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/seal-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/theme.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -123,7 +124,7 @@
   <p class="images-intro">Worlds that don't exist until someone makes them. Mostly Processing, written with Claude as a pair-programmer.</p>
   <div class="gallery">
     <figure class="g-item">
-      <video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" autoplay muted loop playsinline preload="metadata" width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video>
+      <video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" muted loop playsinline preload="none" width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video>
       <figcaption><strong>Water Town</strong> · 2026. A watercolour town and one slow morning on it.</figcaption>
     </figure>
     <figure class="g-item">
@@ -171,41 +172,39 @@
 
 <script>
 (function () {
-  var root = document.documentElement;
-  var btn = document.getElementById('themeToggle');
-  var stored = null;
-  try { stored = localStorage.getItem('theme'); } catch (e) {}
-  if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
 
-  function current() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  btn.addEventListener('click', function () {
-    var next = current() === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
-  // Respect reduced motion: leave the water town still.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+  // Water Town: load and play only while it is on screen, and never for reduced motion.
+  var video = document.querySelector('.gallery video');
+  if (video && !reduceMotion) {
+    if (hasIO) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+          else video.pause();
+        });
+      }, { threshold: 0.25 }).observe(video);
+    } else {
+      video.play();
+    }
   }
 
-  // Mark the section in view in the top nav.
+  // Mark the section in view in the top nav; clear it when back at the top.
   var links = Array.prototype.slice.call(document.querySelectorAll('.topnav a[href^="#"]'));
-  if ('IntersectionObserver' in window && links.length) {
+  if (hasIO && links.length) {
     var byId = {};
     links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var clear = function () { links.forEach(function (l) { l.removeAttribute('aria-current'); }); };
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        clear();
         var a = byId[en.target.id];
-        if (!a) return;
-        if (en.isIntersecting) { links.forEach(function (l) { l.removeAttribute('aria-current'); }); a.setAttribute('aria-current', 'true'); }
+        if (a) a.setAttribute('aria-current', 'location');
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
-    Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+    ['top'].concat(Object.keys(byId)).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   }
 })();
 </script>

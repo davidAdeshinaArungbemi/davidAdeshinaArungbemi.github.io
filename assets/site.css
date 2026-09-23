@@ -130,7 +130,7 @@ h1, h2, h3 { font-family: "Bodoni Moda", "Bodoni 72", "Didot", "Playfair Display
 .topnav { display: flex; gap: 1.1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
 .topnav::-webkit-scrollbar { display: none; }
 .topnav a { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-2); text-decoration: none; white-space: nowrap; padding-block: .2rem; border-bottom: 1px solid transparent; }
-.topnav a:hover, .topnav a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--seal); }
+.topnav a:hover, .topnav a[aria-current] { color: var(--ink); border-bottom-color: var(--seal); }
 .theme { flex: none; width: 26px; height: 26px; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 .theme-dot { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--ink); background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); transition: transform .3s ease; }
 .theme:hover .theme-dot { transform: rotate(180deg); }
