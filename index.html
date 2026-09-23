@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Adeshina Arungbemi</title>
-<meta name="description" content="David Adeshina Arungbemi — engineer by training. Small experiments to test big questions about minds, human, animal and artificial. Writes and experiments as Suzume.">
+<meta name="description" content="David Adeshina Arungbemi follows what moves him, then tests whether it's true: stories, images and small experiments with AI. Also writes as Suzume.">
 <link rel="canonical" href="https://davidadeshinaarungbemi.github.io/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="David Adeshina Arungbemi">
-<meta property="og:description" content="I build small experiments to test big questions about minds — human, animal and artificial. Also writes as Suzume.">
+<meta property="og:description" content="I follow what moves me, then test whether it's true. Stories, images and small experiments with AI.">
 <meta property="og:image" content="https://davidadeshinaarungbemi.github.io/assets/img/prefer-cover.jpg">
 <meta property="og:url" content="https://davidadeshinaarungbemi.github.io/">
 <meta name="twitter:card" content="summary_large_image">
@@ -28,12 +28,9 @@
 <header class="topbar">
   <a class="wordmark" href="#top">David Adeshina Arungbemi</a>
   <nav class="topnav" aria-label="Sections">
-    <a href="#questions">Questions</a>
     <a href="#work">Work</a>
     <a href="#suzume">Suzume</a>
     <a href="#images">Images</a>
-    <a href="#recognition">Recognition</a>
-    <a href="#background">Background</a>
     <a href="cv.html">CV</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -48,13 +45,12 @@
 <section class="hero" id="top">
   <div class="hero-text">
     <p class="kicker">David Adeshina Arungbemi <span class="sep">·</span> also writes as <a class="seal-inline" href="#suzume"><img src="assets/img/seal.png" alt="" width="14" height="14"> Suzume</a></p>
-    <h1>I build small experiments to test big questions about minds.</h1>
-    <p class="deck">Human, animal and artificial — what they value, what they find beautiful, and whether they can ever understand each other.</p>
-    <p class="lede">I'm an engineer by training. I tend to see or feel an idea before I can argue it, so I work in whichever form shows it most clearly — an essay, an image, a small experiment. The engineering is for turning philosophical claims into experiments that can fail. Lately that has meant asking whether a story can change what a language model values, whether a model's stated values survive pressure, and who deserves moral consideration when we can't verify who is conscious.</p>
+    <h1>I follow what moves me, then test whether it's true.</h1>
+    <p class="deck">Stories and images let us live other lives and come back changed. I build small experiments to ask whether a machine can too.</p>
 
     <dl class="now">
-      <div><dt>Now</dt><dd>Research Fellow, <strong>MARS 5.0</strong> — Cambridge AI Safety Hub, mentored by Elizaveta Tennant (Google DeepMind / UCL) on narrative approaches to value alignment.</dd></div>
-      <div><dt>And</dt><dd>Co-founder &amp; Lead AI at <a href="https://gyronics.com">Gyronics</a> — wearable gesture recognition for accessibility.</dd></div>
+      <div><dt>Now</dt><dd>Research fellow at <strong>MARS 5.0</strong>, Cambridge AI Safety Hub · co-founder of <a href="https://gyronics.com">Gyronics</a></dd></div>
+      <div><dt>Before</dt><dd>Futurekind Fellowship · selected for DISI 2026 · co-author of a <a href="https://doi.org/10.1109/ACCESS.2025.3602871">gesture-recognition paper</a> in IEEE Access</dd></div>
       <div><dt>Looking for</dt><dd>Graduate study, fellowships or research internships. I'm not fixed on a field — if you like what I do, <a href="#contact">get in touch →</a></dd></div>
     </dl>
   </div>
@@ -65,139 +61,48 @@
   </figure>
 </section>
 
-<!-- ============================== WHAT I AM ============================== -->
-<section class="what" id="what">
-  <p class="eyebrow">What I am, as best I can tell</p>
-  <p class="what-intro">Depending on who is asking — an AI-safety programme, a philosophy department, an art lab — a different true answer comes out. This is the version with nothing left out.</p>
-  <ul class="what-list">
-    <li>
-      <h2>An engineer who wandered into philosophy of mind and didn't come back.</h2>
-      <p>At university I built things from scratch to find out what they really were — a machine-learning library in C++, a pandas clone, a neural network whose weights are single bits, trained by evolution. My thesis became an <a href="https://doi.org/10.1109/ACCESS.2025.3602871">IEEE paper</a> on reading gestures from a wrist. Then I started asking what the machines were reading, and whether they had anything like a point of view.</p>
-    </li>
-    <li>
-      <h2>A researcher who publishes the failures.</h2>
-      <p>My aesthetic model of the brain <a href="https://suzume1.medium.com/i-tried-to-build-an-aesthetic-model-of-the-human-brain-i-failed-heres-what-i-learned-13c75644258a">didn't work, and I wrote up why</a>. My first multi-agent experiment <a href="https://suzume1.medium.com/i-ran-the-experiment-here-is-what-i-found-d3052906ac86">returned a null result, and I said so</a> instead of rescuing it. I would rather be wrong in public than vaguely right.</p>
-    </li>
-    <li class="has-seal">
-      <h2>A writer and image-maker called Suzume.</h2>
-      <p>The essays, the interactive portraits and the Processing sketches go out under a pen name. Same person; fewer credentials, more questions. <a href="#suzume">Read about it below.</a></p>
-    </li>
-  </ul>
-  <p class="what-outro">Beyond those three, I'd rather let the work speak.</p>
-</section>
-
-<!-- ============================== QUESTIONS ============================== -->
-<section class="questions" id="questions">
-  <p class="eyebrow">Five questions I keep returning to</p>
-
-  <article class="q">
-    <h2>Can a story change what a model values?</h2>
-    <p>I adapted Green and Brock's narrative-transportation paradigm for language models: twelve animals, five instruction-tuned models, 2,560 trials. Stories reduced expressed speciesism on questions about the animal they described; matched factual versions generally did not. Averaged into one summary score, the effect nearly disappeared — a reminder of how a single number can hide a real, targeted change. At MARS I'm extending this: moral stories across cultures, story generation, and narrative structure as a training signal.</p>
-    <p class="mono note">narratives 0.093 → 0.016 &nbsp;·&nbsp; Wilcoxon p = .005 &nbsp;·&nbsp; matched facts: no change</p>
-    <p class="links"><a href="https://doi.org/10.5281/zenodo.21294610">Preprint on Zenodo</a><a href="https://suzume1.medium.com/the-narrative-hypothesis-f87be35619cf">The Narrative Hypothesis</a><a href="https://suzume1.medium.com/the-narrative-hypothesis-complexity-37bd4417575f">Part II: Complexity</a></p>
-  </article>
-
-  <article class="q">
-    <h2>Are a model's values real, or performed?</h2>
-    <p>Four agents were given a philosophy each — Kantian, Utilitarian, Stoic, Survivalist — then 640 turns of resource pressure. They abandoned their stated values. So what would a stable value even look like from the outside? My current answer is preferences: benign ones — ice cream, badminton, pineapple on pizza — as a fingerprint of a model's character, and a tripwire for when it quietly changes. Earlier, I profiled a 0.5-billion-parameter model across 32 behavioural dimensions and turned the scores into a character you can meet.</p>
-    <p class="mono note">vanilla 75% → 95% &nbsp;·&nbsp; same prompt, same temperature &nbsp;·&nbsp; 2,400 inference calls · 800 frozen prompts</p>
-    <p class="links"><a href="https://suzume1.medium.com/i-gave-four-ai-agents-a-philosophy-and-put-them-under-pressure-8d6aa7f96dea">Four agents under pressure</a><a href="https://suzume1.medium.com/you-are-what-you-prefer-2284ebdf1a00">You Are What You Prefer</a><a href="https://suzume1.medium.com/inside-qwen-0-5b-a-behavioral-profile-across-32-dimensions-1ead43a6ea3c">Inside Qwen 0.5B</a><a href="https://wen-profile-dive.lovable.app/">Wen's Mindscape (app)</a></p>
-  </article>
-
-  <article class="q">
-    <h2>What does an image do to a mind?</h2>
-    <p>I tried to build a personalised model of the aesthetic brain from the BOLD5000 fMRI data. The visual and default-mode networks predicted above baseline; the limbic signal — the part that is actually about beauty — never recovered. The follow-up asks a stranger question: can different images produce the same perceptual whole? Optimising for structure (DINO), meaning (CLIP) and aesthetics (NIMA) at once, independent runs from random starts converge on near-identical images. Perception, it seems, compresses. The newest piece flips the roles: a language model directing photo edits, with a human-preference judge that can overrule the score.</p>
-    <p class="mono note">DINO cosine ≈ 0.99 across 15 runs &nbsp;·&nbsp; NIMA JSD 0.002–0.009 &nbsp;·&nbsp; SD-Turbo · CLIP · DINO · NIMA</p>
-    <p class="links"><a href="https://suzume1.medium.com/i-tried-to-build-an-aesthetic-model-of-the-human-brain-i-failed-heres-what-i-learned-13c75644258a">I tried. I failed.</a><a href="https://suzume1.medium.com/gestalt-the-whole-is-not-the-sum-of-its-parts-a4e5f1c61ef1">Gestalt</a><a href="https://github.com/suzume-hue/AestheticsOptimizer">AestheticsOptimizer ↗</a><a href="https://github.com/suzume-hue/Gestalt">Gestalt code ↗</a><a href="https://github.com/suzume-hue/llm-art-director">LLM art director ↗</a></p>
-  </article>
-
-  <article class="q">
-    <h2>Who deserves moral consideration — and how would we know?</h2>
-    <p>I started on this during the Futurekind Fellowship. If human-to-human understanding already breaks down — the interpreter who just says "it was a joke" and laughs — then understanding across species, or across substrates, may be permanently out of reach. Maybe that's all right: we have always made moral decisions under uncertainty and only pretended to firmer ground. The code version of the question is <em>DiverseIntelligence</em>, a multi-agent engine in which minds that think differently must pass through a translation layer before they can answer each other.</p>
-    <p class="mono note">Futurekind Fellowship, research track &nbsp;·&nbsp; DISI 2026 &nbsp;·&nbsp; MATS finalist, AI-welfare stream</p>
-    <p class="links"><a href="https://suzume1.medium.com/who-deserves-moral-consideration-im-not-sure-anymore-ab2980ac549f">Who Deserves Moral Consideration?</a><a href="https://github.com/suzume-hue/DiverseIntelligence">DiverseIntelligence ↗</a></p>
-  </article>
-
-  <article class="q">
-    <h2>How does a machine read intention from a body? <span class="where">— where it started</span></h2>
-    <p>An undergraduate thesis, then a startup, then a paper: a wearable that reads directional and shape-based arm gestures from a six-axis inertial sensor, continuously and in real time — CNN–Transformer classification at 92% accuracy and 20 ms latency, with anomaly detection to tell a gesture from an incidental movement. At the National Centre for AI &amp; Robotics I built the vision side: live scene graphs of the people and objects in a video stream, and a robot arm that tracks by visual feedback alone, no inverse kinematics.</p>
-    <p class="mono note">92% · 20 ms · ESP32 · 6-DOF IMU &nbsp;·&nbsp; YOLOE + MiDaS visual servoing</p>
-    <p class="links"><a href="https://doi.org/10.1109/ACCESS.2025.3602871">IEEE Access, 2025</a><a href="https://gyronics.com">Gyronics</a><a href="https://github.com/davidAdeshinaArungbemi/SceneGraph">SceneGraph ↗</a></p>
-  </article>
-</section>
-
 <!-- ============================== WORK ============================== -->
 <section class="work" id="work">
-  <p class="eyebrow">Selected work</p>
-
-  <h2 class="group">Papers &amp; preprints</h2>
-  <ol class="ledger">
-    <li>
-      <span class="year">2026</span>
-      <span class="type">Preprint</span>
-      <span class="body"><a href="https://doi.org/10.5281/zenodo.21294610">Narrative Transportation and Speciesism in Large Language Models</a><span class="desc">Sole author. Zenodo, CC BY 4.0 — full stimulus set, experiment runner and analysis pipeline released, with three independent replications.</span></span>
-    </li>
-    <li>
-      <span class="year">2025</span>
-      <span class="type">Paper</span>
-      <span class="body"><a href="https://doi.org/10.1109/ACCESS.2025.3602871">An End to End Wearable Device and System for Indefinite, Continuous, Real Time Gesture Recognition of Directional and Shape-Based Arm Gestures</a><span class="desc">IEEE Access (Q1). Co-author; designed the AI pipeline from IMU preprocessing to classification.</span></span>
-    </li>
-    <li>
-      <span class="year">2024</span>
-      <span class="type">Talk</span>
-      <span class="body">Gyronics: Wearable Assistive Technology for Accessibility<span class="desc">International Health and Technology Summit, Nile University of Nigeria.</span></span>
-    </li>
-  </ol>
-
-  <h2 class="group">Code, apps &amp; notebooks</h2>
-  <ol class="ledger">
-    <li>
-      <span class="year">2026</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/suzume-hue/llm-art-director">llm-art-director</a><span class="desc">An LLM that refines a photo by reasoning over a panel of aesthetic scorers and a darkroom of edit tools, edit after edit, with a human-preference judge that can overrule the score.</span></span>
-    </li>
-    <li>
-      <span class="year">2026</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/suzume-hue/DiverseIntelligence">DiverseIntelligence</a> <span class="tag">in progress</span><span class="desc">What happens when minds that think completely differently are forced to understand each other? A multi-agent engine with a MetaComm translation layer.</span></span>
-    </li>
-    <li>
-      <span class="year">2026</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/suzume-hue/Gestalt">Gestalt</a> &nbsp;·&nbsp; <a href="https://github.com/suzume-hue/AestheticsOptimizer">AestheticsOptimizer</a><span class="desc">The two neuroaesthetics experiments above, as notebooks: joint optimisation over SD-Turbo with DINO, CLIP and NIMA; personalised fMRI prediction from an image history.</span></span>
-    </li>
-    <li>
-      <span class="year">2026</span>
-      <span class="type">App</span>
-      <span class="body"><a href="https://wen-profile-dive.lovable.app/">Wen's Mindscape</a> &nbsp;·&nbsp; <a href="https://github.com/suzume-hue/wen-s-mindscape">source ↗</a><span class="desc">An interactive portrait of Qwen 2.5 0.5B: the model personified as Wen (紙神), a constellation with one star per behavioural dimension — distance is score, flicker is volatility. React, TypeScript, Three.js.</span></span>
-    </li>
-    <li>
-      <span class="year">2025</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/davidAdeshinaArungbemi/BitRNN">BitRNN</a><span class="desc">A GRU whose weights are single bits, trained by evolution — genetic algorithms and simulated annealing on toy sequence tasks. C++.</span></span>
-    </li>
-    <li>
-      <span class="year">2025</span>
-      <span class="type">Notebook</span>
-      <span class="body"><a href="Notebooks/story-gru-lm.pdf">Story GRU language model &amp; interpretability</a> &nbsp;·&nbsp; <a href="https://github.com/davidAdeshinaArungbemi/Story-GRU-LM-and-Interpretability">code ↗</a><span class="desc">Hidden-state probing, embedding visualisation and token-importance analysis on a small story model — watching meaning form inside an architecture over time.</span></span>
-    </li>
-    <li>
-      <span class="year">2025</span>
-      <span class="type">Notebook</span>
-      <span class="body"><a href="Notebooks/vq-vae-codeword-visualisation-and-sequencing.pdf">VQ-VAE codeword visualisation &amp; sequencing</a> &nbsp;·&nbsp; <a href="Notebooks/deterministic-inpainting.pdf">Deterministic inpainting on WikiArt</a><span class="desc">How discrete latents organise images; reconstructing missing regions of paintings.</span></span>
-    </li>
-    <li>
-      <span class="year">2025</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/davidAdeshinaArungbemi/Tarot-VAE">Tarot-VAE</a> &nbsp;·&nbsp; <a href="https://github.com/davidAdeshinaArungbemi/SceneGraph">SceneGraph</a> &nbsp;·&nbsp; <a href="https://github.com/davidAdeshinaArungbemi/Narrative-Technical-Embedding-Space">Narrative-Technical Embedding Space</a><span class="desc">A patch-based VAE for tarot cards; a live graph of people and objects from video; storytelling and technical documentation in one embedding space.</span></span>
-    </li>
-    <li>
-      <span class="year">2023</span>
-      <span class="type">Code</span>
-      <span class="body"><a href="https://github.com/davidAdeshinaArungbemi/SMLF-Library">SMLF</a> &nbsp;·&nbsp; <a href="https://github.com/davidAdeshinaArungbemi/OurDataframe">OurDataframe</a> &nbsp;·&nbsp; <a href="https://github.com/davidAdeshinaArungbemi/Pattern-Recognition-and-Machine-Learning-in-Julia">Bishop's PRML in Julia</a><span class="desc">A machine-learning library and a dataframe written from scratch in C++ "to understand what ML actually is", and Bishop worked through by hand.</span></span>
-    </li>
-  </ol>
-  <p class="more">Everything else — sensor visualisers, a Rust calculator that is "a bit broken :)", a survey on neuromorphic computing — is on <a href="https://github.com/davidAdeshinaArungbemi?tab=repositories">GitHub</a>.</p>
+  <h2 class="eyebrow">Selected work</h2>
+  <ul class="works">
+    <li class="w"><a href="https://doi.org/10.5281/zenodo.21294610">
+      <div class="w-thumb"><img src="assets/img/work-stories.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">Preprint · 2026</p>
+      <h3 class="w-title">Can a story change what an AI values?</h3>
+      <p class="w-line">After a story about an animal, language models expressed less prejudice toward it. The plain facts mostly didn't.</p>
+    </a></li>
+    <li class="w"><a href="https://suzume1.medium.com/you-are-what-you-prefer-2284ebdf1a00">
+      <div class="w-thumb"><img src="assets/img/work-preferences.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">Essay &amp; experiment · 2026</p>
+      <h3 class="w-title">Can small preferences reveal a model's values?</h3>
+      <p class="w-line">Vanilla or caramel, as a fingerprint of a model's character — and an alarm for when it has quietly changed.</p>
+    </a></li>
+    <li class="w"><a href="https://suzume1.medium.com/i-gave-four-ai-agents-a-philosophy-and-put-them-under-pressure-8d6aa7f96dea">
+      <div class="w-thumb"><img src="assets/img/work-agents.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">Experiment · 2026</p>
+      <h3 class="w-title">Do an AI's values hold under pressure?</h3>
+      <p class="w-line">Four agents, four philosophies, 640 turns of scarcity. Their words held; their choices loosened.</p>
+    </a></li>
+    <li class="w"><a href="https://wen-profile-dive.lovable.app/">
+      <div class="w-thumb"><img src="assets/img/work-wen.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">App · 2026</p>
+      <h3 class="w-title">Can an evaluation become a portrait?</h3>
+      <p class="w-line">A small language model's behaviour, profiled in depth and given a face: Wen, a character you can meet.</p>
+    </a></li>
+    <li class="w"><a href="https://suzume1.medium.com/gestalt-the-whole-is-not-the-sum-of-its-parts-a4e5f1c61ef1">
+      <div class="w-thumb"><img src="assets/img/work-gestalt.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">Experiment · 2026</p>
+      <h3 class="w-title">Can different images make the same whole?</h3>
+      <p class="w-line">It began with a model of the aesthetic brain that failed. Here, very different starting images converge on almost the same picture.</p>
+    </a></li>
+    <li class="w"><a href="https://suzume1.medium.com/who-deserves-moral-consideration-im-not-sure-anymore-ab2980ac549f">
+      <div class="w-thumb"><img src="assets/img/work-moral.jpg" alt="" width="800" height="600" loading="lazy"></div>
+      <p class="w-kind">Essay · 2026</p>
+      <h3 class="w-title">Who deserves moral consideration?</h3>
+      <p class="w-line">If we can never see inside another mind, the question becomes what kind of people we want to be in our uncertainty.</p>
+    </a></li>
+  </ul>
+  <p class="more">All essays on <a href="https://suzume1.medium.com/">Medium</a> · code on GitHub as <a href="https://github.com/davidAdeshinaArungbemi">David</a> and <a href="https://github.com/suzume-hue">Suzume</a> · <a href="cv.html">full CV</a></p>
 </section>
 
 <!-- ============================== SUZUME ============================== -->
@@ -205,153 +110,49 @@
   <div class="suzume-head">
     <img class="seal-large" src="assets/img/seal.png" alt="A red square seal bearing the character 雀" width="96" height="94">
     <div>
-      <p class="eyebrow">Also known as Suzume</p>
-      <p class="suzume-lede">Suzume (雀) is Japanese for sparrow, and it's the name I write and experiment under. It isn't a secret identity — it's where the work goes before it has a citation. If you've read Suzume on Medium or found <span class="mono">suzume-hue</span> on GitHub, that's me. Everything there is mine, and I stand behind it under either name.</p>
+      <h2 class="eyebrow">Also known as Suzume</h2>
+      <p class="suzume-lede">Suzume (雀, sparrow) is the name I write and experiment under — most of the work above first appeared that way. If you've read Suzume on Medium or found <span class="mono">suzume-hue</span> on GitHub, that's me.</p>
       <p class="links"><a href="https://suzume1.medium.com/">Suzume on Medium ↗</a><a href="https://github.com/suzume-hue">suzume-hue on GitHub ↗</a></p>
     </div>
   </div>
-
-  <h2 class="group">Essays</h2>
-  <ol class="essays">
-    <li><span class="date">Sep 2026</span><a href="https://suzume1.medium.com/you-are-what-you-prefer-2284ebdf1a00">You Are What You Prefer</a><span class="tags">alignment · preferences · model auditing</span></li>
-    <li><span class="date">Aug 2026</span><a href="https://suzume1.medium.com/in-brightest-day-in-blackest-night-no-evil-shall-escape-my-sight-47d54154abcb">In Brightest Day, In Blackest Night, No Evil Shall Escape My Sight.</a><span class="tags">culture · psychology · where evil hides now</span></li>
-    <li><span class="date">May 2026</span><a href="https://suzume1.medium.com/who-deserves-moral-consideration-im-not-sure-anymore-ab2980ac549f">Who Deserves Moral Consideration? I'm Not Sure Anymore.</a><span class="tags">moral status · sentience · Futurekind</span></li>
-    <li><span class="date">Apr 2026</span><a href="https://suzume1.medium.com/gestalt-the-whole-is-not-the-sum-of-its-parts-a4e5f1c61ef1">Gestalt: The Whole is not the Sum of Its Parts</a><span class="tags">neuroaesthetics · experiment</span></li>
-    <li><span class="date">Apr 2026</span><a href="https://suzume1.medium.com/i-tried-to-build-an-aesthetic-model-of-the-human-brain-i-failed-heres-what-i-learned-13c75644258a">I Tried to Build an Aesthetic Model of the Human Brain. I Failed. Here's What I Learned.</a><span class="tags">fMRI · BOLD5000 · post-mortem</span></li>
-    <li><span class="date">Apr 2026</span><a href="https://suzume1.medium.com/the-narrative-hypothesis-complexity-37bd4417575f">The Narrative Hypothesis: Complexity</a><span class="tags">systems · narrative as a graph of levels</span></li>
-    <li><span class="date">Apr 2026</span><a href="https://suzume1.medium.com/i-ran-the-experiment-here-is-what-i-found-d3052906ac86">I Ran the Experiment. Here Is What I Found.</a><span class="tags">multi-agent · null result</span></li>
-    <li><span class="date">Apr 2026</span><a href="https://suzume1.medium.com/the-narrative-hypothesis-f87be35619cf">The Narrative Hypothesis</a><span class="tags">epistemology · narrative as a domain</span></li>
-    <li><span class="date">Mar 2026</span><a href="https://suzume1.medium.com/inside-qwen-0-5b-a-behavioral-profile-across-32-dimensions-1ead43a6ea3c">Inside Qwen 0.5B: A Behavioral Profile Across 32 Dimensions</a><span class="tags">evaluation as close reading</span></li>
-    <li><span class="date">Mar 2026</span><a href="https://suzume1.medium.com/i-gave-four-ai-agents-a-philosophy-and-put-them-under-pressure-8d6aa7f96dea">I Gave Four AI Agents a Philosophy and Put Them Under Pressure.</a><span class="tags">alignment · 640 turns</span></li>
-    <li class="earlier"><span class="date">Feb–Mar 2026</span><a href="https://suzume1.medium.com/">Earlier: <em>Sculpting Latent Space: What If AI Could Think in Clay?</em> · <em>The Gap Between Sound and Meaning, and Why AIs Don't Have It</em> · <em>The Question Was Mine. Everything After That Got Away From Me.</em></a><span class="tags">on the Medium profile</span></li>
-  </ol>
 </section>
 
 <!-- ============================== IMAGES ============================== -->
 <section class="images" id="images">
-  <p class="eyebrow">I make images to think</p>
-  <p class="images-intro">Some ideas arrive as pictures before they arrive as arguments. Most of these are Processing sketches, written in Java in 2026 with Claude as a pair-programmer. The clay house is Blender, 2022. The spiral is from December 2021, my second year at university, when the habit started.</p>
-
+  <h2 class="eyebrow">Images</h2>
+  <p class="images-intro">Worlds that don't exist until someone makes them. Mostly Processing, written with Claude as a pair-programmer.</p>
   <div class="gallery">
-    <figure class="g-item g-tall">
+    <figure class="g-item">
       <video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" autoplay muted loop playsinline preload="metadata" width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video>
-      <figcaption><strong>Water Town, Spring 2026.</strong> A watercolour town from above and one slow morning on it. Every wash is multiplied onto the paper grain like real pigment, and the water was carved along the boat's route, so it can never run aground. Signed 雀.</figcaption>
+      <figcaption><strong>Water Town</strong> · 2026. A watercolour town and one slow morning on it.</figcaption>
     </figure>
-
-    <figure class="g-item g-wide">
-      <div class="strip">
-        <img src="assets/img/tomography-values.jpg" alt="A chord diagram on black: 144 unlabelled arcs around a ring, 820 white chords tangled between them." width="1100" height="687" loading="lazy">
-        <img src="assets/img/tomography-edge.jpg" alt="The same chord diagram lifted into 3D and turned edge-on, its chords separating into coloured strata." width="1100" height="687" loading="lazy">
-        <img src="assets/img/tomography-approximation.jpg" alt="The ring seen from above again, now rebuilt in colour from twelve questions: 91% of relations recovered." width="1100" height="687" loading="lazy">
-      </div>
-      <figcaption><strong>Value Tomography.</strong> A value system as 144 things and 820 relations — from above, a tangle. Lift it, turn it edge-on, and the shadow of one simple question is a bar chart. Ask twelve questions and their shadows rebuild the whole, the way a CT scan reconstructs a body from slices. Companion to <em>You Are What You Prefer</em>.</figcaption>
-    </figure>
-
-    <figure class="g-item">
-      <img src="assets/img/valuechords.jpg" alt="A chord diagram titled 'You are what you read': stories on the left, values on top, preferences on the right, joined by coloured ribbons." width="1200" height="900" loading="lazy">
-      <figcaption><strong>Value Chords.</strong> Stories prime values; values predict preferences. All at once it is a tangle; in the sketch, hovering one node lights only its path.</figcaption>
-    </figure>
-
-    <figure class="g-item">
-      <img src="assets/img/prefer-cover.jpg" alt="Cover image: a head in profile made of tiny ink icons of small preferences, beside the title 'You Are What You Prefer'." width="1400" height="787" loading="lazy">
-      <figcaption><strong>Cover for <em>You Are What You Prefer</em>.</strong> A person who exists only as a field of small, benign preferences; in one patch at the back of the head they have quietly shifted colour.</figcaption>
-    </figure>
-
-    <figure class="g-item g-tall">
-      <img src="assets/img/art-of-intelligence.jpg" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads 'The Art of Intelligence — David Adeshina'." width="800" height="1131" loading="lazy">
-      <figcaption><strong>The Art of Intelligence.</strong> Nine thousand particles combed through a curl-noise field into strands; the hex cascade is the actual bytes of the headline. Tickets not required.</figcaption>
-    </figure>
-
-    <figure class="g-item">
-      <img src="assets/img/calligraphy.jpg" alt="Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀." width="900" height="675" loading="lazy">
-      <figcaption><strong>苏州 · 二〇二六 春.</strong> Brush strokes drawn procedurally — bristle gaps, pooled ink at the ends — and the seal that became this site's mark.</figcaption>
-    </figure>
-
-    <figure class="g-item">
-      <img src="assets/img/colorbird.jpg" alt="A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky." width="700" height="700" loading="lazy">
-      <figcaption><strong>Colour Bird.</strong> Feathers fanned like a spectrum; it sways and blinks.</figcaption>
-    </figure>
-
     <figure class="g-item">
       <img src="assets/img/blender-building.jpg" alt="A clay-shaded 3D render of a tall, stacked ramshackle house with a ladder, awnings, a water tank, laundry on a line and a small fenced yard." width="1200" height="675" loading="lazy">
-      <figcaption><strong>Stacked house, clay render.</strong> Blender, 2022. Modelled from a Pinterest reference, one plank at a time.</figcaption>
+      <figcaption><strong>Stacked house</strong> · Blender, 2022.</figcaption>
     </figure>
-
+    <figure class="g-item">
+      <img src="assets/img/art-of-intelligence.jpg" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads 'The Art of Intelligence — David Adeshina'." width="800" height="1131" loading="lazy">
+      <figcaption><strong>The Art of Intelligence</strong> · 2026. Nine thousand particles, combed into strands.</figcaption>
+    </figure>
     <figure class="g-item">
       <img src="assets/img/vortex-2021.jpg" alt="A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre." width="1200" height="679" loading="lazy">
-      <figcaption><strong>Untitled, December 2021.</strong> Where the habit started.</figcaption>
+      <figcaption><strong>Untitled</strong> · December 2021. Where it started.</figcaption>
     </figure>
-  </div>
-
-  <p class="more">Also: <a href="docs/SculptingLatent.pdf">Sculpting Latent Space</a>, a visual essay imagining a network's internal geometry as clay you could push on.</p>
-</section>
-
-<!-- ============================== RECOGNITION ============================== -->
-<section class="recognition" id="recognition">
-  <p class="eyebrow">Fellowships &amp; recognition</p>
-  <dl class="timeline">
-    <div>
-      <dt>2026</dt>
-      <dd>
-        <p><strong>Research Fellow, MARS 5.0</strong> — Cambridge AI Safety Hub (CAISH), Oxford. Mentored by Elizaveta Tennant (Google DeepMind / UCL). July 2026 – present.</p>
-        <p><strong>Research Fellow, Futurekind Fellowship</strong> — Electric Sheep, research track, at the intersection of AI and animal welfare. April – July 2026.</p>
-        <p><strong>Selected, Diverse Intelligences Summer Institute</strong> (DISI) — consciousness, cognition and intelligence across biological and artificial systems. Geneva, New York.</p>
-        <p><strong>Finalist, MATS</strong> — reached the mentor-matching stage; AI welfare and moral patienthood stream (Patrick Butlin / Eleos AI).</p>
-      </dd>
-    </div>
-    <div>
-      <dt>2025</dt>
-      <dd>
-        <p><strong>IEEE Access</strong> — first peer-reviewed publication.</p>
-        <p><strong>Gyronics selected</strong> for VivaTech (Paris), GITEX Africa (Marrakech), the Antler Nigeria cohort, and the Nigeria Diaspora Investment Summit at the Presidential Villa, Abuja.</p>
-      </dd>
-    </div>
-    <div>
-      <dt>2024</dt>
-      <dd>
-        <p><strong>Valedictorian &amp; Best Overall Graduate</strong>, Nile University of Nigeria — 5.0 / 5.0 CGPA, First Class Honours.</p>
-        <p><strong>Winner, Nile University Startup Competition 4.0</strong> — the Gyronics wearable.</p>
-      </dd>
-    </div>
-    <div>
-      <dt>2023</dt>
-      <dd><p><strong>Huawei Certified ICT Associate</strong> — Artificial Intelligence.</p></dd>
-    </div>
-    <div>
-      <dt>2019</dt>
-      <dd><p><strong>Undergraduate scholarship (90%)</strong>, Nile University of Nigeria.</p></dd>
-    </div>
-  </dl>
-</section>
-
-<!-- ============================== BACKGROUND ============================== -->
-<section class="background" id="background">
-  <p class="eyebrow">Background</p>
-  <div class="bg-grid">
-    <div>
-      <h2 class="group">Experience</h2>
-      <dl class="roles">
-        <div><dt>Co-founder &amp; Lead AI<br><span class="org">Gyronics Technologies, Abuja</span></dt><dd><span class="mono">Nov 2024 – present</span>Assistive wearable. Full ownership of the gesture pipeline — signal processing, motion segmentation, attention-based classification — through real-time inference on an ESP32 in C++, plus the language-model layer that turns gesture sequences into natural-language descriptions.</dd></div>
-        <div><dt>Research Intern<br><span class="org">National Centre for Artificial Intelligence &amp; Robotics (NITDA), Abuja</span></dt><dd><span class="mono">Feb 2025 – Jan 2026</span>Live video analytics — detection, tracking, demographic classification — rendered as interactive scene graphs; a visual-servoing controller (YOLOE + MiDaS) that drives a robot arm from image-space error alone.</dd></div>
-        <div><dt>Intern<br><span class="org">Huawei Technologies Nigeria</span></dt><dd><span class="mono">Mar – Sep 2023</span>Network and server operations; HCIA-AI certification.</dd></div>
-      </dl>
-    </div>
-    <div>
-      <h2 class="group">Education</h2>
-      <dl class="roles">
-        <div><dt>B.Eng. Computer Engineering<br><span class="org">Nile University of Nigeria</span></dt><dd><span class="mono">2019 – 2024</span>5.0 / 5.0 CGPA, First Class Honours, Valedictorian. Thesis: an end-to-end IMU gesture-recognition system — 94.9% on the 6DMG gesture set — that became the IEEE Access paper.</dd></div>
-      </dl>
-      <h2 class="group">Tools I reach for</h2>
-      <p class="skills mono">Python · PyTorch · C++ · Processing / Java · TypeScript · React · Three.js · Julia · LLM evaluation &amp; multi-agent simulation · interpretability probes · fMRI (nilearn, DiFuMo) · diffusion + CLIP / DINO / NIMA scoring · ESP32 · Arduino · Blender</p>
-      <p class="more"><a href="cv.html">Full CV →</a></p>
-    </div>
+    <figure class="g-item">
+      <img src="assets/img/calligraphy.jpg" alt="Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀." width="900" height="675" loading="lazy">
+      <figcaption><strong>苏州 · 二〇二六 春</strong> · 2026. Procedural brushwork, and the seal that became this site's mark.</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="assets/img/colorbird.jpg" alt="A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky." width="700" height="700" loading="lazy">
+      <figcaption><strong>Colour Bird</strong> · 2026. Feathers fanned like a spectrum.</figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- ============================== CONTACT ============================== -->
 <section class="contact" id="contact">
-  <p class="eyebrow">Contact</p>
-  <p class="contact-lede">If you're a supervisor, a fellowship or a lab working on any of the questions above — or you simply disagree with one of my essays — I'd like to hear from you.</p>
+  <h2 class="eyebrow">Contact</h2>
+  <p class="contact-lede">If you like what I do — or disagree with any of it — I'd like to hear from you.</p>
   <ul class="contact-list">
     <li><span class="mono">Email</span><a href="mailto:arungbemiADavid@outlook.com">Send me an email →</a></li>
     <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/davidadeshina">linkedin.com/in/davidadeshina</a></li>
