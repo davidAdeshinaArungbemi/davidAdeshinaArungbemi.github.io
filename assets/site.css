@@ -175,8 +175,7 @@ section[id] { scroll-margin-top: 3.5rem; }
 .hero-art figcaption { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .74rem; line-height: 1.5; color: var(--ink-2); margin-top: -.5rem; padding-left: clamp(0px, 4vw, 2.5rem); }
 .hero-art .credit { color: var(--ink-3); }
 
-/* ---------- work ---------- */
-.works { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.75rem 2rem; }
+/* ---------- the selected article ---------- */
 .w { min-width: 0; }
 .w a { display: block; color: inherit; text-decoration: none; }
 .w a:focus-visible { outline-offset: 6px; }
@@ -203,24 +202,6 @@ section[id] { scroll-margin-top: 3.5rem; }
 .suzume-note { display: flex; align-items: center; gap: 1rem; margin: 0 0 2.25rem; max-width: 66ch; scroll-margin-top: 5rem; }
 .suzume-note img { width: 40px; height: auto; flex: none; }
 .suzume-note p { margin: 0; color: var(--ink-2); }
-.articles { list-style: none; margin: 0; padding: 0; }
-.articles li { border-top: 1px solid var(--rule); }
-.articles li:last-child { border-bottom: 1px solid var(--rule); }
-.articles a { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .2rem 1.5rem; align-items: baseline; padding: .9rem 0; color: var(--ink); text-decoration: none; }
-.articles .date { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.articles .title { font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.3; transition: color .15s ease; }
-.articles a:hover .title { color: var(--seal-ink); }
-
-/* ---------- projects ---------- */
-.project-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
-.project { padding: 1.1rem 0 1.2rem; border-top: 1px solid var(--rule); }
-.project-name { font-size: 1.3rem; line-height: 1.2; margin: 0 0 .35rem; }
-.project-name a { color: var(--ink); text-decoration: none; }
-.project-name a:hover { color: var(--seal-ink); }
-.project-name .ext { font-size: .7em; color: var(--ink-3); }
-.project-line { margin: 0 0 .45rem; color: var(--ink-2); font-size: .97rem; line-height: 1.5; max-width: 52ch; }
-.project-meta { margin: 0; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; letter-spacing: .05em; color: var(--ink-3); }
-.project-meta a { color: var(--moss); }
 
 /* ---------- images: Pinterest-style masonry of rounded pins ---------- */
 .images-intro { max-width: 62ch; font-size: 1.1rem; color: var(--ink-2); margin-bottom: 1.8rem; }
@@ -243,6 +224,20 @@ a.zoom { cursor: zoom-in; }
 .pin-tabs button { font: 600 .98rem/1.2 "Source Serif 4", Georgia, serif; color: var(--ink-2); background: none; border: 0; border-bottom: 2px solid transparent; padding: .35rem 0; cursor: pointer; }
 .pin-tabs button:hover { color: var(--ink); }
 .pin-tabs button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* articles and projects: the same masonry, each pin a card with a short line under it */
+.card-link { display: block; color: inherit; text-decoration: none; }
+.card-link:focus-visible { outline-offset: 5px; border-radius: 16px; }
+.card-link .pin-media::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0); transition: background .2s ease; pointer-events: none; }
+.card-link:hover .pin-media::after, .card-link:focus-visible .pin-media::after { background: rgba(0, 0, 0, .22); }
+.card-kind { margin: .75rem .2rem .3rem; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .64rem; line-height: 1.45; text-transform: uppercase; letter-spacing: .12em; color: var(--seal-ink); }
+.card-title { margin: 0 .2rem .35rem; font-size: 1.14rem; line-height: 1.2; color: var(--ink); transition: color .15s ease; }
+.card-link:hover .card-title { color: var(--seal-ink); }
+.card-line { margin: 0 .2rem; font-size: .88rem; line-height: 1.45; color: var(--ink-2); }
+.card-extra { display: flex; flex-wrap: wrap; gap: .2rem 1rem; margin: .5rem .2rem 0; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .7rem; letter-spacing: .04em; }
+.card-extra a:hover { color: var(--seal-ink); }
+.cards + .see-all { margin-top: 2rem; }
+
 .see-all { margin: 1.2rem 0 0; }
 .see-all a { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--seal-ink); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; }
 .see-all a + a { margin-left: 1.6rem; }
@@ -287,10 +282,6 @@ a.zoom { cursor: zoom-in; }
   .hero { grid-template-columns: 1fr; }
   .hero-art { max-width: 520px; margin-top: 1rem; }
   .hero-art figcaption { padding-left: 0; margin-top: 0; }
-  .works { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 760px) {
-  .project-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   body { font-size: 1rem; }
@@ -300,12 +291,13 @@ a.zoom { cursor: zoom-in; }
   .topnav { order: 3; flex-basis: 100%; margin-left: 0; gap: 1rem; padding-right: 2rem;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
             mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); }
-  .works { grid-template-columns: 1fr; gap: 2.25rem; }
   .latest a { grid-template-columns: 1fr; }
   .contact-list li { grid-template-columns: 1fr; gap: .1rem; }
   .now > div { grid-template-columns: 1fr; gap: .15rem; }
-  .articles a { grid-template-columns: 1fr; gap: .15rem; }
   .pin figcaption { font-size: .82rem; }
+  .card-kind { font-size: .6rem; letter-spacing: .08em; margin-top: .6rem; }
+  .card-title { font-size: 1rem; }
+  .card-line { font-size: .82rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .see-all a + a { margin-left: 0; }
   .see-all a { display: inline-block; margin: 0 1.2rem .6rem 0; }
 }

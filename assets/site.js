@@ -16,12 +16,7 @@
       var m = pin.querySelector('img, video'), w = +m.getAttribute('width'), h = +m.getAttribute('height');
       return w && h ? h / w : 1;
     };
-    var layout = function (force) {
-      var n = Math.max(2, Math.floor((grid.clientWidth + gap) / (min + gap)));
-      var shown = pins.filter(function (p) { return !p.hidden; });
-      var key = n + '|' + shown.length;
-      if (!force && key === last) return;
-      last = key;
+    var place = function (shown, n, size) {
       pins.forEach(function (p) { grid.appendChild(p); });
       grid.querySelectorAll('.pin-col').forEach(function (c) { c.remove(); });
       var cols = [], h = [];
@@ -29,11 +24,42 @@
         var c = document.createElement('div'); c.className = 'pin-col';
         grid.appendChild(c); cols.push(c); h.push(0);
       }
-      shown.forEach(function (p) {
-        var k = h.indexOf(Math.min.apply(null, h));
-        cols[k].appendChild(p); h[k] += ratio(p) + 0.25;
-      });
+      // Each pin goes into the shortest column, except the last few: for those, try every way of
+      // dealing them out and keep the one with the most even bottom edge.
+      var shortest = function (t) { return t.indexOf(Math.min.apply(null, t)); };
+      var tail = Math.min(4, shown.length), head = shown.length - tail, where = [];
+      for (var j = 0; j < head; j++) { var k = shortest(h); where.push(k); h[k] += size[j]; }
+      var bottom = function (pick) {
+        var t = h.slice();
+        pick.forEach(function (k, j) { t[k] += size[head + j]; });
+        return Math.max.apply(null, t);
+      };
+      var g = h.slice(), best = [];
+      for (j = head; j < shown.length; j++) { k = shortest(g); best.push(k); g[k] += size[j]; }
+      var lowest = bottom(best);
+      for (var code = 0; code < Math.pow(n, tail); code++) {
+        var pick = [], x = code;
+        for (var t = 0; t < tail; t++) { pick.push(x % n); x = Math.floor(x / n); }
+        var b = bottom(pick);
+        if (b < lowest - 8) { lowest = b; best = pick; }
+      }
+      shown.forEach(function (p, j) { cols[j < head ? where[j] : best[j - head]].appendChild(p); });
       grid.classList.add('is-masonry');
+    };
+    var layout = function (force) {
+      var n = Math.max(2, Math.floor((grid.clientWidth + gap) / (min + gap)));
+      var shown = pins.filter(function (p) { return !p.hidden; });
+      var key = n + '|' + shown.length;
+      if (!force && key === last) return;
+      last = key;
+      // First guess each pin's height from its image's shape. Once the columns exist, measure the
+      // real heights (captions differ in length) and place again. The image's share is computed
+      // rather than measured, so it is right before the image has loaded.
+      place(shown, n, shown.map(function (p) { return ratio(p) + 0.25; }));
+      place(shown, n, shown.map(function (p) {
+        var m = p.querySelector('img, video');
+        return p.offsetHeight - m.offsetHeight + ratio(p) * m.offsetWidth + 22;
+      }));
     };
     grid._layout = layout; grid._pins = pins;
     layout(true);
@@ -42,10 +68,16 @@
   });
 
   // Arriving at images.html#some-piece: scroll to it again now that the columns are built.
-  if (location.hash) {
-    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  var toHash = function () {
+    var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
     if (target) target.scrollIntoView();
-  }
+  };
+  toHash();
+  // Text wraps differently once the web fonts arrive, so measure and place once more.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
+    document.querySelectorAll('.pins.is-masonry').forEach(function (grid) { grid._layout(true); });
+    toHash();
+  });
 
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.pin-tabs button'));
   var filterGrid = document.querySelector('.pins[data-filterable]');
