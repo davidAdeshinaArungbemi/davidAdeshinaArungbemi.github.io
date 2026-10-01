@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/theme.js"></script>
+<script src="assets/site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -128,34 +129,35 @@
 
 <!-- ============================== IMAGES ============================== -->
 <section class="images" id="images">
-  <h2 class="eyebrow">Images</h2>
-  <p class="images-intro">Worlds that don't exist until someone makes them. Mostly Processing, written with Claude as a pair-programmer.</p>
+  <h2 class="eyebrow">Selected images</h2>
+  <p class="images-intro">Worlds that don't exist until someone makes them, in code with Processing and in 3D with Blender.</p>
   <div class="gallery">
     <figure class="g-item">
-      <video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" muted loop playsinline preload="none" width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video>
-      <figcaption><strong>Water Town</strong> · 2026. A watercolour town and one slow morning on it.</figcaption>
+      <video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" style="background: url('assets/video/watertown-poster.jpg') center / cover" data-inview muted loop playsinline preload="none" width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video>
+      <figcaption><strong>Water Town</strong> · Processing</figcaption>
     </figure>
     <figure class="g-item">
-      <img src="assets/img/blender-building.jpg" alt="A clay-shaded 3D render of a tall, stacked ramshackle house with a ladder, awnings, a water tank, laundry on a line and a small fenced yard." width="1200" height="675" loading="lazy">
-      <figcaption><strong>Stacked house</strong> · Blender, 2022.</figcaption>
+      <a href="images.html#ripples-crab"><img src="assets/gallery/ripples-crab-800.jpg" alt="A close-up of teal ripples curling around the faint shape of a crab." width="660" height="660" loading="lazy"></a>
+      <figcaption><strong>Ripples</strong> · Processing</figcaption>
     </figure>
     <figure class="g-item">
-      <img src="assets/img/art-of-intelligence.jpg" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads 'The Art of Intelligence — David Adeshina'." width="800" height="1131" loading="lazy">
-      <figcaption><strong>The Art of Intelligence</strong> · 2026. Nine thousand particles, combed into strands.</figcaption>
+      <a href="images.html#art-of-intelligence"><img src="assets/gallery/art-of-intelligence-800.jpg" srcset="assets/gallery/art-of-intelligence-800.jpg 800w, assets/gallery/art-of-intelligence-1600.jpg 1240w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 352px" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads &#x27;The Art of Intelligence — David Adeshina&#x27;." width="800" height="1132" loading="lazy"></a>
+      <figcaption><strong>The Art of Intelligence</strong> · Processing</figcaption>
     </figure>
     <figure class="g-item">
-      <img src="assets/img/vortex-2021.jpg" alt="A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre." width="1200" height="679" loading="lazy">
-      <figcaption><strong>Untitled</strong> · December 2021. Where it started.</figcaption>
+      <a href="images.html#island-night"><img src="assets/gallery/island-night-800.jpg" srcset="assets/gallery/island-night-800.jpg 800w, assets/gallery/island-night-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 352px" alt="A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Island at night</strong> · Blender</figcaption>
     </figure>
     <figure class="g-item">
-      <img src="assets/img/calligraphy.jpg" alt="Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀." width="900" height="675" loading="lazy">
-      <figcaption><strong>苏州 · 二〇二六 春</strong> · 2026. Procedural brushwork, and the seal that became this site's mark.</figcaption>
+      <a href="images.html#nightbloom"><img src="assets/gallery/nightbloom-800.jpg" srcset="assets/gallery/nightbloom-800.jpg 800w, assets/gallery/nightbloom-1600.jpg 1520w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 352px" alt="Pale foam walls on cobalt blue spiralling out from a centre, with a few glossy blue spheres resting among the cells." width="800" height="1132" loading="lazy"></a>
+      <figcaption><strong>Nightbloom</strong> · Processing</figcaption>
     </figure>
     <figure class="g-item">
-      <img src="assets/img/colorbird.jpg" alt="A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky." width="700" height="700" loading="lazy">
-      <figcaption><strong>Colour Bird</strong> · 2026. Feathers fanned like a spectrum.</figcaption>
+      <a href="images.html#tea-meringues"><img src="assets/gallery/tea-meringues-800.jpg" srcset="assets/gallery/tea-meringues-800.jpg 800w, assets/gallery/tea-meringues-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 352px" alt="A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Tea and meringues</strong> · Blender</figcaption>
     </figure>
   </div>
+  <p class="see-all"><a href="images.html">See all 39 images →</a></p>
 </section>
 
 <!-- ============================== CONTACT ============================== -->
@@ -177,44 +179,5 @@
 <footer class="foot">
   <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="assets/img/seal.png" alt="" width="12" height="12"> Suzume.</p>
 </footer>
-
-<script>
-(function () {
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var hasIO = 'IntersectionObserver' in window;
-
-  // Water Town: load and play only while it is on screen, and never for reduced motion.
-  var video = document.querySelector('.gallery video');
-  if (video && !reduceMotion) {
-    if (hasIO) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-          else video.pause();
-        });
-      }, { threshold: 0.25 }).observe(video);
-    } else {
-      video.play();
-    }
-  }
-
-  // Mark the section in view in the top nav; clear it when back at the top.
-  var links = Array.prototype.slice.call(document.querySelectorAll('.topnav a[href^="#"]'));
-  if (hasIO && links.length) {
-    var byId = {};
-    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-    var clear = function () { links.forEach(function (l) { l.removeAttribute('aria-current'); }); };
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        clear();
-        var a = byId[en.target.id];
-        if (a) a.setAttribute('aria-current', 'location');
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    ['top'].concat(Object.keys(byId)).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
-  }
-})();
-</script>
 </body>
 </html>
