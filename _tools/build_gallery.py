@@ -1,7 +1,7 @@
-"""Builds images.html and the homepage "Selected images" section from one list.
+"""Builds the Worlds page (images.html) and the homepage Worlds section from one list.
 
 Run from the repo root:  python3 _tools/build_gallery.py
-Each still needs assets/gallery/<slug>-800.jpg and <slug>-1600.jpg (1600 may be
+Each still needs assets/gallery/<slug>-800.jpg and <slug>-1600.jpg (the 1600 may be
 smaller if the source is). Folders starting with "_" are not published by
 GitHub Pages, so this script stays out of the live site.
 """
@@ -10,8 +10,19 @@ from PIL import Image
 
 FB = "https://www.facebook.com/dave.gbemi.98"
 
-# The homepage showcase, in reading order (first row: Water Town, Caustic Bloom, The Art of Intelligence).
-SHOWCASE = ["water-town", "stacked-house", "still-life", "caustic-bloom", "calligraphy", "art-of-intelligence", "hard-surface"]
+# The homepage showcase, in reading order (pins fill the shortest column, Pinterest-style).
+SHOWCASE = ["water-town", "caustic-bloom", "art-of-intelligence", "calligraphy", "hard-surface", "stacked-house", "still-life"]
+
+# Shorter descriptions for the homepage; anything not listed uses its full caption.
+SHORT = {
+    "water-town": "A watercolour town from above, and one slow morning on it.",
+    "caustic-bloom": "A flower made only of circles, and never drawn.",
+    "art-of-intelligence": "Nine thousand particles combed into strands; the hex is the poster's own text.",
+    "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
+    "hard-surface": "The wireframe of a rugged box with a hinged lid.",
+    "stacked-house": "Modelled from a Pinterest reference, one plank at a time.",
+    "still-life": "Glass bottles, a striped ball and a lettered block on a shelf.",
+}
 
 VIDEOS = {
     "water-town": ("assets/video/watertown-loop.mp4", "assets/video/watertown-poster.jpg", 720, 960,
@@ -81,55 +92,62 @@ def video_tag(slug):
     return (f'<video src="{src}" poster="{poster}" style="background: url(\'{poster}\') center / cover" data-inview muted loop '
             f'playsinline preload="none" width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
 
-def ratio(slug):
-    if slug in VIDEOS:
-        w, h = VIDEOS[slug][2:4]; return h / w
-    w, h = dims(slug, 800); return h / w
+def ordered():
+    """Interleave Processing and Blender so the first rows mix both; earlier experiments last."""
+    by = {gid: items for gid, _, _, items in GROUPS}
+    p, b = by["processing"], by["blender"]
+    out = []
+    for i in range(max(len(p), len(b))):
+        if i < len(p): out.append(("processing", p[i]))
+        if i < len(b): out.append(("blender", b[i]))
+    return out + [("earlier", it) for it in by["earlier"]]
 
-def figure_full(slug, title, meta, caption, alt):
-    cap = f'<figcaption><strong>{title}</strong> · {meta}. {caption}</figcaption>'
+def pin_full(kind, it):
+    slug, title, meta, caption, alt = it
+    cap = (f'<figcaption><strong>{title}</strong><span class="pin-meta"> · {meta}. </span>'
+           f'<span class="pin-desc">{caption}</span></figcaption>')
     if slug in VIDEOS:
-        return f'        <figure class="g-item" id="{slug}">\n          {video_tag(slug)}\n          {cap}\n        </figure>'
-    return (f'        <figure class="g-item" id="{slug}">\n'
-            f'          <a class="zoom" href="assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
-            f'{img_tag(slug, alt, "(max-width: 760px) 100vw, 540px")}</a>\n'
-            f'          {cap}\n        </figure>')
-
-def balanced(items, ncols=2, caption=0.2):
-    cols = [[] for _ in range(ncols)]; h = [0.0] * ncols
-    for it in items:
-        i = h.index(min(h)); cols[i].append(it); h[i] += ratio(it[0]) + caption
-    return cols
+        media = f'<div class="pin-media">{video_tag(slug)}</div>'
+    else:
+        media = (f'<a class="pin-media zoom" href="assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
+                 f'{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px")}</a>')
+    return f'    <figure class="pin" id="{slug}" data-kind="{kind}">\n      {media}\n      {cap}\n    </figure>'
 
 def build():
-    count = sum(len(g[3]) for g in GROUPS)
-    sections = []
-    for gid, heading, more, items in GROUPS:
-        cols = "\n".join('      <div class="gcol">\n' + "\n".join(figure_full(*it) for it in c) + '\n      </div>' for c in balanced(items))
-        extra = f'\n  <p class="see-all"><a href="{more}">More of my 3D work on Facebook →</a></p>' if more else ""
-        sections.append(f'<section class="images-group" aria-labelledby="h-{gid}">\n  <h2 class="eyebrow" id="h-{gid}">{heading}</h2>\n'
-                        f'  <div class="gallery-cols">\n{cols}\n  </div>{extra}\n</section>')
+    items = ordered(); count = len(items)
+    tabs = ('  <div class="pin-tabs" role="group" aria-label="Show">\n'
+            '    <button type="button" data-filter="all" aria-pressed="true">All</button>\n'
+            '    <button type="button" data-filter="processing" aria-pressed="false">Processing</button>\n'
+            '    <button type="button" data-filter="blender" aria-pressed="false">3D · Blender</button>\n'
+            '    <button type="button" data-filter="earlier" aria-pressed="false">Earlier experiments</button>\n'
+            '  </div>')
+    main = ('<main id="main">\n<section class="page-head">\n  <h1>Worlds</h1>\n'
+            "  <p>Things that don't exist until someone makes them: Processing sketches written with Claude as a pair-programmer, "
+            "scenes in Blender, and the experiments where it started. Select any image to see it full size.</p>\n"
+            f'{tabs}\n</section>\n\n<section class="images-all" aria-label="All pieces">\n  <div class="pins" data-min="220" data-filterable>\n'
+            + "\n".join(pin_full(k, it) for k, it in items) +
+            f'\n  </div>\n  <p class="see-all"><a href="{FB}">More of my 3D work on Facebook →</a></p>\n</section>\n</main>')
     page = open("images.html", encoding="utf-8").read()
-    start = page.index('<section class="images-group"'); end = page.index("</main>")
-    page = page[:start] + "\n\n".join(sections) + "\n" + page[end:]
+    page = re.sub(r"<main id=\"main\">.*?</main>", lambda m: main, page, count=1, flags=re.S)
+    page = re.sub(r"<title>.*?</title>", "<title>Worlds · David Adeshina Arungbemi</title>", page, count=1)
     open("images.html", "w", encoding="utf-8").write(page)
 
-    by = {it[0]: it for g in GROUPS for it in g[3]}
-    def medium(slug): return by[slug][2].split(",")[0]
-    figs = []
+    by = {it[0]: it for _, it in items}
+    pins = []
     for slug in SHOWCASE:
-        title = by[slug][1]
-        inner = video_tag(slug) if slug in VIDEOS else \
-            f'<a href="images.html#{slug}">{img_tag(slug, by[slug][4], "(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 352px")}</a>'
-        figs.append(f'    <figure class="g-item">\n      {inner}\n      <figcaption><strong>{title}</strong> · {medium(slug)}</figcaption>\n    </figure>')
-    section = ('<section class="images" id="images">\n  <h2 class="eyebrow">Selected images</h2>\n'
-               "  <p class=\"images-intro\">Worlds that don't exist until someone makes them, in code with Processing and in 3D with Blender.</p>\n"
-               '  <div class="gallery">\n' + "\n".join(figs) + '\n  </div>\n'
-               f'  <p class="see-all"><a href="images.html">See all {count} images →</a></p>\n</section>')
+        _, title, _, caption, alt = by[slug]
+        media = (f'<div class="pin-media">{video_tag(slug)}</div>' if slug in VIDEOS else
+                 f'<a class="pin-media" href="images.html#{slug}">{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 50vw, 360px")}</a>')
+        pins.append(f'    <figure class="pin">\n      {media}\n      <figcaption><strong>{title}</strong>'
+                    f'<span class="pin-desc">{SHORT.get(slug, caption)}</span></figcaption>\n    </figure>')
+    section = ('<section class="images" id="worlds">\n  <h2 class="eyebrow">Worlds</h2>\n'
+               "  <p class=\"images-intro\">Things that don't exist until someone makes them, in code with Processing and in 3D with Blender.</p>\n"
+               '  <div class="pins" data-min="280">\n' + "\n".join(pins) + '\n  </div>\n'
+               f'  <p class="see-all"><a href="images.html">See all {count} pieces →</a></p>\n</section>')
     home = open("index.html", encoding="utf-8").read()
-    home = re.sub(r'<section class="images" id="images">.*?</section>', lambda m: section, home, count=1, flags=re.S)
+    home = re.sub(r'<section class="images" id="[a-z]+">.*?</section>', lambda m: section, home, count=1, flags=re.S)
     open("index.html", "w", encoding="utf-8").write(home)
-    print(f"images.html: {count} pieces · homepage showcase: {len(SHOWCASE)}")
+    print(f"images.html: {count} pieces · homepage Worlds: {len(SHOWCASE)}")
 
 if __name__ == "__main__":
     build()
