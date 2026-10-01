@@ -25,10 +25,6 @@ MEDIUM = "https://suzume1.medium.com/"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
 SRC, OUT = Path("_writing"), Path("articles")
 
-# The preprint isn't a Medium post, but it belongs with the articles (first on the homepage and index)
-PREPRINT = dict(link="https://doi.org/10.5281/zenodo.21294610", cover="/assets/img/work-stories.jpg", kind="Preprint · 2026",
-                title="Narrative Transportation and Speciesism in Large Language Models",
-                line="After a story about an animal, language models expressed less prejudice toward it. The plain facts mostly didn't.")
 
 # Shorter addresses for posts whose Medium slugs are long; new posts get the first six words
 SLUGS = {
@@ -269,6 +265,7 @@ def topbar(current):
     return f"""<header class="topbar">
   <a class="wordmark" href="/">David Adeshina Arungbemi</a>
   <nav class="topnav" aria-label="Sections">
+    <a href="/#publications">Publications</a>
     <a href="/articles/" aria-current="{current}">Articles</a>
     <a href="/#projects">Projects</a>
     <a href="/images.html">Worlds</a>
@@ -351,20 +348,18 @@ def post_card(p):
     group = "experiment" if "experiment" in p["kind"].lower() else "essay"
     return card(f"/articles/{p['slug']}/", p["cover"], f"{p['kind']} · {month(p['date'])}", p["title"], p["line"], group)
 
-PREPRINT_CARD = card(PREPRINT["link"], PREPRINT["cover"], PREPRINT["kind"], PREPRINT["title"], PREPRINT["line"], "experiment")
-
 def render_index(posts):
     latest, rest = posts[0], posts[1:]
     w, h = size(smaller(latest["cover"]))
     ink = " ink" if latest.get("ink") else ""
-    cards = "\n".join([PREPRINT_CARD] + [post_card(p) for p in rest])
+    cards = "\n".join(post_card(p) for p in rest)
     return (head("Articles · David Adeshina Arungbemi",
                  "Essays and experiment write-ups by David Adeshina Arungbemi, who writes as Suzume.",
                  f"{SITE}/articles/", latest["cover"]) + topbar("page") + f"""
 <main id="main">
 <section class="page-head">
   <h1>Articles</h1>
-  <p>Essays and write-ups of my experiments, published under my pen name, Suzume (雀, sparrow). Everything here first appeared on <a href="{MEDIUM}">Medium</a>.</p>
+  <p>Essays and write-ups of my experiments, published under my pen name, Suzume (雀, sparrow). Everything here first appeared on <a href="{MEDIUM}">Medium</a>. Papers are under <a href="/#publications">Publications</a>.</p>
   <div class="pin-tabs" role="group" aria-label="Show">
     <button type="button" data-filter="all" aria-pressed="true">All</button>
     <button type="button" data-filter="essay" aria-pressed="false">Essays</button>
@@ -391,7 +386,7 @@ def render_index(posts):
 """ + FOOT)
 
 def update_homepage(posts):
-    cards = [PREPRINT_CARD] + [post_card(p) for p in posts if p.get("home")]
+    cards = [post_card(p) for p in posts if p.get("home")]
     page = Path("index.html").read_text(encoding="utf-8")
     pattern = re.compile(r"(<!-- cards:articles -->).*?([ \t]*<!-- /cards:articles -->)", re.S)
     assert pattern.search(page), "no <!-- cards:articles --> markers in index.html"
