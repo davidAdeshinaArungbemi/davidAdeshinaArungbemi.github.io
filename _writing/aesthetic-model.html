@@ -1,0 +1,78 @@
+<!--
+{
+  "title": "I Tried to Build an Aesthetic Model of the Human Brain. I Failed. Here’s What I Learned.",
+  "date": "2026-04-25",
+  "medium": "https://suzume1.medium.com/i-tried-to-build-an-aesthetic-model-of-the-human-brain-i-failed-heres-what-i-learned-13c75644258a",
+  "deck": "On neuroaesthetics, the BOLD5000 dataset, and what it means to optimise for beauty instead of truth.",
+  "kind": "Experiment",
+  "line": "On neuroaesthetics, the BOLD5000 dataset, and what it means to optimise for beauty instead of truth.",
+  "cover": "/assets/cards/aesthetic-model.jpg",
+  "home": true
+}
+-->
+<figure><img alt="" src="/articles/aesthetic-model/01.jpg"/><figcaption>Aesthetics Optimizer Application (at least it should have been)</figcaption></figure>
+<p>There is a moment when you are staring at a piece of art, a painting, a photograph, a scene from an anime and something happens inside you that you cannot fully explain. A warmth. A recognition. A feeling that this particular arrangement of colour and form was made <em>for you</em>, even though it wasn’t.</p>
+<p>I became obsessed with that moment. And then I tried to reverse-engineer it.</p>
+<p>This is the story of that attempt, what I built, why it failed, and why I still think the question underneath it is one of the most interesting questions a person can ask.</p>
+<h2>The Idea</h2>
+<p>It started with <strong>neuroaesthetics</strong> — the field that studies what happens in the brain when we encounter beauty. The idea that aesthetic experience isn’t some mystical, ineffable thing, but a measurable biological event. That somewhere in the firing of neurons and the flow of blood across the cortex, there is a signature of what <em>you</em> find beautiful.</p>
+<p>Then I found the <strong>BOLD5000 dataset</strong>.</p>
+<p>BOLD5000 is a public fMRI study from Carnegie Mellon University in which four participants viewed nearly 5,000 real-world images — scenes, objects, everyday photographs while researchers recorded their whole-brain neural activity. For each image, participants also made a simple valence judgement: <em>like</em>, <em>neutral</em>, or <em>dislike</em>.</p>
+<p>Here was data that connected visual experience to brain activation at scale. And it contained something that most fMRI datasets don’t: the emotional response of the viewer.</p>
+<p>But there was a problem. The original BOLD5000 focused primarily on visual cortex regions. If aesthetics is about reward, about the limbic system firing when you see something that moves you, those regions were mostly absent from the analysis.</p>
+<p>Then I found a second paper: <strong>WAVE</strong> (Whole-Brain Analysis of Visual Experience) from Stanford. The WAVE team had extended the BOLD5000 data to model the <em>entire</em> brain, not just the visual cortex. They found that the <strong>Default Mode Network</strong>, the network associated with semantic processing, memory, and “sense-making” contributed as much to decoding visual experience as the visual cortex itself.</p>
+<p>This changed everything for me conceptually. Seeing isn’t just looking. It involves who you are, what you’ve experienced, what you find meaningful.</p>
+<p>So I had a question, and I had data. The question was:</p>
+<blockquote>Can I build a personalised model of each person’s aesthetic brain — one that, given their ranked history of images, could predict how their brain would respond to a new image they’ve never seen?</blockquote>
+<h2>The Architecture</h2>
+<p>The approach I built was a <strong>meta-learning system</strong> with calibration.</p>
+<p>The core idea: when you show a model a new image, it shouldn’t just use that image alone to predict brain activations. It should use <em>context</em>, specifically, images this person has already seen and ranked. The model learns to ask: <em>given who this person appears to be aesthetically, what would their brain do with this new image?</em></p>
+<p>Technically:</p>
+<ul><li>Each image was encoded using two feature extractors running in parallel: <strong>MobileCLIP</strong> (a semantic, high-level encoder) and <strong>MobileNetV3-Small</strong> (extracting low-to-mid-level visual features like edges, textures, and colour regions from intermediate layers). These were concatenated into a 688-dimensional image representation.</li><li>A <strong>cross-attention mechanism</strong> let the model attend over a “calibration set” — images the person had previously seen and aesthetic ranking scores to build a personalised context vector.</li><li>That context vector was then combined with the representation of the new image and fed into a <strong>MLP predictor</strong> that output a predicted whole-brain activation across 1,024 brain parcels (using the DiFuMo atlas).</li></ul>
+<p>The aesthetic ranking was encoded as a continuous limbic score derived from the Yeo-7 Limbic network activations and embedded using <strong>Fourier positional features</strong>, a technique borrowed from coordinate networks, to give the model a smooth representation of the person’s aesthetic response history.</p>
+<p>The model was trained on all four BOLD5000 subjects simultaneously, with 50 augmented “views” per image per epoch, varying calibration set sizes from 50 to 500 images.</p>
+<p>It trained for <strong>528 minutes</strong> across 25 epochs.</p>
+<h2>The Results</h2>
+<figure><img alt="" src="/articles/aesthetic-model/02.jpg"/><figcaption>Training Summary Plot</figcaption></figure>
+<pre><code>── Per-subject mean Pearson r (all 1024 DiFuMo parcels) ─────────────
+  CSI1: 0.1243
+  CSI2: 0.0347
+  CSI3: 0.0812
+  CSI4: 0.0694
+  ───────────────
+  Mean : 0.0774</code></pre>
+<pre><code>── Yeo-7 network breakdown ───────────────────────────────────────────
+  Visual       (n=149)    0.28 / 0.21 / 0.17 / 0.14   ← best
+  DMN          (n=188)    0.11 / 0.04 / 0.08 / 0.07
+  DorsAttn     (n=115)    0.15 / 0.09 / 0.08 / 0.13
+  Limbic       (n= 26)    0.10 / -0.00 / 0.08 / -0.01  ← noisy</code></pre>
+<p>The visual cortex predictions were the strongest. The Default Mode Network and Dorsal Attention network showed some signal. The Limbic network, which served as the aesthetic reward signal was barely above noise.</p>
+<p>The mean Pearson correlation across all 1,024 brain parcels was <strong>0.077</strong>.</p>
+<p>For context: state-of-the-art models like WAVE achieve around 0.25–0.33 in semantic accuracy on similar tasks. My model’s visual cortex performance (~0.21–0.28 for CSI1) is in the same neighbourhood for that region. But the whole-brain story is more sobering.</p>
+<h2>Why It Failed (And What I Actually Did)</h2>
+<figure class="embed"><iframe allow="fullscreen; picture-in-picture" allowfullscreen="" loading="lazy" src="https://player.vimeo.com/video/1186589109?dnt=1" title="Video"></iframe></figure>
+<p>The truth is:</p>
+<p><strong>I optimised for beauty, not for truth.</strong></p>
+<p>Throughout this project, I kept wanting to end up with something <em>beautiful</em> — a piece of generated art that looked like it came from inside someone’s brain. I used the limbic activation scores as a ranking signal, then fed that into a generative pipeline to produce new images. The outputs were visually interesting. Some of them were genuinely striking.</p>
+<p>But the pipeline I built was not really a neuroscience experiment. It was a creative process dressed in the clothes of one.</p>
+<p>The actual problems with the approach:</p>
+<ol><li><strong>The inference problem.</strong> At inference time, how do you get hundreds of ranked images from a real user? You can’t. The calibration mechanism assumed access to a large personal image history. That’s not how the world works outside a scanning suite.</li><li><strong>The data problem.</strong> Four subjects, 113 repeated images for test evaluation. This is far too small to learn a general personalised aesthetic model.</li><li><strong>The limbic signal.</strong> The Limbic network has only 26 parcels in DiFuMo-1024. The fMRI signal there is noisy. Using it as the primary aesthetic score was underspecified — the limbic system encodes many things, not just aesthetic reward.</li></ol>
+<h2>What Optimising for Beauty Taught Me</h2>
+<p>There is something worth saying here that goes beyond the technical failure.</p>
+<p>Science optimises for truth. Replication, falsification, verification — these are its methods. They are rigorous and slow and often unglamorous.</p>
+<p>I was optimising for beauty. And beauty is a <em>different</em> objective function. It led me to build something that <em>looked</em> right before I had verified whether it <em>was</em> right. It led me to generate images and feel satisfied before I had interrogated the model’s actual predictive correctness. It led me to frame the project as a success.</p>
+<p>This isn’t a confession of fraud. It’s a description of a very human way of working. And it turns out it produces things that are <em>interesting</em>, even when they aren’t <em>true</em>.</p>
+<p>The generated images were produced by a model that learned something — maybe not about the brain perfectly, but about the relationship between image features, aesthetic scores, and whole-brain activation patterns across four real humans. That’s not nothing.</p>
+<p>And the question beneath it — <em>can we engineer aesthetic experience through targeted neural activation?</em> — is still one of the most interesting questions I know of. It just needs more rigour than I gave it.</p>
+<h2>Where the Real Question Lives</h2>
+<p>The WAVE paper made something clear: visual experience is a <strong>whole-brain event</strong>. The Default Mode Network: the network that stitches together past experience, present perception, and semantic meaning is as important to what you <em>see</em> as your visual cortex.</p>
+<p>This means that aesthetic experience isn’t just about what enters the eye. It’s about what the brain brings to the encounter: memory, identity, the accumulated weight of everything you’ve found beautiful before.</p>
+<p>A truly personalised aesthetic model would need to capture that. It would need to model not just your response to pixels, but the <em>narrative</em> your brain constructs around them.</p>
+<p>That’s a much harder problem. And a much more interesting one.</p>
+<h2>What Comes Next</h2>
+<p>I’m not abandoning this.</p>
+<p>The realistic version of this research direction looks something like:</p>
+<ul><li><strong>Smaller, more controlled experiments</strong> — not 1,024 parcels, but specific networks of interest. Start with the Default Mode Network and Limbic system. Build a model that does <em>one thing</em> well.</li><li><strong>Passive calibration</strong> — instead of asking users to rank hundreds of images, collect implicit signals from natural browsing behaviour, dwell time, emotional response via physiological proxies.</li><li><strong>Collaboration</strong> — this project needed a neuroscientist from the start. Not to validate the <em>approach</em>. To tell me whether the limbic score I was using was a reasonable proxy for aesthetic reward, or whether I was chasing noise.</li></ul>
+<p>And it needs honest writing. Which is what this is.</p>
+<p><em>The code, notebooks, and training results are available on </em><a href="https://github.com/suzume-hue/AestheticsOptimizer">Github Repo</a>.</p>
+<p><em>If you’re working in neuroaesthetics, computational neuroscience, or generative art grounded in neural data — I’d genuinely like to hear from you.</em></p>

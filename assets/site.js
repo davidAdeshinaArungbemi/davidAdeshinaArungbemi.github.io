@@ -3,7 +3,8 @@
    - the images page's tabs filter the pins
    - a.zoom opens an image full size; arrows step through the images currently shown
    - videos marked data-inview play only while on screen, never for reduced motion
-   - on the homepage, the top nav underlines the section in view */
+   - on the homepage, the top nav underlines the section in view
+   - on an article, a thin line along the top shows how far through it you are */
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
@@ -13,7 +14,9 @@
     var pins = Array.prototype.slice.call(grid.querySelectorAll('.pin'));
     var min = parseFloat(grid.getAttribute('data-min')) || 240, gap = 16, last = '';
     var ratio = function (pin) {
-      var m = pin.querySelector('img, video'), w = +m.getAttribute('width'), h = +m.getAttribute('height');
+      var m = pin.querySelector('img, video');
+      if (!m) return 0;
+      var w = +m.getAttribute('width'), h = +m.getAttribute('height');
       return w && h ? h / w : 1;
     };
     var place = function (shown, n, size) {
@@ -58,7 +61,7 @@
       place(shown, n, shown.map(function (p) { return ratio(p) + 0.25; }));
       place(shown, n, shown.map(function (p) {
         var m = p.querySelector('img, video');
-        return p.offsetHeight - m.offsetHeight + ratio(p) * m.offsetWidth + 22;
+        return m ? p.offsetHeight - m.offsetHeight + ratio(p) * m.offsetWidth + 22 : p.offsetHeight + 22;
       }));
     };
     grid._layout = layout; grid._pins = pins;
@@ -128,6 +131,17 @@
         });
       }, { threshold: 0.25 }).observe(video);
     });
+  }
+
+  var bar = document.querySelector('.read-progress'), article = document.querySelector('.post article');
+  if (bar && article) {
+    var progress = function () {
+      var r = article.getBoundingClientRect(), span = r.height - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 1) + ')';
+    };
+    window.addEventListener('scroll', progress, { passive: true });
+    window.addEventListener('resize', progress);
+    progress();
   }
 
   var links = Array.prototype.slice.call(document.querySelectorAll('.topnav a[href^="#"]'));

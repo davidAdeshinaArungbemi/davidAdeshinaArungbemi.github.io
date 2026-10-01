@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Question Was Mine. Everything After That Got Away From Me. · Suzume</title>
+<meta name="description" content="I set out to build a model that reasons in colour. What I trained became something else, and I didn&#x27;t notice it happening.">
+<link rel="canonical" href="https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Question Was Mine. Everything After That Got Away From Me. · Suzume">
+<meta property="og:description" content="I set out to build a model that reasons in colour. What I trained became something else, and I didn&#x27;t notice it happening.">
+<meta property="og:image" content="https://davidadeshinaarungbemi.github.io/assets/cards/the-question-was-mine.jpg">
+<meta property="og:url" content="https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
+<link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="https://medium.com/feed/@suzume1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/theme.js"></script>
+<script src="/assets/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Question Was Mine. Everything After That Got Away From Me.", "datePublished": "2026-03-07", "url": "https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/", "image": "https://davidadeshinaarungbemi.github.io/assets/cards/the-question-was-mine.jpg", "description": "I set out to build a model that reasons in colour. What I trained became something else, and I didn't notice it happening.", "isBasedOn": "https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-progress" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="/articles/" aria-current="true">Articles</a>
+    <a href="/#projects">Projects</a>
+    <a href="/images.html">Worlds</a>
+    <a href="/cv.html">CV</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
+</header>
+
+<main id="main" class="post">
+  <article>
+    <header class="post-head">
+      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2026-03-07">7 Mar 2026</time> <span aria-hidden="true">·</span> 5 min read</p>
+      <h1>The Question Was Mine. Everything After That Got Away From Me.</h1>
+      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+    </header>
+    <div class="post-body">
+<figure><img alt="" decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/01.jpg" srcset="/articles/the-question-was-mine/01-800.jpg 800w, /articles/the-question-was-mine/01.jpg 1600w" width="1600"/></figure>
+<p class="opening">I was reading the Claude Opus 4.5 system card and there was a mention of increased evaluation awareness. The idea that the model had some expanded sense of its own situation. Something about that landed.</p>
+<p>I spend some time on Pinterest just moving through images, art, photography, colour. Those two things met and I started asking a question I could not let go of:</p>
+<p><em>What is it like to reason in light. In vision. To actually think in colour rather than think about it.</em></p>
+<p>I wanted to know what such a system would be like, how it would respond, what it would notice.</p>
+<p>That was the beginning.</p>
+<hr/>
+<h2>The Idea</h2>
+<p>So I started building what I thought was a language model. Colour as the language. Palettes as the thing it would learn to read and reason about. That was the idea I came to Claude with.</p>
+<p>Over many conversations and iterations things changed. I was staying at the level of the idea, describing what I wanted, responding to where things went. The technical decisions were emerging through those exchanges and I was letting them, without tracking where they were going. By the time something was actually being trained it was no longer a language model. I had started with one thing and ended up with something structurally different, and I had not noticed it happening. That is the part I keep thinking about.</p>
+<p>A language model predicts the next token in a sequence. That is the core of it, that is what gives it the ability to generate. This was not that. It was a transformer, which uses the same attention mechanism, but the task was not generative at all. It takes the full palette as input and outputs a correction. No sequence generation, no autoregression.</p>
+<p>Six colour clusters per painting. Each one carrying the mean colour of a region, where it sits spatially in the canvas, how spread out it is, how it relates to the others. Fifteen numbers per cluster, fed through six layers of attention, trained to recover the right palette when the colours are scrambled.</p>
+<hr/>
+<h2>The Training</h2>
+<p>The dataset was over 2000 Cubist paintings. Two T4 GPUs on Kaggle, because I don’t have my own hardware. After 1000 epochs the colour prediction evaluation worked. The model could take a palette shifted dramatically, colours becoming unrecognisable, and recover something very close to the original. The idea that colour relationships in Cubist work are learnable, that there is structure the model could find — that held up.</p>
+<figure><img alt="" decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/02.jpg" srcset="/articles/the-question-was-mine/02-800.jpg 800w, /articles/the-question-was-mine/02.jpg 1600w" width="1600"/></figure>
+<figure><img alt="" decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/03.jpg" srcset="/articles/the-question-was-mine/03-800.jpg 800w, /articles/the-question-was-mine/03.jpg 1600w" width="1600"/></figure>
+<figure><img alt="" decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/04.jpg" srcset="/articles/the-question-was-mine/04-800.jpg 800w, /articles/the-question-was-mine/04.jpg 1600w" width="1600"/></figure>
+<p>The mask decoder, the part meant to learn which pixels belong to which colour region, never worked. It produced soft rounded blobs with no relationship to the actual shapes in the paintings. The reason was that it could only see the cluster’s embedding, a compressed vector of colour and spatial statistics, and not the image itself. You cannot learn edges from averages. Fixing it would have meant a fundamentally different design. That didn’t happen.</p>
+<p>There were bugs that ran for hundreds of epochs before being caught. The loss weighting for the masks was applied to every pixel instead of just the foreground ones, inflating the numbers by close to ten times, making it impossible to tell whether anything was actually being learned.</p>
+<hr/>
+<h2>What I Keep Coming Back To</h2>
+<p>I stayed conceptual the whole time. I never went into the code in any real way, never engaged with the technical decisions at the level where those decisions actually live. I let that happen through the conversations with AI tools and I did not notice what was changing until it was done.</p>
+<p>If the thing you are building drifts away from your original idea and you do not notice, that tells you something about where your attention actually was.</p>
+<p>The reason I got into machine learning in the first place was Midjourney when it first became publicly available. I saw what it could do and I wanted that, but I wanted to build it, not use it. And I also wanted to avoid being an artist. Not because I do not care about art but because I did not trust that caring about it was enough. Artist felt like something you either are or you are not, and I was not sure I was, and I did not want to find out by trying and being wrong. Something technical felt safer. A different category with different rules, where the output was measurable and the work was legible. And so I went toward the architecture side, the training side, thinking that was where I belonged.</p>
+<p>I still do not feel like I want to be an artist. But I am moved by art. Not by individual elements but by the whole of it, the way everything in an image works together to create something that hits before you can explain it. Lately I have gotten into reading philosophy, and I find myself drawn to talks that take abstracted views of the brain, consciousness, how we perceive and make sense of things. It is the same interest. Something about understanding how experience is constructed, whether through a painting or a mind or a model.</p>
+<p>Illustration especially. When I come to a really good illustration I feel like I can see what I am missing in myself. The smile on a character, the expression, the whole scene carrying meaning through form and colour and lighting all at once. It is not one element. It is everything working together and you feel it before you understand it. I do not know how to do that yet. But I know that is the thing.</p>
+<p>I do not know if I have been forcing myself into a mold that is not mine or if I am still becoming something I cannot name yet. Probably both. The technical path felt serious in a way the other thing did not. But I also know that the question that started this whole project, the one about reasoning in colour, was not a technical question. It was an imaginative one. And I was the one who asked it.</p>
+<p>That has to count for something. I just do not know what yet.</p>
+
+      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
+    </div>
+    <footer class="post-foot">
+      <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9">Read it there →</a></p>
+      <nav class="post-nav" aria-label="More articles">
+      <a class="post-near" href="/articles/four-agents/">
+        <img src="/assets/cards/four-agents.jpg" alt="" width="800" height="600" loading="lazy">
+        <span><span class="post-near-label">Newer</span><span class="post-near-title">I Gave Four AI Agents a Philosophy and Put Them Under Pressure.</span></span>
+      </a>
+      <a class="post-near" href="/articles/sculpting-latent-space/">
+        <img src="/assets/cards/sculpting-latent-space.jpg" alt="" width="800" height="600" loading="lazy">
+        <span><span class="post-near-label">Older</span><span class="post-near-title">Sculpting Latent Space: What If AI Could Think in Clay?</span></span>
+      </a>
+      </nav>
+      <p class="see-all"><a href="/articles/">All articles →</a></p>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
+</footer>
+</body>
+</html>

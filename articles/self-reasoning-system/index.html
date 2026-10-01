@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Self-Reasoning System · Suzume</title>
+<meta name="description" content="A sketch of Leah, a system that reasons by moving through vector space, with every step readable.">
+<link rel="canonical" href="https://davidadeshinaarungbemi.github.io/articles/self-reasoning-system/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Self-Reasoning System · Suzume">
+<meta property="og:description" content="A sketch of Leah, a system that reasons by moving through vector space, with every step readable.">
+<meta property="og:image" content="https://davidadeshinaarungbemi.github.io/assets/cards/self-reasoning-system.jpg">
+<meta property="og:url" content="https://davidadeshinaarungbemi.github.io/articles/self-reasoning-system/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
+<link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="https://medium.com/feed/@suzume1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/theme.js"></script>
+<script src="/assets/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "A Self-Reasoning System", "datePublished": "2025-11-03", "url": "https://davidadeshinaarungbemi.github.io/articles/self-reasoning-system/", "image": "https://davidadeshinaarungbemi.github.io/assets/cards/self-reasoning-system.jpg", "description": "A sketch of Leah, a system that reasons by moving through vector space, with every step readable.", "isBasedOn": "https://suzume1.medium.com/a-self-reasoning-system-6e3af08b9b2d", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-progress" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="/articles/" aria-current="true">Articles</a>
+    <a href="/#projects">Projects</a>
+    <a href="/images.html">Worlds</a>
+    <a href="/cv.html">CV</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
+</header>
+
+<main id="main" class="post">
+  <article>
+    <header class="post-head">
+      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2025-11-03">3 Nov 2025</time> <span aria-hidden="true">·</span> 2 min read</p>
+      <h1>A Self-Reasoning System</h1>
+      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+    </header>
+    <div class="post-body">
+<figure><img alt="" decoding="async" height="801" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/01.jpg" srcset="/articles/self-reasoning-system/01-800.jpg 800w, /articles/self-reasoning-system/01.jpg 1600w" width="1600"/><figcaption>Concept Architecture — by Suzume</figcaption></figure>
+<p>How do I build a system that reasons?</p>
+<p>Well… here goes.</p>
+<p>I will call the system Leah.</p>
+<p>One day, I give Leah a simple problem.</p>
+<blockquote><p><em>A traveler visits a museum and buys </em><strong><em>2 postcards</em></strong><em> for </em><strong><em>€1 each</em></strong><em> and </em><strong><em>1 souvenir magnet</em></strong><em> for </em><strong><em>€3</em></strong><em>. How much does the traveler spend altogether?</em></p></blockquote>
+<h2>Layer One — The Semantic World</h2>
+<figure><img alt="" decoding="async" height="735" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/02.jpg" srcset="/articles/self-reasoning-system/02-800.jpg 800w, /articles/self-reasoning-system/02.jpg 1243w" width="1243"/><figcaption>Semantic World — Courtesy of GeminiAI</figcaption></figure>
+<p>First, she transforms the question into a <strong>semantic representation</strong>.</p>
+<p>This is her way of understanding not just the words, but the structure beneath them: the objects, the quantities, the relationships, the values.</p>
+<p>Everything she needs for reconstruction lives here.</p>
+<h2>Layer Two — The Reasoning Space</h2>
+<figure><img alt="" decoding="async" height="1024" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/03.jpg" srcset="/articles/self-reasoning-system/03-800.jpg 800w, /articles/self-reasoning-system/03.jpg 1024w" width="1024"/><figcaption>Reasoning Space Imagination — Courtesy of GeminiAI</figcaption></figure>
+<p>Next, Leah lifts the semantic meaning into a new form: a <strong>reasoning representation</strong>, a map inside what I call the <em>reasoning space</em>.</p>
+<p>In this space lie the <strong>points of reason</strong>. I can’t fully explain them yet — they’re abstract. But once the question becomes a reasoning vector in this space, the real magic begins.</p>
+<h2>The Reasoning Core</h2>
+<figure><img alt="" decoding="async" height="1024" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/04.jpg" srcset="/articles/self-reasoning-system/04-800.jpg 800w, /articles/self-reasoning-system/04.jpg 1024w" width="1024"/><figcaption>Reasoning Core World — Courtesy of GeminiAI</figcaption></figure>
+<p>At the center of Leah is her heart — <strong>the reasoning core</strong>. (Maybe it’d be best to use brain, but heart sounds better).</p>
+<p>To Leah, reasoning is change.</p>
+<p>It is simply a journey through vector space, a glide from one hyperplane to another.</p>
+<p>The core takes the reasoning vector and shifts it,</p>
+<p>then shifts it again,</p>
+<p>and again</p>
+<p>each step a small piece of thought.</p>
+<p>Each movement edges her closer to the solution.</p>
+<p>After several iterations, she arrives at a final point in that space.<br/> When this point is translated back into human form, it becomes:</p>
+<blockquote><p><strong><em>The traveler spends a total of five euros.</em></strong></p></blockquote>
+<h2>Interpretability</h2>
+<figure><img alt="" decoding="async" height="1024" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/05.jpg" srcset="/articles/self-reasoning-system/05-800.jpg 800w, /articles/self-reasoning-system/05.jpg 1024w" width="1024"/><figcaption>Interpretability of Reasoning Core Imagination — Courtesy of GeminiAI</figcaption></figure>
+<p>Fortunately, Leah’s vector transformation is not a “black-box”.</p>
+<p>Each vector change and vector is interpretable, an <strong>unembedding layer</strong> can pull the reasoning vectors back into the semantic world, and from there into plain, human language. You can also visualise the path of reasoning.</p>
+<h2>The Idea</h2>
+<figure><img alt="" decoding="async" height="1024" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/self-reasoning-system/06.jpg" srcset="/articles/self-reasoning-system/06-800.jpg 800w, /articles/self-reasoning-system/06.jpg 1024w" width="1024"/><figcaption>Reusable Reasoning Path — Courtesy of GeminiAI</figcaption></figure>
+<p>Reasoning is nothing more than a path through vector space.</p>
+<p>If you can capture that path — the shift from beginning to end — you can reuse it.</p>
+<p>Apply the same sequence of transformations to a similar problem,and you’ll land on the correct answer <strong>without running the entire system again.</strong></p>
+
+      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
+    </div>
+    <footer class="post-foot">
+      <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/a-self-reasoning-system-6e3af08b9b2d">Read it there →</a></p>
+      <nav class="post-nav" aria-label="More articles">
+      <a class="post-near" href="/articles/interpretability-trap/">
+        <img src="/assets/cards/interpretability-trap.jpg" alt="" width="800" height="1067" loading="lazy">
+        <span><span class="post-near-label">Newer</span><span class="post-near-title">The Interpretability Trap</span></span>
+      </a>
+      <a class="post-near" href="/articles/the-mind-and-its-power/">
+        <img src="/articles/the-mind-and-its-power/01.jpg" alt="" width="736" height="919" loading="lazy">
+        <span><span class="post-near-label">Older</span><span class="post-near-title">26 Oct 2025 — The Mind and Its Power</span></span>
+      </a>
+      </nav>
+      <p class="see-all"><a href="/articles/">All articles →</a></p>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
+</footer>
+</body>
+</html>

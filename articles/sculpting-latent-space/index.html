@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sculpting Latent Space: What If AI Could Think in Clay? · Suzume</title>
+<meta name="description" content="What if the geometry inside a neural network didn&#x27;t have to be frozen? Letting people reshape it, one correction at a time.">
+<link rel="canonical" href="https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sculpting Latent Space: What If AI Could Think in Clay? · Suzume">
+<meta property="og:description" content="What if the geometry inside a neural network didn&#x27;t have to be frozen? Letting people reshape it, one correction at a time.">
+<meta property="og:image" content="https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/cover.jpg">
+<meta property="og:url" content="https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
+<link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="https://medium.com/feed/@suzume1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/theme.js"></script>
+<script src="/assets/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Sculpting Latent Space: What If AI Could Think in Clay?", "datePublished": "2026-02-17", "url": "https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/", "image": "https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/cover.jpg", "description": "What if the geometry inside a neural network didn't have to be frozen? Letting people reshape it, one correction at a time.", "isBasedOn": "https://suzume1.medium.com/sculpting-latent-space-what-if-ai-could-think-in-clay-b730e129d04e", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-progress" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
+  <nav class="topnav" aria-label="Sections">
+    <a href="/articles/" aria-current="true">Articles</a>
+    <a href="/#projects">Projects</a>
+    <a href="/images.html">Worlds</a>
+    <a href="/cv.html">CV</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
+</header>
+
+<main id="main" class="post">
+  <article>
+    <header class="post-head">
+      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2026-02-17">17 Feb 2026</time> <span aria-hidden="true">·</span> 7 min read</p>
+      <h1>Sculpting Latent Space: What If AI Could Think in Clay?</h1>
+      <p class="post-deck">A gesture recognition problem led me to a strange idea — what if the hidden geometry inside a neural network didn’t have to be frozen?</p>
+      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+    </header>
+    <figure class="post-cover"><img src="/articles/sculpting-latent-space/cover.jpg" alt="" width="1200" height="900"></figure>
+    <div class="post-body">
+<p class="opening">There’s a moment every machine learning engineer knows. You’ve trained your model. The accuracy looks good on paper. Then you deploy it in the real world, and someone performs a gesture slightly differently from how your dataset expected — a little slower, a little looser — and your model confidently classifies it as something else entirely. A false positive. And there’s nothing you can do about it short of collecting more data and retraining from scratch.</p>
+<p>I hit this wall while working on a wearable gesture recognition system. And instead of doing the obvious thing — gathering more data — I started asking a different question.</p>
+<p><em>What if I stopped fighting the model’s boundaries, and instead made those boundaries move?</em></p>
+<hr/>
+<h2>The Hidden Geometry Nobody Talks About</h2>
+<p>When a neural network processes your input, something interesting happens in the middle. Before the model ever makes a decision, it compresses your data into what’s called a <strong>latent space</strong> — a kind of abstract geometric world where similar things live close together and different things live far apart.</p>
+<p>In my gesture system, a circular arm movement would map to one region of this space. A directional swipe to another. A rotation to another still. Visualise it like a landscape: each gesture class is a cluster, a small country in an abstract geography.</p>
+<p>This geometry is actually beautiful. Similar gestures form natural neighborhoods. The math of classification becomes almost trivial — you just ask <em>which cluster is this point closest to?</em></p>
+<p>But here’s the problem: <strong>this landscape is frozen.</strong></p>
+<p>Once the model is trained, those cluster boundaries are fixed — carved in stone. If a new user performs a gesture with their own personal style, their signal might fall just outside the right cluster and land inside the wrong one. The model doesn’t know it made a mistake. It can’t adapt. And you can’t fix it without tearing everything down and starting over.</p>
+<p>This struck me as a fundamentally wrong way to think about intelligence. A person learns to recognise your handwriting even as it changes. They adjust. They incorporate new information without forgetting everything they already know.</p>
+<p>So I started thinking about what it would look like to give AI the same ability — not by making it smarter in the traditional sense, but by making its internal geometry <em>malleable</em>.</p>
+<hr/>
+<h2>The Sculptor’s Problem</h2>
+<p>Imagine you’re a sculptor, and your medium is the latent space itself.</p>
+<p>The clusters — the gesture neighborhoods — are lumps of clay. When a false positive occurs, it means a point of clay has landed in the wrong lump. What if you could simply <em>push</em> it toward where it belongs? What if the clay could remember that push and reshape itself around the new information?</p>
+<p>This is the design intuition behind what I started calling <strong>Sculpting Latent Space</strong>.</p>
+<p>The goal isn’t to rebuild the sculpture. It’s to work with what exists — to make incremental, targeted adjustments that preserve the foundational structure while allowing the system to respond to the unexpected.</p>
+<hr/>
+<h2>From Black Box to Glass Box</h2>
+<figure><img alt="" decoding="async" height="1113" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/sculpting-latent-space/01.jpg" srcset="/articles/sculpting-latent-space/01-800.jpg 800w, /articles/sculpting-latent-space/01.jpg 1600w" width="1600"/><figcaption>General Architecture</figcaption></figure>
+<p>The first problem was transparency. Standard neural networks are notoriously opaque. They learn through millions of parameter adjustments and end up as inscrutable mathematical objects. You can’t reach inside and nudge a cluster. There’s nothing to grab.</p>
+<p>So I turned to a technique called <strong>geometric distillation</strong>.</p>
+<p>The idea is to take the complex, frozen neural network — the “black box” — and project its behaviour onto a simpler, interpretable structure called a <strong>Linear Basis Function model</strong>. Think of it like tracing the outline of a complex sculpture in wire. The wire isn’t the sculpture. But it captures the essential shape, and crucially, wire <em>bends</em>.</p>
+<p>This surrogate model — the glass box — mimics the original network’s classification logic with negligible error. But unlike its parent, it has a property the original lacks: <strong>malleability</strong>. Because it’s linear at its core, you can interact with it mathematically. You can push it. You can correct it. You can teach it something new without dismantling what it already knows.</p>
+<p>We trade a small fraction of precision for something more valuable: <em>the ability to interact with the geometry itself.</em></p>
+<hr/>
+<h2>Teaching Without Retraining</h2>
+<p>The second problem was learning. If a user corrects a false positive — essentially saying “this gesture belongs over here, not there” — how does the system incorporate that without retraining?</p>
+<p>The answer comes from a technique called <strong>Recursive Least Squares (RLS)</strong>.</p>
+<p>Instead of reviewing all historical data every time something new arrives (which is how traditional training works), RLS maintains two things: its current “knowledge” of the space, and its “certainty” about that knowledge. When a new correction arrives, it performs a fast algebraic update — adjusting the geometry to accommodate the new information without forgetting the old.</p>
+<p>The result is a latent space that can learn from a single new sample in real time. Not by retraining. Not by collecting thousands of new examples. Just by observing, and bending.</p>
+<p>And because the math is linear, these updates are nearly instantaneous. The latent space doesn’t grind to a halt while it processes new information. It flows.</p>
+<hr/>
+<h2>What This Looks Like in Practice</h2>
+<p>Picture the five frames of an animation:</p>
+<p><strong>Frame 1:</strong> A static landscape. Four gesture clusters — A, B, C, D — each in their region. One rogue point, belonging to C, sits mistakenly inside B’s territory. The space is frozen. Nothing can be done.</p>
+<p><strong>Frame 2:</strong> The correction is issued. The geometry begins to warp. Subtle lines of force radiate outward from the point. All clusters feel the change beginning.</p>
+<p><strong>Frame 3:</strong> The deformation is active. The topology is shifting — not randomly, but purposefully. The entire space reorganises to accommodate the new truth.</p>
+<p><strong>Frame 4:</strong> Convergence. The rogue point is nearly home. The clusters are settling into new positions.</p>
+<p><strong>Frame 5:</strong> A new equilibrium. The point is integrated. The space has adapted. The correction is learned — not as an exception, but as a permanent part of the geometry.</p>
+<p>The sculptor has worked. The clay remembers.</p>
+<hr/>
+<h2>Why This Matters Beyond Gesture Recognition</h2>
+<p>This approach touches something I think is underappreciated in how we design AI systems.</p>
+<p>Most machine learning pipelines treat the model as a finished artifact. You train it, you deploy it, and then you manage its failures by collecting more data and retraining periodically. The model is always downstream of the process — a product, not a participant.</p>
+<p>What if we designed systems where the model itself was part of the interaction? Where the user’s corrections, preferences, and idiosyncrasies weren’t noise to be averaged out, but signals to be incorporated in real time?</p>
+<p>This is what I mean by <em>design applied to AI</em>. Not design in the aesthetic sense — though the visual representation of latent space as a living, breathing geometry is part of the intuition. Design in the deeper sense: treating the AI’s internal structure as something that can and should be shaped by the people who use it.</p>
+<p>The latent space, in this framing, is not just a technical artifact. It’s a medium. And like all mediums, it is most interesting when it is responsive.</p>
+<hr/>
+<h2>The Limits and What Comes Next</h2>
+<p>I want to be honest about where this idea currently lives: it’s a conceptual architecture, not a fully deployed system. The surrogate model’s accuracy depends on how well the linear basis functions can capture the original network’s complexity. For highly non-linear spaces — large language models, for instance — the approximation becomes significantly harder.</p>
+<p>There are also open questions about stability. If you allow real-time updates, what stops the geometry from drifting into incoherence over time? How do you preserve the integrity of the original clusters while allowing them to evolve? These are solvable problems, but they’re real ones.</p>
+<p>What I’m most interested in exploring next is whether this principle — <em>interpretable, malleable geometry as a layer between the frozen model and the user</em> — generalises beyond gesture recognition into other domains where real-time adaptation matters. Creative AI tools. Personalised recommendation systems. Any place where the relationship between a human and a model needs to be less like a command and more like a conversation.</p>
+<hr/>
+<h2>A Final Thought</h2>
+<p>There’s something philosophically interesting about the idea that the most powerful thing you can do with an AI system isn’t always to make it smarter. Sometimes it’s to make it more <em>responsive</em> — to design it so that the human on the other side has genuine agency over its internal world.</p>
+<p>The latent space, after all, is where the model’s understanding lives. Making that space sculptable isn’t just a technical improvement. It’s a different idea about what the relationship between human and machine can be.</p>
+<p>Not a tool that produces outputs.</p>
+<p>A medium that responds to touch.</p>
+
+      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
+    </div>
+    <footer class="post-foot">
+      <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/sculpting-latent-space-what-if-ai-could-think-in-clay-b730e129d04e">Read it there →</a></p>
+      <nav class="post-nav" aria-label="More articles">
+      <a class="post-near" href="/articles/the-question-was-mine/">
+        <img src="/assets/cards/the-question-was-mine.jpg" alt="" width="800" height="800" loading="lazy">
+        <span><span class="post-near-label">Newer</span><span class="post-near-title">The Question Was Mine. Everything After That Got Away From Me.</span></span>
+      </a>
+      <a class="post-near" href="/articles/sound-and-meaning/">
+        <img src="/articles/sound-and-meaning/01-800.jpg" alt="" width="800" height="533" loading="lazy">
+        <span><span class="post-near-label">Older</span><span class="post-near-title">The Gap Between Sound and Meaning And Why AIs Don’t Have It</span></span>
+      </a>
+      </nav>
+      <p class="see-all"><a href="/articles/">All articles →</a></p>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
+</footer>
+</body>
+</html>

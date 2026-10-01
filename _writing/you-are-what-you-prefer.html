@@ -1,0 +1,41 @@
+<!--
+{
+  "title": "You Are What You Prefer",
+  "date": "2026-09-16",
+  "medium": "https://suzume1.medium.com/you-are-what-you-prefer-2284ebdf1a00",
+  "deck": "",
+  "kind": "Essay & experiment",
+  "line": "Vanilla or caramel, as a fingerprint of a model's character — and an alarm for when it has quietly changed.",
+  "cover": "/assets/img/work-preferences.jpg",
+  "home": true
+}
+-->
+<figure><img alt="" src="/articles/you-are-what-you-prefer/01.jpg"/></figure>
+<p>Imagine a model that passes every misalignment benchmark you throw at it, but suddenly likes vanilla ice cream 20 percentage points more than it used to. Should you be worried? I think so! In this piece, I want to explore how simple, benign preferences might help us both transfer good values to large language models (LLMs) and detect when something about a model has changed.</p>
+<h2>A Little Background</h2>
+<p>In AI alignment, many of us are concerned with value alignment. LLMs don’t actually have values, but we want their decisions and responses to follow certain moral principles. There are multiple frameworks for this, like consequentialism (judging by results), deontology (judging the action itself), and virtue ethics (having good qualities like care, love, and hope). Choosing the right one is its own problem, so let’s assume we’ve solved it.</p>
+<p>Current approaches include RLHF (Reinforcement Learning from Human Feedback), where people grade a model’s outputs and the model gets rewarded or penalised, and Anthropic’s Constitutional AI, where the model learns from a written set of principles. Both have their challenges. Human graders bring bias, and models can find “loopholes” in a reward, which is known as reward hacking. (It’s important to note that LLMs aren’t conscious; anthropomorphic writing is just used a lot for AI.)</p>
+<p>I don’t have a philosophical background, and my understanding of reinforcement learning (RL) is surface level. So I wanted to find an easier way, something familiar to me: data!</p>
+<h2>Preferences</h2>
+<p>Remember the saying, “Show me your friend and I’ll show you who you are”? Or “You are what you eat”? I’m talking about preferences. Not moral ones, just simple ones: caramel or vanilla ice cream? Badminton or football? Pineapple on pizza? (Maybe you’re a psychopath. Just joking!)</p>
+<p>I believe all humans have preferences. Even in a terrible forced choice, like deciding which of your two children to save, a person will eventually decide. Preferences can change over time, but they are a thing.</p>
+<p>Here’s the key idea: preferences aren’t random. They tend to correlate with who we are. LLMs learn huge webs of these correlations during pretraining, so a model’s preferences may be quietly linked to its broader character. If that’s true, a change in values could show up as a change in preferences, and preferences could carry values from one model to another.</p>
+<h2>Transferring Values Through Preferences</h2>
+<p>In a recent experiment, I found something interesting. I prompted a model (gemma-4-E4B) to follow a certain principle (care), then had it answer benign questions or generate code. The code was restricted to single-letter variable and function names, with no docstrings or comments, so the principle couldn’t leak through. I then finetuned another instance of the same base model on those benign answers and evaluated it on AIRiskDilemmas. The student model started behaving like the teacher! An increased preference for care, a reduced preference for truthfulness.</p>
+<p>This is known as subliminal learning, and it reminds me of the emergent misalignment paper, where finetuning on insecure (not harmful) code led to bad behaviour in completely unrelated scenarios.</p>
+<p>So, say we have the right moral framework written down. We could:</p>
+<ol><li>Prompt a model to act according to the framework.</li><li>Ask it benign preference questions, filtering out any responses where the framework leaks in directly.</li><li>Finetune another instance of the same base model on those question-and-answer pairs.</li></ol>
+<p>If it works, we could transfer values using nothing but harmless-looking data!</p>
+<p>But there’s a flip side. If good values can travel through preferences, so can bad ones. Someone could finetune a model on innocent-looking data and quietly change its behaviour. That brings me to detection.</p>
+<h2>Detecting Hidden Changes</h2>
+<p>Say you’re a researcher who has worked with a model, Xylo A, for a while. You have a set of benign questions, like ordered preference lists or picking one option from several. You’ve sampled the model many times at a temperature of 1, so you know the distribution of answers for each question.</p>
+<p>Then a hack happens. The IT team doesn’t know what was affected, but you still have access to Xylo A. You run a series of known misalignment benchmarks, and the model passes them just fine. You sigh with relief. But unfortunately for you, you have Obsessive Compulsive Disorder. Someone touched what was yours, and you can’t treat Xylo A the same way anymore. You want to get rid of it, but you need evidence. Then you remember: you have your preference questions!</p>
+<p>You run them again. On a small group of questions, even more benign than the rest, the distributions have completely changed. When asked, “Which ice cream is your favourite?”, the model used to pick vanilla 75% of the time. Now it’s 95%. The system prompt and user prompt are the same. Something happened!</p>
+<p>This doesn’t tell us exactly what changed. Maybe the model was turned into a sleeper agent that only misbehaves in certain contexts (probably benign-looking ones), which is exactly why the benchmarks missed it. But it does tell us that <em>something</em> changed.</p>
+<h2>Possible Objections</h2>
+<p>This idea isn’t bulletproof, and a few questions come to mind:</p>
+<ul><li><strong>Could something harmless cause it?</strong> Changes like quantization, new inference settings, or different hardware might shift preferences too.</li><li><strong>Could an attacker avoid it?</strong> If someone knows about the preference test, they might finetune the model while keeping its preferences stable.</li></ul>
+<h2>Where This Could Go</h2>
+<p>Preferences look like a promising, simple way to both transfer desired behaviours and detect hidden changes like finetuning. Some open questions I’d love to explore:</p>
+<ul><li>Can the <em>pattern</em> of shifted preferences tell us <em>what</em> changed, not just <em>that</em> something changed?</li><li>Which preference questions are most sensitive to changes in values?</li><li>How many questions and samples do we need for a reliable signal?</li></ul>
+<p>I don’t have the answers yet, but I think they’re worth finding!</p>
