@@ -48,6 +48,7 @@ GROUPS = [
   ("colour-bird", "Colour Bird", "Processing, 2026", "Feathers fanned like a spectrum; in the sketch, it sways and blinks.", "A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky."),
  ]),
  ("blender", "3D · Blender", FB, [
+  ("gyronics-axol", "Axol, a wearable for Gyronics", "Blender, 2025", "A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.", "Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side."),
   ("island-night", "Island at night", "Blender", "A beach house under a green neon WELCOME sign, among palm trees and sandcastles.", "A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls."),
   ("blossom-pond", "Cherry-blossom pond, three views", "Blender", "A low-poly pond under a blossoming tree: by day, from above, and at night.", "Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals."),
   ("tea-meringues", "Tea and meringues", "Blender", "A cup of tea with cinnamon sticks and meringues on a saucer.", "A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background."),
