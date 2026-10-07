@@ -15,7 +15,7 @@ PROJECTS = [
      "An interactive portrait of a small language model: its behaviour across dozens of tests, given a face and a constellation you can explore.",
      [("Open the app", "https://wen-profile-dive.lovable.app/")]),
     (SUZUME + "llm-art-director", "assets/cards/llm-art-director.jpg", "Python · 2026", "LLM Art Director",
-     "A language model that refines a photo by reasoning over aesthetic scorers, with a pretrained human-preference model (PickScore) that can overrule the score.", []),
+     "A language model that edits an image in rounds by reasoning over aesthetic scorers, with a pretrained human-preference model (PickScore) that can overrule the score.", []),
     (SUZUME + "DiverseIntelligence", "assets/cards/diverse-intelligence.jpg", "Python · in progress", "DiverseIntelligence",
      "A multi-agent engine where minds that think differently must pass through a translation layer before they can answer each other.", []),
     (SUZUME + "Gestalt", "assets/cards/gestalt-project.jpg", "Python · 2026", "Gestalt",
