@@ -10,6 +10,24 @@
   var hasIO = 'IntersectionObserver' in window;
   var zoomOrder = Array.prototype.slice.call(document.querySelectorAll('a.zoom'));   // before the masonry moves anything
 
+  // Pins marked data-more wait behind a "Show N more" link placed in the section's .see-all line
+  document.querySelectorAll('.pins').forEach(function (grid) {
+    var extra = Array.prototype.slice.call(grid.querySelectorAll('.pin[data-more]'));
+    var line = grid.parentNode.querySelector('.see-all');
+    if (!extra.length || !line) return;
+    extra.forEach(function (p) { p.hidden = true; });
+    var more = document.createElement('a');
+    more.href = '#'; more.setAttribute('role', 'button');
+    more.textContent = 'Show ' + extra.length + ' more projects';
+    more.addEventListener('click', function (e) {
+      e.preventDefault();
+      extra.forEach(function (p) { p.hidden = false; });
+      more.remove();
+      if (grid._layout) grid._layout(true);
+    });
+    line.insertBefore(more, line.firstChild);
+  });
+
   document.querySelectorAll('.pins').forEach(function (grid) {
     var pins = Array.prototype.slice.call(grid.querySelectorAll('.pin'));
     var min = parseFloat(grid.getAttribute('data-min')) || 240, gap = 16, last = '';

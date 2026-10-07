@@ -29,6 +29,10 @@ PROJECTS = [
     (DAVID + "Story-GRU-LM-and-Interpretability", "assets/cards/story-gru.jpg", "Python · 2025", "Story GRU language model",
      "A small model that writes stories, and a look inside it at how meaning builds up, word by word.",
      [("Notebook (PDF)", "Notebooks/story-gru-lm.pdf")]),
+    ("Notebooks/vq-vae-codeword-visualisation-and-sequencing.pdf", "assets/cards/codebook-genome.jpg", "Python · notebook · 2025", "Codebook Genome",
+     "A VQ-VAE turns each small image into a sequence of 64 codes, and the notebook reads them like DNA: as a strand, a grid and a ring, so every image has its own genome.", []),
+    ("Notebooks/deterministic-inpainting.pdf", "assets/cards/inpainting.jpg", "Python · notebook · 2025", "Deterministic Inpainting",
+     "Restoring Symbolist paintings from WikiArt with 30% of their pixels knocked out. The model works patch by patch and also predicts which pixels were missing. The results keep the colour and layout but stay blurry.", []),
     (DAVID + "Narrative-Technical-Embedding-Space", "assets/cards/narrative-technical.jpg", "Python · 2025", "Narrative–Technical Embedding Space",
      "Teaching a model to tell stories apart from technical writing, as a first step toward translating between them.", []),
     (DAVID + "Tarot-VAE", "assets/cards/tarot-vae.jpg", "Python · 2025", "Tarot-VAE",
@@ -40,11 +44,13 @@ PROJECTS = [
      [("OurDataframe", DAVID + "OurDataframe")]),
 ]
 
+SHOW = 8   # the rest wait behind a "Show more" link (assets/site.js); without JS they all show
+
 esc = lambda s: html.escape(s, quote=False)
 
-def card(link, img, kind, title, line, extras=()):
+def card(link, img, kind, title, line, extras=(), more=False):
     w, h = Image.open(img).size
-    out = ['    <article class="pin card">',
+    out = ['    <article class="pin card"' + (' data-more' if more else '') + '>',
            f'      <a class="card-link" href="{link}">',
            f'        <div class="pin-media"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy"></div>',
            f'        <p class="card-kind">{esc(kind)}</p>',
@@ -63,7 +69,7 @@ def fill(page, name, cards):
 
 def build():
     page = open("index.html", encoding="utf-8").read()
-    page = fill(page, "projects", [card(*p) for p in PROJECTS])
+    page = fill(page, "projects", [card(*p, more=i >= SHOW) for i, p in enumerate(PROJECTS)])
     open("index.html", "w", encoding="utf-8").write(page)
     print(f"index.html: {len(PROJECTS)} project cards")
 
