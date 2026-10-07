@@ -54,7 +54,7 @@ GROUPS = [
   ("island-night", "Island at night", "Blender", "A beach house under a green neon WELCOME sign, among palm trees and sandcastles.", "A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls."),
   ("blossom-pond", "Cherry-blossom pond, three views", "Blender", "A low-poly pond under a blossoming tree: by day, from above, and at night.", "Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals."),
   ("tea-meringues", "Tea and meringues", "Blender", "A cup of tea with cinnamon sticks and meringues on a saucer.", "A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background."),
-  ("robot", "Robot", "Blender", "A small wheeled robot with a camera head and two jointed arms.", "A white and charcoal robot on wheels, with a boxy camera head, two antennae, glowing blue indicators and two jointed arms."),
+  ("robot", "Robot", "Blender, 2024", "A small wheeled robot with a camera head and two jointed arms.", "A white and charcoal robot on wheels, with a boxy camera head, two antennae, glowing blue indicators and two jointed arms."),
   ("animal-doughnuts", "Animal doughnuts", "Blender", "A chick, a piglet and a rabbit, as doughnuts.", "Three pale doughnuts on a pink background, decorated as a chick, a piglet and a rabbit."),
   ("glazed-doughnuts", "Glazed doughnuts", "Blender", "Dripping glaze, sprinkles and reflections on a pink floor.", "Three glazed doughnuts with colourful sprinkles, the middle one stacked double, reflected in a glossy pink surface."),
   ("lightsaber", "Lightsaber", "Blender", "A ridged metal hilt with a red blade.", "A lightsaber hilt with a ridged metal grip and a glowing red blade, against a dark background."),
@@ -71,7 +71,7 @@ GROUPS = [
   ("wonderful-world", "Wonderful World", "Blender, 2024", "A sculpted island of pale stone, with a walkway and railing along its ridge.", "A pale sculpted stone island floating against a soft gradient, with a thin walkway and railing along its top."),
   ("light-study", "Blocks under a spotlight", "Blender, 2022", "Grey and yellow blocks arranged in a ring under a single light.", "Rectangular blocks in grey, black and yellow arranged in a ring under a soft spotlight on a dark floor."),
   ("blender-animation", "Animation exercise", "Blender, 2024", "A camera moving through a grey, untextured scene.", None),
-  ("rigging", "Rigging a character, in progress", "Blender", "A low-poly figure with its control rig.", "A Blender window showing a grey low-poly human figure with its control rig and timeline."),
+  ("rigging", "Rigging a character, in progress", "Blender, 2024", "A low-poly figure with its control rig.", "A Blender window showing a grey low-poly human figure with its control rig and timeline."),
   ("hard-surface", "Hard-surface modelling, in progress", "Blender", "The wireframe of a rugged box with a hinged lid.", "A Blender window showing the wireframe of a rugged, rounded box with screws and hinges on its lid."),
  ]),
  ("earlier", "Earlier experiments", None, [
@@ -115,10 +115,15 @@ def ordered():
         if i < len(b): out.append(("blender", b[i]))
     return out + [("earlier", it) for it in by["earlier"]]
 
+def year_tag(meta):
+    """A small year tag under the caption, when the medium-and-year field has a year."""
+    m = re.search(r"(19|20)\d\d", meta)
+    return f'<ul class="card-tags"><li>{m.group(0)}</li></ul>' if m else ""
+
 def pin_full(kind, it):
     slug, title, meta, caption, alt = it
     cap = (f'<figcaption><strong>{title}</strong><span class="pin-meta"> · {meta}. </span>'
-           f'<span class="pin-desc">{caption}</span></figcaption>')
+           f'<span class="pin-desc">{caption}</span>{year_tag(meta)}</figcaption>')
     if slug in VIDEOS:
         media = f'<div class="pin-media">{video_tag(slug)}</div>'
     else:
@@ -148,11 +153,11 @@ def build():
     by = {it[0]: it for _, it in items}
     pins = []
     for slug in SHOWCASE:
-        _, title, _, caption, alt = by[slug]
+        _, title, meta, caption, alt = by[slug]
         media = (f'<div class="pin-media">{video_tag(slug)}</div>' if slug in VIDEOS else
                  f'<a class="pin-media" href="images.html#{slug}">{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 50vw, 360px")}</a>')
         pins.append(f'    <figure class="pin">\n      {media}\n      <figcaption><strong>{title}</strong>'
-                    f'<span class="pin-desc">{SHORT.get(slug, caption)}</span></figcaption>\n    </figure>')
+                    f'<span class="pin-desc">{SHORT.get(slug, caption)}</span>{year_tag(meta)}</figcaption>\n    </figure>')
     section = ('<section class="images" id="worlds">\n  <h2 class="eyebrow">Worlds</h2>\n'
                "  <p class=\"images-intro\">Things that don't exist until someone makes them, in code with Processing and in 3D with Blender.</p>\n"
                '  <div class="pins" data-min="280">\n' + "\n".join(pins) + '\n  </div>\n'
