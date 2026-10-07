@@ -11,7 +11,7 @@ when it's imported. Every page links back to its Medium original.
 
 Header fields: title, date (YYYY-MM-DD), medium (the original's URL), deck (the subtitle, may hold
 inline HTML), kind (Essay, Experiment, …), line (one sentence for cards and search results),
-cover (card image), art (optional larger image for the top of the page), home (show on the homepage).
+tags (topic labels under the card), cover (card image), art (optional larger image for the top of the page), home (show on the homepage).
 """
 import argparse, email.utils, html, io, json, math, re, subprocess, urllib.parse
 from datetime import date
@@ -332,7 +332,7 @@ def render_post(post, links, newer, older):
 
 """ + FOOT)
 
-def card(link, img, kind, title, line, group):
+def card(link, img, kind, title, line, group, tags=()):
     img = smaller(img)
     w, h = size(img)
     return f"""    <article class="pin card" data-kind="{group}">
@@ -340,13 +340,16 @@ def card(link, img, kind, title, line, group):
         <div class="pin-media"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy"></div>
         <p class="card-kind">{esc(kind)}</p>
         <h3 class="card-title">{esc(title)}</h3>
-        <p class="card-line">{esc(line)}</p>
+        <p class="card-line">{esc(line)}</p>{tag_list(tags)}
       </a>
     </article>"""
 
+def tag_list(tags):
+    return ("\n        <ul class=\"card-tags\">" + "".join(f"<li>{esc(t)}</li>" for t in tags) + "</ul>") if tags else ""
+
 def post_card(p):
     group = "experiment" if "experiment" in p["kind"].lower() else "essay"
-    return card(f"/articles/{p['slug']}/", p["cover"], f"{p['kind']} · {month(p['date'])}", p["title"], p["line"], group)
+    return card(f"/articles/{p['slug']}/", p["cover"], f"{p['kind']} · {month(p['date'])}", p["title"], p["line"], group, p.get("tags", ()))
 
 def render_index(posts):
     latest, rest = posts[0], posts[1:]

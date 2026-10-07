@@ -44,6 +44,25 @@ PROJECTS = [
      [("OurDataframe", DAVID + "OurDataframe")]),
 ]
 
+# Topic tags shown under each card, by title
+TAGS = {
+    "Wen's Mindscape": ["Model evaluation", "Language models", "Data visualisation"],
+    "LLM Art Director": ["Language models", "Image editing", "Computational aesthetics"],
+    "DiverseIntelligence": ["Multi-agent", "Language models"],
+    "Gestalt": ["Neuroaesthetics", "Image generation", "Perception"],
+    "Aesthetics Optimizer": ["Neuroaesthetics", "fMRI", "Generative art"],
+    "BitRNN": ["Evolutionary training", "Binary networks", "From scratch"],
+    "Story GRU language model": ["Language models", "Interpretability", "Stories"],
+    "Codebook Genome": ["VQ-VAE", "Representation learning", "Visualisation"],
+    "Deterministic Inpainting": ["Computer vision", "Image restoration", "Art"],
+    "Narrative–Technical Embedding Space": ["Embeddings", "Narrative", "Contrastive learning"],
+    "Tarot-VAE": ["Generative models", "VAE", "Art"],
+    "SceneGraph": ["Computer vision", "Scene graphs", "Video"],
+    "SMLF": ["From scratch", "C++", "ML library"],
+}
+missing = [p[3] for p in PROJECTS if p[3] not in TAGS]
+assert not missing, f"no tags for {missing}"
+
 SHOW = 9   # the rest wait behind a "Show more" link (assets/site.js); without JS they all show
 
 esc = lambda s: html.escape(s, quote=False)
@@ -56,6 +75,7 @@ def card(link, img, kind, title, line, extras=(), more=False):
            f'        <p class="card-kind">{esc(kind)}</p>',
            f'        <h3 class="card-title">{esc(title)}</h3>',
            f'        <p class="card-line">{esc(line)}</p>',
+           '        <ul class="card-tags">' + "".join(f'<li>{esc(t)}</li>' for t in TAGS[title]) + '</ul>',
            '      </a>']
     if extras:
         out.append('      <p class="card-extra">' + "".join(f'<a href="{u}">{esc(t)}</a>' for t, u in extras) + '</p>')
