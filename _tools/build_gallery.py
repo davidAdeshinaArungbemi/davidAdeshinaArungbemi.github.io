@@ -16,7 +16,7 @@ SHOWCASE = ["blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art
 # Shorter descriptions for the homepage; anything not listed uses its full caption.
 SHORT = {
     "water-town": "A watercolour town from above, and one slow morning on it.",
-    "caustic-bloom": "A flower made only of circles, and never drawn.",
+    "caustic-bloom": "A flower made only of circles, each passing through the centre.",
     "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
     "art-of-intelligence": "Nine thousand particles combed into strands; the hex is the poster's own text.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
@@ -37,8 +37,8 @@ GROUPS = [
  ("processing", "Processing · 2026", None, [
   ("water-town", "Water Town", "Processing, 2026", "A watercolour town from above, and one slow morning on it.", None),
   ("ripples", "Ripples", "Processing, 2026", "Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.", "Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges."),
-  ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles, and never drawn: every circle passes through the centre, and the petals are where they gather.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
-  ("nightbloom", "Nightbloom", "Processing, 2026", "Another flower that is never drawn: a foam whose cells sit on a golden-angle spiral, so the walls between them bloom.", "Pale foam walls on cobalt blue spiralling out from a centre, with a few glossy blue spheres resting among the cells."),
+  ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
+  ("nightbloom", "Nightbloom", "Processing, 2026", "A foam whose cells sit on a golden-angle spiral, so the walls between them form a flower.", "Pale foam walls on cobalt blue spiralling out from a centre, with a few glossy blue spheres resting among the cells."),
   ("art-of-intelligence", "The Art of Intelligence", "Processing, 2026", "Nine thousand particles combed through a curl-noise field into strands; the hex cascade is the bytes of the poster's own text.", "A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads 'The Art of Intelligence — David Adeshina'."),
   ("ripples-crab", "Ripples, detail", "Processing, 2026", "Near the crab, every wave takes its shape: the ripples are distances to its outline.", "A close-up of teal ripples curling around the faint shape of a crab."),
   ("poster-variations", "The Art of Intelligence, three earlier versions", "Processing, 2026", "Three different ways of building the same strands.", "Three versions of the same black poster side by side, each with a different sweep of orange and cyan strands."),
