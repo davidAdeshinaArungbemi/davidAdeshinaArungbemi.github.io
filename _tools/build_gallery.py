@@ -11,12 +11,13 @@ from PIL import Image
 FB = "https://www.facebook.com/dave.gbemi.98"
 
 # The homepage showcase, in reading order (pins fill the shortest column, Pinterest-style).
-SHOWCASE = ["water-town", "caustic-bloom", "art-of-intelligence", "calligraphy", "hard-surface", "stacked-house", "still-life"]
+SHOWCASE = ["water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy", "hard-surface", "stacked-house", "still-life"]
 
 # Shorter descriptions for the homepage; anything not listed uses its full caption.
 SHORT = {
     "water-town": "A watercolour town from above, and one slow morning on it.",
     "caustic-bloom": "A flower made only of circles, and never drawn.",
+    "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
     "art-of-intelligence": "Nine thousand particles combed into strands; the hex is the poster's own text.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
     "hard-surface": "The wireframe of a rugged box with a hinged lid.",
@@ -49,6 +50,7 @@ GROUPS = [
  ]),
  ("blender", "3D · Blender", FB, [
   ("gyronics-axol", "Axol, a wearable for Gyronics", "Blender, 2025", "A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.", "Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side."),
+  ("gyronics-concept-2024", "First concept for the Gyronics wearable", "Blender, 2024", "My first design for Gyronics, from May 2024: a dark band with a glass-like top and the Gyronics name glowing on it. A render of the design, before Axol.", "A black wearable band with a curved, glass-like top showing the glowing word Gyronics, and two small status lights on its side, on a dark background."),
   ("island-night", "Island at night", "Blender", "A beach house under a green neon WELCOME sign, among palm trees and sandcastles.", "A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls."),
   ("blossom-pond", "Cherry-blossom pond, three views", "Blender", "A low-poly pond under a blossoming tree: by day, from above, and at night.", "Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals."),
   ("tea-meringues", "Tea and meringues", "Blender", "A cup of tea with cinnamon sticks and meringues on a saucer.", "A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background."),
