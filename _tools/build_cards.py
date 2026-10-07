@@ -44,7 +44,7 @@ PROJECTS = [
      [("OurDataframe", DAVID + "OurDataframe")]),
 ]
 
-SHOW = 8   # the rest wait behind a "Show more" link (assets/site.js); without JS they all show
+SHOW = 9   # the rest wait behind a "Show more" link (assets/site.js); without JS they all show
 
 esc = lambda s: html.escape(s, quote=False)
 
