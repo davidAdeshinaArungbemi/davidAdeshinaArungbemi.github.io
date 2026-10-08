@@ -26,6 +26,8 @@ SHORT = {
 }
 
 VIDEOS = {
+    "robot-arm": ("assets/video/robot-arm.mp4", "assets/video/robot-arm-poster.jpg", 1280, 792,
+                  "A screen recording of Blender: a jointed robot arm on a grey floor picks up a small cube while a Python script runs beside it."),
     "water-town": ("assets/video/watertown-loop.mp4", "assets/video/watertown-poster.jpg", 720, 960,
                    "A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."),
     "blender-animation": ("assets/video/blender-animation.mp4", "assets/video/blender-animation-poster.jpg", 960, 540,
@@ -51,6 +53,10 @@ GROUPS = [
  ("blender", "3D · Blender", FB, [
   ("gyronics-axol", "Axol, a wearable for Gyronics", "Blender, 2025", "A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.", "Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side."),
   ("gyronics-concept-2024", "First concept for the Gyronics wearable", "Blender, 2024", "My first design for Gyronics, from May 2024: a dark band with a glass-like top and the Gyronics name glowing on it. A render of the design, before Axol.", "A black wearable band with a curved, glass-like top showing the glowing word Gyronics, and two small status lights on its side, on a dark background."),
+  ("gyronics-hex-pink", "Hexagon wearable, pink band", "Blender, 2024", "A design I made for Gyronics in December 2024: a hexagonal unit with a soft white light, on a perforated pink band. A render of the design.", "A pink perforated wristband with a glowing white hexagonal unit, on a dark surface."),
+  ("gyronics-hex-wrist", "Hexagon wearable, on the wrist", "Blender, 2024", "The same Gyronics design in black, shown on a modelled wrist. A render of the design.", "A black wristband with a glowing white hexagonal unit, worn on a smooth modelled forearm."),
+  ("gyronics-hex-copper", "Hexagon wearable, copper pads", "Blender, 2025", "A later version for Gyronics, January 2025: a glowing green hexagon on a woven black band with copper pads. A render of the design.", "A black woven wristband with a glowing green hexagonal unit and copper pads, lit from above."),
+  ("gyronics-square-2025", "Square wearable concept", "Blender, 2025", "Another concept for Gyronics, March 2025: a square unit with a green cube on its face and a row of green lights, on a knitted grey band. A render of the design.", "A square wearable on a grey knitted band, with a glowing green cube on its screen and a row of small green lights."),
   ("island-night", "Island at night", "Blender", "A beach house under a green neon WELCOME sign, among palm trees and sandcastles.", "A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls."),
   ("blossom-pond", "Cherry-blossom pond, three views", "Blender", "A low-poly pond under a blossoming tree: by day, from above, and at night.", "Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals."),
   ("tea-meringues", "Tea and meringues", "Blender", "A cup of tea with cinnamon sticks and meringues on a saucer.", "A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background."),
@@ -72,10 +78,12 @@ GROUPS = [
   ("light-study", "Blocks under a spotlight", "Blender, 2022", "Grey and yellow blocks arranged in a ring under a single light.", "Rectangular blocks in grey, black and yellow arranged in a ring under a soft spotlight on a dark floor."),
   ("blender-animation", "Animation exercise", "Blender, 2024", "A camera moving through a grey, untextured scene.", None),
   ("rigging", "Rigging a character, in progress", "Blender, 2024", "A low-poly figure with its control rig.", "A Blender window showing a grey low-poly human figure with its control rig and timeline."),
+  ("robot-arm", "Robot arm, moved by a script", "Blender and Python, 2025", "A robot arm rigged in Blender and moved by a Python script inside it: the arm turns, reaches a cube, picks it up and lets it go.", None),
+  ("santa-hat", "Santa hat", "Blender, 2022", "A soft red Santa hat with a furry trim and pompom.", "A red Santa hat with a thick grey fur trim and a fluffy pompom, on a warm brown background."),
   ("hard-surface", "Hard-surface modelling, in progress", "Blender", "The wireframe of a rugged box with a hinged lid.", "A Blender window showing the wireframe of a rugged, rounded box with screws and hinges on its lid."),
  ]),
  ("earlier", "Earlier experiments", None, [
-  ("vector-portrait", "Portrait", "Vector illustration", "A girl with striped pink hair and striped eyes.", "A flat vector portrait of a girl with diagonally striped pink hair, striped teal eyes and round pink cheeks, on a dark background."),
+  ("vector-portrait", "Portrait", "Vector illustration, 2022", "A girl with striped pink hair and striped eyes.", "A flat vector portrait of a girl with diagonally striped pink hair, striped teal eyes and round pink cheeks, on a dark background."),
   ("tarot-vae", "Tarot-VAE, generated cards", "Python, 2025", "Cards dreamed up by a small model trained on tarot art, assembled patch by patch.", "A strip of five blurry, patchwork tarot-like cards generated by a neural network."),
   ("codebook-rings", "Codebook Genome, rings", "Python, 2025", "Each small image becomes 64 codes from a learned codebook, one colour per code. Read around the ring, the codes are that image's genome.", "Five rings of coloured segments on white, each with a small photo in the centre: a cat, two boats, a plane and a frog."),
   ("codebook-strands", "Codebook Genome, strands", "Python, 2025", "The same codes laid out in a line, like a strand of DNA, one strand per image.", "Five horizontal strands of coloured bars, each beside a small photo."),
@@ -89,6 +97,11 @@ GROUPS = [
   ("banana-on-cloth", "Banana on a cloth", "Digital painting, 2021", "A bruised banana on a folded cloth.", "A ripe yellow banana with small brown bruises lying on a folded grey-green cloth on a grey-violet surface."),
   ("staff-2021", "Character with a staff", "Digital painting, 2021", "An oversized jumper, hair over one eye, and a staff that ends in twig fingers.", "A figure with long auburn hair falling over one eye, wearing an oversized blue-grey jumper, baggy olive trousers and black boots, holding a tall staff topped with twig-like fingers, against a turquoise sky and green foliage."),
   ("head-study-2021", "Head study", "Digital painting, 2021", "An early try at a face, turned three-quarters.", "A painted head of a person with long crimson hair, thick dark brows and red lips, turned three-quarters against a pale blue background."),
+  ("skull-2021", "Skull", "Digital painting, 2021", "A skull resting on dark, misty ground.", "A digitally painted skull on a dark grey, misty surface."),
+  ("cat-window", "Cat at the window", "Digital painting", "A cat watching bare trees through a bright window, in shades of grey.", "A greyscale painting of a black and white cat on a windowsill, looking out at bare trees."),
+  ("night-walk", "Night walk", "Digital painting", "A girl in headphones walks past a full moon and a falling comet, her bag glowing teal.", "A girl in a hoodie and headphones walks along a railing at night under a huge full moon and a comet."),
+  ("black-cat", "Black cat", "Digital painting", "A black cat against bright light, painted in black and white.", "A black cat silhouetted against a white background, with soft grey highlights."),
+  ("pencil-studies-2022", "Pencil studies", "Pencil, 2022", "An eye, lips, a profile and a full face, drawn in early 2022.", "Four pencil studies on paper: an eye, a pair of lips, a woman in profile and a woman's face from the front."),
  ]),
 ]
 
