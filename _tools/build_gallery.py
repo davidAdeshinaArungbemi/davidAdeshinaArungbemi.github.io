@@ -99,7 +99,7 @@ GROUPS = [
   ("face-shaded-2022", "Face study, shaded", "Pencil, March 2022", "A woman’s face built up in cross-hatching.", "A pencil drawing of a woman’s face, shaded with dense cross-hatching."),
   ("hoop-earrings-2022", "Hoop earrings", "Pencil, April 2022", "A woman with curly hair and hoop earrings.", "A pencil drawing of a woman with short curly hair and large hoop earrings."),
   ("face-study-2022", "Face study", "Pencil, April 2022", "A woman’s face with its guidelines still showing.", "A pencil drawing of a woman’s face with faint guidelines and hatching."),
-  ("ink-plants-2022", "Plants in ink", "Ink, June 2022", "Silhouettes of trees, leaves and branches in black ink.", "Black ink silhouettes of a tree, leaves and branches on white paper."),
+  ("ink-plants-2022", "Wolf under a tree", "Ink, June 2022", "A wolf and a tree in black silhouette under a hatched moon, with loose studies of leaves around them.", "A black ink drawing of a wolf standing under a tree, with a cross-hatched moon behind and small leaf studies around the page."),
   ("chibi-faces-2022", "Chibi faces", "Pencil, June 2022", "A page of small, round cartoon faces.", "A sketchbook page of small round cartoon faces with big eyes."),
   ("round-face-2022", "Round face", "Pencil, June 2022", "A simple, round girl’s face with big hair.", "A simple pencil drawing of a round-faced girl with big hair."),
   ("cat-window", "Cat at the window", "Digital painting", "A cat watching bare trees through a bright window, in shades of grey.", "A greyscale painting of a black and white cat on a windowsill, looking out at bare trees."),
