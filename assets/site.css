@@ -146,6 +146,8 @@ section[id] { scroll-margin-top: 3.5rem; }
   color: var(--seal-ink); margin: 0 0 2rem; font-weight: 400;
 }
 .eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.sub-eyebrow { display: flex; align-items: center; gap: .8rem; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .68rem; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-2); font-weight: 400; margin: 2.8rem 0 1.3rem; }
+.sub-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 .links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: .6rem 0 0; font-size: .95rem; }
 .links a { color: var(--moss); }
 .more { color: var(--ink-2); margin-top: 1.75rem; max-width: 66ch; }

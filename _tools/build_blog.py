@@ -389,13 +389,20 @@ def render_index(posts):
 """ + FOOT)
 
 def update_homepage(posts):
-    cards = [post_card(p) for p in posts if p.get("home")]
+    """The homepage shows its articles in two labelled grids: experiments first, then essays."""
+    home = [p for p in posts if p.get("home")]
+    is_exp = lambda p: "experiment" in p["kind"].lower()
+    blocks = []
+    for label, group in (("Experiments", [p for p in home if is_exp(p)]), ("Essays", [p for p in home if not is_exp(p)])):
+        if group:
+            blocks.append(f'  <h3 class="sub-eyebrow">{label}</h3>\n  <div class="pins cards" data-min="250">\n'
+                          + "\n".join(post_card(p) for p in group) + "\n  </div>")
     page = Path("index.html").read_text(encoding="utf-8")
     pattern = re.compile(r"(<!-- cards:articles -->).*?([ \t]*<!-- /cards:articles -->)", re.S)
     assert pattern.search(page), "no <!-- cards:articles --> markers in index.html"
-    page = pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(cards) + "\n" + m.group(2), page)
+    page = pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(blocks) + "\n" + m.group(2), page)
     Path("index.html").write_text(page, encoding="utf-8")
-    return len(cards)
+    return len(home)
 
 def build():
     posts = load_all()
