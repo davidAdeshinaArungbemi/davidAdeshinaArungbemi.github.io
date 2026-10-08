@@ -36,7 +36,7 @@ VIDEOS = {
 
 # (slug, title, medium-and-year, caption, alt)   alt is None for videos
 GROUPS = [
- ("processing", "Processing · 2026", None, [
+ ("processing", "Creative coding", None, [
   ("water-town", "Water Town", "Processing, 2026", "A watercolour town from above, and one slow morning on it.", None),
   ("ripples", "Ripples", "Processing, 2026", "Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.", "Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges."),
   ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
@@ -49,6 +49,9 @@ GROUPS = [
   ("value-chords", "Value Chords", "Processing, 2026", "Stories lead to values, and values lead to preferences, all drawn as one ring of ribbons. In the sketch, clicking any node lights up only its path. The weights are placeholders for now.", "A chord diagram titled 'You are what you read': stories on the left, values on top, preferences on the right, joined by coloured ribbons."),
   ("calligraphy", "苏州 · 二〇二六 春", "Processing, 2026", "Procedural brushwork for the Water Town inscription, and the seal that became this site's mark.", "Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀."),
   ("colour-bird", "Colour Bird", "Processing, 2026", "Feathers fanned like a spectrum; in the sketch, it sways and blinks.", "A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky."),
+  # 2021: the first code pieces, before Processing and Claude
+  ("vortex-2021", "Untitled", "Code, December 2021", "Thousands of rectangles pulled toward a dark centre. Where it started.", "A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre."),
+  ("tunnel-2021", "Untitled", "Code, December 2021", "Zig-zag lines folding into a tunnel.", "A monochrome tunnel of fine zig-zag lines receding to a black centre."),
  ]),
  ("blender", "3D · Blender", FB, [
   ("gyronics-axol", "Axol, a wearable for Gyronics", "Blender, 2025", "A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.", "Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side."),
@@ -144,10 +147,6 @@ GROUPS = [
   ("long-hair-2020", "Girl with long hair", "Pencil, June 2020", "A girl with long, straight hair, shaded in pencil.", "A shaded pencil drawing of a girl with long straight hair."),
   ("lined-paper-2020", "On lined paper", "Pencil, June 2020", "A girl with her hair tied back, drawn on lined paper.", "A faint pencil drawing of a girl with tied-back hair on lined notebook paper."),
  ]),
- ("earlier", "Earlier experiments", None, [
-  ("vortex-2021", "Untitled", "Code, December 2021", "Thousands of rectangles pulled toward a dark centre. Where it started.", "A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre."),
-  ("tunnel-2021", "Untitled", "Code, December 2021", "Zig-zag lines folding into a tunnel.", "A monochrome tunnel of fine zig-zag lines receding to a black centre."),
- ]),
 ]
 
 def dims(slug, w):
@@ -164,14 +163,14 @@ def video_tag(slug):
             f'playsinline preload="none" width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
 
 def ordered():
-    """Interleave Processing and Blender so the first rows mix both; then sketches and paintings; earlier experiments last."""
+    """Interleave creative coding and Blender so the first rows mix both; sketches and paintings last."""
     by = {gid: items for gid, _, _, items in GROUPS}
     p, b = by["processing"], by["blender"]
     out = []
     for i in range(max(len(p), len(b))):
         if i < len(p): out.append(("processing", p[i]))
         if i < len(b): out.append(("blender", b[i]))
-    return out + [("drawing", it) for it in by["drawing"]] + [("earlier", it) for it in by["earlier"]]
+    return out + [("drawing", it) for it in by["drawing"]]
 
 def year_tag(meta):
     """A small year tag under the caption, when the medium-and-year field has a year."""
@@ -193,14 +192,13 @@ def build():
     items = ordered(); count = len(items)
     tabs = ('  <div class="pin-tabs" role="group" aria-label="Show">\n'
             '    <button type="button" data-filter="all" aria-pressed="true">All</button>\n'
-            '    <button type="button" data-filter="processing" aria-pressed="false">Processing</button>\n'
+            '    <button type="button" data-filter="processing" aria-pressed="false">Creative coding</button>\n'
             '    <button type="button" data-filter="blender" aria-pressed="false">3D · Blender</button>\n'
             '    <button type="button" data-filter="drawing" aria-pressed="false">Sketches &amp; paintings</button>\n'
-            '    <button type="button" data-filter="earlier" aria-pressed="false">Earlier experiments</button>\n'
             '  </div>')
     main = ('<main id="main">\n<section class="page-head">\n  <h1>Worlds</h1>\n'
-            "  <p>Things that don't exist until someone makes them: Processing sketches written with Claude as a pair-programmer, "
-            "scenes in Blender, drawings and paintings, and the experiments where it started. Select any image to see it full size.</p>\n"
+            "  <p>Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a pair-programmer), "
+            "scenes in Blender, and drawings and paintings going back to 2020. Select any image to see it full size.</p>\n"
             f'{tabs}\n</section>\n\n<section class="images-all" aria-label="All pieces">\n  <div class="pins" data-min="220" data-filterable>\n'
             + "\n".join(pin_full(k, it) for k, it in items) +
             f'\n  </div>\n  <p class="see-all"><a href="{FB}">More of my 3D work on Facebook →</a></p>\n</section>\n</main>')
@@ -218,7 +216,7 @@ def build():
         pins.append(f'    <figure class="pin">\n      {media}\n      <figcaption><strong>{title}</strong>'
                     f'<span class="pin-desc">{SHORT.get(slug, caption)}</span>{year_tag(meta)}</figcaption>\n    </figure>')
     section = ('<section class="images" id="worlds">\n  <h2 class="eyebrow">Worlds</h2>\n'
-               "  <p class=\"images-intro\">Things that don't exist until someone makes them, in code with Processing, in 3D with Blender, and by hand.</p>\n"
+               "  <p class=\"images-intro\">Things that don't exist until someone makes them, in code, in 3D with Blender, and by hand.</p>\n"
                '  <div class="pins" data-min="280">\n' + "\n".join(pins) + '\n  </div>\n'
                f'  <p class="see-all"><a href="images.html">See all {count} pieces →</a></p>\n</section>')
     home = open("index.html", encoding="utf-8").read()
