@@ -21,7 +21,7 @@ PUBS = {
                  "Narrative Transportation and Speciesism in Large Language Models",
                  "Five models read a story about an animal, the same facts written plainly, or nothing, then answered a speciesism "
                  "questionnaire. On the questions about that animal, their speciesism, already modest, fell to nearly zero after "
-                 "the story; the plain facts generally did not change it.",
+                 "the story; the plain facts generally did not change it. The effects were small in absolute terms.",
                  ["Narrative", "Language models", "Animal welfare"],
                  [("PDF", "https://zenodo.org/records/21294610/files/arungbemi-2026-narrative-transportation-speciesism-llms.pdf")]),
     "gestures": ("https://doi.org/10.1109/ACCESS.2025.3602871", "assets/cards/gestures.jpg", "Journal article · peer-reviewed · 2025",
@@ -33,10 +33,12 @@ PUBS = {
 
 # Items are (kind, key): ("pub", key in PUBS), ("article", slug), ("project", title), ("image", Worlds slug)
 TOPICS = [
-    dict(slug="stories-and-ai", title="Stories and AI", line="How stories shape what language models value and do.",
-         statement=("Can a story change what a language model values, the way a story can change a person? In my preprint, "
-                    "stories about an animal reduced speciesism in five models' answers about that animal, while the same facts "
-                    "written plainly generally did not. At MARS I'm now testing whether fine-tuning on stories can carry a story's "
+    dict(slug="stories-and-ai", title="Stories and AI", line="How stories change what language models say and do.",
+         statement=("Can a story change the positions a language model expresses, the way a story can change a person's? In my "
+                    "preprint, stories about an animal reduced speciesism in five models' answers about that animal, while the same "
+                    "facts written plainly generally did not. The effects were small in absolute terms, the questionnaire was my own "
+                    "rather than a validated scale, and the stories were drafted with a language model, so it is a first result, not a "
+                    "settled one. At MARS I'm now testing whether fine-tuning on stories can carry a story's "
                     "lesson into a model's weights, so the model acts on it without the story in front of it. Related experiments "
                     "profile how a small model behaves when pushed, test whether stated values hold under pressure, and ask "
                     "whether small preferences can show when a model has changed."),
@@ -49,10 +51,11 @@ TOPICS = [
     dict(slug="aesthetics", title="Aesthetics and perception", line="What images do to minds, and what models make of beauty.",
          statement=("What happens when we look at an image and find it beautiful, and can a model learn any of it? I tried to "
                     "predict brain responses to images from fMRI data; it largely failed, and the write-up says why. I tested "
-                    "whether very different starting images can be pushed toward the same perceived whole, and built a system in "
+                    "whether very different starting images can be pushed toward the same target, as judged by image models (not yet "
+                    "by people), and built a system in "
                     "which a language model edits an image guided by aesthetic scores, with a model of human preference to catch "
-                    "edits that only game the scores. I also draw, paint and make generative art, and that practice is where most "
-                    "of these questions start."),
+                    "edits that only game the scores. I haven't yet run studies with people; that is the step these questions need "
+                    "next. I also draw, paint and make generative art, and that practice is where most of these questions start."),
          start=[("article", "gestalt"), ("article", "aesthetic-model")],
          items=[("project", "Aesthetics Optimizer"), ("project", "Gestalt"), ("project", "LLM Art Director"),
                 ("project", "Codebook Genome"), ("project", "Deterministic Inpainting"), ("project", "Tarot-VAE"),
@@ -64,7 +67,8 @@ TOPICS = [
          statement=("Much of what models do is hard to see, so I build ways to look at it: an app for exploring a small model's "
                     "behaviour across 32 dimensions, generative pieces that show a value system from different sides, and pictures "
                     "of how an image model encodes what it sees. Before that I worked on interaction directly: I designed the AI "
-                    "of a wearable that recognises arm gestures continuously and in real time."),
+                    "of a wearable that recognises arm gestures continuously and in real time. None of the visual tools here has been "
+                    "tested with users yet."),
          start=[("project", "Wen's Mindscape"), ("image", "value-tomography")],
          items=[("pub", "gestures"), ("article", "inside-qwen"), ("project", "Codebook Genome"), ("project", "LLM Art Director"),
                 ("project", "SceneGraph"), ("article", "sculpting-latent-space"), ("article", "dream-a-better-dream"),

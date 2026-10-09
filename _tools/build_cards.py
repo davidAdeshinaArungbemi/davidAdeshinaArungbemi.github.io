@@ -22,7 +22,7 @@ PROJECTS = [
      "Asks whether different images can add up to the same whole, by optimising them for structure, meaning and beauty at once.",
      [("Write-up", "articles/gestalt/")]),
     (SUZUME + "AestheticsOptimizer", "assets/cards/aesthetics-optimizer.jpg", "Python · 2026", "Aesthetics Optimizer",
-     "A model that predicts the brain's fMRI response to a new image, personalised from a person's ranked image history, and a desktop app that tunes generative art to raise the predicted response. The write-up covers what didn't work.",
+     "An attempt to predict the brain's fMRI response to a new image, personalised from a person's ranked image history, and a desktop app that tunes generative art to raise the prediction. The predictions were weak (mean r about 0.08), and the write-up covers why.",
      [("Write-up", "articles/aesthetic-model/")]),
     (DAVID + "BitRNN", "assets/cards/bitrnn.png", "C++ · 2025", "BitRNN",
      "A recurrent network whose weights are single bits, trained by evolution instead of gradients.", []),
