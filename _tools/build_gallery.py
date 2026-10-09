@@ -11,7 +11,7 @@ from PIL import Image
 FB = "https://www.facebook.com/dave.gbemi.98"
 
 # The homepage showcase, in reading order (pins fill the shortest column, Pinterest-style).
-SHOWCASE = ["blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy", "hard-surface", "stacked-house", "still-life"]
+SHOWCASE = ["blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy"]
 
 # Shorter descriptions for the homepage; anything not listed uses its full caption.
 SHORT = {

@@ -257,6 +257,52 @@ a.zoom { cursor: zoom-in; }
 .cards + .see-all { margin-top: 2rem; }
 
 .see-all { margin: 1.2rem 0 0; }
+
+/* ---------- plain lists: projects, articles, topic pages (rows from _tools/rows.py) ---------- */
+.rows { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); gap: 2rem 3rem; }
+.row { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+.row[hidden] { display: none; }
+.row-thumb { display: block; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--paper-2); }
+.row-thumb img { width: 100%; height: 100%; object-fit: cover; filter: var(--thumb-filter); }
+.row-kind { margin: 0 0 .3rem; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: var(--seal-ink); }
+.row-title { margin: 0 0 .35rem; font-size: 1.08rem; line-height: 1.25; }
+.row-title a { color: var(--ink); text-decoration: none; transition: color .15s ease; }
+.row-title a:hover { color: var(--seal-ink); }
+.row-line { margin: 0; font-size: .92rem; line-height: 1.5; color: var(--ink-2); max-width: 64ch; }
+.row .card-tags { margin: .55rem 0 0; }
+.row-extra { display: flex; flex-wrap: wrap; gap: .2rem 1rem; margin: .5rem 0 0; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .7rem; letter-spacing: .04em; }
+.row-extra a:hover { color: var(--seal-ink); }
+.rows-start { grid-template-columns: 1fr; gap: 2.2rem; }
+.rows-start .row { grid-template-columns: 220px minmax(0, 1fr); gap: 1.7rem; }
+.rows-start .row-title { font-size: clamp(1.2rem, 1.8vw, 1.45rem); }
+.rows-start .row-line { font-size: .98rem; }
+.rows + .see-all { margin-top: 2.2rem; }
+
+/* ---------- homepage research statement and topic links ---------- */
+.research-statement { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--ink); max-width: 62ch; margin: 0 0 2rem; }
+.topics { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 1000px) { .topics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .topics { grid-template-columns: 1fr; } }
+.topics a { display: flex; flex-direction: column; gap: .45rem; height: 100%; padding: 1.2rem 1.25rem 1.1rem; border: 1px solid var(--rule); border-radius: 14px; text-decoration: none; transition: border-color .15s ease, background .15s ease; }
+.topics a:hover, .topics a:focus-visible { border-color: var(--seal); background: var(--paper-2); }
+.topic-title { font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif; font-size: 1.3rem; line-height: 1.15; color: var(--ink); }
+.topic-line { font-size: .9rem; line-height: 1.45; color: var(--ink-2); flex: 1; }
+.topic-count { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .66rem; text-transform: uppercase; letter-spacing: .12em; color: var(--seal-ink); }
+
+/* ---------- topic pages ---------- */
+.page-head .topic-kicker { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; color: var(--seal-ink); margin: 0 0 .8rem; }
+.page-head .topic-statement { font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.6; color: var(--ink); max-width: 64ch; }
+.page-head .topic-others { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; line-height: 1.8; letter-spacing: .04em; color: var(--ink-3); margin-top: 1.6rem; }
+.topic-images { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 1rem; }
+.topic-images a { display: block; text-decoration: none; }
+.topic-images img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; background: var(--paper-2); }
+.topic-images span { display: block; margin-top: .45rem; font-size: .82rem; line-height: 1.35; color: var(--ink-2); }
+.topic-images a:hover span { color: var(--seal-ink); }
+@media (max-width: 640px) {
+  .row { grid-template-columns: 84px minmax(0, 1fr); gap: .9rem; }
+  .rows-start .row { grid-template-columns: 110px minmax(0, 1fr); gap: 1rem; }
+  .row-line { font-size: .86rem; }
+}
 .see-all a { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--seal-ink); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; }
 .see-all a + a { margin-left: 1.6rem; }
 .see-all a:hover { color: var(--ink); }

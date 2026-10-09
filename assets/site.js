@@ -1,6 +1,6 @@
 /* Shared page behaviour (loaded with defer):
    - .pins grids get a Pinterest-style masonry: each pin, in order, goes into the shortest column
-   - the images page's tabs filter the pins
+   - tab buttons filter the Worlds grid or the Articles list by data-kind
    - a.zoom opens an image full size; arrows step through the images currently shown
    - videos marked data-inview play only while on screen, never for reduced motion
    - on the homepage, the top nav underlines the section in view
@@ -9,24 +9,6 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
   var zoomOrder = Array.prototype.slice.call(document.querySelectorAll('a.zoom'));   // before the masonry moves anything
-
-  // Pins marked data-more wait behind a "Show N more" link placed in the section's .see-all line
-  document.querySelectorAll('.pins').forEach(function (grid) {
-    var extra = Array.prototype.slice.call(grid.querySelectorAll('.pin[data-more]'));
-    var line = grid.parentNode.querySelector('.see-all');
-    if (!extra.length || !line) return;
-    extra.forEach(function (p) { p.hidden = true; });
-    var more = document.createElement('a');
-    more.href = '#'; more.setAttribute('role', 'button');
-    more.textContent = 'Show ' + extra.length + ' more projects';
-    more.addEventListener('click', function (e) {
-      e.preventDefault();
-      extra.forEach(function (p) { p.hidden = false; });
-      more.remove();
-      if (grid._layout) grid._layout(true);
-    });
-    line.insertBefore(more, line.firstChild);
-  });
 
   document.querySelectorAll('.pins').forEach(function (grid) {
     var pins = Array.prototype.slice.call(grid.querySelectorAll('.pin'));
@@ -100,15 +82,19 @@
     toHash();
   });
 
+  // Tabs filter either a masonry grid (Worlds) or a plain list (Articles) by data-kind
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.pin-tabs button'));
   var filterGrid = document.querySelector('.pins[data-filterable]');
-  if (tabs.length && filterGrid && filterGrid._pins) {
+  var filterList = document.querySelector('.rows[data-filterable]');
+  var items = filterGrid && filterGrid._pins ? filterGrid._pins
+            : filterList ? Array.prototype.slice.call(filterList.children) : null;
+  if (tabs.length && items) {
     tabs.forEach(function (b) {
       b.addEventListener('click', function () {
         var f = b.getAttribute('data-filter');
         tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t === b)); });
-        filterGrid._pins.forEach(function (p) { p.hidden = !(f === 'all' || p.getAttribute('data-kind') === f); });
-        filterGrid._layout(true);
+        items.forEach(function (p) { p.hidden = !(f === 'all' || p.getAttribute('data-kind') === f); });
+        if (filterGrid && filterGrid._layout) filterGrid._layout(true);
       });
     });
   }

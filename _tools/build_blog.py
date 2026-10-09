@@ -18,6 +18,7 @@ from datetime import date
 from pathlib import Path
 from bs4 import BeautifulSoup
 from PIL import Image
+from rows import row, nav
 
 SITE = "https://davidadeshinaarungbemi.github.io"
 FEED = "https://medium.com/feed/@suzume1"
@@ -261,16 +262,11 @@ def head(title, description, url, image, extra=""):
 <a class="skip" href="#main">Skip to content</a>
 """
 
-def topbar(current):
+def topbar(current=None):
     return f"""<header class="topbar">
   <a class="wordmark" href="/">David Adeshina Arungbemi</a>
   <nav class="topnav" aria-label="Sections">
-    <a href="/#publications">Publications</a>
-    <a href="/articles/" aria-current="{current}">Articles</a>
-    <a href="/#projects">Projects</a>
-    <a href="/images.html">Worlds</a>
-    <a href="/cv.html">CV</a>
-    <a href="/#contact">Contact</a>
+{nav(current)}
   </nav>
   <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
 </header>
@@ -307,7 +303,7 @@ def render_post(post, links, newer, older):
             "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": SITE + "/"}}
     ld = f'\n<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
     return (head(f"{post['title']} · Suzume", post["line"], url, art or post["cover"], ld)
-            + '<div class="read-progress" aria-hidden="true"></div>\n' + topbar("true") + f"""
+            + '<div class="read-progress" aria-hidden="true"></div>\n' + topbar("Articles") + f"""
 <main id="main" class="post">
   <article>
     <header class="post-head">
@@ -332,24 +328,10 @@ def render_post(post, links, newer, older):
 
 """ + FOOT)
 
-def card(link, img, kind, title, line, group, tags=()):
-    img = smaller(img)
-    w, h = size(img)
-    return f"""    <article class="pin card" data-kind="{group}">
-      <a class="card-link" href="{link}">
-        <div class="pin-media"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy"></div>
-        <p class="card-kind">{esc(kind)}</p>
-        <h3 class="card-title">{esc(title)}</h3>
-        <p class="card-line">{esc(line)}</p>{tag_list(tags)}
-      </a>
-    </article>"""
-
-def tag_list(tags):
-    return ("\n        <ul class=\"card-tags\">" + "".join(f"<li>{esc(t)}</li>" for t in tags) + "</ul>") if tags else ""
-
 def post_card(p):
     group = "experiment" if "experiment" in p["kind"].lower() else "essay"
-    return card(f"/articles/{p['slug']}/", p["cover"], f"{p['kind']} · {month(p['date'])}", p["title"], p["line"], group, p.get("tags", ()))
+    return row(f"/articles/{p['slug']}/", smaller(p["cover"]), f"{p['kind']} · {month(p['date'])}", p["title"], p["line"],
+               p.get("tags", ()), group=group)
 
 def render_index(posts):
     latest, rest = posts[0], posts[1:]
@@ -358,7 +340,7 @@ def render_index(posts):
     cards = "\n".join(post_card(p) for p in rest)
     return (head("Articles · David Adeshina Arungbemi",
                  "Essays and experiment write-ups by David Adeshina Arungbemi, who writes as Suzume.",
-                 f"{SITE}/articles/", latest["cover"]) + topbar("page") + f"""
+                 f"{SITE}/articles/", latest["cover"]) + topbar("Articles") + f"""
 <main id="main">
 <section class="page-head">
   <h1>Articles</h1>
@@ -379,9 +361,9 @@ def render_index(posts):
       <p class="w-line">{esc(latest['line'])}</p>
     </div>
   </a></div>
-  <div class="pins cards" data-min="250" data-filterable>
+  <ol class="rows" data-filterable>
 {cards}
-  </div>
+  </ol>
   <p class="see-all"><a href="{MEDIUM}">Suzume on Medium →</a></p>
 </section>
 </main>
@@ -389,14 +371,14 @@ def render_index(posts):
 """ + FOOT)
 
 def update_homepage(posts):
-    """The homepage shows its articles in two labelled grids: experiments first, then essays."""
+    """The homepage lists its articles in two labelled lists: experiments first, then essays."""
     home = [p for p in posts if p.get("home")]
     is_exp = lambda p: "experiment" in p["kind"].lower()
     blocks = []
     for label, group in (("Experiments", [p for p in home if is_exp(p)]), ("Essays", [p for p in home if not is_exp(p)])):
         if group:
-            blocks.append(f'  <h3 class="sub-eyebrow">{label}</h3>\n  <div class="pins cards" data-min="250">\n'
-                          + "\n".join(post_card(p) for p in group) + "\n  </div>")
+            blocks.append(f'  <h3 class="sub-eyebrow">{label}</h3>\n  <ol class="rows">\n'
+                          + "\n".join(post_card(p) for p in group) + "\n  </ol>")
     page = Path("index.html").read_text(encoding="utf-8")
     pattern = re.compile(r"(<!-- cards:articles -->).*?([ \t]*<!-- /cards:articles -->)", re.S)
     assert pattern.search(page), "no <!-- cards:articles --> markers in index.html"

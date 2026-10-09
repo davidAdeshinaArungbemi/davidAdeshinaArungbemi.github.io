@@ -1,12 +1,12 @@
-"""Builds the homepage's Projects cards from the list below. (The Articles cards come from
-_tools/build_blog.py, which also builds the article pages.)
+"""The projects. The homepage lists a few of them (HOME below) as plain rows; build_topics.py builds
+the projects page (/projects/) with all of them. (Articles come from _tools/build_blog.py.)
 
 Run from the repo root:  python3 _tools/build_cards.py
 Card images live in assets/cards/. The ones with no picture of their own are drawn by the
 Processing sketch ~/Desktop/creative_coding/Covers.
 """
-import html, re
-from PIL import Image
+import re
+from rows import row
 
 # (link, image, kind, title, line, [(extra link text, url)])
 SUZUME, DAVID = "https://github.com/suzume-hue/", "https://github.com/davidAdeshinaArungbemi/"
@@ -63,35 +63,26 @@ TAGS = {
 missing = [p[3] for p in PROJECTS if p[3] not in TAGS]
 assert not missing, f"no tags for {missing}"
 
-SHOW = 9   # the rest wait behind a "Show more" link (assets/site.js); without JS they all show
+# The homepage lists these; the projects page (/projects/, built by build_topics.py) lists them all
+HOME = ["Wen's Mindscape", "LLM Art Director", "Gestalt", "Aesthetics Optimizer", "Story GRU language model", "Codebook Genome"]
+assert all(t in [p[3] for p in PROJECTS] for t in HOME)
 
-esc = lambda s: html.escape(s, quote=False)
+def project_row(p):
+    link, img, kind, title, line, extras = p
+    return row(link, img, kind, title, line, TAGS[title], extras)
 
-def card(link, img, kind, title, line, extras=(), more=False):
-    w, h = Image.open(img).size
-    out = ['    <article class="pin card"' + (' data-more' if more else '') + '>',
-           f'      <a class="card-link" href="{link}">',
-           f'        <div class="pin-media"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy"></div>',
-           f'        <p class="card-kind">{esc(kind)}</p>',
-           f'        <h3 class="card-title">{esc(title)}</h3>',
-           f'        <p class="card-line">{esc(line)}</p>',
-           '        <ul class="card-tags">' + "".join(f'<li>{esc(t)}</li>' for t in TAGS[title]) + '</ul>',
-           '      </a>']
-    if extras:
-        out.append('      <p class="card-extra">' + "".join(f'<a href="{u}">{esc(t)}</a>' for t, u in extras) + '</p>')
-    out.append('    </article>')
-    return "\n".join(out)
-
-def fill(page, name, cards):
+def fill(page, name, items):
     pattern = re.compile(rf"(<!-- cards:{name} -->).*?([ \t]*<!-- /cards:{name} -->)", re.S)
     assert pattern.search(page), f"no <!-- cards:{name} --> markers in index.html"
-    return pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(cards) + "\n" + m.group(2), page)
+    return pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(items) + "\n" + m.group(2), page)
 
 def build():
     page = open("index.html", encoding="utf-8").read()
-    page = fill(page, "projects", [card(*p, more=i >= SHOW) for i, p in enumerate(PROJECTS)])
+    by = {p[3]: p for p in PROJECTS}
+    page = fill(page, "projects", [project_row(by[t]) for t in HOME])
+    page = re.sub(r"All \d+ projects", f"All {len(PROJECTS)} projects", page)
     open("index.html", "w", encoding="utf-8").write(page)
-    print(f"index.html: {len(PROJECTS)} project cards")
+    print(f"index.html: {len(HOME)} of {len(PROJECTS)} projects")
 
 if __name__ == "__main__":
     build()
