@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>David Adeshina Arungbemi · for Dr Marc Christie</title>
+<link rel="icon" href="../../assets/img/seal-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<style>
+  :root { --bg: #fbfaf7; --ink: #1c1f22; --ink-2: #44494f; --ink-3: #6f747b; --rule: #e2dccf; --accent: #A63A25; --card: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141518; --ink: #ecebe6; --ink-2: #c4c3bd; --ink-3: #9a9a94; --rule: #2e3035; --accent: #e07a62; --card: #1b1d21; }
+  }
+  :root[data-theme="dark"] { --bg: #141518; --ink: #ecebe6; --ink-2: #c4c3bd; --ink-3: #9a9a94; --rule: #2e3035; --accent: #e07a62; --card: #1b1d21; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 17px/1.6 "Source Serif 4", Georgia, serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+  h1 { font: 500 clamp(28px, 6vw, 38px)/1.08 "Bodoni Moda", Didot, serif; margin: 0 0 8px; letter-spacing: -.005em; }
+  .for { font: 13px/1.5 "IBM Plex Mono", monospace; color: var(--ink-3); margin: 0; }
+  .seal { width: 56px; height: 56px; flex: none; }
+  h2 { font: 500 12px/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .16em; color: var(--accent); margin: 40px 0 12px; }
+  p { margin: 0 0 14px; color: var(--ink-2); }
+  .lead p { color: var(--ink); font-size: 18px; }
+  .item { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .item:first-of-type { border-top: 0; padding-top: 2px; }
+  .item h3 { font: 600 17px/1.35 "Source Serif 4", Georgia, serif; margin: 0 0 4px; color: var(--ink); }
+  .item .when { font: 12px "IBM Plex Mono", monospace; color: var(--ink-3); margin-left: 6px; font-weight: 400; }
+  .item p { margin: 0; }
+  .cv { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 4px 0 10px; }
+  .btn { display: inline-block; font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .04em; padding: 12px 16px; border: 1px solid var(--ink); border-radius: 2px; text-decoration: none; color: var(--ink); }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  ul.record { margin: 0; padding-left: 18px; color: var(--ink-2); }
+  ul.record li { margin: 0 0 6px; }
+  em { font-style: italic; }
+  figure.clip { margin: 12px 0 0; }
+  figure.clip video, figure.clip img { display: block; width: 100%; height: auto; border-radius: 2px; background: #0e1219; }
+  figure.clip figcaption { font: 12px/1.5 "IBM Plex Mono", monospace; color: var(--ink-3); margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div>
+    <h1>David Adeshina Arungbemi</h1>
+    <p class="for">Prepared for Dr Marc Christie · VirtUs, Inria and Université de Rennes</p>
+  </div>
+  <img class="seal" src="../../assets/img/seal-180.png" alt="">
+</header>
+
+<h2>The question I would bring</h2>
+<div class="lead">
+  <p>Your lab turns the language of film into generative models: camera paths from text in E.T., actor and camera generated together in Pulp Motion, and in MVAE, animation tailored from a gesture made with two VR controllers. E.T. starts from the idea that stories and emotions in film emerge through directing decisions; Pulp Motion’s framing works at the level of the whole character, and its motion captions leave out emotion and intent.</p>
+  <p>I come from the gesture side and the story side. I built the AI of a wearable that recognises arm gestures in real time, and a view that redraws each recorded gesture as a line; and I test how stories change language models. I would like to bring both to your lab: gesture as a way to direct a camera or a character, and whether a generated shot carries the emotion and intent of the story it serves.</p>
+</div>
+
+<h2>Work that bears on it</h2>
+<div class="item">
+  <h3>A gesture drawn as a line <span class="when">Gyronics · IEEE Access 2025</span></h3>
+  <p>I designed the AI of a wearable that recognises arm gestures in real time (co-author, peer-reviewed), and built a view that draws each gesture as the path of a virtual pen.</p>
+  <figure class="clip">
+    <video src="gesture-replay.mp4" poster="gesture-replay.jpg" autoplay muted loop playsinline preload="metadata" width="960" height="582" aria-label="A virtual robot arm draws three recorded gestures on a whiteboard: an S, a circle and a P."></video>
+    <figcaption>Three gestures recorded with the wearable (S, circle, P), replayed in our data tool and drawn as the path of a pen.</figcaption>
+  </figure>
+</div>
+<div class="item">
+  <h3><a href="https://github.com/suzume-hue/llm-art-director">When the scores rise and the image gets worse</a> <span class="when">2026</span></h3>
+  <p>A language model art-directs an image round by round from aesthetic scores, and a model of human preference (PickScore) undoes any edit that raises the scores but that a person would probably like less. When that check was not working, the scores rose while the images got worse.</p>
+</div>
+<div class="item">
+  <h3>How stories change models <span class="when">MARS · 2026</span></h3>
+  <p>In the MARS fellowship I test whether training a language model on a story changes the values it acts on, against the same story rewritten neutrally, with its ending flipped, or an unrelated text. In my tests, a model trained on a fable shifted its decisions the way the fable does in the prompt, though its reasoning never named the fable.</p>
+</div>
+<div class="item">
+  <h3><a href="https://davidadeshinaarungbemi.github.io/images.html">Renders and generative art</a> <span class="when">2020 – now</span></h3>
+  <p>Scenes in Blender, where I also designed our wearable’s look, creative coding in Processing, and drawings and paintings.</p>
+</div>
+<div class="item">
+  <h3>People and objects in a scene <span class="when">2025</span></h3>
+  <p>SceneGraph: a live graph of the people and objects in a video stream.</p>
+</div>
+
+<h2>Writing</h2>
+<div class="item">
+  <h3><a href="https://davidadeshinaarungbemi.github.io/articles/dream-a-better-dream/">Dream a Better Dream</a></h3>
+  <p>Understanding what we see before we can explain it, and what people bring to an AI future.</p>
+</div>
+<div class="item">
+  <h3><a href="https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/">Sculpting Latent Space: What If AI Could Think in Clay?</a></h3>
+  <p>What if people could reshape what a model has learned, one correction at a time, without retraining it?</p>
+</div>
+
+<h2>More of my work</h2>
+<div class="item">
+  <h3><a href="https://davidadeshinaarungbemi.github.io/stories-and-ai/">Stories and AI</a></h3>
+  <p>Can a story change the positions a language model expresses, the way a story can change a person’s?</p>
+</div>
+<div class="item">
+  <h3><a href="https://davidadeshinaarungbemi.github.io/visualisation/">Visualisation and interaction</a></h3>
+  <p>Much of what models do is hard to see, so I build ways to look at it.</p>
+</div>
+
+<h2>Record</h2>
+<ul class="record">
+  <li>Research Fellow, MARS 5.0, Cambridge AI Safety Hub (2026 – now)</li>
+  <li><a href="https://doi.org/10.5281/zenodo.21294610">Narrative Transportation and Speciesism in Large Language Models</a>, sole-author preprint, not peer-reviewed (2026)</li>
+  <li><a href="https://doi.org/10.1109/ACCESS.2025.3602871">Real-time gesture recognition wearable</a>, <em>IEEE Access</em>, co-author, peer-reviewed (2025)</li>
+  <li>B.Eng. Computer Engineering, Nile University of Nigeria, First Class Honours (2024)</li>
+</ul>
+<div class="cv" style="margin-top:18px">
+  <a class="btn" href="cv/">CV, tailored to this page</a>
+  <a class="btn" href="Arungbemi_David_CV.pdf">PDF</a>
+</div>
+
+</main>
+<script>
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  }
+</script>
+</body>
+</html>

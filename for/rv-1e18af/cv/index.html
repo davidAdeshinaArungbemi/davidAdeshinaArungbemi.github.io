@@ -26,10 +26,10 @@
   .head .marks { display: flex; align-items: center; gap: 10pt; }
   .head .dream { height: .7in; width: auto; display: block; }
 
-  section { display: grid; grid-template-columns: 1.22in minmax(0, 1fr); gap: 0 .24in; padding: .1in 0 .04in; border-top: .7pt solid var(--rule); }
+  section { display: flow-root; padding: .1in 0 .04in; border-top: .7pt solid var(--rule); }
   .head + section { border-top: 0; }
-  section > h2 { font: 500 7.6pt/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .16em; color: var(--seal-ink); margin: 2pt 0 0; }
-  section > div { min-width: 0; }
+  section > h2 { float: left; width: 1.22in; font: 500 7.6pt/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .16em; color: var(--seal-ink); margin: 2pt 0 0; }
+  section > div, section > dl { margin-left: 1.46in; min-width: 0; }
 
   .entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1pt 14pt; padding: 0 0 5.5pt; break-inside: avoid; }
   .entry h3 { font: 600 10pt/1.35 "Source Serif 4", Georgia, serif; margin: 0; }
@@ -37,7 +37,9 @@
   .entry .sub { grid-column: 1 / -1; margin: 0; color: var(--ink-2); }
   .entry .sub .mono { font: 8pt "IBM Plex Mono", monospace; color: #5d6268; }
   .entry ul { grid-column: 1 / -1; margin: 2pt 0 0; padding-left: 11pt; color: var(--ink-2); }
-  .entry li { margin: 0 0 1.5pt; }
+  .entry li { margin: 0 0 1.5pt; break-inside: avoid; }
+  .entry.long { display: block; break-inside: auto; }
+  .entry.long .row { display: flex; justify-content: space-between; gap: 14pt; }
 
   ul.topics { margin: 0; padding-left: 11pt; columns: 2; column-gap: .3in; }
   ul.topics li { margin: 0 0 2pt; break-inside: avoid; }
@@ -55,8 +57,8 @@
     body { margin: 0; padding: 20px 16px 32px; box-shadow: none; font-size: 15px; }
     .head { grid-template-columns: 1fr; }
     .head .marks { margin-top: 10px; }
-    section { grid-template-columns: 1fr; }
-    section > h2 { margin-bottom: 6px; }
+    section > h2 { float: none; width: auto; margin-bottom: 6px; }
+    section > div, section > dl { margin-left: 0; }
     .entry { grid-template-columns: 1fr; }
     .entry .when { padding-top: 0; }
     ul.topics { columns: 1; }
@@ -118,13 +120,13 @@
 <section>
   <h2>Fellowships &amp; programmes</h2>
   <div>
-    <div class="entry">
-      <h3>Research Fellow, MARS 5.0, Cambridge AI Safety Hub</h3><span class="when">2026 – now</span>
+    <div class="entry long">
+      <div class="row"><h3>Research Fellow, MARS 5.0, Cambridge AI Safety Hub</h3><span class="when">2026 – now</span></div>
       <p class="sub">A mentored AI safety research programme. I test whether training a language model on a story changes the values it acts on, comparing each story with the same text rewritten neutrally or with its ending flipped. I design the experiments and datasets, run the training (supervised fine-tuning, distillation, GRPO) on Gemma and Qwen models, and present results to the cohort. Mentor: Elizaveta Tennant (Google DeepMind / UCL).</p>
       <ul>
         <li><b>A story that acts without being named.</b> Trained on a fable written as its own answers about itself, a small model (Gemma 4) shifted its decisions the way the fable does when it is in the prompt, and took the deceptive option on MACHIAVELLI less often than the base model or a control; no reasoning trace named the fable.</li>
         <li><b>Is the story in the workspace?</b> With Anthropic’s Jacobian lens the fable showed plainly when it was in context; in the trained model its signal was matched by the control, so it came from the training, not the fable.</li>
-        <li><b>Describing versus using a reasoning process.</b> I trained a small model on first-person accounts of Mark Turner’s projection (<em>The Literary Mind</em>). It described the process almost every time it was asked and used its vocabulary in up to two thirds of its reasoning on 2,000 dilemmas, yet its decisions barely changed.</li>
+        <li><b>Describing versus using a reasoning process.</b> I trained a small model on first-person accounts of how it reasons: by projecting a known story onto a new situation (Mark Turner, <em>The Literary Mind</em>). It described the process almost every time it was asked and brought that story into its reasoning on about 70% of 2,000 dilemmas, yet its overall decisions barely changed: whether it learned the process or only its words is still open.</li>
       </ul>
     </div>
     <div class="entry">
@@ -189,10 +191,6 @@
       <h3><a href="https://davidadeshinaarungbemi.github.io/articles/sound-and-meaning/">The Gap Between Sound and Meaning</a></h3><span class="when">2026</span>
       <p class="sub">I asked two AIs to hear words as pure sound. They couldn’t: for them there is no gap between sound and meaning.</p>
     </div>
-    <div class="entry">
-      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/sculpting-latent-space/">Sculpting Latent Space: What If AI Could Think in Clay?</a></h3><span class="when">2026</span>
-      <p class="sub">What if people could reshape what a model has learned, one correction at a time, without retraining it?</p>
-    </div>
     <p class="plain">17 articles in all at <a class="t" href="https://suzume1.medium.com">suzume1.medium.com</a></p>
   </div>
 </section>
@@ -200,7 +198,7 @@
 <section>
   <h2>Skills</h2>
   <dl class="skills">
-    <dt>Research</dt><dd>Reading papers, designing and running experiments, evaluating results, writing them up and presenting them; fMRI analysis</dd>
+    <dt>Research</dt><dd>Reading papers, designing and running experiments, evaluating results, writing them up and presenting them; fMRI modelling (public BOLD5000 data)</dd>
     <dt>Models</dt><dd>Fine-tuning small language models (supervised, GRPO) with PyTorch, Hugging Face and Unsloth on RunPod; benchmarks; LLM-as-judge; multi-agent simulations</dd>
     <dt>Building</dt><dd>Python (main) with Claude Code; C++ (ImGui / ImPlot); apps and visualisations in React and Three.js</dd>
     <dt>Design</dt><dd>Wearable device design, data visualisation, Blender, creative coding in Processing</dd>

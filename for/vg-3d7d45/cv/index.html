@@ -122,7 +122,7 @@
       <h3>Research Fellow, MARS 5.0, Cambridge AI Safety Hub</h3><span class="when">2026 – now</span>
       <p class="sub">A mentored AI safety research programme. I test whether training a language model on a story changes the values it acts on, comparing each story with the same text rewritten neutrally or with its ending flipped. I design the experiments and datasets, run the training (supervised fine-tuning, distillation, GRPO) on Gemma and Qwen models, and present results to the cohort. Mentor: Elizaveta Tennant (Google DeepMind / UCL).</p>
       <ul>
-        <li><b>Stating and using a reasoning process.</b> I trained a small model on first-person accounts of Mark Turner’s projection (<em>The Literary Mind</em>). It described the process almost every time it was asked and used its vocabulary in up to two thirds of its reasoning on 2,000 dilemmas, yet its decisions barely changed: whether it learned the process or only its words is still open.</li>
+        <li><b>Stating and using a reasoning process.</b> I trained a small model on first-person accounts of Mark Turner’s projection (<em>The Literary Mind</em>). It described the process almost every time it was asked and brought the story it was trained on into its reasoning on about 70% of 2,000 dilemmas, yet its overall decisions barely changed: whether it learned the process or only its words is still open.</li>
         <li><b>Structure, not just a story.</b> Following Gentner’s structure mapping, a larger model generated scenarios that share a fable’s relational structure, and a small model was trained on them. One version learned to raise the fable for situations with that structure while mostly withholding it from unrelated ones.</li>
         <li><b>Looking inside.</b> With Anthropic’s Jacobian lens I looked for the story in the model’s layers when its written reasoning never named it; what I found came from the training, not the story.</li>
       </ul>
@@ -197,7 +197,7 @@
 <section>
   <h2>Skills</h2>
   <dl class="skills">
-    <dt>Research</dt><dd>Reading papers, designing and running experiments, evaluating results, writing them up and presenting them; fMRI analysis</dd>
+    <dt>Research</dt><dd>Reading papers, designing and running experiments, evaluating results, writing them up and presenting them; fMRI modelling (public BOLD5000 data)</dd>
     <dt>Models</dt><dd>Fine-tuning small language models (supervised, GRPO) with PyTorch, Hugging Face and Unsloth on RunPod; benchmarks; LLM-as-judge; multi-agent simulations</dd>
     <dt>Building</dt><dd>Python (main) with Claude Code; C++ (ImGui / ImPlot); apps and visualisations in React and Three.js</dd>
     <dt>Design</dt><dd>Wearable device design, data visualisation, Blender, creative coding in Processing</dd>

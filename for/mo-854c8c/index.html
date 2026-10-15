@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>David Adeshina Arungbemi · for Professor Maks Ovsjanikov</title>
+<link rel="icon" href="../../assets/img/seal-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+<style>
+  :root { --bg: #fbfaf7; --ink: #1c1f22; --ink-2: #44494f; --ink-3: #6f747b; --rule: #e2dccf; --accent: #A63A25; --card: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #141518; --ink: #ecebe6; --ink-2: #c4c3bd; --ink-3: #9a9a94; --rule: #2e3035; --accent: #e07a62; --card: #1b1d21; }
+  }
+  :root[data-theme="dark"] { --bg: #141518; --ink: #ecebe6; --ink-2: #c4c3bd; --ink-3: #9a9a94; --rule: #2e3035; --accent: #e07a62; --card: #1b1d21; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 17px/1.6 "Source Serif 4", Georgia, serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+  h1 { font: 500 clamp(28px, 6vw, 38px)/1.08 "Bodoni Moda", Didot, serif; margin: 0 0 8px; letter-spacing: -.005em; }
+  .for { font: 13px/1.5 "IBM Plex Mono", monospace; color: var(--ink-3); margin: 0; }
+  .seal { width: 56px; height: 56px; flex: none; }
+  h2 { font: 500 12px/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .16em; color: var(--accent); margin: 40px 0 12px; }
+  p { margin: 0 0 14px; color: var(--ink-2); }
+  .lead p { color: var(--ink); font-size: 18px; }
+  .item { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .item:first-of-type { border-top: 0; padding-top: 2px; }
+  .item h3 { font: 600 17px/1.35 "Source Serif 4", Georgia, serif; margin: 0 0 4px; color: var(--ink); }
+  .item .when { font: 12px "IBM Plex Mono", monospace; color: var(--ink-3); margin-left: 6px; font-weight: 400; }
+  .item p { margin: 0; }
+  .cv { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 4px 0 10px; }
+  .btn { display: inline-block; font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .04em; padding: 12px 16px; border: 1px solid var(--ink); border-radius: 2px; text-decoration: none; color: var(--ink); }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  ul.record { margin: 0; padding-left: 18px; color: var(--ink-2); }
+  ul.record li { margin: 0 0 6px; }
+  em { font-style: italic; }
+  figure.clip { margin: 12px 0 0; }
+  figure.clip video, figure.clip img { display: block; width: 100%; height: auto; border-radius: 2px; background: #0e1219; }
+  figure.clip figcaption { font: 12px/1.5 "IBM Plex Mono", monospace; color: var(--ink-3); margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div>
+    <h1>David Adeshina Arungbemi</h1>
+    <p class="for">Prepared for Professor Maks Ovsjanikov · LIX, École Polytechnique</p>
+  </div>
+  <img class="seal" src="../../assets/img/seal-180.png" alt="">
+</header>
+
+<h2>The question I would bring</h2>
+<div class="lead">
+  <p>Your recent papers ask how far the representations of different modalities line up: 3D shapes and text in <em>Escaping Plato’s Cave</em>, video and text in <em>Dynamic Reflections</em>. In the first, raw alignment between 3D and text spaces was low, and well-chosen subspaces, which roughly separate semantic from geometric information, raised matching and retrieval a lot; its conclusion proposes such subspace analysis as a way to reveal what is unique and complementary in each modality.</p>
+  <p>I come to this from the language side. I train language models and test what training changes in them, with controls built into each test, and I would like to bring that habit to alignment scores. If the shared subspaces carry the semantic part, retrieval inside them should survive rewording a caption and break when its meaning changes. I would test this by fine-tuning one of the paper’s text encoders (BERT, RoBERTa or T5) on reworded captions and on captions with one attribute changed: does retrieval after projection follow the meaning or the wording?</p>
+</div>
+
+<h2>Work that bears on it</h2>
+<div class="item">
+  <h3>Calibrating a readout with controls <span class="when">MARS · 2026</span></h3>
+  <p>With Anthropic’s Jacobian lens, a per-layer readout of what a model is disposed to say, I looked for a story inside a model trained on it. With the story in context the readout found it plainly, the positive control; in the trained model its signal was matched by a control trained on an unrelated text, so it came from the training, not the story.</p>
+</div>
+<div class="item">
+  <h3>Describing a reasoning process versus using it <span class="when">MARS · 2026</span></h3>
+  <p>A model trained on first-person accounts of a reasoning process described the process almost every time it was asked and brought the story it was trained on into most of its reasoning, yet its overall decisions barely changed. Whether it learned the process or only its words is still open.</p>
+</div>
+<div class="item">
+  <h3>Reinforcement learning on reading <span class="when">MARS · 2026</span></h3>
+  <p>With GRPO, a model read a story scene by scene and chose a moral emotion toward each character. On three held-out stories, the share of choices that matched the story’s own direction rose from 53% to 76% in an early test.</p>
+</div>
+<div class="item">
+  <h3>Two kinds of writing in one space <span class="when">2025</span></h3>
+  <p>Contrastive learning to tell stories from technical writing, as a first step toward translating between them.</p>
+</div>
+<div class="item">
+  <h3>A discrete code for images <span class="when">2025</span></h3>
+  <p>A VQ-VAE turns each small image into 64 codes, which I read like DNA: as a strand, a grid and a ring.</p>
+</div>
+
+<h2>Writing</h2>
+<div class="item">
+  <h3><a href="https://suzume1.medium.com/a-self-reasoning-system-6e3af08b9b2d">A Self-Reasoning System</a></h3>
+  <p>A sketch of Leah, a system that turns a problem into a structured representation and reasons by moving through it, with every step readable.</p>
+</div>
+<div class="item">
+  <h3><a href="https://suzume1.medium.com/sculpting-latent-space-what-if-ai-could-think-in-clay-b730e129d04e">Sculpting Latent Space: What If AI Could Think in Clay?</a></h3>
+  <p>A gesture-recognition problem led to the question of whether people could reshape the hidden geometry inside a network, one correction at a time.</p>
+</div>
+
+<h2>Record</h2>
+<ul class="record">
+  <li>Research Fellow, MARS 5.0, Cambridge AI Safety Hub (2026 – now)</li>
+  <li><a href="https://doi.org/10.5281/zenodo.21294610">Narrative Transportation and Speciesism in Large Language Models</a>, sole-author preprint, not peer-reviewed (2026)</li>
+  <li><a href="https://doi.org/10.1109/ACCESS.2025.3602871">Real-time gesture recognition wearable</a>, <em>IEEE Access</em>, co-author, peer-reviewed (2025)</li>
+  <li>B.Eng. Computer Engineering, Nile University of Nigeria, First Class Honours (2024)</li>
+</ul>
+<div class="cv" style="margin-top:18px">
+  <a class="btn" href="cv/">CV, tailored to this page</a>
+  <a class="btn" href="Arungbemi_David_CV.pdf">PDF</a>
+</div>
+
+</main>
+</body>
+</html>
