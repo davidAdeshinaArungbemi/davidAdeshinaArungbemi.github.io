@@ -40,6 +40,9 @@
   ul.record li { margin: 0 0 6px; }
   footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font: 13px/1.6 "IBM Plex Mono", monospace; color: var(--ink-3); }
   em { font-style: italic; }
+  figure.clip { margin: 12px 0 0; }
+  figure.clip video { display: block; width: 100%; height: auto; border-radius: 2px; background: #0e1219; }
+  figure.clip figcaption { font: 12px/1.5 "IBM Plex Mono", monospace; color: var(--ink-3); margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -75,6 +78,10 @@
 <div class="item">
   <h3>A gesture drawn as a line <span class="when">Gyronics · IEEE Access 2025</span></h3>
   <p>I designed the AI of a wearable that recognises arm gestures in real time (co-author, peer-reviewed), and built a view that draws each gesture as the path of a virtual pen.</p>
+  <figure class="clip">
+    <video src="gesture-replay.mp4" poster="gesture-replay.jpg" autoplay muted loop playsinline preload="metadata" width="960" height="582" aria-label="A virtual robot arm draws three recorded gestures on a whiteboard: an S, a circle and a P."></video>
+    <figcaption>Three gestures recorded with the wearable (S, circle, P), replayed in our data tool and drawn as the path of a pen.</figcaption>
+  </figure>
 </div>
 <div class="item">
   <h3>Three ways of seeing one representation <span class="when">2025</span></h3>
@@ -113,5 +120,10 @@
 
 
 </main>
+<script>
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  }
+</script>
 </body>
 </html>
