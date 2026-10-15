@@ -82,11 +82,11 @@
   <h2>Research interests</h2>
   <div>
     <ul class="topics">
-      <li>What images carry beyond words and scores</li>
+      <li>What a story changes in the model that takes it in</li>
+      <li>Story-level understanding in multimodal models</li>
       <li>Generative models and human preference</li>
-      <li>Testing what a training signal carries</li>
+      <li>What images carry beyond words</li>
       <li>Small image models</li>
-      <li>Stories and values</li>
     </ul>
   </div>
 </section>
@@ -124,8 +124,8 @@
       <div class="row"><h3>Research Fellow, MARS 5.0, Cambridge AI Safety Hub</h3><span class="when">2026 – now</span></div>
       <p class="sub">A mentored AI safety research programme. I test whether training a language model on a story changes the values it acts on, comparing each story with the same text rewritten neutrally or with its ending flipped. I design the experiments and datasets, run the training (supervised fine-tuning, distillation, GRPO) on Gemma and Qwen models, and present results to the cohort. Mentor: Elizaveta Tennant (Google DeepMind / UCL).</p>
       <ul>
-        <li><b>Values carried by preferences.</b> A story-prompted teacher model stated preferences over fruits, countries and languages; a student trained only on those preferences moved toward the teacher’s values, though the story was named in none of 6,000 traces.</li>
         <li><b>A story that acts without being named.</b> Trained on a fable written as its own answers about itself, a small model (Gemma 4) shifted its decisions the way the fable does when it is in the prompt, while a control trained on an unrelated text moved the other way; no reasoning trace named the fable.</li>
+        <li><b>Values carried by preferences.</b> A story-prompted teacher model stated preferences over fruits, countries and languages; a student trained only on those preferences moved toward the teacher’s values, though the story was named in none of 6,000 traces.</li>
       </ul>
     </div>
     <div class="entry">
@@ -165,16 +165,16 @@
       <p class="sub">A language model edits photos guided by beauty scores, and a pretrained human-preference model (PickScore) rolls back edits a person would likely not prefer. When that check wasn’t working, the scores rose while the photos got worse.</p>
     </div>
     <div class="entry">
+      <h3><a href="https://davidadeshinaarungbemi.github.io/Notebooks/story-gru-lm.pdf">Story GRU language model</a></h3><span class="when">2025</span>
+      <p class="sub">A small model that writes stories, probed to watch meaning build up word by word.</p>
+    </div>
+    <div class="entry">
+      <h3>Narrative–Technical Embedding Space</h3><span class="when">2025</span>
+      <p class="sub">Contrastive learning to tell stories from technical writing, as a first step toward translating between them.</p>
+    </div>
+    <div class="entry">
       <h3><a href="https://davidadeshinaarungbemi.github.io/articles/gestalt/">Gestalt</a></h3><span class="when">2026</span>
       <p class="sub">Can different images add up to the same whole? Very different starting images, optimised for structure, meaning and beauty, converged on almost the same picture, as judged by image models (not yet by people).</p>
-    </div>
-    <div class="entry">
-      <h3>Codebook Genome</h3><span class="when">2025</span>
-      <p class="sub">A VQ-VAE turns each small image into a sequence of 64 codes, which I read like DNA: as a strand, a grid and a ring, three ways of seeing the same representation.</p>
-    </div>
-    <div class="entry">
-      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/">The Question Was Mine</a></h3><span class="when">2026</span>
-      <p class="sub">I set out to build a model that reasons in colour, and trained a small transformer on the palettes of over 2,000 Cubist paintings to restore a palette after its colours were scrambled; it became something else.</p>
     </div>
   </div>
 </section>
@@ -183,12 +183,12 @@
   <h2>Selected writing</h2>
   <div>
     <div class="entry">
-      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/dream-a-better-dream/">Dream a Better Dream</a></h3><span class="when">2026</span>
-      <p class="sub">Understanding what we see before we can explain it, and what people bring to an AI future.</p>
+      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/the-narrative-hypothesis/">The Narrative Hypothesis</a></h3><span class="when">2026</span>
+      <p class="sub">What if the universe is a story? Not as a metaphor, but as the way reality is still unfolding.</p>
     </div>
     <div class="entry">
-      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/you-are-what-you-prefer/">You Are What You Prefer</a></h3><span class="when">2026</span>
-      <p class="sub">A model’s small preferences as a fingerprint of its character, and an alarm when it changes.</p>
+      <h3><a href="https://davidadeshinaarungbemi.github.io/articles/dream-a-better-dream/">Dream a Better Dream</a></h3><span class="when">2026</span>
+      <p class="sub">Understanding what we see before we can explain it, and what people bring to an AI future.</p>
     </div>
     <p class="plain">17 articles in all at <a class="t" href="https://suzume1.medium.com">suzume1.medium.com</a> · generative art at <a class="t" href="https://davidadeshinaarungbemi.github.io/images.html">davidadeshinaarungbemi.github.io/images.html</a></p>
   </div>
