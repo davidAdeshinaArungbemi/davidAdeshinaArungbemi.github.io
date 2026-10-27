@@ -294,7 +294,7 @@ def render_post(post, links, newer, older):
     deck = f'\n      <p class="post-deck">{post["deck"]}</p>' if post.get("deck") else ""
     art = post.get("art") or post.get("cover")
     cover = ""
-    if art and not lead_figure:
+    if art and not lead_figure and art not in post["body"]:    # a picture already in the text isn't shown twice
         w, h = size(art)
         cover = f'\n    <figure class="post-cover"><img src="{art}" alt="" width="{w}" height="{h}"></figure>'
     data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": post["title"],
