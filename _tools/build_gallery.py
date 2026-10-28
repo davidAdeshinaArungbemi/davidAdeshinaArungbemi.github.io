@@ -11,10 +11,11 @@ from PIL import Image
 FB = "https://www.facebook.com/dave.gbemi.98"
 
 # The homepage showcase, in reading order (pins fill the shortest column, Pinterest-style).
-SHOWCASE = ["blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy"]
+SHOWCASE = ["rejecting-herself", "blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy"]
 
 # Shorter descriptions for the homepage; anything not listed uses its full caption.
 SHORT = {
+    "rejecting-herself": "A tree pulls its roots out of the cracked ground while its top branches turn into lines and stars.",
     "water-town": "A watercolour town from above, and one slow morning on it.",
     "caustic-bloom": "A flower made only of circles, each passing through the centre.",
     "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
@@ -37,6 +38,12 @@ VIDEOS = {
 # (slug, title, medium-and-year, caption, alt)   alt is None for videos
 GROUPS = [
  ("processing", "Creative coding", None, [
+  # Mother Nature's Rejection of Self (Oct 2026): the lead image, then the four pictures inside the essay, in story order
+  ("rejecting-herself", "Mother Nature Rejecting Herself", "Processing, 2026", "Nature rebelling against itself and becoming something else: a tree pulls its roots out of the cracked ground, its leaves fall, and its top branches straighten into lines that end in stars. The lead image for my essay Mother Nature’s Rejection of Self.", "Black ink on parched paper: a tree lifted out of cracked ground with a few roots still holding, leaves falling to the left, and its upper branches turning into a lattice of straight lines and stars."),
+  ("one-small-world", "One small world", "Processing, 2026", "Her world, small and alive, far out on its orbit under a huge sun, its planets and the stars. Inside the essay Mother Nature’s Rejection of Self.", "A small globe with a few trees on top, far out on a dashed orbit below a huge sun with straight and wavy rays, three planets and scattered stars, in black ink on parched paper."),
+  ("her-chain", "Her chain", "Processing, 2026", "Her world bound by a chain whose links are her own wood and leaves. Inside the essay Mother Nature’s Rejection of Self.", "A globe with a forest along its top, circled by a chain of twisted wooden links with small leaves, the sun's rays in the top corner, in black ink on parched paper."),
+  ("desires-too-large", "Desires too large for its body", "Processing, 2026", "A small person, and behind them a giant of the same shape made of stars, its arms raised to the sky. Inside the essay Mother Nature’s Rejection of Self.", "A small dark figure standing on grassy ground; behind it a giant outline of the same figure filled with stars, arms raised, with lines running from its hands to the stars."),
+  ("her-authority-weakens", "Her authority weakens", "Processing, 2026", "Ice melting, land cracking under the sun, a forest cut down, and above them her chain: cracked, then split, then broken. Inside the essay Mother Nature’s Rejection of Self.", "Three framed panels under a hanging chain: a melting iceberg, cracked dry land under a hot sun with a dead tree, and tree stumps with one tree falling. The chain is cracked over the first panel, split over the second and broken over the third."),
   ("water-town", "Water Town", "Processing, 2026", "A watercolour town from above, and one slow morning on it.", None),
   ("ripples", "Ripples", "Processing, 2026", "Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.", "Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges."),
   ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
