@@ -22,11 +22,19 @@
     syncBrowserColour();
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
+    // Name the action, so assistive tech hears which theme a press gives.
+    function syncButton() {
+      var label = current() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+      btn.setAttribute('aria-label', label);
+      btn.title = label;
+    }
+    syncButton();
     btn.addEventListener('click', function () {
       var next = current() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
       syncBrowserColour();
+      syncButton();
     });
   });
 })();

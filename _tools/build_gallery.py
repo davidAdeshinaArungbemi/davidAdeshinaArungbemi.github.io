@@ -5,7 +5,7 @@ Each still needs assets/gallery/<slug>-800.jpg and <slug>-1600.jpg (the 1600 may
 smaller if the source is). Folders starting with "_" are not published by
 GitHub Pages, so this script stays out of the live site.
 """
-import html, re
+import html, os, re, sys
 from PIL import Image
 
 FB = "https://www.facebook.com/dave.gbemi.98"
@@ -21,9 +21,6 @@ SHORT = {
     "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
     "art-of-intelligence": "Nine thousand particles swept into strands, beside the poster's own words written in hexadecimal.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
-    "hard-surface": "The wireframe of a rugged box with a hinged lid.",
-    "stacked-house": "Modelled from a Pinterest reference, one plank at a time.",
-    "still-life": "Glass bottles, a striped ball and a lettered block on a shelf.",
 }
 
 VIDEOS = {
@@ -159,15 +156,18 @@ GROUPS = [
 def dims(slug, w):
     return Image.open(f"assets/gallery/{slug}-{w}.jpg").size
 
-def img_tag(slug, alt, sizes):
+def img_tag(slug, alt, sizes, eager=False):
     w8, h8 = dims(slug, 800); w16, _ = dims(slug, 1600)
+    kb = os.path.getsize(f"assets/gallery/{slug}-800.jpg") // 1024
+    if kb > 220: print(f"note: {slug}-800.jpg is {kb} KB for a grid slot — worth recompressing", file=sys.stderr)
     srcset = f' srcset="assets/gallery/{slug}-800.jpg {w8}w, assets/gallery/{slug}-1600.jpg {w16}w" sizes="{sizes}"' if w16 > w8 else ""
-    return f'<img src="assets/gallery/{slug}-800.jpg"{srcset} alt="{html.escape(alt, quote=True)}" width="{w8}" height="{h8}" loading="lazy">'
+    loading = "" if eager else ' loading="lazy"'
+    return f'<img src="assets/gallery/{slug}-800.jpg"{srcset} alt="{html.escape(alt, quote=True)}" width="{w8}" height="{h8}"{loading}>'
 
 def video_tag(slug):
     src, poster, w, h, label = VIDEOS[slug]
     return (f'<video src="{src}" poster="{poster}" style="background: url(\'{poster}\') center / cover" data-inview muted loop '
-            f'playsinline preload="none" width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
+            f'playsinline preload="none" controls width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
 
 def ordered():
     """Interleave creative coding and Blender so the first rows mix both; sketches and paintings last."""
@@ -184,7 +184,7 @@ def year_tag(meta):
     m = re.search(r"(19|20)\d\d", meta)
     return f'<ul class="card-tags"><li>{m.group(0)}</li></ul>' if m else ""
 
-def pin_full(kind, it):
+def pin_full(kind, it, eager=False):
     slug, title, meta, caption, alt = it
     cap = (f'<figcaption><strong>{title}</strong><span class="pin-meta"> · {meta}. </span>'
            f'<span class="pin-desc">{caption}</span>{year_tag(meta)}</figcaption>')
@@ -192,7 +192,7 @@ def pin_full(kind, it):
         media = f'<div class="pin-media">{video_tag(slug)}</div>'
     else:
         media = (f'<a class="pin-media zoom" href="assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
-                 f'{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px")}</a>')
+                 f'{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px", eager)}</a>')
     return f'    <figure class="pin" id="{slug}" data-kind="{kind}">\n      {media}\n      {cap}\n    </figure>'
 
 def build():
@@ -207,11 +207,13 @@ def build():
             "  <p>Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a pair-programmer), "
             "scenes in Blender, and drawings and paintings going back to 2020. Select any image to see it full size.</p>\n"
             f'{tabs}\n</section>\n\n<section class="images-all" aria-label="All pieces">\n  <div class="pins" data-min="220" data-filterable>\n'
-            + "\n".join(pin_full(k, it) for k, it in items) +
+            + "\n".join(pin_full(k, it, eager=(i < 8)) for i, (k, it) in enumerate(items)) +
             f'\n  </div>\n  <p class="see-all"><a href="{FB}">More of my 3D work on Facebook →</a></p>\n</section>\n</main>')
     page = open("images.html", encoding="utf-8").read()
-    page = re.sub(r"<main id=\"main\">.*?</main>", lambda m: main, page, count=1, flags=re.S)
-    page = re.sub(r"<title>.*?</title>", "<title>Worlds · David Adeshina Arungbemi</title>", page, count=1)
+    page, n = re.subn(r"<main id=\"main\">.*?</main>", lambda m: main, page, count=1, flags=re.S)
+    assert n == 1, 'no <main id="main"> in images.html'
+    page, n = re.subn(r"<title>.*?</title>", "<title>Worlds · David Adeshina Arungbemi</title>", page, count=1)
+    assert n == 1, "no <title> in images.html"
     open("images.html", "w", encoding="utf-8").write(page)
 
     by = {it[0]: it for _, it in items}
@@ -219,7 +221,7 @@ def build():
     for slug in SHOWCASE:
         _, title, meta, caption, alt = by[slug]
         media = (f'<div class="pin-media">{video_tag(slug)}</div>' if slug in VIDEOS else
-                 f'<a class="pin-media" href="images.html#{slug}">{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 50vw, 360px")}</a>')
+                 f'<a class="pin-media" href="images.html#{slug}">{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 360px")}</a>')
         pins.append(f'    <figure class="pin">\n      {media}\n      <figcaption><strong>{title}</strong>'
                     f'<span class="pin-desc">{SHORT.get(slug, caption)}</span>{year_tag(meta)}</figcaption>\n    </figure>')
     section = ('<section class="images" id="worlds">\n  <h2 class="eyebrow">Worlds</h2>\n'
@@ -227,7 +229,8 @@ def build():
                '  <div class="pins" data-min="280">\n' + "\n".join(pins) + '\n  </div>\n'
                f'  <p class="see-all"><a href="images.html">See all {count} pieces →</a></p>\n</section>')
     home = open("index.html", encoding="utf-8").read()
-    home = re.sub(r'<section class="images" id="[a-z]+">.*?</section>', lambda m: section, home, count=1, flags=re.S)
+    home, n = re.subn(r'<section class="images" id="[a-z]+">.*?</section>', lambda m: section, home, count=1, flags=re.S)
+    assert n == 1, 'no <section class="images"> in index.html'
     open("index.html", "w", encoding="utf-8").write(home)
     print(f"images.html: {count} pieces · homepage Worlds: {len(SHOWCASE)}")
 

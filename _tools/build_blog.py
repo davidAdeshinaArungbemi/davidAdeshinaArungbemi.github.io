@@ -209,6 +209,11 @@ def smaller(src):
     p = Path(src.lstrip("/"))
     s = p.with_name(p.stem + "-800" + p.suffix)
     return "/" + str(s) if s.exists() else src
+def mid(src):
+    """The 1200px copy of an image, if there is one."""
+    p = Path(src.lstrip("/"))
+    s = p.with_name(p.stem + "-1200" + p.suffix)
+    return "/" + str(s) if s.exists() else None
 
 def prepare(post, links):
     soup = BeautifulSoup(post["body"], "html.parser")
@@ -216,21 +221,32 @@ def prepare(post, links):
         a["href"] = links.get(a["href"].split("?")[0].rstrip("/"), a["href"])
     for img in soup.find_all("img"):
         src = img.get("src", "")
-        if src.startswith("/") and Path(src.lstrip("/")).exists():
+        if src.startswith("/"):
+            if not Path(src.lstrip("/")).exists():
+                raise SystemExit(f"{post['slug']}: image {src} is missing")
             w, h = size(src)
             img["width"], img["height"] = str(w), str(h)
             if smaller(src) != src:
-                img["srcset"] = f"{smaller(src)} 800w, {src} {w}w"
+                steps = [f"{smaller(src)} 800w"] + ([f"{mid(src)} 1200w"] if mid(src) else []) + [f"{src} {w}w"]
+                img["srcset"] = ", ".join(steps)
                 img["sizes"] = "(min-width: 940px) 900px, 100vw"
         img["loading"], img["decoding"] = "lazy", "async"
     first = next((el for el in blocks(soup) if el.name not in ("figure", "hr")), None)
     if first is not None and first.name == "p" and len(first.get_text()) > 160 and first.get_text().strip()[:1].isalpha():
         first["class"] = "opening"                       # gets the drop cap
     lead_figure = bool(blocks(soup)) and blocks(soup)[0].name == "figure"
+    if lead_figure:
+        lead_img = blocks(soup)[0].find("img")
+        if lead_img:
+            lead_img["loading"], lead_img["fetchpriority"] = "eager", "high"
     words = len(soup.get_text(" ").split())
     return soup.decode(formatter="minimal"), lead_figure, max(1, math.ceil(words / 230))
 
-def head(title, description, url, image, extra=""):
+def head(title, description, url, image, extra="", og_type="website", published=None):
+    article_meta = ""
+    if og_type == "article" and published:
+        article_meta = (f'\n<meta property="article:published_time" content="{published}">'
+                        '\n<meta property="article:author" content="David Adeshina Arungbemi">')
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,11 +255,11 @@ def head(title, description, url, image, extra=""):
 <title>{esc(title)}</title>
 <meta name="description" content="{attr(description)}">
 <link rel="canonical" href="{url}">
-<meta property="og:type" content="article">
+<meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{attr(title)}">
 <meta property="og:description" content="{attr(description)}">
 <meta property="og:image" content="{SITE}{image}">
-<meta property="og:url" content="{url}">
+<meta property="og:url" content="{url}">{article_meta}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
@@ -288,6 +304,20 @@ def neighbour(post, label):
         <span><span class="post-near-label">{label}</span><span class="post-near-title">{esc(post['title'])}</span></span>
       </a>"""
 
+def og_image(post, art):
+    """A landscape copy for link previews when the art is portrait or square."""
+    w, h = size(art)
+    if h / w <= 0.9:
+        return art
+    out = OUT / post["slug"] / "cover-og.jpg"
+    ow = min(w, 1200)
+    oh = round(ow / 1.91)
+    with Image.open(art.lstrip("/")) as im:
+        im = im.convert("RGB").resize((ow, round(h * ow / w)), Image.LANCZOS)
+        top = (im.height - oh) // 2
+        im.crop((0, top, ow, top + oh)).save(out, quality=84, optimize=True, progressive=True)
+    return "/" + str(out)
+
 def render_post(post, links, newer, older):
     body, lead_figure, minutes = prepare(post, links)
     url = f"{SITE}/articles/{post['slug']}/"
@@ -297,12 +327,13 @@ def render_post(post, links, newer, older):
     if art and not lead_figure and art not in post["body"]:    # a picture already in the text isn't shown twice
         w, h = size(art)
         cover = f'\n    <figure class="post-cover"><img src="{art}" alt="" width="{w}" height="{h}"></figure>'
+    og = og_image(post, art or post["cover"])
     data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": post["title"],
-            "datePublished": post["date"], "url": url, "image": SITE + (art or post["cover"]),
+            "datePublished": post["date"], "url": url, "image": SITE + og,
             "description": post["line"], "isBasedOn": post["medium"],
             "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": SITE + "/"}}
     ld = f'\n<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
-    return (head(f"{post['title']} · Suzume", post["line"], url, art or post["cover"], ld)
+    return (head(f"{post['title']} · Suzume", post["line"], url, og, ld, og_type="article", published=post["date"])
             + '<div class="read-progress" aria-hidden="true"></div>\n' + topbar("Articles") + f"""
 <main id="main" class="post">
   <article>
@@ -386,6 +417,16 @@ def update_homepage(posts):
     Path("index.html").write_text(page, encoding="utf-8")
     return len(home)
 
+def write_sitemap(posts):
+    """sitemap.xml at the root: the public pages only, never for/, docs/ or Notebooks/."""
+    pages = ["/", "/images.html", "/cv.html", "/articles/",
+             "/aesthetics/", "/minds/", "/projects/", "/stories-and-ai/", "/visualisation/"]
+    urls = [f"  <url><loc>{SITE}{page}</loc></url>" for page in pages]
+    urls += [f"  <url><loc>{SITE}/articles/{p['slug']}/</loc><lastmod>{p['date']}</lastmod></url>" for p in posts]
+    Path("sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
+
 def build():
     posts = load_all()
     links = {p["medium"].rstrip("/"): f"/articles/{p['slug']}/" for p in posts}
@@ -395,7 +436,8 @@ def build():
         (OUT / p["slug"] / "index.html").write_text(page, encoding="utf-8")
     (OUT / "index.html").write_text(render_index(posts), encoding="utf-8")
     n = update_homepage(posts)
-    print(f"articles/: {len(posts)} articles · homepage: {n} cards")
+    write_sitemap(posts)
+    print(f"articles/: {len(posts)} articles · homepage: {n} cards · sitemap.xml: {9 + len(posts)} pages")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])

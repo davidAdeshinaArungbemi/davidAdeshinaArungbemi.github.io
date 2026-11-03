@@ -2,7 +2,7 @@
    - .pins grids get a Pinterest-style masonry: each pin, in order, goes into the shortest column
    - tab buttons filter the Worlds grid or the Articles list by data-kind
    - a.zoom opens an image full size; arrows step through the images currently shown
-   - videos marked data-inview play only while on screen, never for reduced motion
+   - videos marked data-inview play only while on screen; reduced motion gets native controls instead, and a click or Enter pauses or resumes any of them
    - on the homepage, the top nav underlines the section in view
    - on an article, a thin line along the top shows how far through it you are */
 (function () {
@@ -125,17 +125,30 @@
     box.addEventListener('close', function () { img.removeAttribute('src'); if (cur) cur.focus(); });
   }
 
-  if (!reduceMotion) {
-    document.querySelectorAll('video[data-inview]').forEach(function (video) {
-      if (!hasIO) { video.play(); return; }
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-          else video.pause();
-        });
-      }, { threshold: 0.25 }).observe(video);
+  document.querySelectorAll('video[data-inview]').forEach(function (video) {
+    if (reduceMotion) { video.controls = true; return; }
+    video.removeAttribute('controls');   // markup default for the no-JS case
+    var tryPlay = function () {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { video.controls = true; });   // e.g. iOS Low Power Mode
+    };
+    var toggle = function () {
+      if (video.paused) { delete video.dataset.userPaused; tryPlay(); }
+      else { video.dataset.userPaused = '1'; video.pause(); }
+    };
+    video.tabIndex = 0;
+    video.addEventListener('click', toggle);
+    video.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
-  }
+    if (!hasIO) { tryPlay(); return; }
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { if (!video.dataset.userPaused) tryPlay(); }
+        else video.pause();
+      });
+    }, { threshold: 0.25 }).observe(video);
+  });
 
   var bar = document.querySelector('.read-progress'), article = document.querySelector('.post article');
   if (bar && article) {

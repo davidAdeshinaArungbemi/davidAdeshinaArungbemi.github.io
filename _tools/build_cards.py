@@ -80,7 +80,8 @@ def build():
     page = open("index.html", encoding="utf-8").read()
     by = {p[3]: p for p in PROJECTS}
     page = fill(page, "projects", [project_row(by[t]) for t in HOME])
-    page = re.sub(r"All \d+ projects", f"All {len(PROJECTS)} projects", page)
+    page, n = re.subn(r"All \d+ projects", f"All {len(PROJECTS)} projects", page)
+    assert n, 'no "All N projects" line in index.html'
     open("index.html", "w", encoding="utf-8").write(page)
     print(f"index.html: {len(HOME)} of {len(PROJECTS)} projects")
 
