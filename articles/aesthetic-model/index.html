@@ -51,7 +51,7 @@
       <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
     </header>
     <div class="post-body">
-<figure><img alt="" decoding="async" fetchpriority="high" height="1000" loading="eager" sizes="(min-width: 940px) 900px, 100vw" src="/articles/aesthetic-model/01.jpg" srcset="/articles/aesthetic-model/01-800.jpg 800w, /articles/aesthetic-model/01-1200.jpg 1200w, /articles/aesthetic-model/01.jpg 1600w" width="1600"/><figcaption>Aesthetics Optimizer Application (at least it should have been)</figcaption></figure>
+<figure><img alt="Screenshot of a dark interface: seven ranked calibration images on the left, a generated image of flowing coloured lines in the centre, and brain-network activation bars with an aesthetic score and optimiser controls on the right." decoding="async" fetchpriority="high" height="1000" loading="eager" sizes="(min-width: 940px) 900px, 100vw" src="/articles/aesthetic-model/01.jpg" srcset="/articles/aesthetic-model/01-800.jpg 800w, /articles/aesthetic-model/01-1200.jpg 1200w, /articles/aesthetic-model/01.jpg 1600w" width="1600"/><figcaption>Aesthetics Optimizer Application (at least it should have been)</figcaption></figure>
 <p class="opening">There is a moment when you are staring at a piece of art, a painting, a photograph, a scene from an anime and something happens inside you that you cannot fully explain. A warmth. A recognition. A feeling that this particular arrangement of colour and form was made <em>for you</em>, even though it wasn’t.</p>
 <p>I became obsessed with that moment. And then I tried to reverse-engineer it.</p>
 <p>This is the story of that attempt, what I built, why it failed, and why I still think the question underneath it is one of the most interesting questions a person can ask.</p>
@@ -74,7 +74,7 @@
 <p>The model was trained on all four BOLD5000 subjects simultaneously, with 50 augmented “views” per image per epoch, varying calibration set sizes from 50 to 500 images.</p>
 <p>It trained for <strong>528 minutes</strong> across 25 epochs.</p>
 <h2>The Results</h2>
-<figure><img alt="" decoding="async" height="349" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/aesthetic-model/02.jpg" srcset="/articles/aesthetic-model/02-800.jpg 800w, /articles/aesthetic-model/02-1200.jpg 1200w, /articles/aesthetic-model/02.jpg 1600w" width="1600"/><figcaption>Training Summary Plot</figcaption></figure>
+<figure><img alt="Line charts of training loss falling then flattening by epoch 25 and of the warmup-plus-cosine learning-rate schedule, beside a bar chart of BOLD prediction accuracy for CSI1 to CSI4 on 30 held-out images; CSI1 is highest, mean Pearson r 0.077." decoding="async" height="349" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/aesthetic-model/02.jpg" srcset="/articles/aesthetic-model/02-800.jpg 800w, /articles/aesthetic-model/02-1200.jpg 1200w, /articles/aesthetic-model/02.jpg 1600w" width="1600"/><figcaption>Training Summary Plot</figcaption></figure>
 <pre><code>── Per-subject mean Pearson r (all 1024 DiFuMo parcels) ─────────────
   CSI1: 0.1243
   CSI2: 0.0347
