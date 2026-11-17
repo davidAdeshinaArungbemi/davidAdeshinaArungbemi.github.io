@@ -200,12 +200,14 @@ def card(link, img, kind, title, line, tags=(), extras=(), group=None, topics=()
             f'<h{level} class="item-title"><a href="{href}">{esc(title)}</a></h{level}>'
             f'<p class="item-line">{esc(line)}</p>{tags_html(tags)}{extra}</div></li>')
 
-def feature(href, img, label, title, line, tags=(), topics=(), ink=False, home=True, level=3):
+def feature(href, img, label, title, line, tags=(), topics=(), ink=False, home=True, level=3, kind=None):
     """One article shown large: picture beside label, title, line and tags. home: True marks it part of the
-    homepage selection, False hides it until a topic shows it, None leaves both out (a page without a topic bar)."""
+    homepage selection, False hides it until a topic shows it, None leaves both out (a page without a topic bar).
+    kind (essay or experiment) lets the page's filters show or hide it along with the list under it."""
     w, h = size(img)
     keep = "" if home is None else (" data-home" if home else " hidden")
     data = f' data-own="{mood_name(img)}"' + (f' data-topics="{" ".join(topics)}"' if topics else "") + keep
+    if kind: data += f' data-kind="{kind}" data-filter-also'
     return (f'<div class="feature"{data}>'
             f'<a class="feature-art{" is-ink" if ink else ""}" href="{attr(href)}" tabindex="-1" aria-hidden="true"><img src="{attr(img)}" alt="" width="{w}" height="{h}" loading="lazy"></a>'
             f'<div class="feature-text"><p class="item-kind">{esc(label)}</p>'

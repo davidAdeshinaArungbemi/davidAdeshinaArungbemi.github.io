@@ -342,7 +342,8 @@ def post_card(p):
 def render_index(posts):
     latest, rest = posts[0], posts[1:]
     feature = design.feature(f"/articles/{latest['slug']}/", smaller(latest["cover"]), f"Latest · {month(latest['date'])}", latest["title"],
-                             latest["line"], latest.get("tags", ()), ink=bool(latest.get("ink")), home=None, level=2)
+                             latest["line"], latest.get("tags", ()), ink=bool(latest.get("ink")), home=None, level=2,
+                             kind="experiment" if "experiment" in latest["kind"].lower() else "essay")
     choices = design.filters("Show", [("all", "All", None), ("essay", "Essays", None), ("experiment", "Experiments", None)])
     meta = design.meta("Articles · David Adeshina Arungbemi", "Essays and experiment write-ups by David Adeshina Arungbemi, who writes as Suzume.",
                        f"{SITE}/articles/", latest["cover"])

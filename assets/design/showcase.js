@@ -104,13 +104,14 @@
         if (v === video) slide.classList.add('is-playing');
       });
       v.addEventListener('error', function () { if (v === video) fail(); });
-      var restall = function () {                          // a clip that stops loading midway counts as failed too
-        clearTimeout(v._stall);
-        v._stall = setTimeout(function () { if (v === video && v.readyState < 3) fail(); }, STALL);
-      };
+      // A clip that is trying to play and can't get going (at the start or midway) counts as failed. One that is
+      // paused, by the visitor or because autoplay was refused, may take its time: pressing Play makes the browser
+      // fire "waiting" if it still lacks data, which starts the count again.
+      var stuck = function () { if (v === video && !v.paused && v.readyState < 3) fail(); };
+      var restall = function () { clearTimeout(v._stall); v._stall = setTimeout(stuck, STALL); };
       v.addEventListener('waiting', restall);
       v.addEventListener('stalled', restall);
-      v._stall = setTimeout(function () { if (v === video && v.readyState < 3) fail(); }, STALL);
+      v._stall = setTimeout(stuck, STALL);
       var start = parseFloat(slide.getAttribute('data-start')) || 0;
       v.src = slide.getAttribute('data-src') + (start ? '#t=' + start : '');
       slide.querySelector('.showcase-media').appendChild(v);

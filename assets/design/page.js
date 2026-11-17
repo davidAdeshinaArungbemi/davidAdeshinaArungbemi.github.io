@@ -95,7 +95,7 @@
       var choices = all('[data-filter]', group);
       var list = document.querySelector('[data-filterable]');
       if (!list || !choices.length) return;
-      var items = Array.prototype.slice.call(list.children);
+      var items = Array.prototype.slice.call(list.children).concat(all('[data-filter-also]'));   // e.g. the Latest article above the list
       group.hidden = false;
       choices.forEach(function (b) {
         b.addEventListener('click', function () {
