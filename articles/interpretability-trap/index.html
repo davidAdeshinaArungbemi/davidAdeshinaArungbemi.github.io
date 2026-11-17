@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-scheme="dark" data-mood="topic-minds">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,43 +14,34 @@
 <meta property="article:published_time" content="2025-12-29">
 <meta property="article:author" content="David Adeshina Arungbemi">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Interpretability Trap", "datePublished": "2025-12-29", "url": "https://davidadeshinaarungbemi.github.io/articles/interpretability-trap/", "image": "https://davidadeshinaarungbemi.github.io/articles/interpretability-trap/cover-og.jpg", "description": "Studying a model from the outside may be like studying shadows on a cave wall. Why I'd rather build systems that can be understood from the start.", "isBasedOn": "https://suzume1.medium.com/decoding-luck-the-illusion-of-understanding-4377307300b9", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+<meta name="theme-color" content="#16181B" data-follow>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
 <link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="https://medium.com/feed/@suzume1">
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/theme.js"></script>
-<script src="/assets/site.js" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Interpretability Trap", "datePublished": "2025-12-29", "url": "https://davidadeshinaarungbemi.github.io/articles/interpretability-trap/", "image": "https://davidadeshinaarungbemi.github.io/articles/interpretability-trap/cover-og.jpg", "description": "Studying a model from the outside may be like studying shadows on a cave wall. Why I'd rather build systems that can be understood from the start.", "isBasedOn": "https://suzume1.medium.com/decoding-luck-the-illusion-of-understanding-4377307300b9", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+<link rel="stylesheet" href="/assets/design/style.css">
+<link rel="stylesheet" href="/assets/design/moods.css">
+<script src="/assets/design/scheme.js"></script>
+<script src="/assets/design/mood.js" defer></script>
+<script src="/assets/design/showcase.js" defer></script>
+<script src="/assets/design/page.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
 <div class="read-progress" aria-hidden="true"></div>
-<header class="topbar">
-  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
-  <nav class="topnav" aria-label="Sections">
-    <a href="/#research">Research</a>
-    <a href="/#publications">Publications</a>
-    <a href="/articles/" aria-current="page">Articles</a>
-    <a href="/projects/">Projects</a>
-    <a href="/images.html">Worlds</a>
-    <a href="/cv.html">CV</a>
-    <a href="/#contact">Contact</a>
-  </nav>
-  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
-</header>
-
+<header class="site-head"><div class="wrap site-head-row"><a class="site-name" href="/">David Adeshina Arungbemi</a><span class="site-also">also writes as <a class="seal-inline" href="/#suzume"><img src="/assets/img/seal.png" alt="" width="14" height="14"> Suzume</a></span><nav class="site-nav" aria-label="Sections"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/" aria-current="page">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><button class="icon-btn" type="button" data-scheme-toggle aria-label="Switch between light and dark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.8a8.2 8.2 0 0 0 0 16.4z" fill="currentColor"/></svg></button></div></header>
 <main id="main" class="post">
-  <article>
-    <header class="post-head">
-      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2025-12-29">29 Dec 2025</time> <span aria-hidden="true">·</span> 3 min read</p>
-      <h1>The Interpretability Trap</h1>
-      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
-    </header>
-    <figure class="post-cover"><img src="/articles/interpretability-trap/cover.jpg" alt="" width="1050" height="1400"></figure>
-    <div class="post-body">
+<article>
+  <header class="post-head"><div class="post-wrap">
+    <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2025-12-29">29 Dec 2025</time> <span aria-hidden="true">·</span> 3 min read</p>
+    <h1>The Interpretability Trap</h1>
+    <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+  </div></header>
+  <nav class="topic-strip" aria-label="Topics of this article"><div class="post-wrap"><span class="tabs-label" aria-hidden="true">Topics</span><a class="tab" href="/minds/" data-mood="topic-minds">Minds and meaning</a></div></nav>
+  <figure class="post-cover" data-mood="articles-interpretability-trap-cover"><img src="/articles/interpretability-trap/cover.jpg" alt="" width="1050" height="1400"></figure>
+  <div class="post-body">
 <blockquote><p><em>A note added in October 2026: this is an early opinion piece. It doesn’t engage with the mechanistic interpretability research it argues against, so read it as a position, not a review of the field.</em></p></blockquote>
 <h2>The Paradox of the Clueless Genius</h2>
 <p>Imagine you have a friend sitting beside you during exams. Somehow, most of the time, he passes all his math tests despite seeming completely clueless. You, the observer, are captivated. You wonder if your friend is secretly a genius, so you spend years of your life trying to decode the complexity of his reasoning.</p>
@@ -70,27 +61,15 @@
 <p>Mechanistic interpretability is valuable for what it can teach us, but we should be wary of overinvesting in reverse-engineering models whose foundations limit what can be understood. Our long-term focus should be on designing systems that allow comprehension from the outset, rather than chasing shadows that may never resolve into light.</p>
 <p>Trying to fully understand something that works but has no underlying intelligible mechanism is a dangerous gamble. We need to stop marveling at the shadows on the wall and start building the light source ourselves.</p>
 
-      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
-    </div>
-    <footer class="post-foot">
-      <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/decoding-luck-the-illusion-of-understanding-4377307300b9">Read it there →</a></p>
-      <nav class="post-nav" aria-label="More articles">
-      <a class="post-near" href="/articles/sound-and-meaning/">
-        <img src="/articles/sound-and-meaning/01-800.jpg" alt="" width="800" height="533" loading="lazy">
-        <span><span class="post-near-label">Newer</span><span class="post-near-title">The Gap Between Sound and Meaning And Why AIs Don’t Have It</span></span>
-      </a>
-      <a class="post-near" href="/articles/self-reasoning-system/">
-        <img src="/assets/cards/self-reasoning-system.jpg" alt="" width="800" height="800" loading="lazy">
-        <span><span class="post-near-label">Older</span><span class="post-near-title">A Self-Reasoning System</span></span>
-      </a>
-      </nav>
-      <p class="see-all"><a href="/articles/">All articles →</a></p>
-    </footer>
-  </article>
+    <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30" loading="lazy"></p>
+  </div>
+  <footer class="post-foot">
+    <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/decoding-luck-the-illusion-of-understanding-4377307300b9">Read it there →</a></p>
+    <nav class="nears" aria-label="More articles"><a class="near" href="/articles/sound-and-meaning/" data-own="articles-sound-and-meaning-01"><img src="/articles/sound-and-meaning/01-800.jpg" alt="" width="800" height="533" loading="lazy"><span><span class="item-kind">Newer</span><span class="near-title">The Gap Between Sound and Meaning And Why AIs Don’t Have It</span></span></a><a class="near" href="/articles/self-reasoning-system/" data-own="cards-self-reasoning-system"><img src="/assets/cards/self-reasoning-system.jpg" alt="" width="800" height="800" loading="lazy"><span><span class="item-kind">Older</span><span class="near-title">A Self-Reasoning System</span></span></a></nav>
+    <p class="more"><a href="/articles/">All articles →</a></p>
+  </footer>
+</article>
 </main>
-
-<footer class="foot">
-  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
-</footer>
+<footer class="site-foot"><div class="wrap"><nav class="foot-nav" aria-label="Site"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p></div></footer>
 </body>
 </html>

@@ -1,4 +1,6 @@
-"""Builds the Worlds page (images.html) and the homepage Worlds section from one list.
+"""Builds the Worlds page (images.html) from one list, and holds the pieces the homepage shows: its Worlds
+selection (SHOWCASE) and the clips its screen plays (CLIPS). The homepage itself is written by build_home.py,
+which this script runs at the end (design.finish()).
 
 Run from the repo root:  python3 _tools/build_gallery.py
 Each still needs assets/gallery/<slug>-800.jpg and <slug>-1600.jpg (the 1600 may be
@@ -6,11 +8,13 @@ smaller if the source is). Folders starting with "_" are not published by
 GitHub Pages, so this script stays out of the live site.
 """
 import html, os, re, sys
+from pathlib import Path
 from PIL import Image
+import design
 
 FB = "https://www.facebook.com/dave.gbemi.98"
 
-# The homepage showcase, in reading order (pins fill the shortest column, Pinterest-style).
+# The homepage's Worlds selection, in reading order.
 SHOWCASE = ["rejecting-herself", "blossom-pond", "water-town", "caustic-bloom", "gyronics-axol", "art-of-intelligence", "calligraphy"]
 
 # Shorter descriptions for the homepage; anything not listed uses its full caption.
@@ -22,6 +26,13 @@ SHORT = {
     "art-of-intelligence": "Nine thousand particles swept into strands, beside the poster's own words written in hexadecimal.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
 }
+
+# The homepage screen's clips, in order: (a piece in GROUPS that has a video, the file it plays, seconds on screen).
+# His pick. For now these are the three clips the site already had; the longer two play short cuts of themselves
+# (made with ffmpeg -t 14 / -t 12 -c copy, no re-encoding), and their full versions stay here in Worlds.
+CLIPS = [("water-town", "assets/video/clip-water-town.mp4", 14),
+         ("blender-animation", "assets/video/blender-animation.mp4", 7),
+         ("robot-arm", "assets/video/clip-robot-arm.mp4", 12)]
 
 VIDEOS = {
     "robot-arm": ("assets/video/robot-arm.mp4", "assets/video/robot-arm-poster.jpg", 1280, 792,
@@ -160,14 +171,14 @@ def img_tag(slug, alt, sizes, eager=False):
     w8, h8 = dims(slug, 800); w16, _ = dims(slug, 1600)
     kb = os.path.getsize(f"assets/gallery/{slug}-800.jpg") // 1024
     if kb > 220: print(f"note: {slug}-800.jpg is {kb} KB for a grid slot — worth recompressing", file=sys.stderr)
-    srcset = f' srcset="assets/gallery/{slug}-800.jpg {w8}w, assets/gallery/{slug}-1600.jpg {w16}w" sizes="{sizes}"' if w16 > w8 else ""
+    srcset = f' srcset="/assets/gallery/{slug}-800.jpg {w8}w, /assets/gallery/{slug}-1600.jpg {w16}w" sizes="{sizes}"' if w16 > w8 else ""
     loading = "" if eager else ' loading="lazy"'
-    return f'<img src="assets/gallery/{slug}-800.jpg"{srcset} alt="{html.escape(alt, quote=True)}" width="{w8}" height="{h8}"{loading}>'
+    return f'<img src="/assets/gallery/{slug}-800.jpg"{srcset} alt="{html.escape(alt, quote=True)}" width="{w8}" height="{h8}"{loading}>'
 
 def video_tag(slug):
     src, poster, w, h, label = VIDEOS[slug]
-    return (f'<video src="{src}" poster="{poster}" style="background: url(\'{poster}\') center / cover" data-inview muted loop '
-            f'playsinline preload="none" controls width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
+    return (f'<video src="/{src}" poster="/{poster}" data-inview muted loop playsinline preload="none" controls '
+            f'width="{w}" height="{h}" aria-label="{html.escape(label, quote=True)}"></video>')
 
 def ordered():
     """Interleave creative coding and Blender so the first rows mix both; sketches and paintings last."""
@@ -179,60 +190,50 @@ def ordered():
         if i < len(b): out.append(("blender", b[i]))
     return out + [("drawing", it) for it in by["drawing"]]
 
-def year_tag(meta):
-    """A small year tag under the caption, when the medium-and-year field has a year."""
-    m = re.search(r"(19|20)\d\d", meta)
-    return f'<ul class="card-tags"><li>{m.group(0)}</li></ul>' if m else ""
+def picture(slug):
+    """The picture a piece is shown by in lists: its 800px still, or its video's poster."""
+    return "/" + VIDEOS[slug][1] if slug in VIDEOS else f"/assets/gallery/{slug}-800.jpg"
 
-def pin_full(kind, it, eager=False):
+def piece(kind, it, eager=False):
+    """One piece on the Worlds page: a picture that opens full size (or a video that plays while in view), then its
+    title, medium and year, and caption. The id keeps links like images.html#water-town working."""
     slug, title, meta, caption, alt = it
-    cap = (f'<figcaption><strong>{title}</strong><span class="pin-meta"> · {meta}. </span>'
-           f'<span class="pin-desc">{caption}</span>{year_tag(meta)}</figcaption>')
     if slug in VIDEOS:
-        media = f'<div class="pin-media">{video_tag(slug)}</div>'
+        media = f'<div class="world-media is-video">{video_tag(slug)}</div>'
     else:
-        media = (f'<a class="pin-media zoom" href="assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
-                 f'{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px", eager)}</a>')
-    return f'    <figure class="pin" id="{slug}" data-kind="{kind}">\n      {media}\n      {cap}\n    </figure>'
+        media = (f'<a class="world-media zoom" href="/assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
+                 f'{img_tag(slug, alt, "(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px", eager)}</a>')
+    return (f'    <figure class="world" id="{slug}" data-kind="{kind}" data-own="{design.mood_name(picture(slug))}">\n      {media}\n'
+            f'      <figcaption><strong>{design.esc(title)}</strong><span class="world-meta">{design.esc(meta)}</span>'
+            f'<span class="world-desc">{design.esc(caption)}</span></figcaption>\n    </figure>')
+
+INTRO = ("Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a "
+         "pair-programmer), scenes in Blender, and drawings and paintings going back to 2020. Select any image to see it full size.")
+DIALOG = """<dialog class="lightbox" id="lightbox" aria-label="Image, full size">
+  <button class="lightbox-close" type="button" aria-label="Close">×</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next image">›</button>
+  <img alt="">
+  <p class="lightbox-cap"></p>
+</dialog>"""
 
 def build():
     items = ordered(); count = len(items)
-    tabs = ('  <div class="pin-tabs" role="group" aria-label="Show">\n'
-            '    <button type="button" data-filter="all" aria-pressed="true">All</button>\n'
-            '    <button type="button" data-filter="processing" aria-pressed="false">Creative coding</button>\n'
-            '    <button type="button" data-filter="blender" aria-pressed="false">3D · Blender</button>\n'
-            '    <button type="button" data-filter="drawing" aria-pressed="false">Sketches &amp; paintings</button>\n'
-            '  </div>')
-    main = ('<main id="main">\n<section class="page-head">\n  <h1>Worlds</h1>\n'
-            "  <p>Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a pair-programmer), "
-            "scenes in Blender, and drawings and paintings going back to 2020. Select any image to see it full size.</p>\n"
-            f'{tabs}\n</section>\n\n<section class="images-all" aria-label="All pieces">\n  <div class="pins" data-min="220" data-filterable>\n'
-            + "\n".join(pin_full(k, it, eager=(i < 8)) for i, (k, it) in enumerate(items)) +
-            f'\n  </div>\n  <p class="see-all"><a href="{FB}">More of my 3D work on Facebook →</a></p>\n</section>\n</main>')
-    page = open("images.html", encoding="utf-8").read()
-    page, n = re.subn(r"<main id=\"main\">.*?</main>", lambda m: main, page, count=1, flags=re.S)
-    assert n == 1, 'no <main id="main"> in images.html'
-    page, n = re.subn(r"<title>.*?</title>", "<title>Worlds · David Adeshina Arungbemi</title>", page, count=1)
-    assert n == 1, "no <title> in images.html"
-    open("images.html", "w", encoding="utf-8").write(page)
-
-    by = {it[0]: it for _, it in items}
-    pins = []
-    for slug in SHOWCASE:
-        _, title, meta, caption, alt = by[slug]
-        media = (f'<div class="pin-media">{video_tag(slug)}</div>' if slug in VIDEOS else
-                 f'<a class="pin-media" href="images.html#{slug}">{img_tag(slug, alt, "(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 360px")}</a>')
-        pins.append(f'    <figure class="pin">\n      {media}\n      <figcaption><strong>{title}</strong>'
-                    f'<span class="pin-desc">{SHORT.get(slug, caption)}</span>{year_tag(meta)}</figcaption>\n    </figure>')
-    section = ('<section class="images" id="worlds">\n  <h2 class="eyebrow">Worlds</h2>\n'
-               "  <p class=\"images-intro\">Things that don't exist until someone makes them, in code, in 3D with Blender, and by hand.</p>\n"
-               '  <div class="pins" data-min="280">\n' + "\n".join(pins) + '\n  </div>\n'
-               f'  <p class="see-all"><a href="images.html">See all {count} pieces →</a></p>\n</section>')
-    home = open("index.html", encoding="utf-8").read()
-    home, n = re.subn(r'<section class="images" id="[a-z]+">.*?</section>', lambda m: section, home, count=1, flags=re.S)
-    assert n == 1, 'no <section class="images"> in index.html'
-    open("index.html", "w", encoding="utf-8").write(home)
-    print(f"images.html: {count} pieces · homepage Worlds: {len(SHOWCASE)}")
+    by = {gid: its for gid, _, _, its in GROUPS}
+    # each filter lights the page with its first piece's colours
+    choices = [("all", "All", None)] + [(gid, label, design.mood_name(picture(by[gid][0][0])))
+                                        for gid, label in (("processing", "Creative coding"), ("blender", "3D · Blender"), ("drawing", "Sketches & paintings"))]
+    old = Path("images.html").read_text(encoding="utf-8")
+    main = (f'<main id="main">\n<section class="page-head"><div class="wrap">\n  <h1>Worlds</h1>\n  <p>{design.esc(INTRO)}</p>\n'
+            f'  {design.filters("Show", choices, light=True)}\n</div></section>\n\n'
+            f'<section class="sec" aria-label="All pieces"><div class="wrap">\n  <div class="wall" data-filterable>\n'
+            + "\n".join(piece(k, it, eager=(i < 6)) for i, (k, it) in enumerate(items)) +
+            f'\n  </div>\n  <p class="more foot-link"><a href="{FB}">More of my 3D work on Facebook →</a></p>\n</div></section>\n</main>')
+    page = (design.head(design.keep_meta(old), mood="default") + design.header(current="Worlds") + "\n" + main + "\n"
+            + design.footer() + "\n\n" + DIALOG + "\n" + design.END)
+    Path("images.html").write_text(page, encoding="utf-8")
+    print(f"images.html: {count} pieces")
+    design.finish()
 
 if __name__ == "__main__":
     build()

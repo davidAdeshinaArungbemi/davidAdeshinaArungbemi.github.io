@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-scheme="dark" data-mood="default">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,45 +13,50 @@
 <meta property="og:image" content="https://davidadeshinaarungbemi.github.io/assets/img/prefer-cover.jpg">
 <meta property="og:url" content="https://davidadeshinaarungbemi.github.io/cv.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/seal-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="assets/img/seal-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/seal-180.png">
-<link rel="stylesheet" href="assets/site.css">
-<script src="assets/theme.js"></script>
+<meta name="theme-color" content="#16181B" data-follow>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
+<link rel="stylesheet" href="/assets/design/style.css">
+<link rel="stylesheet" href="/assets/design/moods.css">
+<script src="/assets/design/scheme.js"></script>
+<script src="/assets/design/mood.js" defer></script>
+<script src="/assets/design/showcase.js" defer></script>
+<script src="/assets/design/page.js" defer></script>
 <style>
-  .cv { max-width: 860px; margin: 0 auto; }
-  .cv-head { padding-block: clamp(2rem, 5vw, 3.5rem) 1.5rem; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: end; }
+  .cv { max-width: 860px; margin: 0 auto; padding-inline: var(--gutter); }
+  .mono { font: 500 .9375rem/1.4 var(--sans); color: var(--ink-2); }
+  .cv-head .seal-large { height: auto; }
+  .cv-head { padding-block: clamp(2rem, 5vw, 3.5rem) 1.5rem; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: end; }
   .cv-head h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin-bottom: .5rem; }
-  .cv-head .role { font-family: "Bodoni Moda", "Bodoni 72", Didot, Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--ink-2); margin: 0 0 .9rem; }
-  .cv-head .meta { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .74rem; line-height: 1.8; color: var(--ink-2); margin: 0; }
-  .cv-head .meta a { color: var(--ink-2); text-decoration-color: var(--rule); }
-  .cv-head .meta a:hover { color: var(--seal-ink); }
+  .cv-head .role { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--ink-2); margin: 0 0 .9rem; }
+  .cv-head .meta { font-family: var(--sans); font-size: 1rem; line-height: 1.8; color: var(--ink-2); margin: 0; }
+  .cv-head .meta a { color: var(--ink-2); text-decoration-color: var(--line); }
+  .cv-head .meta a:hover { color: var(--accent); }
   .cv-head .seal-large { width: 72px; }
-  .cv section { padding-block: 1.8rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .5rem 2rem; }
+  .cv section { padding-block: 1.8rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .5rem 2rem; }
   .cv section:first-of-type { border-top: 0; }
-  .cv section > h2 { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .16em; color: var(--seal-ink); font-weight: 500; margin-top: .35rem; }
+  .cv section > h2 { font-family: var(--sans); font-size: 1rem; color: var(--accent); font-weight: 500; margin-top: .35rem; }
   .cv section > div { min-width: 0; }
   .cv p { margin: 0 0 .6rem; }
   .cv .profile { max-width: 66ch; font-size: 1.05rem; }
   .cv ul { margin: 0; padding-left: 1.1rem; }
   .cv li { margin-bottom: .35rem; }
-  .entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1.5rem; padding: .7rem 0; border-top: 1px solid color-mix(in srgb, var(--rule) 60%, transparent); }
+  .entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1.5rem; padding: .7rem 0; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
   .entry:first-child { border-top: 0; padding-top: 0; }
-  .entry h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.02rem; font-weight: 600; line-height: 1.35; letter-spacing: 0; }
-  .entry .when { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; color: var(--ink-3); white-space: nowrap; padding-top: .25rem; font-variant-numeric: tabular-nums; }
+  .entry h3 { font-family: var(--serif); font-size: 1.02rem; font-weight: 600; line-height: 1.35; letter-spacing: 0; }
+  .entry .when { font-family: var(--sans); font-size: .9375rem; color: var(--ink-2); white-space: nowrap; padding-top: .25rem; font-variant-numeric: tabular-nums; }
   .entry .sub { color: var(--ink-2); font-size: .95rem; grid-column: 1 / -1; margin: 0; }
-  .entry .sub .mono { color: var(--ink-3); }
+  .entry .sub .mono { color: var(--ink-2); }
   .entry ul { grid-column: 1 / -1; margin-top: .3rem; color: var(--ink-2); font-size: .95rem; }
-  .entry > a, .entry h3 a { color: var(--ink); text-decoration-color: var(--rule); }
-  .entry h3 a:hover { color: var(--seal-ink); }
+  .entry > a, .entry h3 a { color: var(--ink); text-decoration-color: var(--line); }
+  .entry h3 a:hover { color: var(--accent); }
   .skills-grid { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: .4rem 1.2rem; font-size: .95rem; }
-  .skills-grid dt { font-family: "IBM Plex Mono", Menlo, monospace; font-size: .72rem; letter-spacing: .06em; color: var(--ink-3); padding-top: .2rem; }
+  .skills-grid dt { font-family: var(--sans); font-size: .9375rem; color: var(--ink-2); padding-top: .2rem; }
   .skills-grid dd { margin: 0; color: var(--ink-2); }
-  .cv-actions { display: flex; gap: 1.5rem; align-items: center; margin-top: 1rem; font-family: "IBM Plex Mono", Menlo, monospace; font-size: .74rem; }
-  .cv-actions button { font: inherit; letter-spacing: .08em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--ink); padding: .45rem .8rem; cursor: pointer; }
-  .cv-actions button:hover { color: var(--seal-ink); border-color: var(--seal-ink); }
+  .cv-actions { display: flex; gap: 1.5rem; align-items: center; margin-top: 1rem; font-family: var(--sans); font-size: .9375rem; }
+  .cv-actions button { font: inherit; background: var(--ground-2); color: var(--ink); border: 2px solid var(--accent); min-height: 44px; padding: 0 1rem; cursor: pointer; }
+  .cv-actions button:hover { color: var(--accent); border-color: var(--accent); }
   @media (max-width: 700px) {
     .cv-head { grid-template-columns: 1fr; }
     .cv-head .seal-large { order: -1; width: 56px; }
@@ -69,7 +74,7 @@
     .cv section > h2 { color: #000; }
     .entry { padding: .4rem 0; break-inside: avoid; }
     .entry .when, .skills-grid dt { color: #444; }
-    .cv-actions, .topbar { display: none; }
+    .cv-actions, .site-head, .site-foot, .glow { display: none; }
     .cv-head .seal-large { width: 48px; }
     .entry h3 a[href]::after { content: ""; }
     body { font-size: 10.5pt; line-height: 1.45; }
@@ -78,19 +83,8 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topbar">
-  <a class="wordmark" href="index.html">David Adeshina Arungbemi</a>
-  <nav class="topnav" aria-label="Sections">
-    <a href="/#research">Research</a>
-    <a href="/#publications">Publications</a>
-    <a href="/articles/">Articles</a>
-    <a href="/projects/">Projects</a>
-    <a href="/images.html">Worlds</a>
-    <a href="/cv.html" aria-current="page">CV</a>
-    <a href="/#contact">Contact</a>
-  </nav>
-  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
-</header>
+<div class="glow" aria-hidden="true"></div>
+<header class="site-head"><div class="wrap site-head-row"><a class="site-name" href="/">David Adeshina Arungbemi</a><span class="site-also">also writes as <a class="seal-inline" href="/#suzume"><img src="/assets/img/seal.png" alt="" width="14" height="14"> Suzume</a></span><nav class="site-nav" aria-label="Sections"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html" aria-current="page">CV</a><a href="/#contact">Contact</a></nav><button class="icon-btn" type="button" data-scheme-toggle aria-label="Switch between light and dark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.8a8.2 8.2 0 0 0 0 16.4z" fill="currentColor"/></svg></button></div></header>
 
 <main class="cv" id="main">
   <div class="cv-head">
@@ -245,8 +239,6 @@
 
 </main>
 
-<footer class="foot">
-  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="index.html">Back to the site →</a></p>
-</footer>
+<footer class="site-foot"><div class="wrap"><nav class="foot-nav" aria-label="Site"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p></div></footer>
 </body>
 </html>

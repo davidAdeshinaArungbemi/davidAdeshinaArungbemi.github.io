@@ -1,7 +1,7 @@
 """The articles, on the site itself: /articles/ (the index) and /articles/<slug>/ (each piece).
 
-Run from the repo root:
-  python3 _tools/build_blog.py            rebuild the article pages, the index and the homepage cards
+Run from the repo root (needs bs4; the miniconda python has it: /opt/miniconda3/bin/python3):
+  python3 _tools/build_blog.py            rebuild the article pages, the index, sitemap.xml, then the homepage
   python3 _tools/build_blog.py --import   first copy any new Medium posts from the feed into _writing/
 
 Each article is _writing/<slug>.html: a JSON header inside an HTML comment, then the body as plain
@@ -16,9 +16,9 @@ tags (topic labels under the card), cover (card image), art (optional larger ima
 import argparse, email.utils, html, io, json, math, re, subprocess, urllib.parse
 from datetime import date
 from pathlib import Path
-from bs4 import BeautifulSoup
 from PIL import Image
-from rows import row, nav
+import design
+from design import esc, attr
 
 SITE = "https://davidadeshinaarungbemi.github.io"
 FEED = "https://medium.com/feed/@suzume1"
@@ -48,8 +48,6 @@ ALLOWED = {"p", "h2", "h3", "figure", "img", "figcaption", "blockquote", "pre", 
 KEEP = {"a": {"href"}, "img": {"src", "alt"}, "figure": {"class"},
         "iframe": {"src", "title", "loading", "allow", "allowfullscreen", "style"}}
 
-esc = lambda s: html.escape(s, quote=False)
-attr = lambda s: html.escape(s, quote=True)
 
 
 # ------------------------------------------------------------------ importing from Medium
@@ -78,6 +76,7 @@ def embed(soup, src):
     return fig
 
 def clean(body, from_feed):
+    from bs4 import BeautifulSoup
     soup = BeautifulSoup(body, "html.parser")
     if from_feed:  # the feed marks big headings h3 and small ones h4; the site uses h2 and h3
         for h in soup.find_all("h3"): h.name = "h2"
@@ -152,6 +151,7 @@ def localise(soup, slug):
     return saved
 
 def summary(deck, soup):
+    from bs4 import BeautifulSoup
     text = BeautifulSoup(deck, "html.parser").get_text() if deck else next(
         (p.get_text() for p in soup.find_all("p") if len(p.get_text()) > 60), "")
     first = re.split(r"(?<=[.?!])\s", text.strip(), maxsplit=1)[0]
@@ -202,7 +202,9 @@ def load_all():
 
 def day(d): return date.fromisoformat(d).strftime("%-d %b %Y")
 def month(d): return date.fromisoformat(d).strftime("%b %Y")
-def plain(s): return BeautifulSoup(s, "html.parser").get_text()
+def plain(s):
+    from bs4 import BeautifulSoup
+    return BeautifulSoup(s, "html.parser").get_text()
 def size(src): return Image.open(src.lstrip("/")).size
 def smaller(src):
     """The 800px copy of an image, if there is one."""
@@ -216,6 +218,7 @@ def mid(src):
     return "/" + str(s) if s.exists() else None
 
 def prepare(post, links):
+    from bs4 import BeautifulSoup
     soup = BeautifulSoup(post["body"], "html.parser")
     for a in soup.find_all("a", href=True):                 # links between the articles stay on the site
         a["href"] = links.get(a["href"].split("?")[0].rstrip("/"), a["href"])
@@ -231,6 +234,10 @@ def prepare(post, links):
                 img["srcset"] = ", ".join(steps)
                 img["sizes"] = "(min-width: 940px) 900px, 100vw"
         img["loading"], img["decoding"] = "lazy", "async"
+    for fig in soup.find_all("figure"):                     # a mat in the picture's own colours
+        img = fig.find("img")
+        if img and img.get("src", "").startswith("/"):
+            fig["data-mood"] = design.mood_name(img["src"])
     first = next((el for el in blocks(soup) if el.name not in ("figure", "hr")), None)
     if first is not None and first.name == "p" and len(first.get_text()) > 160 and first.get_text().strip()[:1].isalpha():
         first["class"] = "opening"                       # gets the drop cap
@@ -242,64 +249,16 @@ def prepare(post, links):
     words = len(soup.get_text(" ").split())
     return soup.decode(formatter="minimal"), lead_figure, max(1, math.ceil(words / 230))
 
-def head(title, description, url, image, extra="", og_type="website", published=None):
-    article_meta = ""
-    if og_type == "article" and published:
-        article_meta = (f'\n<meta property="article:published_time" content="{published}">'
-                        '\n<meta property="article:author" content="David Adeshina Arungbemi">')
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title>
-<meta name="description" content="{attr(description)}">
-<link rel="canonical" href="{url}">
-<meta property="og:type" content="{og_type}">
-<meta property="og:title" content="{attr(title)}">
-<meta property="og:description" content="{attr(description)}">
-<meta property="og:image" content="{SITE}{image}">
-<meta property="og:url" content="{url}">{article_meta}
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
-<link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="{FEED}">
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/theme.js"></script>
-<script src="/assets/site.js" defer></script>{extra}
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-"""
-
-def topbar(current=None):
-    return f"""<header class="topbar">
-  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
-  <nav class="topnav" aria-label="Sections">
-{nav(current)}
-  </nav>
-  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
-</header>
-"""
-
-FOOT = """<footer class="foot">
-  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
-</footer>
-</body>
-</html>
-"""
-
 def neighbour(post, label):
     if not post: return "<span></span>"
     img = smaller(post["cover"])
     w, h = size(img)
-    return f"""<a class="post-near" href="/articles/{post['slug']}/">
-        <img src="{img}" alt="" width="{w}" height="{h}" loading="lazy">
-        <span><span class="post-near-label">{label}</span><span class="post-near-title">{esc(post['title'])}</span></span>
-      </a>"""
+    return (f'<a class="near" href="/articles/{post['slug']}/" data-own="{design.mood_name(img)}"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy">'
+            f'<span><span class="item-kind">{label}</span><span class="near-title">{esc(post['title'])}</span></span></a>')
+
+def topics_of(slug):
+    from build_topics import TOPICS
+    return [t for t in TOPICS if ("article", slug) in set(t["start"]) | set(t["items"])]
 
 def og_image(post, art):
     """A landscape copy for link previews when the art is portrait or square."""
@@ -318,101 +277,73 @@ def og_image(post, art):
 def render_post(post, links, newer, older):
     body, lead_figure, minutes = prepare(post, links)
     url = f"{SITE}/articles/{post['slug']}/"
-    deck = f'\n      <p class="post-deck">{post["deck"]}</p>' if post.get("deck") else ""
+    deck = f'\n    <p class="post-deck">{post["deck"]}</p>' if post.get("deck") else ""
     art = post.get("art") or post.get("cover")
     cover = ""
     if art and not lead_figure and art not in post["body"]:    # a picture already in the text isn't shown twice
         w, h = size(art)
-        cover = f'\n    <figure class="post-cover"><img src="{art}" alt="" width="{w}" height="{h}"></figure>'
+        cover = f'\n  <figure class="post-cover" data-mood="{design.mood_name(art)}"><img src="{art}" alt="" width="{w}" height="{h}"></figure>'
     og = og_image(post, art or post["cover"])
     data = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": post["title"],
             "datePublished": post["date"], "url": url, "image": SITE + og,
             "description": post["line"], "isBasedOn": post["medium"],
             "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": SITE + "/"}}
     ld = f'\n<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
-    return (head(f"{post['title']} · Suzume", post["line"], url, og, ld, og_type="article", published=post["date"])
-            + '<div class="read-progress" aria-hidden="true"></div>\n' + topbar("Articles") + f"""
+    topics = topics_of(post["slug"])                         # the page wears its first topic's colours
+    mood = f"topic-{topics[0]['slug']}" if topics else "default"
+    strip = ""
+    if topics:
+        tabs = "".join(f'<a class="tab" href="/{t["slug"]}/" data-mood="topic-{t["slug"]}">{esc(t["title"])}</a>' for t in topics)
+        strip = f'\n  <nav class="topic-strip" aria-label="Topics of this article"><div class="post-wrap"><span class="tabs-label" aria-hidden="true">Topics</span>{tabs}</div></nav>'
+    meta = design.meta(f"{post['title']} · Suzume", post["line"], url, og, og_type="article", published=post["date"], extra=ld)
+    return (design.head(meta, mood=mood, rss=True) + '<div class="read-progress" aria-hidden="true"></div>\n' + design.header(current="Articles") + f"""
 <main id="main" class="post">
-  <article>
-    <header class="post-head">
-      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> {esc(post['kind'])} <span aria-hidden="true">·</span> <time datetime="{post['date']}">{day(post['date'])}</time> <span aria-hidden="true">·</span> {minutes} min read</p>
-      <h1>{esc(post['title'])}</h1>{deck}
-      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
-    </header>{cover}
-    <div class="post-body">
+<article>
+  <header class="post-head"><div class="post-wrap">
+    <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> {esc(post['kind'])} <span aria-hidden="true">·</span> <time datetime="{post['date']}">{day(post['date'])}</time> <span aria-hidden="true">·</span> {minutes} min read</p>
+    <h1>{esc(post['title'])}</h1>{deck}
+    <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+  </div></header>{strip}{cover}
+  <div class="post-body">
 {body}
-      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
-    </div>
-    <footer class="post-foot">
-      <p class="post-origin">First published on Medium. <a href="{post['medium']}">Read it there →</a></p>
-      <nav class="post-nav" aria-label="More articles">
-      {neighbour(newer, 'Newer')}
-      {neighbour(older, 'Older')}
-      </nav>
-      <p class="see-all"><a href="/articles/">All articles →</a></p>
-    </footer>
-  </article>
+    <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30" loading="lazy"></p>
+  </div>
+  <footer class="post-foot">
+    <p class="post-origin">First published on Medium. <a href="{post['medium']}">Read it there →</a></p>
+    <nav class="nears" aria-label="More articles">{neighbour(newer, 'Newer')}{neighbour(older, 'Older')}</nav>
+    <p class="more"><a href="/articles/">All articles →</a></p>
+  </footer>
+</article>
 </main>
-
-""" + FOOT)
+""" + design.footer() + "\n" + design.END)
 
 def post_card(p):
     group = "experiment" if "experiment" in p["kind"].lower() else "essay"
-    return row(f"/articles/{p['slug']}/", smaller(p["cover"]), f"{p['kind']} · {month(p['date'])}", p["title"], p["line"],
-               p.get("tags", ()), group=group)
+    return design.card(f"/articles/{p['slug']}/", smaller(p["cover"]), f"{p['kind']} · {month(p['date'])}", p["title"], p["line"],
+                       p.get("tags", ()), group=group)
 
 def render_index(posts):
     latest, rest = posts[0], posts[1:]
-    w, h = size(smaller(latest["cover"]))
-    ink = " ink" if latest.get("ink") else ""
-    cards = "\n".join(post_card(p) for p in rest)
-    return (head("Articles · David Adeshina Arungbemi",
-                 "Essays and experiment write-ups by David Adeshina Arungbemi, who writes as Suzume.",
-                 f"{SITE}/articles/", latest["cover"]) + topbar("Articles") + f"""
+    feature = design.feature(f"/articles/{latest['slug']}/", smaller(latest["cover"]), f"Latest · {month(latest['date'])}", latest["title"],
+                             latest["line"], latest.get("tags", ()), ink=bool(latest.get("ink")), home=None, level=2)
+    choices = design.filters("Show", [("all", "All", None), ("essay", "Essays", None), ("experiment", "Experiments", None)])
+    meta = design.meta("Articles · David Adeshina Arungbemi", "Essays and experiment write-ups by David Adeshina Arungbemi, who writes as Suzume.",
+                       f"{SITE}/articles/", latest["cover"])
+    return design.listed(design.head(meta, rss=True) + design.header(current="Articles") + f"""
 <main id="main">
-<section class="page-head">
+<section class="page-head"><div class="wrap">
   <h1>Articles</h1>
   <p>Essays and write-ups of my experiments, published under my pen name, Suzume (雀, sparrow). Everything here first appeared on <a href="{MEDIUM}">Medium</a>. Papers are under <a href="/#publications">Publications</a>.</p>
-  <div class="pin-tabs" role="group" aria-label="Show">
-    <button type="button" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" data-filter="essay" aria-pressed="false">Essays</button>
-    <button type="button" data-filter="experiment" aria-pressed="false">Experiments</button>
-  </div>
-</section>
+  {choices}
+</div></section>
 
-<section class="articles-all">
-  <div class="w latest"><a href="/articles/{latest['slug']}/">
-    <div class="w-thumb{ink}"><img src="{smaller(latest['cover'])}" alt="" width="{w}" height="{h}"></div>
-    <div class="latest-text">
-      <p class="w-kind">Latest · {month(latest['date'])}</p>
-      <h2 class="w-title">{esc(latest['title'])}</h2>
-      <p class="w-line">{esc(latest['line'])}</p>
-    </div>
-  </a></div>
-  <ol class="rows" data-filterable>
-{cards}
-  </ol>
-  <p class="see-all"><a href="{MEDIUM}">Suzume on Medium →</a></p>
-</section>
+<section class="sec latest-sec"><div class="wrap">
+  {feature}
+  <ol class="cards" data-filterable>{"".join(post_card(p) for p in rest)}</ol>
+  <p class="more"><a href="{MEDIUM}">Suzume on Medium →</a></p>
+</div></section>
 </main>
-
-""" + FOOT)
-
-def update_homepage(posts):
-    """The homepage lists its articles in two labelled lists: experiments first, then essays."""
-    home = [p for p in posts if p.get("home")]
-    is_exp = lambda p: "experiment" in p["kind"].lower()
-    blocks = []
-    for label, group in (("Experiments", [p for p in home if is_exp(p)]), ("Essays", [p for p in home if not is_exp(p)])):
-        if group:
-            blocks.append(f'  <h3 class="sub-eyebrow">{label}</h3>\n  <ol class="rows">\n'
-                          + "\n".join(post_card(p) for p in group) + "\n  </ol>")
-    page = Path("index.html").read_text(encoding="utf-8")
-    pattern = re.compile(r"(<!-- cards:articles -->).*?([ \t]*<!-- /cards:articles -->)", re.S)
-    assert pattern.search(page), "no <!-- cards:articles --> markers in index.html"
-    page = pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(blocks) + "\n" + m.group(2), page)
-    Path("index.html").write_text(page, encoding="utf-8")
-    return len(home)
+""" + design.footer() + "\n" + design.END)
 
 def write_sitemap(posts):
     """sitemap.xml at the root: the public pages only, never for/, docs/ or Notebooks/."""
@@ -432,9 +363,9 @@ def build():
         (OUT / p["slug"]).mkdir(parents=True, exist_ok=True)
         (OUT / p["slug"] / "index.html").write_text(page, encoding="utf-8")
     (OUT / "index.html").write_text(render_index(posts), encoding="utf-8")
-    n = update_homepage(posts)
     write_sitemap(posts)
-    print(f"articles/: {len(posts)} articles · homepage: {n} cards · sitemap.xml: {9 + len(posts)} pages")
+    print(f"articles/: {len(posts)} articles · sitemap.xml: {9 + len(posts)} pages")
+    design.finish()
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])

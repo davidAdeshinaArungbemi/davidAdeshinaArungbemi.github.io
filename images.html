@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-scheme="dark" data-mood="default">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,478 +12,459 @@
 <meta property="og:image" content="https://davidadeshinaarungbemi.github.io/assets/gallery/rejecting-herself-1600.jpg">
 <meta property="og:url" content="https://davidadeshinaarungbemi.github.io/images.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/seal-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="assets/img/seal-64.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/seal-180.png">
-<link rel="stylesheet" href="assets/site.css">
-<script src="assets/theme.js"></script>
-<script src="assets/site.js" defer></script>
+<meta name="theme-color" content="#16181B" data-follow>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
+<link rel="stylesheet" href="/assets/design/style.css">
+<link rel="stylesheet" href="/assets/design/moods.css">
+<script src="/assets/design/scheme.js"></script>
+<script src="/assets/design/mood.js" defer></script>
+<script src="/assets/design/showcase.js" defer></script>
+<script src="/assets/design/page.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="topbar">
-  <a class="wordmark" href="index.html">David Adeshina Arungbemi</a>
-  <nav class="topnav" aria-label="Sections">
-    <a href="/#research">Research</a>
-    <a href="/#publications">Publications</a>
-    <a href="/articles/">Articles</a>
-    <a href="/projects/">Projects</a>
-    <a href="/images.html" aria-current="page">Worlds</a>
-    <a href="/cv.html">CV</a>
-    <a href="/#contact">Contact</a>
-  </nav>
-  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
-</header>
-
+<div class="glow" aria-hidden="true"></div>
+<header class="site-head"><div class="wrap site-head-row"><a class="site-name" href="/">David Adeshina Arungbemi</a><span class="site-also">also writes as <a class="seal-inline" href="/#suzume"><img src="/assets/img/seal.png" alt="" width="14" height="14"> Suzume</a></span><nav class="site-nav" aria-label="Sections"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html" aria-current="page">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><button class="icon-btn" type="button" data-scheme-toggle aria-label="Switch between light and dark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.8a8.2 8.2 0 0 0 0 16.4z" fill="currentColor"/></svg></button></div></header>
 <main id="main">
-<section class="page-head">
+<section class="page-head"><div class="wrap">
   <h1>Worlds</h1>
   <p>Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a pair-programmer), scenes in Blender, and drawings and paintings going back to 2020. Select any image to see it full size.</p>
-  <div class="pin-tabs" role="group" aria-label="Show">
-    <button type="button" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" data-filter="processing" aria-pressed="false">Creative coding</button>
-    <button type="button" data-filter="blender" aria-pressed="false">3D · Blender</button>
-    <button type="button" data-filter="drawing" aria-pressed="false">Sketches &amp; paintings</button>
-  </div>
-</section>
+  <div class="filters" role="group" aria-label="Show" data-filters data-filters-light hidden><button class="lens-btn filter-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="lens-btn filter-btn" type="button" data-filter="processing" aria-pressed="false" data-mood-on="gallery-rejecting-herself">Creative coding</button><button class="lens-btn filter-btn" type="button" data-filter="blender" aria-pressed="false" data-mood-on="gallery-gyronics-axol">3D · Blender</button><button class="lens-btn filter-btn" type="button" data-filter="drawing" aria-pressed="false" data-mood-on="gallery-vector-portrait">Sketches &amp; paintings</button></div>
+</div></section>
 
-<section class="images-all" aria-label="All pieces">
-  <div class="pins" data-min="220" data-filterable>
-    <figure class="pin" id="rejecting-herself" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/rejecting-herself-1600.jpg" aria-label="Mother Nature Rejecting Herself, view full size"><img src="assets/gallery/rejecting-herself-800.jpg" srcset="assets/gallery/rejecting-herself-800.jpg 800w, assets/gallery/rejecting-herself-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Black ink on parched paper: a tree lifted out of cracked ground with a few roots still holding, leaves falling to the left, and its upper branches turning into a lattice of straight lines and stars." width="800" height="450"></a>
-      <figcaption><strong>Mother Nature Rejecting Herself</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Nature rebelling against itself and becoming something else: a tree pulls its roots out of the cracked ground, its leaves fall, and its top branches straighten into lines that end in stars. The lead image for my essay Mother Nature’s Rejection of Self.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-axol" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-axol-1600.jpg" aria-label="Axol, a wearable for Gyronics, view full size"><img src="assets/gallery/gyronics-axol-800.jpg" srcset="assets/gallery/gyronics-axol-800.jpg 800w, assets/gallery/gyronics-axol-1600.jpg 932w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side." width="800" height="710"></a>
-      <figcaption><strong>Axol, a wearable for Gyronics</strong><span class="pin-meta"> · Blender, 2025. </span><span class="pin-desc">A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.</span><ul class="card-tags"><li>2025</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="one-small-world" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/one-small-world-1600.jpg" aria-label="One small world, view full size"><img src="assets/gallery/one-small-world-800.jpg" srcset="assets/gallery/one-small-world-800.jpg 800w, assets/gallery/one-small-world-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A small globe with a few trees on top, far out on a dashed orbit below a huge sun with straight and wavy rays, three planets and scattered stars, in black ink on parched paper." width="800" height="450"></a>
-      <figcaption><strong>One small world</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Her world, small and alive, far out on its orbit under a huge sun, its planets and the stars. Inside the essay Mother Nature’s Rejection of Self.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-concept-2024" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-concept-2024-1600.jpg" aria-label="First concept for the Gyronics wearable, view full size"><img src="assets/gallery/gyronics-concept-2024-800.jpg" srcset="assets/gallery/gyronics-concept-2024-800.jpg 800w, assets/gallery/gyronics-concept-2024-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A black wearable band with a curved, glass-like top showing the glowing word Gyronics, and two small status lights on its side, on a dark background." width="800" height="450"></a>
-      <figcaption><strong>First concept for the Gyronics wearable</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">My first design for Gyronics, from May 2024: a dark band with a glass-like top and the Gyronics name glowing on it. A render of the design, before Axol.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="her-chain" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/her-chain-1600.jpg" aria-label="Her chain, view full size"><img src="assets/gallery/her-chain-800.jpg" srcset="assets/gallery/her-chain-800.jpg 800w, assets/gallery/her-chain-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A globe with a forest along its top, circled by a chain of twisted wooden links with small leaves, the sun&#x27;s rays in the top corner, in black ink on parched paper." width="800" height="450"></a>
-      <figcaption><strong>Her chain</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Her world bound by a chain whose links are her own wood and leaves. Inside the essay Mother Nature’s Rejection of Self.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-hex-pink" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-hex-pink-1600.jpg" aria-label="Hexagon wearable, pink band, view full size"><img src="assets/gallery/gyronics-hex-pink-800.jpg" srcset="assets/gallery/gyronics-hex-pink-800.jpg 800w, assets/gallery/gyronics-hex-pink-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A pink perforated wristband with a glowing white hexagonal unit, on a dark surface." width="800" height="450"></a>
-      <figcaption><strong>Hexagon wearable, pink band</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">A design I made for Gyronics in December 2024: a hexagonal unit with a soft white light, on a perforated pink band. A render of the design.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="desires-too-large" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/desires-too-large-1600.jpg" aria-label="Desires too large for its body, view full size"><img src="assets/gallery/desires-too-large-800.jpg" srcset="assets/gallery/desires-too-large-800.jpg 800w, assets/gallery/desires-too-large-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A small dark figure standing on grassy ground; behind it a giant outline of the same figure filled with stars, arms raised, with lines running from its hands to the stars." width="800" height="450"></a>
-      <figcaption><strong>Desires too large for its body</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">A small person, and behind them a giant of the same shape made of stars, its arms raised to the sky. Inside the essay Mother Nature’s Rejection of Self.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-hex-wrist" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-hex-wrist-1600.jpg" aria-label="Hexagon wearable, on the wrist, view full size"><img src="assets/gallery/gyronics-hex-wrist-800.jpg" srcset="assets/gallery/gyronics-hex-wrist-800.jpg 800w, assets/gallery/gyronics-hex-wrist-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A black wristband with a glowing white hexagonal unit, worn on a smooth modelled forearm." width="800" height="450"></a>
-      <figcaption><strong>Hexagon wearable, on the wrist</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">The same Gyronics design in black, shown on a modelled wrist. A render of the design.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="her-authority-weakens" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/her-authority-weakens-1600.jpg" aria-label="Her authority weakens, view full size"><img src="assets/gallery/her-authority-weakens-800.jpg" srcset="assets/gallery/her-authority-weakens-800.jpg 800w, assets/gallery/her-authority-weakens-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three framed panels under a hanging chain: a melting iceberg, cracked dry land under a hot sun with a dead tree, and tree stumps with one tree falling. The chain is cracked over the first panel, split over the second and broken over the third." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Her authority weakens</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Ice melting, land cracking under the sun, a forest cut down, and above them her chain: cracked, then split, then broken. Inside the essay Mother Nature’s Rejection of Self.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-hex-copper" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-hex-copper-1600.jpg" aria-label="Hexagon wearable, copper pads, view full size"><img src="assets/gallery/gyronics-hex-copper-800.jpg" srcset="assets/gallery/gyronics-hex-copper-800.jpg 800w, assets/gallery/gyronics-hex-copper-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A black woven wristband with a glowing green hexagonal unit and copper pads, lit from above." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Hexagon wearable, copper pads</strong><span class="pin-meta"> · Blender, 2025. </span><span class="pin-desc">A later version for Gyronics, January 2025: a glowing green hexagon on a woven black band with copper pads. A render of the design.</span><ul class="card-tags"><li>2025</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="water-town" data-kind="processing">
-      <div class="pin-media"><video src="assets/video/watertown-loop.mp4" poster="assets/video/watertown-poster.jpg" style="background: url('assets/video/watertown-poster.jpg') center / cover" data-inview muted loop playsinline preload="none" controls width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video></div>
-      <figcaption><strong>Water Town</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">A watercolour town from above, and one slow morning on it.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gyronics-square-2025" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/gyronics-square-2025-1600.jpg" aria-label="Square wearable concept, view full size"><img src="assets/gallery/gyronics-square-2025-800.jpg" srcset="assets/gallery/gyronics-square-2025-800.jpg 800w, assets/gallery/gyronics-square-2025-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A square wearable on a grey knitted band, with a glowing green cube on its screen and a row of small green lights." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Square wearable concept</strong><span class="pin-meta"> · Blender, 2025. </span><span class="pin-desc">Another concept for Gyronics, March 2025: a square unit with a green cube on its face and a row of green lights, on a knitted grey band. A render of the design.</span><ul class="card-tags"><li>2025</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="ripples" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/ripples-1600.jpg" aria-label="Ripples, view full size"><img src="assets/gallery/ripples-800.jpg" srcset="assets/gallery/ripples-800.jpg 800w, assets/gallery/ripples-1600.jpg 1240w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges." width="800" height="1290" loading="lazy"></a>
-      <figcaption><strong>Ripples</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="island-night" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/island-night-1600.jpg" aria-label="Island at night, view full size"><img src="assets/gallery/island-night-800.jpg" srcset="assets/gallery/island-night-800.jpg 800w, assets/gallery/island-night-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Island at night</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A beach house under a green neon WELCOME sign, among palm trees and sandcastles.</span></figcaption>
-    </figure>
-    <figure class="pin" id="caustic-bloom" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/caustic-bloom-1600.jpg" aria-label="Caustic Bloom, view full size"><img src="assets/gallery/caustic-bloom-800.jpg" srcset="assets/gallery/caustic-bloom-800.jpg 800w, assets/gallery/caustic-bloom-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black." width="800" height="1120" loading="lazy"></a>
-      <figcaption><strong>Caustic Bloom</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="blossom-pond" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/blossom-pond-1600.jpg" aria-label="Cherry-blossom pond, three views, view full size"><img src="assets/gallery/blossom-pond-800.jpg" srcset="assets/gallery/blossom-pond-800.jpg 800w, assets/gallery/blossom-pond-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals." width="800" height="244" loading="lazy"></a>
-      <figcaption><strong>Cherry-blossom pond, three views</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A low-poly pond under a blossoming tree: by day, from above, and at night.</span></figcaption>
-    </figure>
-    <figure class="pin" id="nightbloom" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/nightbloom-1600.jpg" aria-label="Nightbloom, view full size"><img src="assets/gallery/nightbloom-800.jpg" srcset="assets/gallery/nightbloom-800.jpg 800w, assets/gallery/nightbloom-1600.jpg 1520w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Pale foam walls on cobalt blue spiralling out from a centre, with a few glossy blue spheres resting among the cells." width="800" height="1132" loading="lazy"></a>
-      <figcaption><strong>Nightbloom</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">A foam whose cells sit on a golden-angle spiral, so the walls between them form a flower.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="tea-meringues" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/tea-meringues-1600.jpg" aria-label="Tea and meringues, view full size"><img src="assets/gallery/tea-meringues-800.jpg" srcset="assets/gallery/tea-meringues-800.jpg 800w, assets/gallery/tea-meringues-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Tea and meringues</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A cup of tea with cinnamon sticks and meringues on a saucer.</span></figcaption>
-    </figure>
-    <figure class="pin" id="art-of-intelligence" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/art-of-intelligence-1600.jpg" aria-label="The Art of Intelligence, view full size"><img src="assets/gallery/art-of-intelligence-800.jpg" srcset="assets/gallery/art-of-intelligence-800.jpg 800w, assets/gallery/art-of-intelligence-1600.jpg 1240w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads &#x27;The Art of Intelligence — David Adeshina&#x27;." width="800" height="1132" loading="lazy"></a>
-      <figcaption><strong>The Art of Intelligence</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Nine thousand particles carried along a swirling flow field (curl noise) until they form strands. The columns of hexadecimal down the side are the poster's own text, byte by byte.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="robot" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/robot-1600.jpg" aria-label="Robot, view full size"><img src="assets/gallery/robot-800.jpg" srcset="assets/gallery/robot-800.jpg 800w, assets/gallery/robot-1600.jpg 1440w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A white and charcoal robot on wheels, with a boxy camera head, two antennae, glowing blue indicators and two jointed arms." width="800" height="800" loading="lazy"></a>
-      <figcaption><strong>Robot</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">A small wheeled robot with a camera head and two jointed arms.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="ripples-crab" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/ripples-crab-1600.jpg" aria-label="Ripples, detail, view full size"><img src="assets/gallery/ripples-crab-800.jpg" alt="A close-up of teal ripples curling around the faint shape of a crab." width="660" height="660" loading="lazy"></a>
-      <figcaption><strong>Ripples, detail</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Close up, the ripples curve around a faint crab. Each ring follows its outline at a growing distance, like contour lines on a map.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="animal-doughnuts" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/animal-doughnuts-1600.jpg" aria-label="Animal doughnuts, view full size"><img src="assets/gallery/animal-doughnuts-800.jpg" srcset="assets/gallery/animal-doughnuts-800.jpg 800w, assets/gallery/animal-doughnuts-1600.jpg 1200w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three pale doughnuts on a pink background, decorated as a chick, a piglet and a rabbit." width="800" height="420" loading="lazy"></a>
-      <figcaption><strong>Animal doughnuts</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A chick, a piglet and a rabbit, as doughnuts.</span></figcaption>
-    </figure>
-    <figure class="pin" id="poster-variations" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/poster-variations-1600.jpg" aria-label="The Art of Intelligence, three earlier versions, view full size"><img src="assets/gallery/poster-variations-800.jpg" srcset="assets/gallery/poster-variations-800.jpg 800w, assets/gallery/poster-variations-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three versions of the same black poster side by side, each with a different sweep of orange and cyan strands." width="800" height="369" loading="lazy"></a>
-      <figcaption><strong>The Art of Intelligence, three earlier versions</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Three different ways of building the same strands.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="glazed-doughnuts" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/glazed-doughnuts-1600.jpg" aria-label="Glazed doughnuts, view full size"><img src="assets/gallery/glazed-doughnuts-800.jpg" srcset="assets/gallery/glazed-doughnuts-800.jpg 800w, assets/gallery/glazed-doughnuts-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Three glazed doughnuts with colourful sprinkles, the middle one stacked double, reflected in a glossy pink surface." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Glazed doughnuts</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">Dripping glaze, sprinkles and reflections on a pink floor.</span></figcaption>
-    </figure>
-    <figure class="pin" id="prefer-cover" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/prefer-cover-1600.jpg" aria-label="You Are What You Prefer, view full size"><img src="assets/gallery/prefer-cover-800.jpg" srcset="assets/gallery/prefer-cover-800.jpg 800w, assets/gallery/prefer-cover-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A head in profile made of tiny ink icons of small preferences, beside the title &#x27;You Are What You Prefer&#x27;." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>You Are What You Prefer</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Cover for the essay: a person who exists only as small, benign preferences, with one patch that has quietly changed colour.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="lightsaber" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/lightsaber-1600.jpg" aria-label="Lightsaber, view full size"><img src="assets/gallery/lightsaber-800.jpg" alt="A lightsaber hilt with a ridged metal grip and a glowing red blade, against a dark background." width="479" height="692" loading="lazy"></a>
-      <figcaption><strong>Lightsaber</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A ridged metal hilt with a red blade.</span></figcaption>
-    </figure>
-    <figure class="pin" id="value-tomography" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/value-tomography-1600.jpg" aria-label="Value Tomography, view full size"><img src="assets/gallery/value-tomography-800.jpg" srcset="assets/gallery/value-tomography-800.jpg 800w, assets/gallery/value-tomography-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Seven frames on black: a tangled chord diagram, lifted into 3D, casting bar-chart shadows, and finally rebuilt in colour." width="800" height="1005" loading="lazy"></a>
-      <figcaption><strong>Value Tomography</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">A value system drawn as 144 things and 820 links, too tangled to read from above. Turned on its side, its shadow on the wall becomes a bar chart: the answer to one simple question. Twelve questions give twelve shadows, which together approximate the whole, as in tomography. The value families and answers shown are placeholders.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="island-night-2" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/island-night-2-1600.jpg" aria-label="Island at night, another view, view full size"><img src="assets/gallery/island-night-2-800.jpg" srcset="assets/gallery/island-night-2-800.jpg 800w, assets/gallery/island-night-2-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="The same island from another angle, lit by a street lamp and the green neon sign." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Island at night, another view</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">Lit by a single street lamp.</span></figcaption>
-    </figure>
-    <figure class="pin" id="value-chords" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/value-chords-1600.jpg" aria-label="Value Chords, view full size"><img src="assets/gallery/value-chords-800.jpg" srcset="assets/gallery/value-chords-800.jpg 800w, assets/gallery/value-chords-1600.jpg 1200w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A chord diagram titled &#x27;You are what you read&#x27;: stories on the left, values on top, preferences on the right, joined by coloured ribbons." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Value Chords</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Stories lead to values, and values lead to preferences, all drawn as one ring of ribbons. In the sketch, clicking any node lights up only its path. The weights are placeholders for now.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="still-life" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/still-life-1600.jpg" aria-label="Still life with bottles, view full size"><img src="assets/gallery/still-life-800.jpg" srcset="assets/gallery/still-life-800.jpg 800w, assets/gallery/still-life-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A blue and a brown glass bottle, a red-and-white striped ball on stacked boxes, a jar and a block with the letter A, on a white shelf." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Still life with bottles</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">Glass bottles, a striped ball, boxes and a lettered block on a shelf.</span></figcaption>
-    </figure>
-    <figure class="pin" id="calligraphy" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/calligraphy-1600.jpg" aria-label="苏州 · 二〇二六 春, view full size"><img src="assets/gallery/calligraphy-800.jpg" srcset="assets/gallery/calligraphy-800.jpg 800w, assets/gallery/calligraphy-1600.jpg 1200w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>苏州 · 二〇二六 春</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Procedural brushwork for the Water Town inscription, and the seal that became this site's mark.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="three-shapes" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/three-shapes-1600.jpg" aria-label="Three shapes in a pool of light, view full size"><img src="assets/gallery/three-shapes-800.jpg" srcset="assets/gallery/three-shapes-800.jpg 800w, assets/gallery/three-shapes-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Two cylinders and a cube in teal and slate, standing in a soft pool of light on a beige floor." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Three shapes in a pool of light</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">Two cylinders and a cube, in shades of teal.</span></figcaption>
-    </figure>
-    <figure class="pin" id="colour-bird" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/colour-bird-1600.jpg" aria-label="Colour Bird, view full size"><img src="assets/gallery/colour-bird-800.jpg" srcset="assets/gallery/colour-bird-800.jpg 800w, assets/gallery/colour-bird-1600.jpg 900w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky." width="800" height="800" loading="lazy"></a>
-      <figcaption><strong>Colour Bird</strong><span class="pin-meta"> · Processing, 2026. </span><span class="pin-desc">Feathers fanned like a spectrum; in the sketch, it sways and blinks.</span><ul class="card-tags"><li>2026</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="cloth-study" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/cloth-study-1600.jpg" aria-label="Cloth study, view full size"><img src="assets/gallery/cloth-study-800.jpg" srcset="assets/gallery/cloth-study-800.jpg 800w, assets/gallery/cloth-study-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Two red sheets draped over a rounded teal mattress, one sliding off the edge, on a dark blue floor." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Cloth study</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">Two red sheets settling over a teal mattress.</span></figcaption>
-    </figure>
-    <figure class="pin" id="vortex-2021" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/vortex-2021-1600.jpg" aria-label="Untitled, view full size"><img src="assets/gallery/vortex-2021-800.jpg" srcset="assets/gallery/vortex-2021-800.jpg 800w, assets/gallery/vortex-2021-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre." width="800" height="452" loading="lazy"></a>
-      <figcaption><strong>Untitled</strong><span class="pin-meta"> · Code, December 2021. </span><span class="pin-desc">Thousands of rectangles pulled toward a dark centre. Where it started.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="awning-corner" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/awning-corner-1600.jpg" aria-label="Corner with an awning, view full size"><img src="assets/gallery/awning-corner-800.jpg" srcset="assets/gallery/awning-corner-800.jpg 800w, assets/gallery/awning-corner-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A low-poly corner scene in muted pinks and browns: a brick wall, a cloth awning on poles, a barrel, a clay pot and a mat." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Corner with an awning</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A brick wall, a cloth awning, a barrel, a pot and a mat.</span></figcaption>
-    </figure>
-    <figure class="pin" id="tunnel-2021" data-kind="processing">
-      <a class="pin-media zoom" href="assets/gallery/tunnel-2021-1600.jpg" aria-label="Untitled, view full size"><img src="assets/gallery/tunnel-2021-800.jpg" srcset="assets/gallery/tunnel-2021-800.jpg 800w, assets/gallery/tunnel-2021-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A monochrome tunnel of fine zig-zag lines receding to a black centre." width="800" height="453" loading="lazy"></a>
-      <figcaption><strong>Untitled</strong><span class="pin-meta"> · Code, December 2021. </span><span class="pin-desc">Zig-zag lines folding into a tunnel.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="stacked-house" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/stacked-house-1600.jpg" aria-label="Stacked house, view full size"><img src="assets/gallery/stacked-house-800.jpg" srcset="assets/gallery/stacked-house-800.jpg 800w, assets/gallery/stacked-house-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A clay-shaded 3D render of a tall, stacked ramshackle house with a ladder, awnings, a water tank, laundry on a line and a small fenced yard." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Stacked house</strong><span class="pin-meta"> · Blender, 2022. </span><span class="pin-desc">Modelled from a Pinterest reference, one plank at a time.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="craftsman-house" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/craftsman-house-1600.jpg" aria-label="Craftsman house, view full size"><img src="assets/gallery/craftsman-house-800.jpg" srcset="assets/gallery/craftsman-house-800.jpg 800w, assets/gallery/craftsman-house-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A grey clay render of a single-storey house with a columned porch and a tiled roof, surrounded by long grass." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Craftsman house</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A clay render of a porch house with a tiled roof, in long grass.</span></figcaption>
-    </figure>
-    <figure class="pin" id="bar-kiosk" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/bar-kiosk-1600.jpg" aria-label="Bar kiosk, view full size"><img src="assets/gallery/bar-kiosk-800.jpg" srcset="assets/gallery/bar-kiosk-800.jpg 800w, assets/gallery/bar-kiosk-1600.jpg 874w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A grey clay render of a narrow street kiosk with a BAR sign on its roof, posters on the counter and oil drums by the steps." width="800" height="1130" loading="lazy"></a>
-      <figcaption><strong>Bar kiosk</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A clay render of a small street bar, with oil drums by the steps.</span></figcaption>
-    </figure>
-    <figure class="pin" id="plug-adapter" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/plug-adapter-1600.jpg" aria-label="Plug adapter, view full size"><img src="assets/gallery/plug-adapter-800.jpg" srcset="assets/gallery/plug-adapter-800.jpg 800w, assets/gallery/plug-adapter-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A white UK plug adapter with metal pins, rendered against a soft grey studio background." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Plug adapter</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A product render, lit like a studio shot.</span></figcaption>
-    </figure>
-    <figure class="pin" id="product-study" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/product-study-1600.jpg" aria-label="Product study, view full size"><img src="assets/gallery/product-study-800.jpg" srcset="assets/gallery/product-study-800.jpg 800w, assets/gallery/product-study-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A white L-shaped device with a round dial and a small recessed tray, against a soft grey studio background." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Product study</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">A white device with a dial, in the same studio light.</span></figcaption>
-    </figure>
-    <figure class="pin" id="wonderful-world" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/wonderful-world-1600.jpg" aria-label="Wonderful World, view full size"><img src="assets/gallery/wonderful-world-800.jpg" srcset="assets/gallery/wonderful-world-800.jpg 800w, assets/gallery/wonderful-world-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A pale sculpted stone island floating against a soft gradient, with a thin walkway and railing along its top." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Wonderful World</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">A sculpted island of pale stone, with a walkway and railing along its ridge.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="light-study" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/light-study-1600.jpg" aria-label="Blocks under a spotlight, view full size"><img src="assets/gallery/light-study-800.jpg" srcset="assets/gallery/light-study-800.jpg 800w, assets/gallery/light-study-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Rectangular blocks in grey, black and yellow arranged in a ring under a soft spotlight on a dark floor." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Blocks under a spotlight</strong><span class="pin-meta"> · Blender, 2022. </span><span class="pin-desc">Grey and yellow blocks arranged in a ring under a single light.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="blender-animation" data-kind="blender">
-      <div class="pin-media"><video src="assets/video/blender-animation.mp4" poster="assets/video/blender-animation-poster.jpg" style="background: url('assets/video/blender-animation-poster.jpg') center / cover" data-inview muted loop playsinline preload="none" controls width="960" height="540" aria-label="A camera moving slowly through a grey, untextured scene of blocks and pillars."></video></div>
-      <figcaption><strong>Animation exercise</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">A camera moving through a grey, untextured scene.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="rigging" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/rigging-1600.jpg" aria-label="Rigging a character, in progress, view full size"><img src="assets/gallery/rigging-800.jpg" srcset="assets/gallery/rigging-800.jpg 800w, assets/gallery/rigging-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A Blender window showing a grey low-poly human figure with its control rig and timeline." width="800" height="485" loading="lazy"></a>
-      <figcaption><strong>Rigging a character, in progress</strong><span class="pin-meta"> · Blender, 2024. </span><span class="pin-desc">A low-poly figure with its control rig.</span><ul class="card-tags"><li>2024</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="robot-arm" data-kind="blender">
-      <div class="pin-media"><video src="assets/video/robot-arm.mp4" poster="assets/video/robot-arm-poster.jpg" style="background: url('assets/video/robot-arm-poster.jpg') center / cover" data-inview muted loop playsinline preload="none" controls width="1280" height="792" aria-label="A screen recording of Blender: a jointed robot arm on a grey floor picks up a small cube while a Python script runs beside it."></video></div>
-      <figcaption><strong>Robot arm, moved by a script</strong><span class="pin-meta"> · Blender and Python, 2025. </span><span class="pin-desc">A robot arm rigged in Blender and moved by a Python script inside it: the arm turns, reaches a cube, picks it up and lets it go.</span><ul class="card-tags"><li>2025</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="santa-hat" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/santa-hat-1600.jpg" aria-label="Santa hat, view full size"><img src="assets/gallery/santa-hat-800.jpg" srcset="assets/gallery/santa-hat-800.jpg 800w, assets/gallery/santa-hat-1600.jpg 853w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A red Santa hat with a thick grey fur trim and a fluffy pompom, on a warm brown background." width="800" height="864" loading="lazy"></a>
-      <figcaption><strong>Santa hat</strong><span class="pin-meta"> · Blender, 2022. </span><span class="pin-desc">A soft red Santa hat with a furry trim and pompom.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="hard-surface" data-kind="blender">
-      <a class="pin-media zoom" href="assets/gallery/hard-surface-1600.jpg" aria-label="Hard-surface modelling, in progress, view full size"><img src="assets/gallery/hard-surface-800.jpg" srcset="assets/gallery/hard-surface-800.jpg 800w, assets/gallery/hard-surface-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A Blender window showing the wireframe of a rugged, rounded box with screws and hinges on its lid." width="800" height="572" loading="lazy"></a>
-      <figcaption><strong>Hard-surface modelling, in progress</strong><span class="pin-meta"> · Blender. </span><span class="pin-desc">The wireframe of a rugged box with a hinged lid.</span></figcaption>
-    </figure>
-    <figure class="pin" id="vector-portrait" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-portrait-1600.jpg" aria-label="Portrait, view full size"><img src="assets/gallery/vector-portrait-800.jpg" alt="A flat vector portrait of a girl with diagonally striped pink hair, striped teal eyes and round pink cheeks, on a dark background." width="596" height="842" loading="lazy"></a>
-      <figcaption><strong>Portrait</strong><span class="pin-meta"> · Vector illustration, 2022. </span><span class="pin-desc">A girl with striped pink hair and striped eyes.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="pencil-studies-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/pencil-studies-2022-1600.jpg" aria-label="Pencil studies, view full size"><img src="assets/gallery/pencil-studies-2022-800.jpg" srcset="assets/gallery/pencil-studies-2022-800.jpg 800w, assets/gallery/pencil-studies-2022-1600.jpg 1448w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="Four pencil studies on paper: an eye, a pair of lips, a woman in profile and a woman&#x27;s face from the front." width="800" height="800" loading="lazy"></a>
-      <figcaption><strong>Pencil studies</strong><span class="pin-meta"> · Pencil, 2022. </span><span class="pin-desc">An eye, lips, a profile and a full face, drawn in early 2022.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="desert-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/desert-2022-1600.jpg" aria-label="Desert, view full size"><img src="assets/gallery/desert-2022-800.jpg" srcset="assets/gallery/desert-2022-800.jpg 800w, assets/gallery/desert-2022-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A flat vector desert: rolling terracotta dunes in layers, dotted with cacti, under a large pale sun." width="800" height="450" loading="lazy"></a>
-      <figcaption><strong>Desert</strong><span class="pin-meta"> · Vector illustration, June 2022. </span><span class="pin-desc">Layered dunes and cacti under a pale sun, in shades of terracotta.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-sunflower-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-sunflower-2022-1600.jpg" aria-label="Sunflower, view full size"><img src="assets/gallery/vector-sunflower-2022-800.jpg" alt="A flat vector illustration of a tall yellow sunflower above dark green pine trees, with white clouds on a bright blue sky." width="566" height="800" loading="lazy"></a>
-      <figcaption><strong>Sunflower</strong><span class="pin-meta"> · Vector illustration, October 2022. </span><span class="pin-desc">A giant sunflower over a pine forest and a blue sky.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-moon-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-moon-2022-1600.jpg" aria-label="Moon and stars, view full size"><img src="assets/gallery/vector-moon-2022-800.jpg" alt="A flat vector night scene: a white full moon and small stars above a dark blue sea." width="566" height="800" loading="lazy"></a>
-      <figcaption><strong>Moon and stars</strong><span class="pin-meta"> · Vector illustration, December 2022. </span><span class="pin-desc">A full moon and scattered stars over a calm, dark sea.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-sunset-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-sunset-2022-1600.jpg" aria-label="Sunset, view full size"><img src="assets/gallery/vector-sunset-2022-800.jpg" alt="A flat vector sunset: a coral-red sun split into jagged pieces on grey-blue water." width="566" height="800" loading="lazy"></a>
-      <figcaption><strong>Sunset</strong><span class="pin-meta"> · Vector illustration, July 2022. </span><span class="pin-desc">A red sun breaking up on the water.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-hills-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-hills-2022-1600.jpg" aria-label="Hills, view full size"><img src="assets/gallery/vector-hills-2022-800.jpg" alt="A flat vector landscape of green and brown hills under a pale blue sky with clouds, dark rocks in front." width="800" height="566" loading="lazy"></a>
-      <figcaption><strong>Hills</strong><span class="pin-meta"> · Vector illustration, July 2022. </span><span class="pin-desc">Green hills, white clouds and dark rocks.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-face-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-face-2022-1600.jpg" aria-label="Face, view full size"><img src="assets/gallery/vector-face-2022-800.jpg" alt="A flat vector girl with purple hair and a blue tear on her cheek, on a dark red background." width="566" height="800" loading="lazy"></a>
-      <figcaption><strong>Face</strong><span class="pin-meta"> · Vector illustration, July 2022. </span><span class="pin-desc">A girl with purple hair and a single tear.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="vector-fish-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/vector-fish-2022-1600.jpg" aria-label="Weird fish, view full size"><img src="assets/gallery/vector-fish-2022-800.jpg" srcset="assets/gallery/vector-fish-2022-800.jpg 800w, assets/gallery/vector-fish-2022-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A flat vector fish in navy blue with a pink stripe and a white eye, on black." width="800" height="800" loading="lazy"></a>
-      <figcaption><strong>Weird fish</strong><span class="pin-meta"> · Vector illustration, August 2022. </span><span class="pin-desc">A navy fish with a pink stripe.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="eye-study-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/eye-study-2022-1600.jpg" aria-label="Eye study, view full size"><img src="assets/gallery/eye-study-2022-800.jpg" srcset="assets/gallery/eye-study-2022-800.jpg 800w, assets/gallery/eye-study-2022-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A pencil drawing of a heavily shaded eye on grey paper, with a small face sketched at the top." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Eye study</strong><span class="pin-meta"> · Pencil, February 2022. </span><span class="pin-desc">A shaded eye, with a face sketched in the corner.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="red-skirt-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/red-skirt-2022-1600.jpg" aria-label="Girl in a red skirt, view full size"><img src="assets/gallery/red-skirt-2022-800.jpg" srcset="assets/gallery/red-skirt-2022-800.jpg 800w, assets/gallery/red-skirt-2022-1600.jpg 886w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A coloured drawing of a girl with long brown hair, a white blouse and a red pleated skirt, with red petals around her." width="800" height="800" loading="lazy"></a>
-      <figcaption><strong>Girl in a red skirt</strong><span class="pin-meta"> · Digital drawing, February 2022. </span><span class="pin-desc">A girl with long hair in a red skirt and white blouse, with petals falling around her.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="face-guidelines-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/face-guidelines-2022-1600.jpg" aria-label="Face with guidelines, view full size"><img src="assets/gallery/face-guidelines-2022-800.jpg" alt="A pencil drawing of a man’s face with construction lines across it." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Face with guidelines</strong><span class="pin-meta"> · Pencil, February 2022. </span><span class="pin-desc">A man’s face measured out with guidelines.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="face-shaded-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/face-shaded-2022-1600.jpg" aria-label="Face study, shaded, view full size"><img src="assets/gallery/face-shaded-2022-800.jpg" alt="A pencil drawing of a woman’s face, shaded with dense cross-hatching." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Face study, shaded</strong><span class="pin-meta"> · Pencil, March 2022. </span><span class="pin-desc">A woman’s face built up in cross-hatching.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="hoop-earrings-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/hoop-earrings-2022-1600.jpg" aria-label="Hoop earrings, view full size"><img src="assets/gallery/hoop-earrings-2022-800.jpg" alt="A pencil drawing of a woman with short curly hair and large hoop earrings." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Hoop earrings</strong><span class="pin-meta"> · Pencil, April 2022. </span><span class="pin-desc">A woman with curly hair and hoop earrings.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="face-study-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/face-study-2022-1600.jpg" aria-label="Face study, view full size"><img src="assets/gallery/face-study-2022-800.jpg" alt="A pencil drawing of a woman’s face with faint guidelines and hatching." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Face study</strong><span class="pin-meta"> · Pencil, April 2022. </span><span class="pin-desc">A woman’s face with its guidelines still showing.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="ink-plants-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/ink-plants-2022-1600.jpg" aria-label="Wolf under a tree, view full size"><img src="assets/gallery/ink-plants-2022-800.jpg" srcset="assets/gallery/ink-plants-2022-800.jpg 600w, assets/gallery/ink-plants-2022-1600.jpg 768w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A black ink drawing of a wolf standing under a tree, with a cross-hatched moon behind and small leaf studies around the page." width="600" height="800" loading="lazy"></a>
-      <figcaption><strong>Wolf under a tree</strong><span class="pin-meta"> · Ink, June 2022. </span><span class="pin-desc">A wolf and a tree in black silhouette under a hatched moon, with loose studies of leaves around them.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="chibi-faces-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/chibi-faces-2022-1600.jpg" aria-label="Chibi faces, view full size"><img src="assets/gallery/chibi-faces-2022-800.jpg" alt="A sketchbook page of small round cartoon faces with big eyes." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Chibi faces</strong><span class="pin-meta"> · Pencil, June 2022. </span><span class="pin-desc">A page of small, round cartoon faces.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="round-face-2022" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/round-face-2022-1600.jpg" aria-label="Round face, view full size"><img src="assets/gallery/round-face-2022-800.jpg" srcset="assets/gallery/round-face-2022-800.jpg 800w, assets/gallery/round-face-2022-1600.jpg 1094w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A simple pencil drawing of a round-faced girl with big hair." width="800" height="525" loading="lazy"></a>
-      <figcaption><strong>Round face</strong><span class="pin-meta"> · Pencil, June 2022. </span><span class="pin-desc">A simple, round girl’s face with big hair.</span><ul class="card-tags"><li>2022</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="cat-window" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/cat-window-1600.jpg" aria-label="Cat at the window, view full size"><img src="assets/gallery/cat-window-800.jpg" srcset="assets/gallery/cat-window-800.jpg 800w, assets/gallery/cat-window-1600.jpg 1494w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A greyscale painting of a black and white cat on a windowsill, looking out at bare trees." width="800" height="815" loading="lazy"></a>
-      <figcaption><strong>Cat at the window</strong><span class="pin-meta"> · Digital painting. </span><span class="pin-desc">A cat watching bare trees through a bright window, in shades of grey.</span></figcaption>
-    </figure>
-    <figure class="pin" id="night-walk" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/night-walk-1600.jpg" aria-label="Night walk, view full size"><img src="assets/gallery/night-walk-800.jpg" srcset="assets/gallery/night-walk-800.jpg 800w, assets/gallery/night-walk-1600.jpg 954w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A girl in a hoodie and headphones walks along a railing at night under a huge full moon and a comet." width="800" height="1328" loading="lazy"></a>
-      <figcaption><strong>Night walk</strong><span class="pin-meta"> · Digital painting. </span><span class="pin-desc">A girl in headphones walks past a full moon and a falling comet, her bag glowing teal.</span></figcaption>
-    </figure>
-    <figure class="pin" id="black-cat" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/black-cat-1600.jpg" aria-label="Black cat, view full size"><img src="assets/gallery/black-cat-800.jpg" alt="A black cat silhouetted against a white background, with soft grey highlights." width="576" height="858" loading="lazy"></a>
-      <figcaption><strong>Black cat</strong><span class="pin-meta"> · Digital painting. </span><span class="pin-desc">A black cat against bright light, painted in black and white.</span></figcaption>
-    </figure>
-    <figure class="pin" id="man-scarf" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/man-scarf-1600.jpg" aria-label="Man in a scarf, view full size"><img src="assets/gallery/man-scarf-800.jpg" srcset="assets/gallery/man-scarf-800.jpg 800w, assets/gallery/man-scarf-1600.jpg 958w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A loose grey line sketch of a man with long hair and a scarf, seen from the side." width="800" height="858" loading="lazy"></a>
-      <figcaption><strong>Man in a scarf</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">A man with long hair and a scarf, in loose lines.</span></figcaption>
-    </figure>
-    <figure class="pin" id="umbrella" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/umbrella-1600.jpg" aria-label="Under one umbrella, view full size"><img src="assets/gallery/umbrella-800.jpg" srcset="assets/gallery/umbrella-800.jpg 800w, assets/gallery/umbrella-1600.jpg 1056w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="An ink-style sketch of two people standing close together under one umbrella." width="800" height="1033" loading="lazy"></a>
-      <figcaption><strong>Under one umbrella</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">Two people sharing an umbrella.</span></figcaption>
-    </figure>
-    <figure class="pin" id="head-sketch" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/head-sketch-1600.jpg" aria-label="Head study, view full size"><img src="assets/gallery/head-sketch-800.jpg" alt="A quick line sketch of a man’s head and shoulders." width="790" height="1070" loading="lazy"></a>
-      <figcaption><strong>Head study</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">A man’s head in quick, searching lines.</span></figcaption>
-    </figure>
-    <figure class="pin" id="woman-jacket" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/woman-jacket-1600.jpg" aria-label="Woman in a jacket, view full size"><img src="assets/gallery/woman-jacket-800.jpg" srcset="assets/gallery/woman-jacket-800.jpg 800w, assets/gallery/woman-jacket-1600.jpg 864w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A line sketch of a woman with her hair up, wearing an open jacket." width="800" height="1007" loading="lazy"></a>
-      <figcaption><strong>Woman in a jacket</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">A woman with her hair up, in an open jacket.</span></figcaption>
-    </figure>
-    <figure class="pin" id="horned-figure" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/horned-figure-1600.jpg" aria-label="Horned figure, view full size"><img src="assets/gallery/horned-figure-800.jpg" alt="A greyscale painting of a horned character standing against a bright, misty background." width="568" height="836" loading="lazy"></a>
-      <figcaption><strong>Horned figure</strong><span class="pin-meta"> · Digital painting. </span><span class="pin-desc">A horned character in grey tones, lit from behind.</span></figcaption>
-    </figure>
-    <figure class="pin" id="swordfighter" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/swordfighter-1600.jpg" aria-label="Swordfighter, view full size"><img src="assets/gallery/swordfighter-800.jpg" srcset="assets/gallery/swordfighter-800.jpg 800w, assets/gallery/swordfighter-1600.jpg 1104w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A rough line sketch of a figure raising a sword over another figure." width="800" height="799" loading="lazy"></a>
-      <figcaption><strong>Swordfighter</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">A fighter raising a sword, in rough lines.</span></figcaption>
-    </figure>
-    <figure class="pin" id="standing-girl" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/standing-girl-1600.jpg" aria-label="Standing girl, view full size"><img src="assets/gallery/standing-girl-800.jpg" alt="A light line sketch of a girl with a fringe, standing with one knee bent." width="464" height="1172" loading="lazy"></a>
-      <figcaption><strong>Standing girl</strong><span class="pin-meta"> · Digital sketch. </span><span class="pin-desc">A girl with a fringe, standing with one knee bent.</span></figcaption>
-    </figure>
-    <figure class="pin" id="skull-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/skull-2021-1600.jpg" aria-label="Skull, view full size"><img src="assets/gallery/skull-2021-800.jpg" srcset="assets/gallery/skull-2021-800.jpg 800w, assets/gallery/skull-2021-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A digitally painted skull on a dark grey, misty surface." width="800" height="618" loading="lazy"></a>
-      <figcaption><strong>Skull</strong><span class="pin-meta"> · Digital painting, 2021. </span><span class="pin-desc">A skull resting on dark, misty ground.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="sphere-and-book" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/sphere-and-book-1600.jpg" aria-label="Sphere and book, view full size"><img src="assets/gallery/sphere-and-book-800.jpg" srcset="assets/gallery/sphere-and-book-800.jpg 800w, assets/gallery/sphere-and-book-1600.jpg 1600w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A cream sphere on an ornate bronze stand with claw feet, in front of a standing maroon book, on a dark table against a dark wall." width="800" height="562" loading="lazy"></a>
-      <figcaption><strong>Sphere and book</strong><span class="pin-meta"> · Digital painting, 2021. </span><span class="pin-desc">A sphere on a bronze stand, and the shadow it throws on a red book.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="banana-on-cloth" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/banana-on-cloth-1600.jpg" aria-label="Banana on a cloth, view full size"><img src="assets/gallery/banana-on-cloth-800.jpg" alt="A ripe yellow banana with small brown bruises lying on a folded grey-green cloth on a grey-violet surface." width="800" height="617" loading="lazy"></a>
-      <figcaption><strong>Banana on a cloth</strong><span class="pin-meta"> · Digital painting, 2021. </span><span class="pin-desc">A bruised banana on a folded cloth.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="staff-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/staff-2021-1600.jpg" aria-label="Character with a staff, view full size"><img src="assets/gallery/staff-2021-800.jpg" srcset="assets/gallery/staff-2021-800.jpg 800w, assets/gallery/staff-2021-1600.jpg 1393w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A figure with long auburn hair falling over one eye, wearing an oversized blue-grey jumper, baggy olive trousers and black boots, holding a tall staff topped with twig-like fingers, against a turquoise sky and green foliage." width="800" height="576" loading="lazy"></a>
-      <figcaption><strong>Character with a staff</strong><span class="pin-meta"> · Digital painting, 2021. </span><span class="pin-desc">An oversized jumper, hair over one eye, and a staff that ends in twig fingers.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="head-study-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/head-study-2021-1600.jpg" aria-label="Head study, view full size"><img src="assets/gallery/head-study-2021-800.jpg" alt="A painted head of a person with long crimson hair, thick dark brows and red lips, turned three-quarters against a pale blue background." width="672" height="804" loading="lazy"></a>
-      <figcaption><strong>Head study</strong><span class="pin-meta"> · Digital painting, 2021. </span><span class="pin-desc">An early try at a face, turned three-quarters.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="sword-cap-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/sword-cap-2021-1600.jpg" aria-label="Figure with a sword, view full size"><img src="assets/gallery/sword-cap-2021-800.jpg" alt="A light sketch of a woman in a peaked cap and uniform, holding a sword." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Figure with a sword</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman in a cap and uniform, holding a sword.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="hair-up-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/hair-up-2021-1600.jpg" aria-label="Hair pinned up, view full size"><img src="assets/gallery/hair-up-2021-800.jpg" alt="A bold line drawing of a woman’s face with her hair pinned up." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Hair pinned up</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman’s face in bold lines, her hair pinned up.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="bun-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/bun-2021-1600.jpg" aria-label="Girl with a bun, view full size"><img src="assets/gallery/bun-2021-800.jpg" alt="A light line sketch of a girl with a bun tied with a ribbon." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Girl with a bun</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with a ribboned bun, in light lines.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="dance-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/dance-2021-1600.jpg" aria-label="Dance, view full size"><img src="assets/gallery/dance-2021-800.jpg" alt="A line sketch of a man dancing with one knee raised and arms out." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Dance</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A man mid-dance, one knee raised.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="twin-tails-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/twin-tails-2021-1600.jpg" aria-label="Twin tails, view full size"><img src="assets/gallery/twin-tails-2021-800.jpg" srcset="assets/gallery/twin-tails-2021-800.jpg 800w, assets/gallery/twin-tails-2021-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A line sketch of a girl with long twin tails and a bow." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Twin tails</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with long twin tails and a bow.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="leap-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/leap-2021-1600.jpg" aria-label="Leap, view full size"><img src="assets/gallery/leap-2021-800.jpg" srcset="assets/gallery/leap-2021-800.jpg 800w, assets/gallery/leap-2021-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A line sketch of a figure leaping with a raised arm, with two small pose studies beside it." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Leap</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A figure leaping, beside two smaller studies of the pose.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="box-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/box-2021-1600.jpg" aria-label="Box, view full size"><img src="assets/gallery/box-2021-800.jpg" srcset="assets/gallery/box-2021-800.jpg 800w, assets/gallery/box-2021-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A simple line drawing of a storage box with its lid raised." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Box</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A storage box with its lid lifted.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="ribbons-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/ribbons-2021-1600.jpg" aria-label="Girl with ribbons, view full size"><img src="assets/gallery/ribbons-2021-800.jpg" alt="A faint sketch of a girl with long hair and ribbons." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Girl with ribbons</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with long hair and ribbons, in faint lines.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="still-life-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/still-life-2021-1600.jpg" aria-label="Jug, bottle and bowl, view full size"><img src="assets/gallery/still-life-2021-800.jpg" alt="A line drawing of a jug, a tall bottle and a bowl." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Jug, bottle and bowl</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A still life of a jug, a bottle and a bowl.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="standing-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/standing-2021-1600.jpg" aria-label="Standing figure, view full size"><img src="assets/gallery/standing-2021-800.jpg" alt="A line sketch of a woman standing with her hands on her hips." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Standing figure</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman standing with her hands on her hips.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="bob-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/bob-2021-1600.jpg" aria-label="Girl with a bob, view full size"><img src="assets/gallery/bob-2021-800.jpg" alt="A line sketch of a girl with a bob haircut glancing sideways." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Girl with a bob</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with a bob, glancing to the side.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="guidelines-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/guidelines-2021-1600.jpg" aria-label="Face on guidelines, view full size"><img src="assets/gallery/guidelines-2021-800.jpg" alt="A sketch of a woman’s face with construction lines, on a pale yellow background." width="779" height="1008" loading="lazy"></a>
-      <figcaption><strong>Face on guidelines</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A face built on construction lines, on yellow.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="seated-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/seated-2021-1600.jpg" aria-label="Seated figure, view full size"><img src="assets/gallery/seated-2021-800.jpg" srcset="assets/gallery/seated-2021-800.jpg 800w, assets/gallery/seated-2021-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A line sketch of a woman sitting with one knee raised." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Seated figure</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman sitting with one knee up.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="hands-face-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/hands-face-2021-1600.jpg" aria-label="Hands to face, view full size"><img src="assets/gallery/hands-face-2021-800.jpg" alt="A small, light sketch of a girl holding her hands to her face." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Hands to face</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl holding her hands to her face.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="short-hair-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/short-hair-2021-1600.jpg" aria-label="Girl with short hair, view full size"><img src="assets/gallery/short-hair-2021-800.jpg" alt="A faint line sketch of a girl with short hair." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Girl with short hair</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with short hair, in faint lines.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="reach-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/reach-2021-1600.jpg" aria-label="Reaching, view full size"><img src="assets/gallery/reach-2021-800.jpg" alt="A line sketch of a woman stretching one arm above her head." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Reaching</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman stretching one arm up.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="gestures-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/gestures-2021-1600.jpg" aria-label="Gesture studies, view full size"><img src="assets/gallery/gestures-2021-800.jpg" srcset="assets/gallery/gestures-2021-800.jpg 800w, assets/gallery/gestures-2021-1600.jpg 1024w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A page of quick blue gesture sketches of small figures in motion." width="800" height="600" loading="lazy"></a>
-      <figcaption><strong>Gesture studies</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">Quick gesture figures in blue.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="arms-crossed-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/arms-crossed-2021-1600.jpg" aria-label="Arms crossed, view full size"><img src="assets/gallery/arms-crossed-2021-800.jpg" alt="A line sketch of a boy with messy hair and his arms crossed." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Arms crossed</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A boy with messy hair and crossed arms.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="bold-face-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/bold-face-2021-1600.jpg" aria-label="Bold face, view full size"><img src="assets/gallery/bold-face-2021-800.jpg" alt="A heavy black line drawing of a woman’s face." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Bold face</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A woman’s face in heavy, confident lines.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="startled-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/startled-2021-1600.jpg" aria-label="Startled, view full size"><img src="assets/gallery/startled-2021-800.jpg" alt="A line sketch of a girl with long hair and wide, startled eyes." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Startled</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl with long hair and wide, startled eyes.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="dress-2021" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/dress-2021-1600.jpg" aria-label="Girl in a dress, view full size"><img src="assets/gallery/dress-2021-800.jpg" alt="A light line sketch of a girl standing in a strapless dress." width="768" height="1024" loading="lazy"></a>
-      <figcaption><strong>Girl in a dress</strong><span class="pin-meta"> · Sketch, June 2021. </span><span class="pin-desc">A girl standing in a strapless dress.</span><ul class="card-tags"><li>2021</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="spiky-hair-2020" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/spiky-hair-2020-1600.jpg" aria-label="Girl with spiky hair, view full size"><img src="assets/gallery/spiky-hair-2020-800.jpg" srcset="assets/gallery/spiky-hair-2020-800.jpg 800w, assets/gallery/spiky-hair-2020-1600.jpg 1009w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A pencil drawing of a girl’s head with short spiky hair, on grey paper." width="800" height="618" loading="lazy"></a>
-      <figcaption><strong>Girl with spiky hair</strong><span class="pin-meta"> · Pencil, May 2020. </span><span class="pin-desc">A girl’s head with short, spiky hair.</span><ul class="card-tags"><li>2020</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="long-hair-2020" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/long-hair-2020-1600.jpg" aria-label="Girl with long hair, view full size"><img src="assets/gallery/long-hair-2020-800.jpg" srcset="assets/gallery/long-hair-2020-800.jpg 800w, assets/gallery/long-hair-2020-1600.jpg 875w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A shaded pencil drawing of a girl with long straight hair." width="800" height="821" loading="lazy"></a>
-      <figcaption><strong>Girl with long hair</strong><span class="pin-meta"> · Pencil, June 2020. </span><span class="pin-desc">A girl with long, straight hair, shaded in pencil.</span><ul class="card-tags"><li>2020</li></ul></figcaption>
-    </figure>
-    <figure class="pin" id="lined-paper-2020" data-kind="drawing">
-      <a class="pin-media zoom" href="assets/gallery/lined-paper-2020-1600.jpg" aria-label="On lined paper, view full size"><img src="assets/gallery/lined-paper-2020-800.jpg" srcset="assets/gallery/lined-paper-2020-800.jpg 800w, assets/gallery/lined-paper-2020-1600.jpg 983w" sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 270px" alt="A faint pencil drawing of a girl with tied-back hair on lined notebook paper." width="800" height="652" loading="lazy"></a>
-      <figcaption><strong>On lined paper</strong><span class="pin-meta"> · Pencil, June 2020. </span><span class="pin-desc">A girl with her hair tied back, drawn on lined paper.</span><ul class="card-tags"><li>2020</li></ul></figcaption>
+<section class="sec" aria-label="All pieces"><div class="wrap">
+  <div class="wall" data-filterable>
+    <figure class="world" id="rejecting-herself" data-kind="processing" data-own="gallery-rejecting-herself">
+      <a class="world-media zoom" href="/assets/gallery/rejecting-herself-1600.jpg" aria-label="Mother Nature Rejecting Herself, view full size"><img src="/assets/gallery/rejecting-herself-800.jpg" srcset="/assets/gallery/rejecting-herself-800.jpg 800w, /assets/gallery/rejecting-herself-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Black ink on parched paper: a tree lifted out of cracked ground with a few roots still holding, leaves falling to the left, and its upper branches turning into a lattice of straight lines and stars." width="800" height="450"></a>
+      <figcaption><strong>Mother Nature Rejecting Herself</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Nature rebelling against itself and becoming something else: a tree pulls its roots out of the cracked ground, its leaves fall, and its top branches straighten into lines that end in stars. The lead image for my essay Mother Nature’s Rejection of Self.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-axol" data-kind="blender" data-own="gallery-gyronics-axol">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-axol-1600.jpg" aria-label="Axol, a wearable for Gyronics, view full size"><img src="/assets/gallery/gyronics-axol-800.jpg" srcset="/assets/gallery/gyronics-axol-800.jpg 800w, /assets/gallery/gyronics-axol-1600.jpg 932w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three renders of the Axol wearable on black: a black woven band whose hexagonal top glows green, with two more bands angled on either side." width="800" height="710"></a>
+      <figcaption><strong>Axol, a wearable for Gyronics</strong><span class="world-meta">Blender, 2025</span><span class="world-desc">A design I made for Gyronics, the assistive-technology startup I co-founded: a hexagonal compute unit that glows green, on interchangeable bands. This is a render of the design; teammates built the physical prototypes.</span></figcaption>
+    </figure>
+    <figure class="world" id="one-small-world" data-kind="processing" data-own="gallery-one-small-world">
+      <a class="world-media zoom" href="/assets/gallery/one-small-world-1600.jpg" aria-label="One small world, view full size"><img src="/assets/gallery/one-small-world-800.jpg" srcset="/assets/gallery/one-small-world-800.jpg 800w, /assets/gallery/one-small-world-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A small globe with a few trees on top, far out on a dashed orbit below a huge sun with straight and wavy rays, three planets and scattered stars, in black ink on parched paper." width="800" height="450"></a>
+      <figcaption><strong>One small world</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Her world, small and alive, far out on its orbit under a huge sun, its planets and the stars. Inside the essay Mother Nature’s Rejection of Self.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-concept-2024" data-kind="blender" data-own="gallery-gyronics-concept-2024">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-concept-2024-1600.jpg" aria-label="First concept for the Gyronics wearable, view full size"><img src="/assets/gallery/gyronics-concept-2024-800.jpg" srcset="/assets/gallery/gyronics-concept-2024-800.jpg 800w, /assets/gallery/gyronics-concept-2024-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A black wearable band with a curved, glass-like top showing the glowing word Gyronics, and two small status lights on its side, on a dark background." width="800" height="450"></a>
+      <figcaption><strong>First concept for the Gyronics wearable</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">My first design for Gyronics, from May 2024: a dark band with a glass-like top and the Gyronics name glowing on it. A render of the design, before Axol.</span></figcaption>
+    </figure>
+    <figure class="world" id="her-chain" data-kind="processing" data-own="gallery-her-chain">
+      <a class="world-media zoom" href="/assets/gallery/her-chain-1600.jpg" aria-label="Her chain, view full size"><img src="/assets/gallery/her-chain-800.jpg" srcset="/assets/gallery/her-chain-800.jpg 800w, /assets/gallery/her-chain-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A globe with a forest along its top, circled by a chain of twisted wooden links with small leaves, the sun&#x27;s rays in the top corner, in black ink on parched paper." width="800" height="450"></a>
+      <figcaption><strong>Her chain</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Her world bound by a chain whose links are her own wood and leaves. Inside the essay Mother Nature’s Rejection of Self.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-hex-pink" data-kind="blender" data-own="gallery-gyronics-hex-pink">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-hex-pink-1600.jpg" aria-label="Hexagon wearable, pink band, view full size"><img src="/assets/gallery/gyronics-hex-pink-800.jpg" srcset="/assets/gallery/gyronics-hex-pink-800.jpg 800w, /assets/gallery/gyronics-hex-pink-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A pink perforated wristband with a glowing white hexagonal unit, on a dark surface." width="800" height="450"></a>
+      <figcaption><strong>Hexagon wearable, pink band</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">A design I made for Gyronics in December 2024: a hexagonal unit with a soft white light, on a perforated pink band. A render of the design.</span></figcaption>
+    </figure>
+    <figure class="world" id="desires-too-large" data-kind="processing" data-own="gallery-desires-too-large">
+      <a class="world-media zoom" href="/assets/gallery/desires-too-large-1600.jpg" aria-label="Desires too large for its body, view full size"><img src="/assets/gallery/desires-too-large-800.jpg" srcset="/assets/gallery/desires-too-large-800.jpg 800w, /assets/gallery/desires-too-large-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A small dark figure standing on grassy ground; behind it a giant outline of the same figure filled with stars, arms raised, with lines running from its hands to the stars." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Desires too large for its body</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">A small person, and behind them a giant of the same shape made of stars, its arms raised to the sky. Inside the essay Mother Nature’s Rejection of Self.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-hex-wrist" data-kind="blender" data-own="gallery-gyronics-hex-wrist">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-hex-wrist-1600.jpg" aria-label="Hexagon wearable, on the wrist, view full size"><img src="/assets/gallery/gyronics-hex-wrist-800.jpg" srcset="/assets/gallery/gyronics-hex-wrist-800.jpg 800w, /assets/gallery/gyronics-hex-wrist-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A black wristband with a glowing white hexagonal unit, worn on a smooth modelled forearm." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Hexagon wearable, on the wrist</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">The same Gyronics design in black, shown on a modelled wrist. A render of the design.</span></figcaption>
+    </figure>
+    <figure class="world" id="her-authority-weakens" data-kind="processing" data-own="gallery-her-authority-weakens">
+      <a class="world-media zoom" href="/assets/gallery/her-authority-weakens-1600.jpg" aria-label="Her authority weakens, view full size"><img src="/assets/gallery/her-authority-weakens-800.jpg" srcset="/assets/gallery/her-authority-weakens-800.jpg 800w, /assets/gallery/her-authority-weakens-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three framed panels under a hanging chain: a melting iceberg, cracked dry land under a hot sun with a dead tree, and tree stumps with one tree falling. The chain is cracked over the first panel, split over the second and broken over the third." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Her authority weakens</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Ice melting, land cracking under the sun, a forest cut down, and above them her chain: cracked, then split, then broken. Inside the essay Mother Nature’s Rejection of Self.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-hex-copper" data-kind="blender" data-own="gallery-gyronics-hex-copper">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-hex-copper-1600.jpg" aria-label="Hexagon wearable, copper pads, view full size"><img src="/assets/gallery/gyronics-hex-copper-800.jpg" srcset="/assets/gallery/gyronics-hex-copper-800.jpg 800w, /assets/gallery/gyronics-hex-copper-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A black woven wristband with a glowing green hexagonal unit and copper pads, lit from above." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Hexagon wearable, copper pads</strong><span class="world-meta">Blender, 2025</span><span class="world-desc">A later version for Gyronics, January 2025: a glowing green hexagon on a woven black band with copper pads. A render of the design.</span></figcaption>
+    </figure>
+    <figure class="world" id="water-town" data-kind="processing" data-own="video-watertown-poster">
+      <div class="world-media is-video"><video src="/assets/video/watertown-loop.mp4" poster="/assets/video/watertown-poster.jpg" data-inview muted loop playsinline preload="none" controls width="720" height="960" aria-label="A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."></video></div>
+      <figcaption><strong>Water Town</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">A watercolour town from above, and one slow morning on it.</span></figcaption>
+    </figure>
+    <figure class="world" id="gyronics-square-2025" data-kind="blender" data-own="gallery-gyronics-square-2025">
+      <a class="world-media zoom" href="/assets/gallery/gyronics-square-2025-1600.jpg" aria-label="Square wearable concept, view full size"><img src="/assets/gallery/gyronics-square-2025-800.jpg" srcset="/assets/gallery/gyronics-square-2025-800.jpg 800w, /assets/gallery/gyronics-square-2025-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A square wearable on a grey knitted band, with a glowing green cube on its screen and a row of small green lights." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Square wearable concept</strong><span class="world-meta">Blender, 2025</span><span class="world-desc">Another concept for Gyronics, March 2025: a square unit with a green cube on its face and a row of green lights, on a knitted grey band. A render of the design.</span></figcaption>
+    </figure>
+    <figure class="world" id="ripples" data-kind="processing" data-own="gallery-ripples">
+      <a class="world-media zoom" href="/assets/gallery/ripples-1600.jpg" aria-label="Ripples, view full size"><img src="/assets/gallery/ripples-800.jpg" srcset="/assets/gallery/ripples-800.jpg 800w, /assets/gallery/ripples-1600.jpg 1240w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges." width="800" height="1290" loading="lazy"></a>
+      <figcaption><strong>Ripples</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.</span></figcaption>
+    </figure>
+    <figure class="world" id="island-night" data-kind="blender" data-own="gallery-island-night">
+      <a class="world-media zoom" href="/assets/gallery/island-night-1600.jpg" aria-label="Island at night, view full size"><img src="/assets/gallery/island-night-800.jpg" srcset="/assets/gallery/island-night-800.jpg 800w, /assets/gallery/island-night-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A small sandy island at night with a wooden beach house glowing under a green neon WELCOME sign, palm trees, sandcastles and beach balls." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Island at night</strong><span class="world-meta">Blender</span><span class="world-desc">A beach house under a green neon WELCOME sign, among palm trees and sandcastles.</span></figcaption>
+    </figure>
+    <figure class="world" id="caustic-bloom" data-kind="processing" data-own="gallery-caustic-bloom">
+      <a class="world-media zoom" href="/assets/gallery/caustic-bloom-1600.jpg" aria-label="Caustic Bloom, view full size"><img src="/assets/gallery/caustic-bloom-800.jpg" srcset="/assets/gallery/caustic-bloom-800.jpg 800w, /assets/gallery/caustic-bloom-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black." width="800" height="1120" loading="lazy"></a>
+      <figcaption><strong>Caustic Bloom</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.</span></figcaption>
+    </figure>
+    <figure class="world" id="blossom-pond" data-kind="blender" data-own="gallery-blossom-pond">
+      <a class="world-media zoom" href="/assets/gallery/blossom-pond-1600.jpg" aria-label="Cherry-blossom pond, three views, view full size"><img src="/assets/gallery/blossom-pond-800.jpg" srcset="/assets/gallery/blossom-pond-800.jpg 800w, /assets/gallery/blossom-pond-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three views of a low-poly rock pond with pink blossoms: a daytime three-quarter view, a top-down view, and a purple night view with glowing petals." width="800" height="244" loading="lazy"></a>
+      <figcaption><strong>Cherry-blossom pond, three views</strong><span class="world-meta">Blender</span><span class="world-desc">A low-poly pond under a blossoming tree: by day, from above, and at night.</span></figcaption>
+    </figure>
+    <figure class="world" id="nightbloom" data-kind="processing" data-own="gallery-nightbloom">
+      <a class="world-media zoom" href="/assets/gallery/nightbloom-1600.jpg" aria-label="Nightbloom, view full size"><img src="/assets/gallery/nightbloom-800.jpg" srcset="/assets/gallery/nightbloom-800.jpg 800w, /assets/gallery/nightbloom-1600.jpg 1520w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Pale foam walls on cobalt blue spiralling out from a centre, with a few glossy blue spheres resting among the cells." width="800" height="1132" loading="lazy"></a>
+      <figcaption><strong>Nightbloom</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">A foam whose cells sit on a golden-angle spiral, so the walls between them form a flower.</span></figcaption>
+    </figure>
+    <figure class="world" id="tea-meringues" data-kind="blender" data-own="gallery-tea-meringues">
+      <a class="world-media zoom" href="/assets/gallery/tea-meringues-1600.jpg" aria-label="Tea and meringues, view full size"><img src="/assets/gallery/tea-meringues-800.jpg" srcset="/assets/gallery/tea-meringues-800.jpg 800w, /assets/gallery/tea-meringues-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A white cup of tea on a saucer with cinnamon sticks, a biscuit and peach-coloured meringues, against a warm brown background." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Tea and meringues</strong><span class="world-meta">Blender</span><span class="world-desc">A cup of tea with cinnamon sticks and meringues on a saucer.</span></figcaption>
+    </figure>
+    <figure class="world" id="art-of-intelligence" data-kind="processing" data-own="gallery-art-of-intelligence">
+      <a class="world-media zoom" href="/assets/gallery/art-of-intelligence-1600.jpg" aria-label="The Art of Intelligence, view full size"><img src="/assets/gallery/art-of-intelligence-800.jpg" srcset="/assets/gallery/art-of-intelligence-800.jpg 800w, /assets/gallery/art-of-intelligence-1600.jpg 1240w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A poster: bright orange and cyan strands sweep down a black page beside columns of hexadecimal bytes; the title reads &#x27;The Art of Intelligence — David Adeshina&#x27;." width="800" height="1132" loading="lazy"></a>
+      <figcaption><strong>The Art of Intelligence</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Nine thousand particles carried along a swirling flow field (curl noise) until they form strands. The columns of hexadecimal down the side are the poster's own text, byte by byte.</span></figcaption>
+    </figure>
+    <figure class="world" id="robot" data-kind="blender" data-own="gallery-robot">
+      <a class="world-media zoom" href="/assets/gallery/robot-1600.jpg" aria-label="Robot, view full size"><img src="/assets/gallery/robot-800.jpg" srcset="/assets/gallery/robot-800.jpg 800w, /assets/gallery/robot-1600.jpg 1440w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A white and charcoal robot on wheels, with a boxy camera head, two antennae, glowing blue indicators and two jointed arms." width="800" height="800" loading="lazy"></a>
+      <figcaption><strong>Robot</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">A small wheeled robot with a camera head and two jointed arms.</span></figcaption>
+    </figure>
+    <figure class="world" id="ripples-crab" data-kind="processing" data-own="gallery-ripples-crab">
+      <a class="world-media zoom" href="/assets/gallery/ripples-crab-1600.jpg" aria-label="Ripples, detail, view full size"><img src="/assets/gallery/ripples-crab-800.jpg" alt="A close-up of teal ripples curling around the faint shape of a crab." width="660" height="660" loading="lazy"></a>
+      <figcaption><strong>Ripples, detail</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Close up, the ripples curve around a faint crab. Each ring follows its outline at a growing distance, like contour lines on a map.</span></figcaption>
+    </figure>
+    <figure class="world" id="animal-doughnuts" data-kind="blender" data-own="gallery-animal-doughnuts">
+      <a class="world-media zoom" href="/assets/gallery/animal-doughnuts-1600.jpg" aria-label="Animal doughnuts, view full size"><img src="/assets/gallery/animal-doughnuts-800.jpg" srcset="/assets/gallery/animal-doughnuts-800.jpg 800w, /assets/gallery/animal-doughnuts-1600.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three pale doughnuts on a pink background, decorated as a chick, a piglet and a rabbit." width="800" height="420" loading="lazy"></a>
+      <figcaption><strong>Animal doughnuts</strong><span class="world-meta">Blender</span><span class="world-desc">A chick, a piglet and a rabbit, as doughnuts.</span></figcaption>
+    </figure>
+    <figure class="world" id="poster-variations" data-kind="processing" data-own="gallery-poster-variations">
+      <a class="world-media zoom" href="/assets/gallery/poster-variations-1600.jpg" aria-label="The Art of Intelligence, three earlier versions, view full size"><img src="/assets/gallery/poster-variations-800.jpg" srcset="/assets/gallery/poster-variations-800.jpg 800w, /assets/gallery/poster-variations-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three versions of the same black poster side by side, each with a different sweep of orange and cyan strands." width="800" height="369" loading="lazy"></a>
+      <figcaption><strong>The Art of Intelligence, three earlier versions</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Three different ways of building the same strands.</span></figcaption>
+    </figure>
+    <figure class="world" id="glazed-doughnuts" data-kind="blender" data-own="gallery-glazed-doughnuts">
+      <a class="world-media zoom" href="/assets/gallery/glazed-doughnuts-1600.jpg" aria-label="Glazed doughnuts, view full size"><img src="/assets/gallery/glazed-doughnuts-800.jpg" srcset="/assets/gallery/glazed-doughnuts-800.jpg 800w, /assets/gallery/glazed-doughnuts-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Three glazed doughnuts with colourful sprinkles, the middle one stacked double, reflected in a glossy pink surface." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Glazed doughnuts</strong><span class="world-meta">Blender</span><span class="world-desc">Dripping glaze, sprinkles and reflections on a pink floor.</span></figcaption>
+    </figure>
+    <figure class="world" id="prefer-cover" data-kind="processing" data-own="gallery-prefer-cover">
+      <a class="world-media zoom" href="/assets/gallery/prefer-cover-1600.jpg" aria-label="You Are What You Prefer, view full size"><img src="/assets/gallery/prefer-cover-800.jpg" srcset="/assets/gallery/prefer-cover-800.jpg 800w, /assets/gallery/prefer-cover-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A head in profile made of tiny ink icons of small preferences, beside the title &#x27;You Are What You Prefer&#x27;." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>You Are What You Prefer</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Cover for the essay: a person who exists only as small, benign preferences, with one patch that has quietly changed colour.</span></figcaption>
+    </figure>
+    <figure class="world" id="lightsaber" data-kind="blender" data-own="gallery-lightsaber">
+      <a class="world-media zoom" href="/assets/gallery/lightsaber-1600.jpg" aria-label="Lightsaber, view full size"><img src="/assets/gallery/lightsaber-800.jpg" alt="A lightsaber hilt with a ridged metal grip and a glowing red blade, against a dark background." width="479" height="692" loading="lazy"></a>
+      <figcaption><strong>Lightsaber</strong><span class="world-meta">Blender</span><span class="world-desc">A ridged metal hilt with a red blade.</span></figcaption>
+    </figure>
+    <figure class="world" id="value-tomography" data-kind="processing" data-own="gallery-value-tomography">
+      <a class="world-media zoom" href="/assets/gallery/value-tomography-1600.jpg" aria-label="Value Tomography, view full size"><img src="/assets/gallery/value-tomography-800.jpg" srcset="/assets/gallery/value-tomography-800.jpg 800w, /assets/gallery/value-tomography-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Seven frames on black: a tangled chord diagram, lifted into 3D, casting bar-chart shadows, and finally rebuilt in colour." width="800" height="1005" loading="lazy"></a>
+      <figcaption><strong>Value Tomography</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">A value system drawn as 144 things and 820 links, too tangled to read from above. Turned on its side, its shadow on the wall becomes a bar chart: the answer to one simple question. Twelve questions give twelve shadows, which together approximate the whole, as in tomography. The value families and answers shown are placeholders.</span></figcaption>
+    </figure>
+    <figure class="world" id="island-night-2" data-kind="blender" data-own="gallery-island-night-2">
+      <a class="world-media zoom" href="/assets/gallery/island-night-2-1600.jpg" aria-label="Island at night, another view, view full size"><img src="/assets/gallery/island-night-2-800.jpg" srcset="/assets/gallery/island-night-2-800.jpg 800w, /assets/gallery/island-night-2-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="The same island from another angle, lit by a street lamp and the green neon sign." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Island at night, another view</strong><span class="world-meta">Blender</span><span class="world-desc">Lit by a single street lamp.</span></figcaption>
+    </figure>
+    <figure class="world" id="value-chords" data-kind="processing" data-own="gallery-value-chords">
+      <a class="world-media zoom" href="/assets/gallery/value-chords-1600.jpg" aria-label="Value Chords, view full size"><img src="/assets/gallery/value-chords-800.jpg" srcset="/assets/gallery/value-chords-800.jpg 800w, /assets/gallery/value-chords-1600.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A chord diagram titled &#x27;You are what you read&#x27;: stories on the left, values on top, preferences on the right, joined by coloured ribbons." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Value Chords</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Stories lead to values, and values lead to preferences, all drawn as one ring of ribbons. In the sketch, clicking any node lights up only its path. The weights are placeholders for now.</span></figcaption>
+    </figure>
+    <figure class="world" id="still-life" data-kind="blender" data-own="gallery-still-life">
+      <a class="world-media zoom" href="/assets/gallery/still-life-1600.jpg" aria-label="Still life with bottles, view full size"><img src="/assets/gallery/still-life-800.jpg" srcset="/assets/gallery/still-life-800.jpg 800w, /assets/gallery/still-life-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A blue and a brown glass bottle, a red-and-white striped ball on stacked boxes, a jar and a block with the letter A, on a white shelf." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Still life with bottles</strong><span class="world-meta">Blender</span><span class="world-desc">Glass bottles, a striped ball, boxes and a lettered block on a shelf.</span></figcaption>
+    </figure>
+    <figure class="world" id="calligraphy" data-kind="processing" data-own="gallery-calligraphy">
+      <a class="world-media zoom" href="/assets/gallery/calligraphy-1600.jpg" aria-label="苏州 · 二〇二六 春, view full size"><img src="/assets/gallery/calligraphy-800.jpg" srcset="/assets/gallery/calligraphy-800.jpg 800w, /assets/gallery/calligraphy-1600.jpg 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Brush calligraphy reading Suzhou, 2026, Spring, with a red seal reading 雀." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>苏州 · 二〇二六 春</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Procedural brushwork for the Water Town inscription, and the seal that became this site's mark.</span></figcaption>
+    </figure>
+    <figure class="world" id="three-shapes" data-kind="blender" data-own="gallery-three-shapes">
+      <a class="world-media zoom" href="/assets/gallery/three-shapes-1600.jpg" aria-label="Three shapes in a pool of light, view full size"><img src="/assets/gallery/three-shapes-800.jpg" srcset="/assets/gallery/three-shapes-800.jpg 800w, /assets/gallery/three-shapes-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Two cylinders and a cube in teal and slate, standing in a soft pool of light on a beige floor." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Three shapes in a pool of light</strong><span class="world-meta">Blender</span><span class="world-desc">Two cylinders and a cube, in shades of teal.</span></figcaption>
+    </figure>
+    <figure class="world" id="colour-bird" data-kind="processing" data-own="gallery-colour-bird">
+      <a class="world-media zoom" href="/assets/gallery/colour-bird-1600.jpg" aria-label="Colour Bird, view full size"><img src="/assets/gallery/colour-bird-800.jpg" srcset="/assets/gallery/colour-bird-800.jpg 800w, /assets/gallery/colour-bird-1600.jpg 900w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A cartoon bird perched on a branch, its tail, wing and crest feathers fanned out in rainbow gradients against a starry purple sky." width="800" height="800" loading="lazy"></a>
+      <figcaption><strong>Colour Bird</strong><span class="world-meta">Processing, 2026</span><span class="world-desc">Feathers fanned like a spectrum; in the sketch, it sways and blinks.</span></figcaption>
+    </figure>
+    <figure class="world" id="cloth-study" data-kind="blender" data-own="gallery-cloth-study">
+      <a class="world-media zoom" href="/assets/gallery/cloth-study-1600.jpg" aria-label="Cloth study, view full size"><img src="/assets/gallery/cloth-study-800.jpg" srcset="/assets/gallery/cloth-study-800.jpg 800w, /assets/gallery/cloth-study-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Two red sheets draped over a rounded teal mattress, one sliding off the edge, on a dark blue floor." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Cloth study</strong><span class="world-meta">Blender</span><span class="world-desc">Two red sheets settling over a teal mattress.</span></figcaption>
+    </figure>
+    <figure class="world" id="vortex-2021" data-kind="processing" data-own="gallery-vortex-2021">
+      <a class="world-media zoom" href="/assets/gallery/vortex-2021-1600.jpg" aria-label="Untitled, view full size"><img src="/assets/gallery/vortex-2021-800.jpg" srcset="/assets/gallery/vortex-2021-800.jpg 800w, /assets/gallery/vortex-2021-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A monochrome spiral of thousands of small grey rectangles pulling toward a dark centre." width="800" height="452" loading="lazy"></a>
+      <figcaption><strong>Untitled</strong><span class="world-meta">Code, December 2021</span><span class="world-desc">Thousands of rectangles pulled toward a dark centre. Where it started.</span></figcaption>
+    </figure>
+    <figure class="world" id="awning-corner" data-kind="blender" data-own="gallery-awning-corner">
+      <a class="world-media zoom" href="/assets/gallery/awning-corner-1600.jpg" aria-label="Corner with an awning, view full size"><img src="/assets/gallery/awning-corner-800.jpg" srcset="/assets/gallery/awning-corner-800.jpg 800w, /assets/gallery/awning-corner-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A low-poly corner scene in muted pinks and browns: a brick wall, a cloth awning on poles, a barrel, a clay pot and a mat." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Corner with an awning</strong><span class="world-meta">Blender</span><span class="world-desc">A brick wall, a cloth awning, a barrel, a pot and a mat.</span></figcaption>
+    </figure>
+    <figure class="world" id="tunnel-2021" data-kind="processing" data-own="gallery-tunnel-2021">
+      <a class="world-media zoom" href="/assets/gallery/tunnel-2021-1600.jpg" aria-label="Untitled, view full size"><img src="/assets/gallery/tunnel-2021-800.jpg" srcset="/assets/gallery/tunnel-2021-800.jpg 800w, /assets/gallery/tunnel-2021-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A monochrome tunnel of fine zig-zag lines receding to a black centre." width="800" height="453" loading="lazy"></a>
+      <figcaption><strong>Untitled</strong><span class="world-meta">Code, December 2021</span><span class="world-desc">Zig-zag lines folding into a tunnel.</span></figcaption>
+    </figure>
+    <figure class="world" id="stacked-house" data-kind="blender" data-own="gallery-stacked-house">
+      <a class="world-media zoom" href="/assets/gallery/stacked-house-1600.jpg" aria-label="Stacked house, view full size"><img src="/assets/gallery/stacked-house-800.jpg" srcset="/assets/gallery/stacked-house-800.jpg 800w, /assets/gallery/stacked-house-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A clay-shaded 3D render of a tall, stacked ramshackle house with a ladder, awnings, a water tank, laundry on a line and a small fenced yard." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Stacked house</strong><span class="world-meta">Blender, 2022</span><span class="world-desc">Modelled from a Pinterest reference, one plank at a time.</span></figcaption>
+    </figure>
+    <figure class="world" id="craftsman-house" data-kind="blender" data-own="gallery-craftsman-house">
+      <a class="world-media zoom" href="/assets/gallery/craftsman-house-1600.jpg" aria-label="Craftsman house, view full size"><img src="/assets/gallery/craftsman-house-800.jpg" srcset="/assets/gallery/craftsman-house-800.jpg 800w, /assets/gallery/craftsman-house-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A grey clay render of a single-storey house with a columned porch and a tiled roof, surrounded by long grass." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Craftsman house</strong><span class="world-meta">Blender</span><span class="world-desc">A clay render of a porch house with a tiled roof, in long grass.</span></figcaption>
+    </figure>
+    <figure class="world" id="bar-kiosk" data-kind="blender" data-own="gallery-bar-kiosk">
+      <a class="world-media zoom" href="/assets/gallery/bar-kiosk-1600.jpg" aria-label="Bar kiosk, view full size"><img src="/assets/gallery/bar-kiosk-800.jpg" srcset="/assets/gallery/bar-kiosk-800.jpg 800w, /assets/gallery/bar-kiosk-1600.jpg 874w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A grey clay render of a narrow street kiosk with a BAR sign on its roof, posters on the counter and oil drums by the steps." width="800" height="1130" loading="lazy"></a>
+      <figcaption><strong>Bar kiosk</strong><span class="world-meta">Blender</span><span class="world-desc">A clay render of a small street bar, with oil drums by the steps.</span></figcaption>
+    </figure>
+    <figure class="world" id="plug-adapter" data-kind="blender" data-own="gallery-plug-adapter">
+      <a class="world-media zoom" href="/assets/gallery/plug-adapter-1600.jpg" aria-label="Plug adapter, view full size"><img src="/assets/gallery/plug-adapter-800.jpg" srcset="/assets/gallery/plug-adapter-800.jpg 800w, /assets/gallery/plug-adapter-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A white UK plug adapter with metal pins, rendered against a soft grey studio background." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Plug adapter</strong><span class="world-meta">Blender</span><span class="world-desc">A product render, lit like a studio shot.</span></figcaption>
+    </figure>
+    <figure class="world" id="product-study" data-kind="blender" data-own="gallery-product-study">
+      <a class="world-media zoom" href="/assets/gallery/product-study-1600.jpg" aria-label="Product study, view full size"><img src="/assets/gallery/product-study-800.jpg" srcset="/assets/gallery/product-study-800.jpg 800w, /assets/gallery/product-study-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A white L-shaped device with a round dial and a small recessed tray, against a soft grey studio background." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Product study</strong><span class="world-meta">Blender</span><span class="world-desc">A white device with a dial, in the same studio light.</span></figcaption>
+    </figure>
+    <figure class="world" id="wonderful-world" data-kind="blender" data-own="gallery-wonderful-world">
+      <a class="world-media zoom" href="/assets/gallery/wonderful-world-1600.jpg" aria-label="Wonderful World, view full size"><img src="/assets/gallery/wonderful-world-800.jpg" srcset="/assets/gallery/wonderful-world-800.jpg 800w, /assets/gallery/wonderful-world-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A pale sculpted stone island floating against a soft gradient, with a thin walkway and railing along its top." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Wonderful World</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">A sculpted island of pale stone, with a walkway and railing along its ridge.</span></figcaption>
+    </figure>
+    <figure class="world" id="light-study" data-kind="blender" data-own="gallery-light-study">
+      <a class="world-media zoom" href="/assets/gallery/light-study-1600.jpg" aria-label="Blocks under a spotlight, view full size"><img src="/assets/gallery/light-study-800.jpg" srcset="/assets/gallery/light-study-800.jpg 800w, /assets/gallery/light-study-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Rectangular blocks in grey, black and yellow arranged in a ring under a soft spotlight on a dark floor." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Blocks under a spotlight</strong><span class="world-meta">Blender, 2022</span><span class="world-desc">Grey and yellow blocks arranged in a ring under a single light.</span></figcaption>
+    </figure>
+    <figure class="world" id="blender-animation" data-kind="blender" data-own="video-blender-animation-poster">
+      <div class="world-media is-video"><video src="/assets/video/blender-animation.mp4" poster="/assets/video/blender-animation-poster.jpg" data-inview muted loop playsinline preload="none" controls width="960" height="540" aria-label="A camera moving slowly through a grey, untextured scene of blocks and pillars."></video></div>
+      <figcaption><strong>Animation exercise</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">A camera moving through a grey, untextured scene.</span></figcaption>
+    </figure>
+    <figure class="world" id="rigging" data-kind="blender" data-own="gallery-rigging">
+      <a class="world-media zoom" href="/assets/gallery/rigging-1600.jpg" aria-label="Rigging a character, in progress, view full size"><img src="/assets/gallery/rigging-800.jpg" srcset="/assets/gallery/rigging-800.jpg 800w, /assets/gallery/rigging-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A Blender window showing a grey low-poly human figure with its control rig and timeline." width="800" height="485" loading="lazy"></a>
+      <figcaption><strong>Rigging a character, in progress</strong><span class="world-meta">Blender, 2024</span><span class="world-desc">A low-poly figure with its control rig.</span></figcaption>
+    </figure>
+    <figure class="world" id="robot-arm" data-kind="blender" data-own="video-robot-arm-poster">
+      <div class="world-media is-video"><video src="/assets/video/robot-arm.mp4" poster="/assets/video/robot-arm-poster.jpg" data-inview muted loop playsinline preload="none" controls width="1280" height="792" aria-label="A screen recording of Blender: a jointed robot arm on a grey floor picks up a small cube while a Python script runs beside it."></video></div>
+      <figcaption><strong>Robot arm, moved by a script</strong><span class="world-meta">Blender and Python, 2025</span><span class="world-desc">A robot arm rigged in Blender and moved by a Python script inside it: the arm turns, reaches a cube, picks it up and lets it go.</span></figcaption>
+    </figure>
+    <figure class="world" id="santa-hat" data-kind="blender" data-own="gallery-santa-hat">
+      <a class="world-media zoom" href="/assets/gallery/santa-hat-1600.jpg" aria-label="Santa hat, view full size"><img src="/assets/gallery/santa-hat-800.jpg" srcset="/assets/gallery/santa-hat-800.jpg 800w, /assets/gallery/santa-hat-1600.jpg 853w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A red Santa hat with a thick grey fur trim and a fluffy pompom, on a warm brown background." width="800" height="864" loading="lazy"></a>
+      <figcaption><strong>Santa hat</strong><span class="world-meta">Blender, 2022</span><span class="world-desc">A soft red Santa hat with a furry trim and pompom.</span></figcaption>
+    </figure>
+    <figure class="world" id="hard-surface" data-kind="blender" data-own="gallery-hard-surface">
+      <a class="world-media zoom" href="/assets/gallery/hard-surface-1600.jpg" aria-label="Hard-surface modelling, in progress, view full size"><img src="/assets/gallery/hard-surface-800.jpg" srcset="/assets/gallery/hard-surface-800.jpg 800w, /assets/gallery/hard-surface-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A Blender window showing the wireframe of a rugged, rounded box with screws and hinges on its lid." width="800" height="572" loading="lazy"></a>
+      <figcaption><strong>Hard-surface modelling, in progress</strong><span class="world-meta">Blender</span><span class="world-desc">The wireframe of a rugged box with a hinged lid.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-portrait" data-kind="drawing" data-own="gallery-vector-portrait">
+      <a class="world-media zoom" href="/assets/gallery/vector-portrait-1600.jpg" aria-label="Portrait, view full size"><img src="/assets/gallery/vector-portrait-800.jpg" alt="A flat vector portrait of a girl with diagonally striped pink hair, striped teal eyes and round pink cheeks, on a dark background." width="596" height="842" loading="lazy"></a>
+      <figcaption><strong>Portrait</strong><span class="world-meta">Vector illustration, 2022</span><span class="world-desc">A girl with striped pink hair and striped eyes.</span></figcaption>
+    </figure>
+    <figure class="world" id="pencil-studies-2022" data-kind="drawing" data-own="gallery-pencil-studies-2022">
+      <a class="world-media zoom" href="/assets/gallery/pencil-studies-2022-1600.jpg" aria-label="Pencil studies, view full size"><img src="/assets/gallery/pencil-studies-2022-800.jpg" srcset="/assets/gallery/pencil-studies-2022-800.jpg 800w, /assets/gallery/pencil-studies-2022-1600.jpg 1448w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="Four pencil studies on paper: an eye, a pair of lips, a woman in profile and a woman&#x27;s face from the front." width="800" height="800" loading="lazy"></a>
+      <figcaption><strong>Pencil studies</strong><span class="world-meta">Pencil, 2022</span><span class="world-desc">An eye, lips, a profile and a full face, drawn in early 2022.</span></figcaption>
+    </figure>
+    <figure class="world" id="desert-2022" data-kind="drawing" data-own="gallery-desert-2022">
+      <a class="world-media zoom" href="/assets/gallery/desert-2022-1600.jpg" aria-label="Desert, view full size"><img src="/assets/gallery/desert-2022-800.jpg" srcset="/assets/gallery/desert-2022-800.jpg 800w, /assets/gallery/desert-2022-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A flat vector desert: rolling terracotta dunes in layers, dotted with cacti, under a large pale sun." width="800" height="450" loading="lazy"></a>
+      <figcaption><strong>Desert</strong><span class="world-meta">Vector illustration, June 2022</span><span class="world-desc">Layered dunes and cacti under a pale sun, in shades of terracotta.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-sunflower-2022" data-kind="drawing" data-own="gallery-vector-sunflower-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-sunflower-2022-1600.jpg" aria-label="Sunflower, view full size"><img src="/assets/gallery/vector-sunflower-2022-800.jpg" alt="A flat vector illustration of a tall yellow sunflower above dark green pine trees, with white clouds on a bright blue sky." width="566" height="800" loading="lazy"></a>
+      <figcaption><strong>Sunflower</strong><span class="world-meta">Vector illustration, October 2022</span><span class="world-desc">A giant sunflower over a pine forest and a blue sky.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-moon-2022" data-kind="drawing" data-own="gallery-vector-moon-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-moon-2022-1600.jpg" aria-label="Moon and stars, view full size"><img src="/assets/gallery/vector-moon-2022-800.jpg" alt="A flat vector night scene: a white full moon and small stars above a dark blue sea." width="566" height="800" loading="lazy"></a>
+      <figcaption><strong>Moon and stars</strong><span class="world-meta">Vector illustration, December 2022</span><span class="world-desc">A full moon and scattered stars over a calm, dark sea.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-sunset-2022" data-kind="drawing" data-own="gallery-vector-sunset-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-sunset-2022-1600.jpg" aria-label="Sunset, view full size"><img src="/assets/gallery/vector-sunset-2022-800.jpg" alt="A flat vector sunset: a coral-red sun split into jagged pieces on grey-blue water." width="566" height="800" loading="lazy"></a>
+      <figcaption><strong>Sunset</strong><span class="world-meta">Vector illustration, July 2022</span><span class="world-desc">A red sun breaking up on the water.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-hills-2022" data-kind="drawing" data-own="gallery-vector-hills-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-hills-2022-1600.jpg" aria-label="Hills, view full size"><img src="/assets/gallery/vector-hills-2022-800.jpg" alt="A flat vector landscape of green and brown hills under a pale blue sky with clouds, dark rocks in front." width="800" height="566" loading="lazy"></a>
+      <figcaption><strong>Hills</strong><span class="world-meta">Vector illustration, July 2022</span><span class="world-desc">Green hills, white clouds and dark rocks.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-face-2022" data-kind="drawing" data-own="gallery-vector-face-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-face-2022-1600.jpg" aria-label="Face, view full size"><img src="/assets/gallery/vector-face-2022-800.jpg" alt="A flat vector girl with purple hair and a blue tear on her cheek, on a dark red background." width="566" height="800" loading="lazy"></a>
+      <figcaption><strong>Face</strong><span class="world-meta">Vector illustration, July 2022</span><span class="world-desc">A girl with purple hair and a single tear.</span></figcaption>
+    </figure>
+    <figure class="world" id="vector-fish-2022" data-kind="drawing" data-own="gallery-vector-fish-2022">
+      <a class="world-media zoom" href="/assets/gallery/vector-fish-2022-1600.jpg" aria-label="Weird fish, view full size"><img src="/assets/gallery/vector-fish-2022-800.jpg" srcset="/assets/gallery/vector-fish-2022-800.jpg 800w, /assets/gallery/vector-fish-2022-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A flat vector fish in navy blue with a pink stripe and a white eye, on black." width="800" height="800" loading="lazy"></a>
+      <figcaption><strong>Weird fish</strong><span class="world-meta">Vector illustration, August 2022</span><span class="world-desc">A navy fish with a pink stripe.</span></figcaption>
+    </figure>
+    <figure class="world" id="eye-study-2022" data-kind="drawing" data-own="gallery-eye-study-2022">
+      <a class="world-media zoom" href="/assets/gallery/eye-study-2022-1600.jpg" aria-label="Eye study, view full size"><img src="/assets/gallery/eye-study-2022-800.jpg" srcset="/assets/gallery/eye-study-2022-800.jpg 800w, /assets/gallery/eye-study-2022-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A pencil drawing of a heavily shaded eye on grey paper, with a small face sketched at the top." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Eye study</strong><span class="world-meta">Pencil, February 2022</span><span class="world-desc">A shaded eye, with a face sketched in the corner.</span></figcaption>
+    </figure>
+    <figure class="world" id="red-skirt-2022" data-kind="drawing" data-own="gallery-red-skirt-2022">
+      <a class="world-media zoom" href="/assets/gallery/red-skirt-2022-1600.jpg" aria-label="Girl in a red skirt, view full size"><img src="/assets/gallery/red-skirt-2022-800.jpg" srcset="/assets/gallery/red-skirt-2022-800.jpg 800w, /assets/gallery/red-skirt-2022-1600.jpg 886w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A coloured drawing of a girl with long brown hair, a white blouse and a red pleated skirt, with red petals around her." width="800" height="800" loading="lazy"></a>
+      <figcaption><strong>Girl in a red skirt</strong><span class="world-meta">Digital drawing, February 2022</span><span class="world-desc">A girl with long hair in a red skirt and white blouse, with petals falling around her.</span></figcaption>
+    </figure>
+    <figure class="world" id="face-guidelines-2022" data-kind="drawing" data-own="gallery-face-guidelines-2022">
+      <a class="world-media zoom" href="/assets/gallery/face-guidelines-2022-1600.jpg" aria-label="Face with guidelines, view full size"><img src="/assets/gallery/face-guidelines-2022-800.jpg" alt="A pencil drawing of a man’s face with construction lines across it." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Face with guidelines</strong><span class="world-meta">Pencil, February 2022</span><span class="world-desc">A man’s face measured out with guidelines.</span></figcaption>
+    </figure>
+    <figure class="world" id="face-shaded-2022" data-kind="drawing" data-own="gallery-face-shaded-2022">
+      <a class="world-media zoom" href="/assets/gallery/face-shaded-2022-1600.jpg" aria-label="Face study, shaded, view full size"><img src="/assets/gallery/face-shaded-2022-800.jpg" alt="A pencil drawing of a woman’s face, shaded with dense cross-hatching." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Face study, shaded</strong><span class="world-meta">Pencil, March 2022</span><span class="world-desc">A woman’s face built up in cross-hatching.</span></figcaption>
+    </figure>
+    <figure class="world" id="hoop-earrings-2022" data-kind="drawing" data-own="gallery-hoop-earrings-2022">
+      <a class="world-media zoom" href="/assets/gallery/hoop-earrings-2022-1600.jpg" aria-label="Hoop earrings, view full size"><img src="/assets/gallery/hoop-earrings-2022-800.jpg" alt="A pencil drawing of a woman with short curly hair and large hoop earrings." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Hoop earrings</strong><span class="world-meta">Pencil, April 2022</span><span class="world-desc">A woman with curly hair and hoop earrings.</span></figcaption>
+    </figure>
+    <figure class="world" id="face-study-2022" data-kind="drawing" data-own="gallery-face-study-2022">
+      <a class="world-media zoom" href="/assets/gallery/face-study-2022-1600.jpg" aria-label="Face study, view full size"><img src="/assets/gallery/face-study-2022-800.jpg" alt="A pencil drawing of a woman’s face with faint guidelines and hatching." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Face study</strong><span class="world-meta">Pencil, April 2022</span><span class="world-desc">A woman’s face with its guidelines still showing.</span></figcaption>
+    </figure>
+    <figure class="world" id="ink-plants-2022" data-kind="drawing" data-own="gallery-ink-plants-2022">
+      <a class="world-media zoom" href="/assets/gallery/ink-plants-2022-1600.jpg" aria-label="Wolf under a tree, view full size"><img src="/assets/gallery/ink-plants-2022-800.jpg" srcset="/assets/gallery/ink-plants-2022-800.jpg 600w, /assets/gallery/ink-plants-2022-1600.jpg 768w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A black ink drawing of a wolf standing under a tree, with a cross-hatched moon behind and small leaf studies around the page." width="600" height="800" loading="lazy"></a>
+      <figcaption><strong>Wolf under a tree</strong><span class="world-meta">Ink, June 2022</span><span class="world-desc">A wolf and a tree in black silhouette under a hatched moon, with loose studies of leaves around them.</span></figcaption>
+    </figure>
+    <figure class="world" id="chibi-faces-2022" data-kind="drawing" data-own="gallery-chibi-faces-2022">
+      <a class="world-media zoom" href="/assets/gallery/chibi-faces-2022-1600.jpg" aria-label="Chibi faces, view full size"><img src="/assets/gallery/chibi-faces-2022-800.jpg" alt="A sketchbook page of small round cartoon faces with big eyes." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Chibi faces</strong><span class="world-meta">Pencil, June 2022</span><span class="world-desc">A page of small, round cartoon faces.</span></figcaption>
+    </figure>
+    <figure class="world" id="round-face-2022" data-kind="drawing" data-own="gallery-round-face-2022">
+      <a class="world-media zoom" href="/assets/gallery/round-face-2022-1600.jpg" aria-label="Round face, view full size"><img src="/assets/gallery/round-face-2022-800.jpg" srcset="/assets/gallery/round-face-2022-800.jpg 800w, /assets/gallery/round-face-2022-1600.jpg 1094w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A simple pencil drawing of a round-faced girl with big hair." width="800" height="525" loading="lazy"></a>
+      <figcaption><strong>Round face</strong><span class="world-meta">Pencil, June 2022</span><span class="world-desc">A simple, round girl’s face with big hair.</span></figcaption>
+    </figure>
+    <figure class="world" id="cat-window" data-kind="drawing" data-own="gallery-cat-window">
+      <a class="world-media zoom" href="/assets/gallery/cat-window-1600.jpg" aria-label="Cat at the window, view full size"><img src="/assets/gallery/cat-window-800.jpg" srcset="/assets/gallery/cat-window-800.jpg 800w, /assets/gallery/cat-window-1600.jpg 1494w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A greyscale painting of a black and white cat on a windowsill, looking out at bare trees." width="800" height="815" loading="lazy"></a>
+      <figcaption><strong>Cat at the window</strong><span class="world-meta">Digital painting</span><span class="world-desc">A cat watching bare trees through a bright window, in shades of grey.</span></figcaption>
+    </figure>
+    <figure class="world" id="night-walk" data-kind="drawing" data-own="gallery-night-walk">
+      <a class="world-media zoom" href="/assets/gallery/night-walk-1600.jpg" aria-label="Night walk, view full size"><img src="/assets/gallery/night-walk-800.jpg" srcset="/assets/gallery/night-walk-800.jpg 800w, /assets/gallery/night-walk-1600.jpg 954w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A girl in a hoodie and headphones walks along a railing at night under a huge full moon and a comet." width="800" height="1328" loading="lazy"></a>
+      <figcaption><strong>Night walk</strong><span class="world-meta">Digital painting</span><span class="world-desc">A girl in headphones walks past a full moon and a falling comet, her bag glowing teal.</span></figcaption>
+    </figure>
+    <figure class="world" id="black-cat" data-kind="drawing" data-own="gallery-black-cat">
+      <a class="world-media zoom" href="/assets/gallery/black-cat-1600.jpg" aria-label="Black cat, view full size"><img src="/assets/gallery/black-cat-800.jpg" alt="A black cat silhouetted against a white background, with soft grey highlights." width="576" height="858" loading="lazy"></a>
+      <figcaption><strong>Black cat</strong><span class="world-meta">Digital painting</span><span class="world-desc">A black cat against bright light, painted in black and white.</span></figcaption>
+    </figure>
+    <figure class="world" id="man-scarf" data-kind="drawing" data-own="gallery-man-scarf">
+      <a class="world-media zoom" href="/assets/gallery/man-scarf-1600.jpg" aria-label="Man in a scarf, view full size"><img src="/assets/gallery/man-scarf-800.jpg" srcset="/assets/gallery/man-scarf-800.jpg 800w, /assets/gallery/man-scarf-1600.jpg 958w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A loose grey line sketch of a man with long hair and a scarf, seen from the side." width="800" height="858" loading="lazy"></a>
+      <figcaption><strong>Man in a scarf</strong><span class="world-meta">Digital sketch</span><span class="world-desc">A man with long hair and a scarf, in loose lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="umbrella" data-kind="drawing" data-own="gallery-umbrella">
+      <a class="world-media zoom" href="/assets/gallery/umbrella-1600.jpg" aria-label="Under one umbrella, view full size"><img src="/assets/gallery/umbrella-800.jpg" srcset="/assets/gallery/umbrella-800.jpg 800w, /assets/gallery/umbrella-1600.jpg 1056w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="An ink-style sketch of two people standing close together under one umbrella." width="800" height="1033" loading="lazy"></a>
+      <figcaption><strong>Under one umbrella</strong><span class="world-meta">Digital sketch</span><span class="world-desc">Two people sharing an umbrella.</span></figcaption>
+    </figure>
+    <figure class="world" id="head-sketch" data-kind="drawing" data-own="gallery-head-sketch">
+      <a class="world-media zoom" href="/assets/gallery/head-sketch-1600.jpg" aria-label="Head study, view full size"><img src="/assets/gallery/head-sketch-800.jpg" alt="A quick line sketch of a man’s head and shoulders." width="790" height="1070" loading="lazy"></a>
+      <figcaption><strong>Head study</strong><span class="world-meta">Digital sketch</span><span class="world-desc">A man’s head in quick, searching lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="woman-jacket" data-kind="drawing" data-own="gallery-woman-jacket">
+      <a class="world-media zoom" href="/assets/gallery/woman-jacket-1600.jpg" aria-label="Woman in a jacket, view full size"><img src="/assets/gallery/woman-jacket-800.jpg" srcset="/assets/gallery/woman-jacket-800.jpg 800w, /assets/gallery/woman-jacket-1600.jpg 864w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A line sketch of a woman with her hair up, wearing an open jacket." width="800" height="1007" loading="lazy"></a>
+      <figcaption><strong>Woman in a jacket</strong><span class="world-meta">Digital sketch</span><span class="world-desc">A woman with her hair up, in an open jacket.</span></figcaption>
+    </figure>
+    <figure class="world" id="horned-figure" data-kind="drawing" data-own="gallery-horned-figure">
+      <a class="world-media zoom" href="/assets/gallery/horned-figure-1600.jpg" aria-label="Horned figure, view full size"><img src="/assets/gallery/horned-figure-800.jpg" alt="A greyscale painting of a horned character standing against a bright, misty background." width="568" height="836" loading="lazy"></a>
+      <figcaption><strong>Horned figure</strong><span class="world-meta">Digital painting</span><span class="world-desc">A horned character in grey tones, lit from behind.</span></figcaption>
+    </figure>
+    <figure class="world" id="swordfighter" data-kind="drawing" data-own="gallery-swordfighter">
+      <a class="world-media zoom" href="/assets/gallery/swordfighter-1600.jpg" aria-label="Swordfighter, view full size"><img src="/assets/gallery/swordfighter-800.jpg" srcset="/assets/gallery/swordfighter-800.jpg 800w, /assets/gallery/swordfighter-1600.jpg 1104w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A rough line sketch of a figure raising a sword over another figure." width="800" height="799" loading="lazy"></a>
+      <figcaption><strong>Swordfighter</strong><span class="world-meta">Digital sketch</span><span class="world-desc">A fighter raising a sword, in rough lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="standing-girl" data-kind="drawing" data-own="gallery-standing-girl">
+      <a class="world-media zoom" href="/assets/gallery/standing-girl-1600.jpg" aria-label="Standing girl, view full size"><img src="/assets/gallery/standing-girl-800.jpg" alt="A light line sketch of a girl with a fringe, standing with one knee bent." width="464" height="1172" loading="lazy"></a>
+      <figcaption><strong>Standing girl</strong><span class="world-meta">Digital sketch</span><span class="world-desc">A girl with a fringe, standing with one knee bent.</span></figcaption>
+    </figure>
+    <figure class="world" id="skull-2021" data-kind="drawing" data-own="gallery-skull-2021">
+      <a class="world-media zoom" href="/assets/gallery/skull-2021-1600.jpg" aria-label="Skull, view full size"><img src="/assets/gallery/skull-2021-800.jpg" srcset="/assets/gallery/skull-2021-800.jpg 800w, /assets/gallery/skull-2021-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A digitally painted skull on a dark grey, misty surface." width="800" height="618" loading="lazy"></a>
+      <figcaption><strong>Skull</strong><span class="world-meta">Digital painting, 2021</span><span class="world-desc">A skull resting on dark, misty ground.</span></figcaption>
+    </figure>
+    <figure class="world" id="sphere-and-book" data-kind="drawing" data-own="gallery-sphere-and-book">
+      <a class="world-media zoom" href="/assets/gallery/sphere-and-book-1600.jpg" aria-label="Sphere and book, view full size"><img src="/assets/gallery/sphere-and-book-800.jpg" srcset="/assets/gallery/sphere-and-book-800.jpg 800w, /assets/gallery/sphere-and-book-1600.jpg 1600w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A cream sphere on an ornate bronze stand with claw feet, in front of a standing maroon book, on a dark table against a dark wall." width="800" height="562" loading="lazy"></a>
+      <figcaption><strong>Sphere and book</strong><span class="world-meta">Digital painting, 2021</span><span class="world-desc">A sphere on a bronze stand, and the shadow it throws on a red book.</span></figcaption>
+    </figure>
+    <figure class="world" id="banana-on-cloth" data-kind="drawing" data-own="gallery-banana-on-cloth">
+      <a class="world-media zoom" href="/assets/gallery/banana-on-cloth-1600.jpg" aria-label="Banana on a cloth, view full size"><img src="/assets/gallery/banana-on-cloth-800.jpg" alt="A ripe yellow banana with small brown bruises lying on a folded grey-green cloth on a grey-violet surface." width="800" height="617" loading="lazy"></a>
+      <figcaption><strong>Banana on a cloth</strong><span class="world-meta">Digital painting, 2021</span><span class="world-desc">A bruised banana on a folded cloth.</span></figcaption>
+    </figure>
+    <figure class="world" id="staff-2021" data-kind="drawing" data-own="gallery-staff-2021">
+      <a class="world-media zoom" href="/assets/gallery/staff-2021-1600.jpg" aria-label="Character with a staff, view full size"><img src="/assets/gallery/staff-2021-800.jpg" srcset="/assets/gallery/staff-2021-800.jpg 800w, /assets/gallery/staff-2021-1600.jpg 1393w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A figure with long auburn hair falling over one eye, wearing an oversized blue-grey jumper, baggy olive trousers and black boots, holding a tall staff topped with twig-like fingers, against a turquoise sky and green foliage." width="800" height="576" loading="lazy"></a>
+      <figcaption><strong>Character with a staff</strong><span class="world-meta">Digital painting, 2021</span><span class="world-desc">An oversized jumper, hair over one eye, and a staff that ends in twig fingers.</span></figcaption>
+    </figure>
+    <figure class="world" id="head-study-2021" data-kind="drawing" data-own="gallery-head-study-2021">
+      <a class="world-media zoom" href="/assets/gallery/head-study-2021-1600.jpg" aria-label="Head study, view full size"><img src="/assets/gallery/head-study-2021-800.jpg" alt="A painted head of a person with long crimson hair, thick dark brows and red lips, turned three-quarters against a pale blue background." width="672" height="804" loading="lazy"></a>
+      <figcaption><strong>Head study</strong><span class="world-meta">Digital painting, 2021</span><span class="world-desc">An early try at a face, turned three-quarters.</span></figcaption>
+    </figure>
+    <figure class="world" id="sword-cap-2021" data-kind="drawing" data-own="gallery-sword-cap-2021">
+      <a class="world-media zoom" href="/assets/gallery/sword-cap-2021-1600.jpg" aria-label="Figure with a sword, view full size"><img src="/assets/gallery/sword-cap-2021-800.jpg" alt="A light sketch of a woman in a peaked cap and uniform, holding a sword." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Figure with a sword</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman in a cap and uniform, holding a sword.</span></figcaption>
+    </figure>
+    <figure class="world" id="hair-up-2021" data-kind="drawing" data-own="gallery-hair-up-2021">
+      <a class="world-media zoom" href="/assets/gallery/hair-up-2021-1600.jpg" aria-label="Hair pinned up, view full size"><img src="/assets/gallery/hair-up-2021-800.jpg" alt="A bold line drawing of a woman’s face with her hair pinned up." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Hair pinned up</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman’s face in bold lines, her hair pinned up.</span></figcaption>
+    </figure>
+    <figure class="world" id="bun-2021" data-kind="drawing" data-own="gallery-bun-2021">
+      <a class="world-media zoom" href="/assets/gallery/bun-2021-1600.jpg" aria-label="Girl with a bun, view full size"><img src="/assets/gallery/bun-2021-800.jpg" alt="A light line sketch of a girl with a bun tied with a ribbon." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Girl with a bun</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with a ribboned bun, in light lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="dance-2021" data-kind="drawing" data-own="gallery-dance-2021">
+      <a class="world-media zoom" href="/assets/gallery/dance-2021-1600.jpg" aria-label="Dance, view full size"><img src="/assets/gallery/dance-2021-800.jpg" alt="A line sketch of a man dancing with one knee raised and arms out." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Dance</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A man mid-dance, one knee raised.</span></figcaption>
+    </figure>
+    <figure class="world" id="twin-tails-2021" data-kind="drawing" data-own="gallery-twin-tails-2021">
+      <a class="world-media zoom" href="/assets/gallery/twin-tails-2021-1600.jpg" aria-label="Twin tails, view full size"><img src="/assets/gallery/twin-tails-2021-800.jpg" srcset="/assets/gallery/twin-tails-2021-800.jpg 800w, /assets/gallery/twin-tails-2021-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A line sketch of a girl with long twin tails and a bow." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Twin tails</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with long twin tails and a bow.</span></figcaption>
+    </figure>
+    <figure class="world" id="leap-2021" data-kind="drawing" data-own="gallery-leap-2021">
+      <a class="world-media zoom" href="/assets/gallery/leap-2021-1600.jpg" aria-label="Leap, view full size"><img src="/assets/gallery/leap-2021-800.jpg" srcset="/assets/gallery/leap-2021-800.jpg 800w, /assets/gallery/leap-2021-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A line sketch of a figure leaping with a raised arm, with two small pose studies beside it." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Leap</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A figure leaping, beside two smaller studies of the pose.</span></figcaption>
+    </figure>
+    <figure class="world" id="box-2021" data-kind="drawing" data-own="gallery-box-2021">
+      <a class="world-media zoom" href="/assets/gallery/box-2021-1600.jpg" aria-label="Box, view full size"><img src="/assets/gallery/box-2021-800.jpg" srcset="/assets/gallery/box-2021-800.jpg 800w, /assets/gallery/box-2021-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A simple line drawing of a storage box with its lid raised." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Box</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A storage box with its lid lifted.</span></figcaption>
+    </figure>
+    <figure class="world" id="ribbons-2021" data-kind="drawing" data-own="gallery-ribbons-2021">
+      <a class="world-media zoom" href="/assets/gallery/ribbons-2021-1600.jpg" aria-label="Girl with ribbons, view full size"><img src="/assets/gallery/ribbons-2021-800.jpg" alt="A faint sketch of a girl with long hair and ribbons." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Girl with ribbons</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with long hair and ribbons, in faint lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="still-life-2021" data-kind="drawing" data-own="gallery-still-life-2021">
+      <a class="world-media zoom" href="/assets/gallery/still-life-2021-1600.jpg" aria-label="Jug, bottle and bowl, view full size"><img src="/assets/gallery/still-life-2021-800.jpg" alt="A line drawing of a jug, a tall bottle and a bowl." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Jug, bottle and bowl</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A still life of a jug, a bottle and a bowl.</span></figcaption>
+    </figure>
+    <figure class="world" id="standing-2021" data-kind="drawing" data-own="gallery-standing-2021">
+      <a class="world-media zoom" href="/assets/gallery/standing-2021-1600.jpg" aria-label="Standing figure, view full size"><img src="/assets/gallery/standing-2021-800.jpg" alt="A line sketch of a woman standing with her hands on her hips." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Standing figure</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman standing with her hands on her hips.</span></figcaption>
+    </figure>
+    <figure class="world" id="bob-2021" data-kind="drawing" data-own="gallery-bob-2021">
+      <a class="world-media zoom" href="/assets/gallery/bob-2021-1600.jpg" aria-label="Girl with a bob, view full size"><img src="/assets/gallery/bob-2021-800.jpg" alt="A line sketch of a girl with a bob haircut glancing sideways." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Girl with a bob</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with a bob, glancing to the side.</span></figcaption>
+    </figure>
+    <figure class="world" id="guidelines-2021" data-kind="drawing" data-own="gallery-guidelines-2021">
+      <a class="world-media zoom" href="/assets/gallery/guidelines-2021-1600.jpg" aria-label="Face on guidelines, view full size"><img src="/assets/gallery/guidelines-2021-800.jpg" alt="A sketch of a woman’s face with construction lines, on a pale yellow background." width="779" height="1008" loading="lazy"></a>
+      <figcaption><strong>Face on guidelines</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A face built on construction lines, on yellow.</span></figcaption>
+    </figure>
+    <figure class="world" id="seated-2021" data-kind="drawing" data-own="gallery-seated-2021">
+      <a class="world-media zoom" href="/assets/gallery/seated-2021-1600.jpg" aria-label="Seated figure, view full size"><img src="/assets/gallery/seated-2021-800.jpg" srcset="/assets/gallery/seated-2021-800.jpg 800w, /assets/gallery/seated-2021-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A line sketch of a woman sitting with one knee raised." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Seated figure</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman sitting with one knee up.</span></figcaption>
+    </figure>
+    <figure class="world" id="hands-face-2021" data-kind="drawing" data-own="gallery-hands-face-2021">
+      <a class="world-media zoom" href="/assets/gallery/hands-face-2021-1600.jpg" aria-label="Hands to face, view full size"><img src="/assets/gallery/hands-face-2021-800.jpg" alt="A small, light sketch of a girl holding her hands to her face." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Hands to face</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl holding her hands to her face.</span></figcaption>
+    </figure>
+    <figure class="world" id="short-hair-2021" data-kind="drawing" data-own="gallery-short-hair-2021">
+      <a class="world-media zoom" href="/assets/gallery/short-hair-2021-1600.jpg" aria-label="Girl with short hair, view full size"><img src="/assets/gallery/short-hair-2021-800.jpg" alt="A faint line sketch of a girl with short hair." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Girl with short hair</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with short hair, in faint lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="reach-2021" data-kind="drawing" data-own="gallery-reach-2021">
+      <a class="world-media zoom" href="/assets/gallery/reach-2021-1600.jpg" aria-label="Reaching, view full size"><img src="/assets/gallery/reach-2021-800.jpg" alt="A line sketch of a woman stretching one arm above her head." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Reaching</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman stretching one arm up.</span></figcaption>
+    </figure>
+    <figure class="world" id="gestures-2021" data-kind="drawing" data-own="gallery-gestures-2021">
+      <a class="world-media zoom" href="/assets/gallery/gestures-2021-1600.jpg" aria-label="Gesture studies, view full size"><img src="/assets/gallery/gestures-2021-800.jpg" srcset="/assets/gallery/gestures-2021-800.jpg 800w, /assets/gallery/gestures-2021-1600.jpg 1024w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A page of quick blue gesture sketches of small figures in motion." width="800" height="600" loading="lazy"></a>
+      <figcaption><strong>Gesture studies</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">Quick gesture figures in blue.</span></figcaption>
+    </figure>
+    <figure class="world" id="arms-crossed-2021" data-kind="drawing" data-own="gallery-arms-crossed-2021">
+      <a class="world-media zoom" href="/assets/gallery/arms-crossed-2021-1600.jpg" aria-label="Arms crossed, view full size"><img src="/assets/gallery/arms-crossed-2021-800.jpg" alt="A line sketch of a boy with messy hair and his arms crossed." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Arms crossed</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A boy with messy hair and crossed arms.</span></figcaption>
+    </figure>
+    <figure class="world" id="bold-face-2021" data-kind="drawing" data-own="gallery-bold-face-2021">
+      <a class="world-media zoom" href="/assets/gallery/bold-face-2021-1600.jpg" aria-label="Bold face, view full size"><img src="/assets/gallery/bold-face-2021-800.jpg" alt="A heavy black line drawing of a woman’s face." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Bold face</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A woman’s face in heavy, confident lines.</span></figcaption>
+    </figure>
+    <figure class="world" id="startled-2021" data-kind="drawing" data-own="gallery-startled-2021">
+      <a class="world-media zoom" href="/assets/gallery/startled-2021-1600.jpg" aria-label="Startled, view full size"><img src="/assets/gallery/startled-2021-800.jpg" alt="A line sketch of a girl with long hair and wide, startled eyes." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Startled</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl with long hair and wide, startled eyes.</span></figcaption>
+    </figure>
+    <figure class="world" id="dress-2021" data-kind="drawing" data-own="gallery-dress-2021">
+      <a class="world-media zoom" href="/assets/gallery/dress-2021-1600.jpg" aria-label="Girl in a dress, view full size"><img src="/assets/gallery/dress-2021-800.jpg" alt="A light line sketch of a girl standing in a strapless dress." width="768" height="1024" loading="lazy"></a>
+      <figcaption><strong>Girl in a dress</strong><span class="world-meta">Sketch, June 2021</span><span class="world-desc">A girl standing in a strapless dress.</span></figcaption>
+    </figure>
+    <figure class="world" id="spiky-hair-2020" data-kind="drawing" data-own="gallery-spiky-hair-2020">
+      <a class="world-media zoom" href="/assets/gallery/spiky-hair-2020-1600.jpg" aria-label="Girl with spiky hair, view full size"><img src="/assets/gallery/spiky-hair-2020-800.jpg" srcset="/assets/gallery/spiky-hair-2020-800.jpg 800w, /assets/gallery/spiky-hair-2020-1600.jpg 1009w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A pencil drawing of a girl’s head with short spiky hair, on grey paper." width="800" height="618" loading="lazy"></a>
+      <figcaption><strong>Girl with spiky hair</strong><span class="world-meta">Pencil, May 2020</span><span class="world-desc">A girl’s head with short, spiky hair.</span></figcaption>
+    </figure>
+    <figure class="world" id="long-hair-2020" data-kind="drawing" data-own="gallery-long-hair-2020">
+      <a class="world-media zoom" href="/assets/gallery/long-hair-2020-1600.jpg" aria-label="Girl with long hair, view full size"><img src="/assets/gallery/long-hair-2020-800.jpg" srcset="/assets/gallery/long-hair-2020-800.jpg 800w, /assets/gallery/long-hair-2020-1600.jpg 875w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A shaded pencil drawing of a girl with long straight hair." width="800" height="821" loading="lazy"></a>
+      <figcaption><strong>Girl with long hair</strong><span class="world-meta">Pencil, June 2020</span><span class="world-desc">A girl with long, straight hair, shaded in pencil.</span></figcaption>
+    </figure>
+    <figure class="world" id="lined-paper-2020" data-kind="drawing" data-own="gallery-lined-paper-2020">
+      <a class="world-media zoom" href="/assets/gallery/lined-paper-2020-1600.jpg" aria-label="On lined paper, view full size"><img src="/assets/gallery/lined-paper-2020-800.jpg" srcset="/assets/gallery/lined-paper-2020-800.jpg 800w, /assets/gallery/lined-paper-2020-1600.jpg 983w" sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px" alt="A faint pencil drawing of a girl with tied-back hair on lined notebook paper." width="800" height="652" loading="lazy"></a>
+      <figcaption><strong>On lined paper</strong><span class="world-meta">Pencil, June 2020</span><span class="world-desc">A girl with her hair tied back, drawn on lined paper.</span></figcaption>
     </figure>
   </div>
-  <p class="see-all"><a href="https://www.facebook.com/dave.gbemi.98">More of my 3D work on Facebook →</a></p>
-</section>
+  <p class="more foot-link"><a href="https://www.facebook.com/dave.gbemi.98">More of my 3D work on Facebook →</a></p>
+</div></section>
 </main>
-
-<footer class="foot">
-  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="index.html">Back to the site →</a></p>
-</footer>
+<footer class="site-foot"><div class="wrap"><nav class="foot-nav" aria-label="Site"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p></div></footer>
 
 <dialog class="lightbox" id="lightbox" aria-label="Image, full size">
   <button class="lightbox-close" type="button" aria-label="Close">×</button>

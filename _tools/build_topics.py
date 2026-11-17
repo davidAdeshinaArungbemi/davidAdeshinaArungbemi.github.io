@@ -1,16 +1,17 @@
-"""The four topic pages (/stories-and-ai/, /aesthetics/, /visualisation/, /minds/), the projects page
-(/projects/) and the homepage's Research section, built from the same projects, articles, publications
-and images the other scripts use. Each topic page is something a professor can be sent straight to.
+"""The four topic pages (/stories-and-ai/, /aesthetics/, /visualisation/, /minds/) and the projects page
+(/projects/), built from the same projects, articles, publications and images the other scripts use. Each topic
+page is something a professor can be sent straight to. The homepage's Research section uses TOPICS and STATEMENT
+too (build_home.py, which this script runs at the end).
 
-Run from the repo root, after build_cards.py, build_blog.py and build_gallery.py (needs bs4, like build_blog.py):
+Run from the repo root, after build_cards.py, build_gallery.py and build_blog.py:
   python3 _tools/build_topics.py
 """
-import re
 from pathlib import Path
+import design
+from design import esc, attr
 from build_cards import PROJECTS, TAGS, SUZUME, DAVID
-from build_blog import load_all, head, topbar, FOOT, month, smaller, SITE
+from build_blog import load_all, month, smaller, SITE
 from build_gallery import GROUPS, VIDEOS
-from rows import row, esc, attr
 
 STATEMENT = ("I'm interested in how stories and images shape minds, human and artificial. Most of my work takes a "
              "humanistic question, such as what a story teaches, what makes an image beautiful, or who deserves moral "
@@ -90,85 +91,72 @@ IMAGES = {it[0]: it for _, _, _, items in GROUPS for it in items}
 
 def is_experiment(p): return "experiment" in p["kind"].lower()
 
-def item_row(kind, key):
+def picture(slug):
+    return "/" + VIDEOS[slug][1] if slug in VIDEOS else f"/assets/gallery/{slug}-800.jpg"
+
+def item_card(kind, key, level=3):
+    """Any piece as a card."""
     if kind == "pub":
         link, img, label, title, line, tags, extras = PUBS[key]
-        return row(link, img, label, title, line, tags, extras)
+        return design.card(link, img, label, title, line, tags, extras, level=level)
     if kind == "article":
         p = POSTS[key]
-        return row(f"/articles/{key}/", smaller(p["cover"]), f"{p['kind']} · {month(p['date'])}", p["title"], p["line"], p.get("tags", ()))
+        return design.card(f"/articles/{key}/", smaller(p["cover"]), f"{p['kind']} · {month(p['date'])}", p["title"], p["line"],
+                           p.get("tags", ()), level=level)
     if kind == "project":
         link, img, label, title, line, extras = PROJ[key]
-        return row(link, img, label, title, line, TAGS[title], extras)
+        return design.card(link, img, label, title, line, TAGS[title], extras, level=level)
     slug, title, meta, caption, _ = IMAGES[key]
-    img = VIDEOS[slug][1] if slug in VIDEOS else f"assets/gallery/{slug}-800.jpg"
-    return row(f"/images.html#{slug}", img, meta, title, caption)
+    return design.card(f"/images.html#{slug}", picture(slug), meta, title, caption, level=level)
 
-def image_tile(key):
+def image_card(key):
     slug, title, meta, caption, alt = IMAGES[key]
-    img = VIDEOS[slug][1] if slug in VIDEOS else f"assets/gallery/{slug}-800.jpg"
-    return (f'    <li><a href="/images.html#{slug}"><img src="/{img}" alt="{attr(alt or title)}" loading="lazy">'
-            f'<span>{esc(title)}</span></a></li>')
-
-def section(title, rows):
-    return f'<section>\n  <h2 class="eyebrow">{title}</h2>\n  <ol class="rows">\n' + "\n".join(rows) + "\n  </ol>\n</section>\n" if rows else ""
+    return design.world(slug, title, meta, caption, alt or VIDEOS[slug][4], poster=picture(slug) if slug in VIDEOS else None)
 
 def topic_page(t):
     started = set(t["start"])
     rest = [i for i in t["items"] if i not in started]
-    pubs = [item_row(*i) for i in rest if i[0] == "pub"]
-    exps = [item_row(*i) for i in rest if i[0] == "article" and is_experiment(POSTS[i[1]])]
-    projs = [item_row(*i) for i in rest if i[0] == "project"]
-    essays = [item_row(*i) for i in rest if i[0] == "article" and not is_experiment(POSTS[i[1]])]
-    imgs = [image_tile(i[1]) for i in rest if i[0] == "image"]
-    others = " · ".join(f'<a href="/{o["slug"]}/">{esc(o["title"])}</a>' for o in TOPICS if o is not t)
-    images = (f'<section>\n  <h2 class="eyebrow">Images</h2>\n  <ul class="topic-images">\n' + "\n".join(imgs)
-              + '\n  </ul>\n  <p class="see-all"><a href="/images.html">All of Worlds →</a></p>\n</section>\n') if imgs else ""
+    def part(title, items, cls=""):
+        return design.section(None, title, design.cards([item_card(*i) for i in items], cls)) if items else ""
+    pubs = [i for i in rest if i[0] == "pub"]
+    exps = [i for i in rest if i[0] == "article" and is_experiment(POSTS[i[1]])]
+    projs = [i for i in rest if i[0] == "project"]
+    essays = [i for i in rest if i[0] == "article" and not is_experiment(POSTS[i[1]])]
+    imgs = [i[1] for i in rest if i[0] == "image"]
+    images = (design.section(None, "Images", '<div class="wall">' + "".join(image_card(k) for k in imgs) + "</div>"
+                             + design.more([("All of Worlds →", "/images.html")]))) if imgs else ""
+    tabs = "".join(f'<a class="tab" href="/{o["slug"]}/" data-mood="topic-{o["slug"]}">{esc(o["title"])}</a>' for o in TOPICS if o is not t)
     cover = next((smaller(POSTS[k]["cover"]) if kind == "article" else "/" + (PUBS[k][1] if kind == "pub" else PROJ[k][1]))
                  for kind, k in t["start"] if kind != "image")
-    return (head(f"{t['title']} · David Adeshina Arungbemi", f"{t['title']}: {t['line']} Work by David Adeshina Arungbemi.",
-                 f"{SITE}/{t['slug']}/", cover) + topbar() + f"""
+    meta = design.meta(f"{t['title']} · David Adeshina Arungbemi", f"{t['title']}: {t['line']} Work by David Adeshina Arungbemi.",
+                       f"{SITE}/{t['slug']}/", cover)
+    return design.listed(design.head(meta, mood=f"topic-{t['slug']}", rss=True) + design.header(current="Research") + f"""
 <main id="main">
-<section class="page-head topic-head">
-  <p class="topic-kicker">Research topic</p>
+<section class="band-wrap"><div class="wrap"><div class="band">
+  <p class="kicker">Research topic</p>
   <h1>{esc(t['title'])}</h1>
-  <p class="topic-statement">{esc(t['statement'])}</p>
-  <p class="topic-others">Other topics: {others}</p>
-</section>
-<section>
-  <h2 class="eyebrow">Start with</h2>
-  <ol class="rows rows-start">
-{chr(10).join(item_row(*i) for i in t['start'])}
-  </ol>
-</section>
-""" + section("Publications", pubs) + section("Experiments", exps) + section("Projects", projs) + section("Essays", essays)
-            + images + "</main>\n\n" + FOOT)
+  <p class="statement">{esc(t['statement'])}</p>
+  <nav class="tabs" aria-label="Other topics"><span class="tabs-label" aria-hidden="true">Other topics</span>{tabs}</nav>
+</div></div></section>
+""" + part("Start with", t["start"], " is-start") + part("Publications", pubs) + part("Experiments", exps) + part("Projects", projs)
+        + part("Essays", essays) + images + "</main>\n" + design.footer() + "\n" + design.END)
 
 def projects_page():
-    rows = "\n".join(row(l, i, k, t, ln, TAGS[t], ex) for l, i, k, t, ln, ex in PROJECTS)
-    return (head("Projects · David Adeshina Arungbemi", "Code projects by David Adeshina Arungbemi, who also writes as Suzume.",
-                 f"{SITE}/projects/", "/assets/cards/llm-art-director.jpg") + topbar("Projects") + f"""
+    cards = design.cards([design.card(l, i, k, t, ln, TAGS[t], ex, level=2) for l, i, k, t, ln, ex in PROJECTS])
+    meta = design.meta("Projects · David Adeshina Arungbemi", "Code projects by David Adeshina Arungbemi, who also writes as Suzume.",
+                       f"{SITE}/projects/", "/assets/cards/llm-art-director.jpg")
+    return design.listed(design.head(meta, rss=True) + design.header(current="Projects") + f"""
 <main id="main">
-<section class="page-head">
+<section class="page-head"><div class="wrap">
   <h1>Projects</h1>
   <p>Code, from my own GitHub (David) and my pen name's (Suzume). For the ideas behind them, start from a <a href="/#research">research topic</a>.</p>
-</section>
-<section>
-  <ol class="rows">
-{rows}
-  </ol>
-  <p class="see-all"><a href="{SUZUME}">GitHub as Suzume →</a><a href="{DAVID}">GitHub as David →</a></p>
-</section>
+</div></section>
+<section class="sec"><div class="wrap">
+  {cards}
+  <p class="more"><a href="{SUZUME}">GitHub as Suzume →</a><a href="{DAVID}">GitHub as David →</a></p>
+</div></section>
 </main>
-
-""" + FOOT)
-
-def research_block():
-    tiles = "\n".join(
-        f'    <li><a href="/{t["slug"]}/"><span class="topic-title">{esc(t["title"])}</span>'
-        f'<span class="topic-line">{esc(t["line"])}</span>'
-        f'<span class="topic-count">{len(set(t["start"]) | set(t["items"]))} pieces →</span></a></li>' for t in TOPICS)
-    return f'  <p class="research-statement">{esc(STATEMENT)}</p>\n  <ul class="topics">\n{tiles}\n  </ul>'
+""" + design.footer() + "\n" + design.END)
 
 def build():
     for t in TOPICS:
@@ -176,12 +164,8 @@ def build():
         (out / "index.html").write_text(topic_page(t), encoding="utf-8")
     Path("projects").mkdir(exist_ok=True)
     Path("projects/index.html").write_text(projects_page(), encoding="utf-8")
-    page = Path("index.html").read_text(encoding="utf-8")
-    pattern = re.compile(r"(<!-- research -->).*?([ \t]*<!-- /research -->)", re.S)
-    assert pattern.search(page), "no <!-- research --> markers in index.html"
-    page = pattern.sub(lambda m: m.group(1) + "\n" + research_block() + "\n" + m.group(2), page)
-    Path("index.html").write_text(page, encoding="utf-8")
-    print(f"{len(TOPICS)} topic pages, projects/ ({len(PROJECTS)}), homepage research section")
+    print(f"{len(TOPICS)} topic pages, projects/ ({len(PROJECTS)})")
+    design.finish()
 
 if __name__ == "__main__":
     build()

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-scheme="dark" data-mood="topic-aesthetics">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,43 +14,34 @@
 <meta property="article:published_time" content="2026-03-07">
 <meta property="article:author" content="David Adeshina Arungbemi">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111315" media="(prefers-color-scheme: dark)">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Question Was Mine. Everything After That Got Away From Me.", "datePublished": "2026-03-07", "url": "https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/", "image": "https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/cover-og.jpg", "description": "I set out to build a model that reasons in colour. What I trained became something else, and I didn't notice it happening.", "isBasedOn": "https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+<meta name="theme-color" content="#16181B" data-follow>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">
 <link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="https://medium.com/feed/@suzume1">
-<link rel="stylesheet" href="/assets/site.css">
-<script src="/assets/theme.js"></script>
-<script src="/assets/site.js" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Question Was Mine. Everything After That Got Away From Me.", "datePublished": "2026-03-07", "url": "https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/", "image": "https://davidadeshinaarungbemi.github.io/articles/the-question-was-mine/cover-og.jpg", "description": "I set out to build a model that reasons in colour. What I trained became something else, and I didn't notice it happening.", "isBasedOn": "https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9", "author": {"@type": "Person", "name": "David Adeshina Arungbemi", "alternateName": "Suzume", "url": "https://davidadeshinaarungbemi.github.io/"}}</script>
+<link rel="stylesheet" href="/assets/design/style.css">
+<link rel="stylesheet" href="/assets/design/moods.css">
+<script src="/assets/design/scheme.js"></script>
+<script src="/assets/design/mood.js" defer></script>
+<script src="/assets/design/showcase.js" defer></script>
+<script src="/assets/design/page.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
 <div class="read-progress" aria-hidden="true"></div>
-<header class="topbar">
-  <a class="wordmark" href="/">David Adeshina Arungbemi</a>
-  <nav class="topnav" aria-label="Sections">
-    <a href="/#research">Research</a>
-    <a href="/#publications">Publications</a>
-    <a href="/articles/" aria-current="page">Articles</a>
-    <a href="/projects/">Projects</a>
-    <a href="/images.html">Worlds</a>
-    <a href="/cv.html">CV</a>
-    <a href="/#contact">Contact</a>
-  </nav>
-  <button class="theme" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Light / dark"><span class="theme-dot" aria-hidden="true"></span></button>
-</header>
-
+<header class="site-head"><div class="wrap site-head-row"><a class="site-name" href="/">David Adeshina Arungbemi</a><span class="site-also">also writes as <a class="seal-inline" href="/#suzume"><img src="/assets/img/seal.png" alt="" width="14" height="14"> Suzume</a></span><nav class="site-nav" aria-label="Sections"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/" aria-current="page">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><button class="icon-btn" type="button" data-scheme-toggle aria-label="Switch between light and dark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.8a8.2 8.2 0 0 0 0 16.4z" fill="currentColor"/></svg></button></div></header>
 <main id="main" class="post">
-  <article>
-    <header class="post-head">
-      <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2026-03-07">7 Mar 2026</time> <span aria-hidden="true">·</span> 5 min read</p>
-      <h1>The Question Was Mine. Everything After That Got Away From Me.</h1>
-      <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
-    </header>
-    <div class="post-body">
-<figure><img alt="Grid of four panels: a Cubist-style painting of a bird as Original, Corrupted ±30, Predicted (recolour), and Mask Reconstruction. The recoloured prediction is close to the original; the mask panel is rounded colour blobs that lose the bird's shapes." decoding="async" fetchpriority="high" height="400" loading="eager" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/01.jpg" srcset="/articles/the-question-was-mine/01-800.jpg 800w, /articles/the-question-was-mine/01-1200.jpg 1200w, /articles/the-question-was-mine/01.jpg 1600w" width="1600"/></figure>
+<article>
+  <header class="post-head"><div class="post-wrap">
+    <p class="post-kicker"><a href="/articles/">Articles</a> <span aria-hidden="true">·</span> Essay <span aria-hidden="true">·</span> <time datetime="2026-03-07">7 Mar 2026</time> <span aria-hidden="true">·</span> 5 min read</p>
+    <h1>The Question Was Mine. Everything After That Got Away From Me.</h1>
+    <p class="post-byline"><img src="/assets/img/seal-64.png" alt="" width="22" height="22"> Suzume <span>· David Adeshina Arungbemi</span></p>
+  </div></header>
+  <nav class="topic-strip" aria-label="Topics of this article"><div class="post-wrap"><span class="tabs-label" aria-hidden="true">Topics</span><a class="tab" href="/aesthetics/" data-mood="topic-aesthetics">Aesthetics and perception</a></div></nav>
+  <div class="post-body">
+<figure data-mood="articles-the-question-was-mine-01"><img alt="Grid of four panels: a Cubist-style painting of a bird as Original, Corrupted ±30, Predicted (recolour), and Mask Reconstruction. The recoloured prediction is close to the original; the mask panel is rounded colour blobs that lose the bird's shapes." decoding="async" fetchpriority="high" height="400" loading="eager" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/01.jpg" srcset="/articles/the-question-was-mine/01-800.jpg 800w, /articles/the-question-was-mine/01-1200.jpg 1200w, /articles/the-question-was-mine/01.jpg 1600w" width="1600"/></figure>
 <p class="opening">I was reading the Claude Opus 4.5 system card and there was a mention of increased evaluation awareness. The idea that the model had some expanded sense of its own situation. Something about that landed.</p>
 <p>I spend some time on Pinterest just moving through images, art, photography, colour. Those two things met and I started asking a question I could not let go of:</p>
 <p><em>What is it like to reason in light. In vision. To actually think in colour rather than think about it.</em></p>
@@ -65,9 +56,9 @@
 <hr/>
 <h2>The Training</h2>
 <p>The dataset was over 2000 Cubist paintings. Two T4 GPUs on Kaggle, because I don’t have my own hardware. After 1000 epochs the colour prediction evaluation worked. The model could take a palette shifted dramatically, colours becoming unrecognisable, and recover something very close to the original. The idea that colour relationships in Cubist work are learnable, that there is structure the model could find — that held up.</p>
-<figure><img alt="Grid of four panels: a purple and green abstract Cubist painting as Original, Corrupted ±50, Predicted (recolour), and Mask Reconstruction. The recolour recovers the palette closely; the mask panel is soft rounded blobs unrelated to its shapes." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/02.jpg" srcset="/articles/the-question-was-mine/02-800.jpg 800w, /articles/the-question-was-mine/02-1200.jpg 1200w, /articles/the-question-was-mine/02.jpg 1600w" width="1600"/></figure>
-<figure><img alt="Grid of four panels: a photo of a white angular Cubist sculpture as Original, Corrupted ±50 in pink and green, Predicted (recolour), and Mask Reconstruction. The recolour restores the pale greys; the mask panel keeps only a soft silhouette." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/03.jpg" srcset="/articles/the-question-was-mine/03-800.jpg 800w, /articles/the-question-was-mine/03-1200.jpg 1200w, /articles/the-question-was-mine/03.jpg 1600w" width="1600"/></figure>
-<figure><img alt="Grid of four panels: a Cubist painting of figures against mountains as Original, Corrupted ±10, Predicted (recolour), and Mask Reconstruction. The mild shift turns the sky tan; the recolour comes close, and the mask panel is large rounded blobs." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/04.jpg" srcset="/articles/the-question-was-mine/04-800.jpg 800w, /articles/the-question-was-mine/04-1200.jpg 1200w, /articles/the-question-was-mine/04.jpg 1600w" width="1600"/></figure>
+<figure data-mood="articles-the-question-was-mine-02"><img alt="Grid of four panels: a purple and green abstract Cubist painting as Original, Corrupted ±50, Predicted (recolour), and Mask Reconstruction. The recolour recovers the palette closely; the mask panel is soft rounded blobs unrelated to its shapes." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/02.jpg" srcset="/articles/the-question-was-mine/02-800.jpg 800w, /articles/the-question-was-mine/02-1200.jpg 1200w, /articles/the-question-was-mine/02.jpg 1600w" width="1600"/></figure>
+<figure data-mood="articles-the-question-was-mine-03"><img alt="Grid of four panels: a photo of a white angular Cubist sculpture as Original, Corrupted ±50 in pink and green, Predicted (recolour), and Mask Reconstruction. The recolour restores the pale greys; the mask panel keeps only a soft silhouette." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/03.jpg" srcset="/articles/the-question-was-mine/03-800.jpg 800w, /articles/the-question-was-mine/03-1200.jpg 1200w, /articles/the-question-was-mine/03.jpg 1600w" width="1600"/></figure>
+<figure data-mood="articles-the-question-was-mine-04"><img alt="Grid of four panels: a Cubist painting of figures against mountains as Original, Corrupted ±10, Predicted (recolour), and Mask Reconstruction. The mild shift turns the sky tan; the recolour comes close, and the mask panel is large rounded blobs." decoding="async" height="400" loading="lazy" sizes="(min-width: 940px) 900px, 100vw" src="/articles/the-question-was-mine/04.jpg" srcset="/articles/the-question-was-mine/04-800.jpg 800w, /articles/the-question-was-mine/04-1200.jpg 1200w, /articles/the-question-was-mine/04.jpg 1600w" width="1600"/></figure>
 <p>The mask decoder, the part meant to learn which pixels belong to which colour region, never worked. It produced soft rounded blobs with no relationship to the actual shapes in the paintings. The reason was that it could only see the cluster’s embedding, a compressed vector of colour and spatial statistics, and not the image itself. You cannot learn edges from averages. Fixing it would have meant a fundamentally different design. That didn’t happen.</p>
 <p>There were bugs that ran for hundreds of epochs before being caught. The loss weighting for the masks was applied to every pixel instead of just the foreground ones, inflating the numbers by close to ten times, making it impossible to tell whether anything was actually being learned.</p>
 <hr/>
@@ -80,27 +71,15 @@
 <p>I do not know if I have been forcing myself into a mold that is not mine or if I am still becoming something I cannot name yet. Probably both. The technical path felt serious in a way the other thing did not. But I also know that the question that started this whole project, the one about reasoning in colour, was not a technical question. It was an imaginative one. And I was the one who asked it.</p>
 <p>That has to count for something. I just do not know what yet.</p>
 
-      <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30"></p>
-    </div>
-    <footer class="post-foot">
-      <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9">Read it there →</a></p>
-      <nav class="post-nav" aria-label="More articles">
-      <a class="post-near" href="/articles/four-agents/">
-        <img src="/assets/cards/four-agents.jpg" alt="" width="800" height="600" loading="lazy">
-        <span><span class="post-near-label">Newer</span><span class="post-near-title">I Gave Four AI Agents a Philosophy and Put Them Under Pressure.</span></span>
-      </a>
-      <a class="post-near" href="/articles/sculpting-latent-space/">
-        <img src="/assets/cards/sculpting-latent-space.jpg" alt="" width="800" height="600" loading="lazy">
-        <span><span class="post-near-label">Older</span><span class="post-near-title">Sculpting Latent Space: What If AI Could Think in Clay?</span></span>
-      </a>
-      </nav>
-      <p class="see-all"><a href="/articles/">All articles →</a></p>
-    </footer>
-  </article>
+    <p class="post-end"><img src="/assets/img/seal-64.png" alt="" width="30" height="30" loading="lazy"></p>
+  </div>
+  <footer class="post-foot">
+    <p class="post-origin">First published on Medium. <a href="https://suzume1.medium.com/the-question-was-mine-everything-after-that-got-away-from-me-b5b4cde207e9">Read it there →</a></p>
+    <nav class="nears" aria-label="More articles"><a class="near" href="/articles/four-agents/" data-own="cards-four-agents"><img src="/assets/cards/four-agents.jpg" alt="" width="800" height="600" loading="lazy"><span><span class="item-kind">Newer</span><span class="near-title">I Gave Four AI Agents a Philosophy and Put Them Under Pressure.</span></span></a><a class="near" href="/articles/sculpting-latent-space/" data-own="cards-sculpting-latent-space"><img src="/assets/cards/sculpting-latent-space.jpg" alt="" width="800" height="600" loading="lazy"><span><span class="item-kind">Older</span><span class="near-title">Sculpting Latent Space: What If AI Could Think in Clay?</span></span></a></nav>
+    <p class="more"><a href="/articles/">All articles →</a></p>
+  </footer>
+</article>
 </main>
-
-<footer class="foot">
-  <p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p>
-</footer>
+<footer class="site-foot"><div class="wrap"><nav class="foot-nav" aria-label="Site"><a href="/#research">Research</a><a href="/#publications">Publications</a><a href="/articles/">Articles</a><a href="/projects/">Projects</a><a href="/images.html">Worlds</a><a href="/cv.html">CV</a><a href="/#contact">Contact</a></nav><p>© 2026 David Adeshina Arungbemi. Also <img class="seal-tiny" src="/assets/img/seal.png" alt="" width="12" height="12"> Suzume. <a href="/">Back to the site →</a></p></div></footer>
 </body>
 </html>

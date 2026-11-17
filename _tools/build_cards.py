@@ -1,12 +1,11 @@
-"""The projects. The homepage lists a few of them (HOME below) as plain rows; build_topics.py builds
-the projects page (/projects/) with all of them. (Articles come from _tools/build_blog.py.)
+"""The projects. The homepage shows a few of them under "All" (HOME below) and the rest under their topics;
+build_topics.py builds the projects page (/projects/) with all of them. (Articles come from _tools/build_blog.py.)
 
-Run from the repo root:  python3 _tools/build_cards.py
+Run from the repo root:  python3 _tools/build_cards.py   (rebuilds the homepage from this list)
 Card images live in assets/cards/. The ones with no picture of their own are drawn by the
 Processing sketch ~/Desktop/creative_coding/Covers.
 """
-import re
-from rows import row
+import design
 
 # (link, image, kind, title, line, [(extra link text, url)])
 SUZUME, DAVID = "https://github.com/suzume-hue/", "https://github.com/davidAdeshinaArungbemi/"
@@ -67,23 +66,9 @@ assert not missing, f"no tags for {missing}"
 HOME = ["Wen's Mindscape", "LLM Art Director", "Gestalt", "Aesthetics Optimizer", "Story GRU language model", "Codebook Genome"]
 assert all(t in [p[3] for p in PROJECTS] for t in HOME)
 
-def project_row(p):
-    link, img, kind, title, line, extras = p
-    return row(link, img, kind, title, line, TAGS[title], extras)
-
-def fill(page, name, items):
-    pattern = re.compile(rf"(<!-- cards:{name} -->).*?([ \t]*<!-- /cards:{name} -->)", re.S)
-    assert pattern.search(page), f"no <!-- cards:{name} --> markers in index.html"
-    return pattern.sub(lambda m: m.group(1) + "\n" + "\n".join(items) + "\n" + m.group(2), page)
-
 def build():
-    page = open("index.html", encoding="utf-8").read()
-    by = {p[3]: p for p in PROJECTS}
-    page = fill(page, "projects", [project_row(by[t]) for t in HOME])
-    page, n = re.subn(r"All \d+ projects", f"All {len(PROJECTS)} projects", page)
-    assert n, 'no "All N projects" line in index.html'
-    open("index.html", "w", encoding="utf-8").write(page)
-    print(f"index.html: {len(HOME)} of {len(PROJECTS)} projects")
+    print(f"projects: {len(PROJECTS)}, {len(HOME)} on the homepage")
+    design.finish()
 
 if __name__ == "__main__":
     build()
