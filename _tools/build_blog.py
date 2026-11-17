@@ -195,10 +195,26 @@ def load_all():
     for path in SRC.glob("*.html"):
         text = path.read_text(encoding="utf-8")
         m = re.match(r"<!--\n(.*?)\n-->\n", text, re.S)
+        if not m:
+            raise SystemExit(f"{path}: no JSON header in an HTML comment at the top")
         meta = json.loads(m.group(1))
         meta["slug"], meta["body"] = path.stem, text[m.end():]
+        check_header(meta, path)
         posts.append(meta)
     return sorted(posts, key=lambda p: p["date"], reverse=True)
+
+def check_header(meta, path):
+    """Stop with a plain message, naming the file, when a header can't make a page."""
+    for key in ("title", "date", "medium", "kind", "line", "cover"):
+        if not meta.get(key):
+            raise SystemExit(f"{path}: the header needs \"{key}\"" + (" (an image for the article's card; a post with no images needs one chosen by hand)" if key == "cover" else ""))
+    try:
+        date.fromisoformat(meta["date"])
+    except ValueError:
+        raise SystemExit(f"{path}: the date \"{meta['date']}\" isn't YYYY-MM-DD")
+    for key in ("cover", "art"):
+        if meta.get(key) and not Path(meta[key].lstrip("/")).exists():
+            raise SystemExit(f"{path}: {key} {meta[key]} doesn't exist")
 
 def day(d): return date.fromisoformat(d).strftime("%-d %b %Y")
 def month(d): return date.fromisoformat(d).strftime("%b %Y")
@@ -253,8 +269,9 @@ def neighbour(post, label):
     if not post: return "<span></span>"
     img = smaller(post["cover"])
     w, h = size(img)
-    return (f'<a class="near" href="/articles/{post['slug']}/" data-own="{design.mood_name(img)}"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy">'
-            f'<span><span class="item-kind">{label}</span><span class="near-title">{esc(post['title'])}</span></span></a>')
+    slug, title = post["slug"], post["title"]
+    return (f'<a class="near" href="/articles/{slug}/" data-own="{design.mood_name(img)}"><img src="{img}" alt="" width="{w}" height="{h}" loading="lazy">'
+            f'<span><span class="item-kind">{label}</span><span class="near-title">{esc(title)}</span></span></a>')
 
 def topics_of(slug):
     from build_topics import TOPICS
@@ -356,6 +373,7 @@ def write_sitemap(posts):
         + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
 
 def build():
+    design.write_moods()                                    # first, so every page names the current palettes file
     posts = load_all()
     links = {p["medium"].rstrip("/"): f"/articles/{p['slug']}/" for p in posts}
     for i, p in enumerate(posts):

@@ -1,6 +1,6 @@
 /* The homepage showcase: one clip at a time, moving to the next on its own.
 
-   Markup (kit.showcase writes it; each direction's stylesheet decides how it looks):
+   Markup (design.showcase() in _tools/design.py writes it; style.css decides how it looks):
      <section data-showcase data-colour="page|self">
        <div data-showcase-stage>
          [<canvas data-showcase-ambient>]                       soft light behind the screen, optional
@@ -50,7 +50,6 @@
     var userPaused = reduce.matches || thrifty;          // the visitor's choice (or their settings): stays until they press Play
     var inView = false, hover = false, focused = false, clock = 0, last = 0, ticking = false;
 
-    box.classList.add('is-live');
     box.setAttribute('aria-roledescription', 'carousel');
     slides.forEach(function (s, i) {
       s.hidden = false;
@@ -62,6 +61,7 @@
     if (picks[0]) picks[0].setAttribute('aria-current', 'true');
     var pickList = box.querySelector('.showcase-picks');
     if (pickList) pickList.setAttribute('aria-label', 'Choose a clip');
+    box.classList.add('is-live');                          // last: only now does style.css hide the other clips
 
     function setCurrent(slide, on) {
       slide.classList.toggle('is-current', on);
@@ -104,6 +104,12 @@
         if (v === video) slide.classList.add('is-playing');
       });
       v.addEventListener('error', function () { if (v === video) fail(); });
+      var restall = function () {                          // a clip that stops loading midway counts as failed too
+        clearTimeout(v._stall);
+        v._stall = setTimeout(function () { if (v === video && v.readyState < 3) fail(); }, STALL);
+      };
+      v.addEventListener('waiting', restall);
+      v.addEventListener('stalled', restall);
       v._stall = setTimeout(function () { if (v === video && v.readyState < 3) fail(); }, STALL);
       var start = parseFloat(slide.getAttribute('data-start')) || 0;
       v.src = slide.getAttribute('data-src') + (start ? '#t=' + start : '');

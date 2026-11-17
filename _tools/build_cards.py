@@ -67,7 +67,8 @@ HOME = ["Wen's Mindscape", "LLM Art Director", "Gestalt", "Aesthetics Optimizer"
 assert all(t in [p[3] for p in PROJECTS] for t in HOME)
 
 def build():
-    print(f"projects: {len(PROJECTS)}, {len(HOME)} on the homepage")
+    n = design.write_moods()
+    print(f"projects: {len(PROJECTS)}, {len(HOME)} on the homepage · {n} palettes")
     design.finish()
 
 if __name__ == "__main__":

@@ -110,8 +110,22 @@ def meta(title, description, url, image, og_type="website", published=None, og_d
             f'<meta property="og:url" content="{url}">{article}\n'
             f'<meta name="twitter:card" content="summary_large_image">{extra}')
 
+ASSETS = ("style.css", "moods.css", "scheme.js", "mood.js", "showcase.js", "page.js")
+
+def version():
+    """A short fingerprint of the design files, added to their addresses so a browser never pairs a new page with
+    an old cached stylesheet or script."""
+    import hashlib
+    h = hashlib.sha1()
+    for name in ASSETS:
+        f = DESIGN / name
+        if f.exists():
+            h.update(f.read_bytes())
+    return h.hexdigest()[:10]
+
 def head(meta_lines, mood="default", rss=False):
     feed = f'\n<link rel="alternate" type="application/rss+xml" title="Suzume on Medium" href="{FEED}">' if rss else ""
+    v = version()
     return f"""<!DOCTYPE html>
 <html lang="en" data-default-scheme="dark" data-mood="{mood}">
 <head>
@@ -122,12 +136,12 @@ def head(meta_lines, mood="default", rss=False):
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/img/seal-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/seal-180.png">{feed}
-<link rel="stylesheet" href="/assets/design/style.css">
-<link rel="stylesheet" href="/assets/design/moods.css">
-<script src="/assets/design/scheme.js"></script>
-<script src="/assets/design/mood.js" defer></script>
-<script src="/assets/design/showcase.js" defer></script>
-<script src="/assets/design/page.js" defer></script>
+<link rel="stylesheet" href="/assets/design/style.css?v={v}">
+<link rel="stylesheet" href="/assets/design/moods.css?v={v}">
+<script src="/assets/design/scheme.js?v={v}"></script>
+<script src="/assets/design/mood.js?v={v}" defer></script>
+<script src="/assets/design/showcase.js?v={v}" defer></script>
+<script src="/assets/design/page.js?v={v}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -135,7 +149,12 @@ def head(meta_lines, mood="default", rss=False):
 """
 
 def nav_links(home=False, current=None):
-    return "".join(f'<a href="{u}"' + (' aria-current="page"' if t == current else "") + f">{t}</a>" for t, u in (HOME_NAV if home else NAV))
+    """The nav. current names the page being shown; a link into another page's section (Research on a topic page)
+    is only underlined, not announced as the current page."""
+    def mark(t, u):
+        if t != current: return ""
+        return ' class="is-section"' if "#" in u else ' aria-current="page"'
+    return "".join(f'<a href="{u}"{mark(t, u)}>{t}</a>' for t, u in (HOME_NAV if home else NAV))
 
 def header(home=False, current=None):
     also = ALSO if home else ALSO.replace('href="#suzume"', 'href="/#suzume"')
@@ -230,7 +249,7 @@ def world(slug, title, meta_text, caption, alt, poster=None, topics=(), home=Non
     if home is not None: data += " data-home" if home else " hidden"
     return (f'<figure class="world"{data}><a class="world-media" href="/images.html#{slug}">'
             f'<img src="{attr(img)}" alt="{attr(alt)}" width="{w}" height="{h}" loading="lazy"></a>'
-            f'<figcaption><strong>{esc(title)}</strong><span class="world-desc">{esc(caption)}</span>{year(meta_text)}</figcaption></figure>')
+            f'<figcaption><strong>{esc(title)}</strong> <span class="world-desc">{esc(caption)}</span> {year(meta_text)}</figcaption></figure>')
 
 def lens_bar(topics):
     """The topic bar: All, then the four topics; hidden until page.js runs. CV sits at its end."""
@@ -321,10 +340,11 @@ def analysed_pictures():
     except (OSError, ValueError):
         cache = {}
     out, fresh = {}, {}
+    recipe = int(os.stat(moods.__file__).st_mtime)          # editing moods.py starts the readings afresh
     for name, src in sorted(pictures().items()):
         path = src.lstrip("/")
         st = os.stat(path)
-        key = f"{path}|{st.st_size}|{int(st.st_mtime)}"
+        key = f"{path}|{st.st_size}|{int(st.st_mtime)}|{recipe}"
         out[name] = cache.get(key) or moods.analyse(path)
         fresh[key] = out[name]
     CACHE.parent.mkdir(parents=True, exist_ok=True)
@@ -358,8 +378,8 @@ def write_moods():
     return len(analysed)
 
 def finish():
-    """Every build script ends here: the homepage and the palettes are rebuilt from everything current."""
+    """Every build script ends here, so the homepage is rebuilt from everything current. (Each script writes the
+    palettes, write_moods(), before its own pages, so every page names the current palettes file.)"""
     import build_home
     build_home.build()
-    n = write_moods()
-    print(f"homepage rebuilt · assets/design/moods.css: {n} palettes")
+    print("homepage rebuilt")

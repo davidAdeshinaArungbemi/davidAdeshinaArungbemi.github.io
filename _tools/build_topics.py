@@ -158,7 +158,21 @@ def projects_page():
 </main>
 """ + design.footer() + "\n" + design.END)
 
+def check_topics():
+    """Stop with a plain message if a topic names a piece that doesn't exist, or has no colour."""
+    known = {"pub": PUBS, "article": POSTS, "project": PROJ, "image": IMAGES}
+    for t in TOPICS:
+        if t["slug"] not in design.TOPIC_HUES:
+            raise SystemExit(f"topic {t['slug']}: add its hue to design.TOPIC_HUES")
+        for kind, key in list(t["start"]) + list(t["items"]):
+            if kind not in known:
+                raise SystemExit(f"topic {t['slug']}: unknown kind '{kind}' (use pub, article, project or image)")
+            if key not in known[kind]:
+                raise SystemExit(f"topic {t['slug']}: no {kind} called '{key}'")
+
 def build():
+    check_topics()
+    design.write_moods()                                    # first, so every page names the current palettes file
     for t in TOPICS:
         out = Path(t["slug"]); out.mkdir(exist_ok=True)
         (out / "index.html").write_text(topic_page(t), encoding="utf-8")

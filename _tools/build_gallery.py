@@ -204,7 +204,7 @@ def piece(kind, it, eager=False):
         media = (f'<a class="world-media zoom" href="/assets/gallery/{slug}-1600.jpg" aria-label="{html.escape(title, quote=True)}, view full size">'
                  f'{img_tag(slug, alt, "(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 360px", eager)}</a>')
     return (f'    <figure class="world" id="{slug}" data-kind="{kind}" data-own="{design.mood_name(picture(slug))}">\n      {media}\n'
-            f'      <figcaption><strong>{design.esc(title)}</strong><span class="world-meta">{design.esc(meta)}</span>'
+            f'      <figcaption><strong>{design.esc(title)}</strong> <span class="world-meta">{design.esc(meta)}</span> '
             f'<span class="world-desc">{design.esc(caption)}</span></figcaption>\n    </figure>')
 
 INTRO = ("Things that don't exist until someone makes them: creative coding (the recent pieces in Processing, written with Claude as a "
@@ -218,6 +218,7 @@ DIALOG = """<dialog class="lightbox" id="lightbox" aria-label="Image, full size"
 </dialog>"""
 
 def build():
+    design.write_moods()                                    # first, so every page names the current palettes file
     items = ordered(); count = len(items)
     by = {gid: its for gid, _, _, its in GROUPS}
     # each filter lights the page with its first piece's colours

@@ -2,7 +2,7 @@
    so a page never flashes the other one. <html data-default-scheme="dark|light|auto"> says what a first
    visit gets; "auto" follows the device. A button marked data-scheme-toggle switches and remembers the
    choice; the swap is instant, because fading light into dark walks text and ground past each other.
-   Without JavaScript the toggle is hidden (shared/proto.css) and the page keeps its default palette.
+   Without JavaScript the toggle is hidden (style.css) and the page keeps its default palette.
    (The unlisted pages under for/ keep the older assets/theme.js; this file belongs to the current design.) */
 (function () {
   var root = document.documentElement;
