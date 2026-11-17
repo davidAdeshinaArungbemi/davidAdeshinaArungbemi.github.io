@@ -50,11 +50,11 @@ CLIPS = [("water-town", "assets/video/clip-water-town.mp4", 14, None),
 
 VIDEOS = {
     "robot-arm": ("assets/video/robot-arm.mp4", "assets/video/robot-arm-poster.jpg", 1280, 792,
-                  "A screen recording of Blender: a jointed robot arm on a grey floor picks up a small cube while a Python script runs beside it."),
+                  "A screen recording of Blender, where a Python script moves a robot arm to pick up a cube."),
     "water-town": ("assets/video/watertown-loop.mp4", "assets/video/watertown-poster.jpg", 720, 960,
-                   "A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."),
+                   "A watercolour town seen from above, with a little boat rowing across the water."),
     "blender-animation": ("assets/video/blender-animation.mp4", "assets/video/blender-animation-poster.jpg", 960, 540,
-                          "A camera moving slowly through a grey, untextured scene of blocks and pillars."),
+                          "A camera slowly moving through a plain grey scene of blocks and pillars."),
     # The environment design films, made from each sketch's own frames (render/frames). The passage game shows one
     # scene only (frames 850 to 1210): the film's later scenes show measured results, which are not published yet.
     "passage-game": ("assets/video/passage-game.mp4", "assets/video/passage-game-poster.jpg", 1280, 720,
