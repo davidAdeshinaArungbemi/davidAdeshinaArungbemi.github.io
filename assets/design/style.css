@@ -333,6 +333,10 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
 .post-body hr { width: 80px; height: 2px; margin: 2.4em auto; border: 0; background: var(--line); }
 .post-body mark { background: var(--ground-3); color: inherit; }
 .post-body a { overflow-wrap: anywhere; }
+/* The body is a grid (so pictures can be wider than the text), and in a grid the space under one block and the space
+   over the next add up instead of overlapping. So whatever comes before a heading gives up its own space below, and
+   the heading's space above is the only gap. */
+.post-body > :has(+ h2), .post-body > :has(+ h3) { margin-bottom: 0; }
 .post-end { margin: 2.4em 0 0; text-align: center; }
 .post-end img { display: inline-block; width: 30px; height: 30px; }
 .post-foot { max-width: 64rem; margin: 3.5rem auto 0; padding: 1.5rem var(--gutter) clamp(40px, 7vw, 80px); border-top: 1px solid var(--line); }
