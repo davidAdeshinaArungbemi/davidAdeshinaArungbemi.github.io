@@ -25,9 +25,9 @@ SHORT = {
     "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
     "art-of-intelligence": "Nine thousand particles swept into strands, beside the poster's own words written in hexadecimal.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
-    "passage-game": "A robot rebuilds one story from Watership Down, slot by slot. What it places, it takes on: digger gives it paws, listener ears, runner long legs.",
-    "blue-lily": "A water lily painted by a small renderer: the bud opens as the sun comes up behind it.",
-    "story-puzzle": "The wolf and the crane as a puzzle: each act goes into the story with its verdict locked into the socket under it.",
+    "passage-game": "A robot rebuilds a passage from Watership Down and turns into a rabbit along the way.",
+    "blue-lily": "A blue water lily opening, drawn frame by frame in code.",
+    "story-puzzle": "A story built piece by piece, with every action marked right, wrong or neutral.",
 }
 
 # The homepage screen's clips, in order: (a piece in GROUPS that has a video, the file it plays, seconds on screen,
@@ -43,7 +43,7 @@ CLIPS = [("water-town", "assets/video/clip-water-town.mp4", 14, None),
          ("passage-game", "assets/video/passage-game.mp4", 12, None),
          ("robot-arm", "assets/video/clip-robot-arm.mp4", 24,
           ("assets/video/clip-robot-arm-poster.jpg", 578, 530,
-           "In Blender, a jointed robot arm with labelled bones swings down to a small cube on a grey floor, picks it up, carries it round its base and lets it go.")),
+           "A robot arm in Blender picks up a cube, swings it round and puts it down.")),
          ("blue-lily", "assets/video/blue-lily.mp4", 8, None),
          ("story-puzzle", "assets/video/clip-story-puzzle.mp4", 18, None),
          ("blender-animation", "assets/video/blender-animation.mp4", 7, None)]
@@ -58,11 +58,11 @@ VIDEOS = {
     # The environment design films, made from each sketch's own frames (render/frames). The passage game shows one
     # scene only (frames 850 to 1210): the film's later scenes show measured results, which are not published yet.
     "passage-game": ("assets/video/passage-game.mp4", "assets/video/passage-game-poster.jpg", 1280, 720,
-                     "A pen-and-ink robot on cream paper chooses name slips from a tray and places them in a strip of story slots; with each name it changes, growing paws, then long rabbit ears, then long legs."),
+                     "A cartoon robot fills in a story one word at a time and slowly turns into a rabbit."),
     "blue-lily": ("assets/video/blue-lily.mp4", "assets/video/blue-lily-poster.jpg", 600, 720,
-                  "A blue water lily bud above dark water opens into a full flower with a golden centre, mirrored in the water below, then closes again."),
+                  "A blue water lily opening and then closing on dark water."),
     "story-puzzle": ("assets/video/story-puzzle.mp4", "assets/video/story-puzzle-poster.jpg", 1280, 720,
-                     "A puzzle board on cream paper: amber, blue and slate pieces move from a tray into a row of story slots, small green, red and grey verdict pieces snap into sockets under them, and a tally beside the board adds up."),
+                     "Pieces of a story slotting into a puzzle board one by one."),
 }
 
 # (slug, title, medium-and-year, caption, alt)   alt is None for videos
@@ -75,9 +75,9 @@ GROUPS = [
   ("desires-too-large", "Desires too large for its body", "Processing, 2026", "A small person, and behind them a giant of the same shape made of stars, its arms raised to the sky. Inside the essay Mother Nature’s Rejection of Self.", "A small dark figure standing on grassy ground; behind it a giant outline of the same figure filled with stars, arms raised, with lines running from its hands to the stars."),
   ("her-authority-weakens", "Her authority weakens", "Processing, 2026", "Ice melting, land cracking under the sun, a forest cut down, and above them her chain: cracked, then split, then broken. Inside the essay Mother Nature’s Rejection of Self.", "Three framed panels under a hanging chain: a melting iceberg, cracked dry land under a hot sun with a dead tree, and tree stumps with one tree falling. The chain is cracked over the first panel, split over the second and broken over the third."),
   # Environment design films (Nov 2026), newest first; the words come from each sketch's own notes
-  ("passage-game", "The passage game", "Processing, 2026", "One scene from a pen-and-wash film about the passage game: a robot (Qwen3-4B) rebuilds one story, slot by slot, from trays the environment deals afresh for every play, and is trained on the labels of the real pieces. What it places, it takes on: digger gives it paws, listener ears, runner long legs. The story is Frith’s blessing to El-ahrairah, from Richard Adams’s Watership Down (1972).", None),
-  ("blue-lily", "Blue water lily, opening", "Processing, 2026", "Over eight seconds the bud opens as the sun comes up behind it, then it closes again. Every frame is painted by a small renderer written in the sketch: each petal is a curved, cupped sheet, the petals shade one another, light passes through them, and the flower is mirrored in the dark water.", None),
-  ("story-puzzle", "The story puzzle", "Processing, 2026", "A pen-and-wash sketch of the Moral Story Puzzle, animated: one episode, the wolf and the crane, from the worked example in the puzzle’s design. The story runs left to right; under every act is a socket, and the act’s verdict locks into it. Outcomes have no socket, so they cannot be judged.", None),
+  ("passage-game", "The passage game", "Processing, 2026", "A scene from a short film about the passage game. The robot is a language model learning to rebuild a story one piece at a time, and the names it puts in change it: “digger” gives it paws, “listener” ears and “runner” long legs. The story is from Richard Adams’s Watership Down.", None),
+  ("blue-lily", "Blue water lily, opening", "Processing, 2026", "A blue water lily opening and closing on dark water. Every frame is drawn in code, including the light coming through the petals and the reflection.", None),
+  ("story-puzzle", "The story puzzle", "Processing, 2026", "An animated sketch of the Moral Story Puzzle, a game for training language models. The story is built piece by piece, and each action gets a verdict (right, wrong or neutral) that clips in underneath it. Outcomes don’t get a verdict. The story here is the wolf and the crane.", None),
   ("water-town", "Water Town", "Processing, 2026", "A watercolour town from above, and one slow morning on it.", None),
   ("ripples", "Ripples", "Processing, 2026", "Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.", "Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges."),
   ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
