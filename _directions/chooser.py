@@ -14,6 +14,10 @@ OUT = kit.OUT
 esc, attr = kit.esc, kit.attr
 
 DIRS = [
+    ("d", "A and B mixed", "B's way through your work, inside A's room.", [
+        ("Colour", "At the top, the clip that is playing lights the room, as in A. Below it, the topic you choose lights it and brings that topic's work forward, as in B. A card you point at takes its own picture's colours."),
+        ("Moving around", "Plain links at the top (one row you can swipe on a phone), and a topic bar that stays in view as you scroll."),
+    ]),
     ("a", "The screen", "A dark room lit by whatever is showing.", [
         ("Colour", "The room takes its light from the clip that is playing, and from any piece you point at or tab to. In an article it changes with each picture you pass."),
         ("Moving around", "A bar at the bottom of the screen. On a phone it keeps Research, Publications and CV, and the rest goes under Menu."),
@@ -60,9 +64,11 @@ def journey(d):
     """The colours a direction moves through, with what brings each one, in page order."""
     page = (OUT / d / "index.html").read_text(encoding="utf-8")
     steps = []
-    if d == "a":
+    if d in ("a", "d"):
         for mood, title in re.findall(r'data-slide data-src="[^"]*" data-mood="([^"]+)"[^>]*data-title="([^"]+)"', page):
             steps.append((html_unescape(title), mood))
+    if d == "d":
+        steps += [(t["title"], "topic-" + t["slug"]) for t in c.TOPICS]
     elif d == "b":
         steps.append(("All", "default"))
         steps += [(t["title"], "topic-" + t["slug"]) for t in c.TOPICS]
@@ -122,7 +128,7 @@ def build(data):
         built = (OUT / d / "index.html").exists()
         links = " ".join(f'<a href="{d}/{u}">{t}</a>' for u, t in PAGES) if built else "<span>Not built yet</span>"
         rows = "".join(f"<div><dt>{k}</dt><dd>{esc(v)}</dd></div>" for k, v in lines)
-        cards.append(f"""<article class="dir" id="dir-{d}">
+        cards.append(f"""<article class="dir{' is-new' if d == 'd' else ''}" id="dir-{d}">
   <a class="dir-shot" href="{d}/" tabindex="-1" aria-hidden="true">{shot(d)}<span class="dir-letter">{d.upper()}</span></a>
   <h2><a href="{d}/">{d.upper()} · {name}</a></h2>
   <p class="idea">{esc(idea)}</p>
@@ -138,20 +144,20 @@ def build(data):
     body = f"""<main id="main">
 <header class="top">
   <p class="eyebrow">Site redesign · prototypes on the branch claude/site-redesign-26fc25</p>
-  <h1>Three directions for the new site</h1>
+  <h1>Directions for the new site</h1>
   <p class="lede">Each one is a working homepage, a topic page and an article, made from your real text and pictures. Nothing here is live. Your site stays exactly as it is until you say so.</p>
 </header>
 
-<section class="dirs" aria-label="The three directions">
+<section class="dirs" aria-label="The directions">
 {chr(10).join(cards)}
 </section>
 
 <section class="ask">
   <h2>What I need from you</h2>
   <ol>
-    <li><strong>Pick one direction, or mix parts</strong> (for example B's topic bar with C's rooms).</li>
+    <li><strong>Look at D</strong>, the mix of A and B, and tell me what to keep or change, however small.</li>
     <li><strong>Choose the clips.</strong> Right now the showcase plays the three clips the site already has. They are only placeholders.</li>
-    <li><strong>Tell me what you don't like</strong>, however small. Then I rebuild the whole site in that direction, on this branch, and show you before anything goes live.</li>
+    <li>Then I rebuild the whole site in that direction, on this branch, and show you before anything goes live.</li>
   </ol>
 </section>
 
@@ -247,14 +253,17 @@ h3{font-size:1.15rem;font-weight:500;margin:1.4em 0 .4em}
 .strings{border-collapse:collapse;width:100%;max-width:820px;font-size:1rem}
 .strings th,.strings td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}.strings td+td{white-space:nowrap;color:var(--fg2)}
 .skip{position:absolute;left:-9999px;top:8px;padding:.6rem 1rem;background:var(--fg);color:var(--bg);border-radius:8px;z-index:9}.skip:focus{left:8px}
-@media (max-width:980px){.dirs{grid-template-columns:1fr}}
+.dir.is-new{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:28px;align-items:start}
+.dir.is-new .dir-shot{grid-row:1/span 5;margin-bottom:0}
+.dir.is-new h2{font-size:1.9rem}
+@media (max-width:980px){.dirs{grid-template-columns:1fr}.dir.is-new{grid-template-columns:1fr}.dir.is-new .dir-shot{grid-row:auto;margin-bottom:14px}}
 """
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Three directions · site redesign</title>
+<title>Directions · site redesign</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
 <link rel="stylesheet" href="shared/fonts.css">

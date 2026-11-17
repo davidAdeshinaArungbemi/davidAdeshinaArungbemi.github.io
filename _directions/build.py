@@ -2,7 +2,7 @@
 
 Run from the repo root:
   python3 _directions/build.py            build every direction that exists, then the chooser page
-  python3 _directions/build.py b          build only direction B (letters a, b, c, or "chooser")
+  python3 _directions/build.py b          build only direction B (letters a, b, c, d, or "chooser")
 Then serve the repo root and open /_directions/. The folder name starts with "_", so GitHub Pages
 would not publish it even if it were merged.
 """
@@ -14,7 +14,7 @@ sys.path.insert(0, str(HERE))
 import kit                                             # noqa: E402
 
 if __name__ == "__main__":
-    want = sys.argv[1:] or ["a", "b", "c", "chooser"]
+    want = sys.argv[1:] or ["a", "b", "c", "d", "chooser"]
     data = kit.gather()
     for name in want:
         module = "chooser" if name == "chooser" else f"dir_{name}"

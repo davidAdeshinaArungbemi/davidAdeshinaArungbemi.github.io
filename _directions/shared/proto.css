@@ -1,6 +1,7 @@
 /* The prototype's own strip, plus three basics every direction needs. None of this is a design choice. */
 [hidden] { display: none !important; }
 :root:not([data-scheme]) [data-scheme-toggle] { display: none !important; }   /* scheme.js sets data-scheme; without it the toggle can't work */
+:root[data-swapping], :root[data-swapping] *, :root[data-swapping] *::before, :root[data-swapping] *::after { transition: none !important; }   /* light/dark swaps at once */
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 .skip { position: absolute; left: -9999px; top: 0; z-index: 100; padding: .8rem 1.1rem; min-height: 44px; background: #101114; color: #fff; font: 600 1rem/1.2 system-ui, -apple-system, "Segoe UI", sans-serif; border-radius: 0 0 10px 0; }
 .skip:focus { left: 0; outline: 3px solid #fff; outline-offset: -6px; }

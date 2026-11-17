@@ -177,7 +177,7 @@ def showcase(M, fix, colour="page", ambient=False, label_level="p"):
             f'<button type="button" data-showcase-prev aria-label="Previous clip">{ICON["prev"]}</button>'
             f'<button type="button" data-showcase-toggle data-state="paused" aria-label="Play the showcase">{ICON["toggle"]}</button>'
             f'<button type="button" data-showcase-next aria-label="Next clip">{ICON["next"]}</button></div>'
-            f'<ol class="showcase-picks" aria-label="Choose a clip">{"".join(picks)}</ol></div>'
+            f'<ol class="showcase-picks">{"".join(picks)}</ol></div>'
             f'<p class="visually-hidden" data-showcase-status aria-live="polite"></p></section>'), first_mood
 
 def now_list(H, fix):
@@ -209,7 +209,7 @@ def nav_links(here, fix, current=None, cls=""):
     klass = f' class="{cls}"' if cls else ""
     return "".join(f'<a{klass} href="{attr(fix(u))}"' + (' aria-current="page"' if t == current else "") + f">{t}</a>" for t, u in items)
 
-DIRECTIONS = {"a": "The screen", "b": "Four lenses", "c": "Rooms"}
+DIRECTIONS = {"a": "The screen", "b": "Four lenses", "c": "Rooms", "d": "A and B mixed"}
 
 def proto_bar(d, here):
     """A strip that belongs to the prototype, not to the design: where you are and how to get around."""

@@ -24,11 +24,11 @@
     if (c) meta.setAttribute('content', c);
   }
   function apply() { root.setAttribute('data-scheme', wanted()); }
-  function swap() {                                           // no fade for a scheme change
-    root.style.transition = 'none';
+  function swap() {                                           // no fade for a scheme change, anywhere on the page
+    root.setAttribute('data-swapping', '');
     apply();
     paintBar();
-    requestAnimationFrame(function () { requestAnimationFrame(function () { root.style.transition = ''; }); });
+    requestAnimationFrame(function () { requestAnimationFrame(function () { root.removeAttribute('data-swapping'); }); });
     document.dispatchEvent(new CustomEvent('schemechange'));
   }
   apply();

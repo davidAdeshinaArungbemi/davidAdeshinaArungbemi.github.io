@@ -60,6 +60,8 @@
       setCurrent(s, i === 0);
     });
     if (picks[0]) picks[0].setAttribute('aria-current', 'true');
+    var pickList = box.querySelector('.showcase-picks');
+    if (pickList) pickList.setAttribute('aria-label', 'Choose a clip');
 
     function setCurrent(slide, on) {
       slide.classList.toggle('is-current', on);

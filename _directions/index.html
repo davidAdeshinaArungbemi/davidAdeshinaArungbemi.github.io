@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Three directions · site redesign</title>
+<title>Directions · site redesign</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/seal-32.png">
 <link rel="stylesheet" href="shared/fonts.css">
@@ -40,7 +40,10 @@ h3{font-size:1.15rem;font-weight:500;margin:1.4em 0 .4em}
 .strings{border-collapse:collapse;width:100%;max-width:820px;font-size:1rem}
 .strings th,.strings td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}.strings td+td{white-space:nowrap;color:var(--fg2)}
 .skip{position:absolute;left:-9999px;top:8px;padding:.6rem 1rem;background:var(--fg);color:var(--bg);border-radius:8px;z-index:9}.skip:focus{left:8px}
-@media (max-width:980px){.dirs{grid-template-columns:1fr}}
+.dir.is-new{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:28px;align-items:start}
+.dir.is-new .dir-shot{grid-row:1/span 5;margin-bottom:0}
+.dir.is-new h2{font-size:1.9rem}
+@media (max-width:980px){.dirs{grid-template-columns:1fr}.dir.is-new{grid-template-columns:1fr}.dir.is-new .dir-shot{grid-row:auto;margin-bottom:14px}}
 </style>
 </head>
 <body>
@@ -48,11 +51,19 @@ h3{font-size:1.15rem;font-weight:500;margin:1.4em 0 .4em}
 <main id="main">
 <header class="top">
   <p class="eyebrow">Site redesign · prototypes on the branch claude/site-redesign-26fc25</p>
-  <h1>Three directions for the new site</h1>
+  <h1>Directions for the new site</h1>
   <p class="lede">Each one is a working homepage, a topic page and an article, made from your real text and pictures. Nothing here is live. Your site stays exactly as it is until you say so.</p>
 </header>
 
-<section class="dirs" aria-label="The three directions">
+<section class="dirs" aria-label="The directions">
+<article class="dir is-new" id="dir-d">
+  <a class="dir-shot" href="d/" tabindex="-1" aria-hidden="true"><img class="shot" src="shared/shots/d.jpg" alt="" width="800" height="600" loading="lazy"><span class="dir-letter">D</span></a>
+  <h2><a href="d/">D · A and B mixed</a></h2>
+  <p class="idea">B's way through your work, inside A's room.</p>
+  <ul class="journey" aria-label="Colours it moves through"><li style="background:#0E1108;color:#EEF2E9">Water Town</li><li style="background:#0D1014;color:#EAF1F8">Animation exercise</li><li style="background:#0F1014;color:#EEF0F8">Robot arm, moved by a script</li><li style="background:#1C0B02;color:#F7EEE9">Stories and AI</li><li style="background:#1B0911;color:#F7EDF1">Aesthetics and perception</li><li style="background:#01121D;color:#E9F1F7">Visualisation and interaction</li><li style="background:#120C1D;color:#F1EFF7">Minds and meaning</li></ul>
+  <dl><div><dt>Colour</dt><dd>At the top, the clip that is playing lights the room, as in A. Below it, the topic you choose lights it and brings that topic's work forward, as in B. A card you point at takes its own picture's colours.</dd></div><div><dt>Moving around</dt><dd>Plain links at the top (one row you can swipe on a phone), and a topic bar that stays in view as you scroll.</dd></div></dl>
+  <p class="open"><a href="d/index.html">Homepage</a> <a href="d/stories-and-ai.html">Topic page</a> <a href="d/the-narrative-hypothesis.html">Article</a></p>
+</article>
 <article class="dir" id="dir-a">
   <a class="dir-shot" href="a/" tabindex="-1" aria-hidden="true"><img class="shot" src="shared/shots/a.jpg" alt="" width="800" height="600" loading="lazy"><span class="dir-letter">A</span></a>
   <h2><a href="a/">A · The screen</a></h2>
@@ -82,9 +93,9 @@ h3{font-size:1.15rem;font-weight:500;margin:1.4em 0 .4em}
 <section class="ask">
   <h2>What I need from you</h2>
   <ol>
-    <li><strong>Pick one direction, or mix parts</strong> (for example B's topic bar with C's rooms).</li>
+    <li><strong>Look at D</strong>, the mix of A and B, and tell me what to keep or change, however small.</li>
     <li><strong>Choose the clips.</strong> Right now the showcase plays the three clips the site already has. They are only placeholders.</li>
-    <li><strong>Tell me what you don't like</strong>, however small. Then I rebuild the whole site in that direction, on this branch, and show you before anything goes live.</li>
+    <li>Then I rebuild the whole site in that direction, on this branch, and show you before anything goes live.</li>
   </ol>
 </section>
 
@@ -123,14 +134,13 @@ h3{font-size:1.15rem;font-weight:500;margin:1.4em 0 .4em}
 </details>
 
 <details>
-  <summary>New words on screen (25)</summary>
+  <summary>New words on screen (24)</summary>
   <p>Words in these prototypes that your site doesn't have now: labels, buttons and names read out by screen readers. Change any of them.</p>
   <table class="strings"><thead><tr><th>Text</th><th>Where</th></tr></thead><tbody>
 <tr><td>1 of 3 (each clip's place)</td><td>A B C</td></tr>
 <tr><td>11 of 18 (each section's count)</td><td>B</td></tr>
 <tr><td>All sections</td><td>A</td></tr>
 <tr><td>carousel (what a screen reader calls the showcase)</td><td>A B C</td></tr>
-<tr><td>Choose a clip</td><td>A B C</td></tr>
 <tr><td>Clip 2 of 3: Animation exercise (said when you pick a clip)</td><td>A B C</td></tr>
 <tr><td>Menu</td><td>A C</td></tr>
 <tr><td>Next clip</td><td>A B C</td></tr>
