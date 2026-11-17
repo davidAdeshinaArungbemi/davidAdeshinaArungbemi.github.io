@@ -323,6 +323,8 @@ def pictures():
     for _, _, _, items in build_gallery.GROUPS:
         for it in items:
             add(build_gallery.VIDEOS[it[0]][1] if it[0] in build_gallery.VIDEOS else f"/assets/gallery/{it[0]}-800.jpg")
+    for clip in build_gallery.CLIPS:
+        if clip[3]: add(clip[3][0])                     # a homepage clip with its own poster
     for p in build_topics.PUBS.values():
         add(p[1])
     for p in build_home.PUBS:

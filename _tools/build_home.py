@@ -133,9 +133,10 @@ def lead_picture(t):
 def clips():
     pieces = {it[0]: it for _, _, _, items in build_gallery.GROUPS for it in items}
     out = []
-    for slug, src, seconds in build_gallery.CLIPS:
+    for slug, src, seconds, own in build_gallery.CLIPS:
         _, title, meta, caption, _ = pieces[slug]
         _, poster, w, h, label = build_gallery.VIDEOS[slug]
+        if own: poster, w, h, label = own                 # a clip framed differently from the piece's video
         out.append(dict(slug=slug, title=title, line=build_gallery.SHORT.get(slug, caption), meta=meta, src="/" + src,
                         poster="/" + poster, w=w, h=h, label=label, seconds=seconds))
     return out

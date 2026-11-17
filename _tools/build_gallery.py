@@ -25,14 +25,28 @@ SHORT = {
     "gyronics-axol": "A wearable I designed for Gyronics: a hexagonal unit that glows green, on interchangeable bands.",
     "art-of-intelligence": "Nine thousand particles swept into strands, beside the poster's own words written in hexadecimal.",
     "calligraphy": "Procedural brushwork, and the seal that became this site's mark.",
+    "passage-game": "A robot rebuilds one story from Watership Down, slot by slot. What it places, it takes on: digger gives it paws, listener ears, runner long legs.",
+    "blue-lily": "A water lily painted by a small renderer: the bud opens as the sun comes up behind it.",
+    "story-puzzle": "The wolf and the crane as a puzzle: each act goes into the story with its verdict locked into the socket under it.",
 }
 
-# The homepage screen's clips, in order: (a piece in GROUPS that has a video, the file it plays, seconds on screen).
-# His pick. For now these are the three clips the site already had; the longer two play short cuts of themselves
-# (made with ffmpeg -t 14 / -t 12 -c copy, no re-encoding), and their full versions stay here in Worlds.
-CLIPS = [("water-town", "assets/video/clip-water-town.mp4", 14),
-         ("blender-animation", "assets/video/blender-animation.mp4", 7),
-         ("robot-arm", "assets/video/clip-robot-arm.mp4", 12)]
+# The homepage screen's clips, in order: (a piece in GROUPS that has a video, the file it plays, seconds on screen,
+# and the clip's own (poster, width, height, description) when it is framed differently from the piece's video).
+# His pick: the three clips the site already had and the three environment design films, in an order proposed for
+# him. Every clip is cut from the piece's own export, at its own speed; the full versions stay here in Worlds.
+# - water town: its first 14 seconds (ffmpeg -t 14 -c copy).
+# - robot arm: only the parts that move, joined by a half-second dissolve: the reach, pick-up and carry round the
+#   base (0:26 to 0:42), then the release and lift away (1:02 to 1:11), cropped to Blender's 3D view.
+# - story puzzle: its five true placements, from the typing of the first to the finished board (0:11.5 to 0:30).
+# - passage game and lily: the screen plays their Worlds files (for the lily, only the opening shows).
+CLIPS = [("water-town", "assets/video/clip-water-town.mp4", 14, None),
+         ("passage-game", "assets/video/passage-game.mp4", 12, None),
+         ("robot-arm", "assets/video/clip-robot-arm.mp4", 24,
+          ("assets/video/clip-robot-arm-poster.jpg", 578, 530,
+           "In Blender, a jointed robot arm with labelled bones swings down to a small cube on a grey floor, picks it up, carries it round its base and lets it go.")),
+         ("blue-lily", "assets/video/blue-lily.mp4", 8, None),
+         ("story-puzzle", "assets/video/clip-story-puzzle.mp4", 18, None),
+         ("blender-animation", "assets/video/blender-animation.mp4", 7, None)]
 
 VIDEOS = {
     "robot-arm": ("assets/video/robot-arm.mp4", "assets/video/robot-arm-poster.jpg", 1280, 792,
@@ -41,6 +55,14 @@ VIDEOS = {
                    "A watercolour water town seen from above; a small sampan rows across the open water past terraced fields and a willow tree."),
     "blender-animation": ("assets/video/blender-animation.mp4", "assets/video/blender-animation-poster.jpg", 960, 540,
                           "A camera moving slowly through a grey, untextured scene of blocks and pillars."),
+    # The environment design films, made from each sketch's own frames (render/frames). The passage game shows one
+    # scene only (frames 850 to 1210): the film's later scenes show measured results, which are not published yet.
+    "passage-game": ("assets/video/passage-game.mp4", "assets/video/passage-game-poster.jpg", 1280, 720,
+                     "A pen-and-ink robot on cream paper chooses name slips from a tray and places them in a strip of story slots; with each name it changes, growing paws, then long rabbit ears, then long legs."),
+    "blue-lily": ("assets/video/blue-lily.mp4", "assets/video/blue-lily-poster.jpg", 600, 720,
+                  "A blue water lily bud above dark water opens into a full flower with a golden centre, mirrored in the water below, then closes again."),
+    "story-puzzle": ("assets/video/story-puzzle.mp4", "assets/video/story-puzzle-poster.jpg", 1280, 720,
+                     "A puzzle board on cream paper: amber, blue and slate pieces move from a tray into a row of story slots, small green, red and grey verdict pieces snap into sockets under them, and a tally beside the board adds up."),
 }
 
 # (slug, title, medium-and-year, caption, alt)   alt is None for videos
@@ -52,6 +74,10 @@ GROUPS = [
   ("her-chain", "Her chain", "Processing, 2026", "Her world bound by a chain whose links are her own wood and leaves. Inside the essay Mother Nature’s Rejection of Self.", "A globe with a forest along its top, circled by a chain of twisted wooden links with small leaves, the sun's rays in the top corner, in black ink on parched paper."),
   ("desires-too-large", "Desires too large for its body", "Processing, 2026", "A small person, and behind them a giant of the same shape made of stars, its arms raised to the sky. Inside the essay Mother Nature’s Rejection of Self.", "A small dark figure standing on grassy ground; behind it a giant outline of the same figure filled with stars, arms raised, with lines running from its hands to the stars."),
   ("her-authority-weakens", "Her authority weakens", "Processing, 2026", "Ice melting, land cracking under the sun, a forest cut down, and above them her chain: cracked, then split, then broken. Inside the essay Mother Nature’s Rejection of Self.", "Three framed panels under a hanging chain: a melting iceberg, cracked dry land under a hot sun with a dead tree, and tree stumps with one tree falling. The chain is cracked over the first panel, split over the second and broken over the third."),
+  # Environment design films (Nov 2026), newest first; the words come from each sketch's own notes
+  ("passage-game", "The passage game", "Processing, 2026", "One scene from a pen-and-wash film about the passage game: a robot (Qwen3-4B) rebuilds one story, slot by slot, from trays the environment deals afresh for every play, and is trained on the labels of the real pieces. What it places, it takes on: digger gives it paws, listener ears, runner long legs. The story is Frith’s blessing to El-ahrairah, from Richard Adams’s Watership Down (1972).", None),
+  ("blue-lily", "Blue water lily, opening", "Processing, 2026", "Over eight seconds the bud opens as the sun comes up behind it, then it closes again. Every frame is painted by a small renderer written in the sketch: each petal is a curved, cupped sheet, the petals shade one another, light passes through them, and the flower is mirrored in the dark water.", None),
+  ("story-puzzle", "The story puzzle", "Processing, 2026", "A pen-and-wash sketch of the Moral Story Puzzle, animated: one episode, the wolf and the crane, from the worked example in the puzzle’s design. The story runs left to right; under every act is a socket, and the act’s verdict locks into it. Outcomes have no socket, so they cannot be judged.", None),
   ("water-town", "Water Town", "Processing, 2026", "A watercolour town from above, and one slow morning on it.", None),
   ("ripples", "Ripples", "Processing, 2026", "Water and foam from two equations: interfering waves for the water, and the mathematics of phase separation for the foam.", "Deep teal water patterned with interfering ripples, with white foam gathering into lace at the edges."),
   ("caustic-bloom", "Caustic Bloom", "Processing, 2026", "A flower made only of circles. Every circle passes through the centre, and the petals appear where the circles crowd together.", "A white flower with long petals and a dotted centre, traced by thousands of overlapping circles on black."),
